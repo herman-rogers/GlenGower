@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     void Start( )
     {
         PuzzleGrid newGridInstance = Instantiate( puzzleGrid ) as PuzzleGrid;
+        PuzzleSpawner puzzleSpawn = newGridInstance.GetComponent<PuzzleSpawner>( );
         newGridInstance.GenerateGrid( );
+        puzzleSpawn.StartPuzzleSpawing( );
     }
 }

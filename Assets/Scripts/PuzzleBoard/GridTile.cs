@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GridTile : MonoBehaviour {
+public class GridTile : MonoBehaviour
+{
+    [HideInInspector]
+    public int tileXGridPosition;
+    [HideInInspector]
+    public int tileYGridPosition;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Start( )
+    {
+        
+    }
 }
