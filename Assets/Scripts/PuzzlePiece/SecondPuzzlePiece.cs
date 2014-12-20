@@ -89,14 +89,24 @@ public class SecondPuzzlePiece : GamePuzzlePiece
         }
     }
 
+    public override IEnumerator DestoryPuzzlePiece( )
+    {
+        while ( !firstPuzzlePiecePair.puzzlePieceInactive || !puzzlePieceInactive )
+        {
+            yield return new WaitForSeconds( 1.0f );
+        }
+        currentGridTileLocation.puzzlePieceOnTile = null;
+        currentGridTileLocation.currentState = GridState.GRID_IS_EMPTY;
+        GameObject.Destroy( this.gameObject );
+    }
+
     protected override IEnumerator EndTileLife( )
     {
-        moveTileDown = false;
         OccupyTileGrid( );
         RemoveTouchEvents( );
         SetTileRotationToFaceCamera( );
+        firstPuzzlePiecePair.tileSpeed = 0.1f;
         yield return StartCoroutine( SetTilePositionToClosestGridTile( ) );
-        currentGridTileLocation.SearchAdjacentTilesForMatches( );
     }
 
     private void RotatePuzzlePieceOnClick( int xRotation, int yRotation, PuzzlePieceRotation rotation )

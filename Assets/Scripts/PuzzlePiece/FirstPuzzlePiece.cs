@@ -22,6 +22,17 @@ public class FirstPuzzlePiece : GamePuzzlePiece
         StopCoroutine( dragPuzzlePiece );
     }
 
+    public override IEnumerator DestoryPuzzlePiece( )
+    {
+        while ( !secondPuzzlePiecePair.puzzlePieceInactive || !puzzlePieceInactive )
+        {
+            yield return new WaitForSeconds( 1.0f );
+        }
+        currentGridTileLocation.puzzlePieceOnTile = null;
+        currentGridTileLocation.currentState = GridState.GRID_IS_EMPTY;
+        GameObject.Destroy( gameObject );
+    }
+
     private IEnumerator DragFirstPuzzlePiece( )
     {
         while ( true )
@@ -55,27 +66,11 @@ public class FirstPuzzlePiece : GamePuzzlePiece
 
     protected override IEnumerator EndTileLife( )
     {
-        moveTileDown = false;
         StopCoroutine( dragPuzzlePiece );
         OccupyTileGrid( );
         RemoveTouchEvents( );
         SetTileRotationToFaceCamera( );
+        secondPuzzlePiecePair.tileSpeed = 0.1f;
         yield return StartCoroutine( SetTilePositionToClosestGridTile( ) );
-        currentGridTileLocation.SearchAdjacentTilesForMatches( );
-        StartCoroutine( CreatePieceAfterCurrentPairFinished( ) );
-    }
-
-    private IEnumerator CreatePieceAfterCurrentPairFinished( )
-    {
-        bool waitForBothTilesToComplete = true;
-        while ( waitForBothTilesToComplete )
-        {
-            if ( puzzlePieceInactive && secondPuzzlePiecePair.puzzlePieceInactive )
-            {
-                Subject.Notify( PuzzleSpawner.CREATE_NEW_PIECE );
-                waitForBothTilesToComplete = false;
-            }
-            yield return new WaitForSeconds( 0.009f );
-        }
     }
 }

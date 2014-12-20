@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class PuzzleSpawner : UnityObserver
 {
     public GameObject gamePiecePrefab;
+    public List<GamePuzzlePiece> puzzlePiecesOnBoard = new List<GamePuzzlePiece>( );
     public Material[ ] gamePieceMaterials;
     public const string CREATE_NEW_PIECE = "CREATE_NEW_PIECE";
+    private GameManager gameManager;
     private Vector3 firstSpawnPosition;
     private Vector3 secondSpawnPosition;
     private PuzzleGrid puzzleGrid;
@@ -19,8 +21,9 @@ public class PuzzleSpawner : UnityObserver
         }
     }
 
-    public void StartPuzzleSpawing( )
+    public void StartPuzzleSpawning( )
     {
+        gameManager = FindObjectOfType< GameManager >( );
         puzzleGrid = GetComponent<PuzzleGrid>( );
         firstSpawnPosition = puzzleGrid.gridTiles[ 2, 9 ].transform.localPosition;
         secondSpawnPosition = puzzleGrid.gridTiles[ 3, 9 ].transform.localPosition;
@@ -31,6 +34,8 @@ public class PuzzleSpawner : UnityObserver
     {
         FirstPuzzlePiece firstPuzzlePiece = CreateFirstPuzzlePiece( );
         SecondPuzzlePiece secondPuzzlePiece = CreateSecondPuzzlePiece( );
+        gameManager.piecesOnBoard.Add( firstPuzzlePiece );
+        gameManager.piecesOnBoard.Add( secondPuzzlePiece );
         firstPuzzlePiece.transform.position = firstSpawnPosition;
         secondPuzzlePiece.transform.position = secondSpawnPosition;
         firstPuzzlePiece.secondPuzzlePiecePair = secondPuzzlePiece;

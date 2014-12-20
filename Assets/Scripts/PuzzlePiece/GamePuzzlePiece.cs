@@ -16,12 +16,11 @@ public class GamePuzzlePiece : MonoBehaviour
     public PuzzlePieceType pieceType;
     public GridTile currentGridTileLocation{ get; private set; }
     public bool puzzlePieceInactive { get; private set; }
+    public float tileSpeed = 0.03f;
     protected Camera mainCamera;
     protected PuzzleGrid currentPuzzleGrid;
     protected IEnumerator dragPuzzlePiece;
-    protected bool moveTileDown = true;
     private GameObject puzzleGameObject;
-    private const float TILE_SPEED = 0.03f;
 
     private void Start( )
     {
@@ -52,22 +51,16 @@ public class GamePuzzlePiece : MonoBehaviour
     {
     }
 
-    public virtual void DestoryPuzzlePiece( )
+    public virtual IEnumerator DestoryPuzzlePiece( )
     {
-        currentGridTileLocation.puzzlePieceOnTile = null;
-        currentGridTileLocation.currentState = GridState.GRID_IS_EMPTY;
-        GameObject.Destroy( this.gameObject );
+        yield return new WaitForEndOfFrame( );
     }
 
     private void Update( )
     {
-        if ( !moveTileDown )
-        {
-            return;
-        }
         UpdateGridLocation( );
         HasPuzzlePieceHitBoundaryOrOccupiedTile( );
-        SetPuzzlePieceCoordinates( transform.position.x, ( transform.position.y - TILE_SPEED ) );
+        SetPuzzlePieceCoordinates( transform.position.x, ( transform.position.y - tileSpeed ) );
     }
 
 
@@ -83,8 +76,16 @@ public class GamePuzzlePiece : MonoBehaviour
 
     protected virtual void UpdateGridLocation( )
     {
+        GridTile cachedTile = currentGridTileLocation;
         currentGridTileLocation = currentPuzzleGrid.SearchForClosestGridTileByCoordinates( transform.position.x, 
                                                                                            transform.position.y );
+        if ( cachedTile != null &&
+             cachedTile != currentGridTileLocation 
+             && cachedTile.currentState == GridState.GRID_IS_OCCUPIED )
+        {
+            currentGridTileLocation.puzzlePieceOnTile = null;
+            cachedTile.currentState = GridState.GRID_IS_EMPTY;
+        }
     }
 
     protected virtual IEnumerator EndTileLife( )
@@ -121,18 +122,18 @@ public class GamePuzzlePiece : MonoBehaviour
         SetPuzzlePieceCoordinates( currentGridTileLocation.coordinates.x, currentGridTileLocation.coordinates.y );
     }
 
-    private void HasPuzzlePieceHitBoundaryOrOccupiedTile( )
+    public void HasPuzzlePieceHitBoundaryOrOccupiedTile( )
     {
         if ( currentPuzzleGrid.IsNextCellOccupied( currentGridTileLocation )
              || transform.position.y <= GridBoundaries.lowerYBoundary )
         {
-            Debug.Log( "TILE BELOW" );
             puzzlePieceInactive = true;
+            tileSpeed = 0.1f;
             StartCoroutine( EndTileLife( ) );
         }
         else
         {
-            Debug.Log( "NO TILE BELOW" );
+            puzzlePieceInactive = false;
         }
     }
 }

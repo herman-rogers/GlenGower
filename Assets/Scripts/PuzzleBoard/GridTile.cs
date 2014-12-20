@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public enum GridState
 { 
@@ -27,7 +28,7 @@ public class GridTile : MonoBehaviour
                                    gameObject.transform.position.y );
     }
 
-    public void SearchAdjacentTilesForMatches( )
+    public List< GamePuzzlePiece > SearchAdjacentTilesForMatches( )
     {
         List<GamePuzzlePiece> tileMatches = new List<GamePuzzlePiece>( );
         tileMatches.Add( puzzlePieceOnTile );
@@ -36,7 +37,8 @@ public class GridTile : MonoBehaviour
             for ( int y = 0; y < PuzzleGrid.GRID_SIZE_Y; y++ )
             {
                 GridTile searchTile = currentPuzzleGrid.gridTiles[ x, y ];
-                if ( searchTile.currentState != GridState.GRID_IS_OCCUPIED )
+                if ( searchTile.currentState != GridState.GRID_IS_OCCUPIED
+                     || puzzlePieceOnTile == null )
                 {
                     continue;
                 }
@@ -54,13 +56,6 @@ public class GridTile : MonoBehaviour
                 }
             }
         }
-        if ( tileMatches.Count < 2 )
-        {
-            return;
-        }
-        foreach ( GamePuzzlePiece tile in tileMatches )
-        {
-            tile.DestoryPuzzlePiece( );
-        }
+        return tileMatches;
     }
 }
