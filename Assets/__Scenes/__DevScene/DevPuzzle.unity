@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b383dc8f25a7376478bbb5c232ba0f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfTilesToMatch: 3
+  piecesOnBoard: []
   puzzleGrid: {fileID: 11400000, guid: c5f077cfc91fbe0438456d02518125ae, type: 2}
 --- !u!1 &660469325
 GameObject:

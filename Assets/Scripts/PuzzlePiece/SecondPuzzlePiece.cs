@@ -48,7 +48,7 @@ public class SecondPuzzlePiece : GamePuzzlePiece
     public GridTile DragSecondPuzzlePiece( float firstPiecePreviousPosition, float firstPieceNewPosition )
     {
         GridTile adjacentGridTile = null;
-        if ( firstPuzzlePiecePair.puzzlePieceInactive )
+        if ( firstPuzzlePiecePair.puzzlePieceInactive || puzzlePieceInactive )
         {
             return null;
         }

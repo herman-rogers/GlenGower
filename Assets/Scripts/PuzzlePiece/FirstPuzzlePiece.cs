@@ -42,14 +42,20 @@ public class FirstPuzzlePiece : GamePuzzlePiece
                 yield return null;
             }
             Vector3 dragTouchPosition = mainCamera.ScreenToWorldPoint( new Vector3( Input.mousePosition.x, Input.mousePosition.y, 0 ) );
+            float firstPuzzleCachedX = transform.position.x;
             GridTile dragFirstPieceToTile = currentPuzzleGrid.SearchForClosestGridTileByCoordinates( dragTouchPosition.x, dragTouchPosition.y );
-            GridTile dragSecondPieceToTile = secondPuzzlePiecePair.DragSecondPuzzlePiece( transform.position.x, dragFirstPieceToTile.coordinates.x );
+            GridTile dragSecondPieceToTile = secondPuzzlePiecePair.DragSecondPuzzlePiece( firstPuzzleCachedX, dragFirstPieceToTile.coordinates.x );
             if ( dragFirstPieceToTile.currentState != GridState.GRID_IS_OCCUPIED &&
                  dragSecondPieceToTile != null &&
                  ( secondPuzzlePiecePair.PuzzlePieceVertical( ) || 
                    !DoesPuzzlePieceOccupySameColumn( dragFirstPieceToTile, dragSecondPieceToTile ) ) )
             {
                 SetPuzzlePieceCoordinates( dragFirstPieceToTile.coordinates.x, transform.position.y );
+                //Stop second puzzle piece from moving around first puzzle piece
+                if( firstPuzzleCachedX == transform.position.x )
+                {
+                    yield return null;
+                }
                 secondPuzzlePiecePair.SetPuzzlePieceCoordinates( dragSecondPieceToTile.coordinates.x, secondPuzzlePiecePair.transform.position.y );
             }
             yield return new WaitForSeconds( 0.009f );
