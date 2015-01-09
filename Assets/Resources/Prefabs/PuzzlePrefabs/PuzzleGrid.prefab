@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePiecePrefab: {fileID: 100000, guid: e5690e8c252da97408a49638dcd80b03, type: 2}
+  puzzlePiecesOnBoard: []
   gamePieceMaterials:
   - {fileID: 2100000, guid: 9aa1a0978e2a51f46b1dfc2c93ad2061, type: 2}
   - {fileID: 2100000, guid: 62cfacde943e97d48bf26c85edafab86, type: 2}
