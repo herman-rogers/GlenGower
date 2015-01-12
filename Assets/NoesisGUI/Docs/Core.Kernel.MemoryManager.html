@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Memory Management</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="memory-management">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Memory Management</h1>
+
+<p>NoesisEngine is designed to allow controlling how memory allocations and deallocations are managed. Different layers are defined. At the lowest level we find the Kernel Memory Manager.</p>
+<div class="section" id="kernel-memorymanager">
+<h1>Kernel MemoryManager</h1>
+<p>The <em>MemoryManager</em> class is the Kernel module in charge of memory allocations during the Kernel lifetime. After initializing the Kernel, the memory manager is ready to be used by any package.</p>
+<p>The memory manager offers two kind of functionality: <strong>memory tracking</strong> and <strong>memory allocation</strong>.</p>
+<div class="section" id="memory-tracking">
+<h2>Memory Tracking</h2>
+<p>Memory manager holds information about every memory block that is allocated. This information is stored inside the struct MemBlockInfo.</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">MemBlockInfo</span>
+<span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">userPtr</span><span class="p">;</span>          <span class="c1">// Pointer returned to the user</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">blockPtr</span><span class="p">;</span>         <span class="c1">// Pointer of the whole memory block</span>
+    <span class="n">MemBlockInfo</span><span class="o">*</span> <span class="n">prev</span><span class="p">;</span>     <span class="c1">// Link to the previus block in the allocation block list</span>
+    <span class="n">MemBlockInfo</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>     <span class="c1">// Link to the next block in the allocation block list</span>
+    <span class="n">NsInt64</span><span class="o">*</span> <span class="n">callStack</span><span class="p">;</span>     <span class="c1">// Pointer to the call stack of the allocation. Could be null</span>
+    <span class="n">NsSize</span> <span class="n">callStackDepth</span><span class="p">;</span>  <span class="c1">// Call stack depth</span>
+    <span class="n">NsInt32</span> <span class="n">allocId</span><span class="p">;</span>        <span class="c1">// Identifier assigned to each allocation operation</span>
+    <span class="n">NsUInt32</span> <span class="n">threadId</span><span class="p">;</span>      <span class="c1">// Identifier of the thread that is performing the allocation operation</span>
+    <span class="n">NsSize</span> <span class="n">size</span><span class="p">;</span>            <span class="c1">// Size requested by the user</span>
+<span class="p">};</span>
+</pre></div>
+<p>This information is used to generate reports like, for example, memory leaks when the kernel is being closed. Memory-Leak reports can be accompanied with call-stack for each allocated block if those information is available. If memory tracker is enabled, when the memory manager is shut down the remaining allocated blocks are dumped to the console as memory leaks.</p>
+<p>Also, you can get a snapshot of the current memory status, and use that information to calculate memory consumption of some code blocks. This is achieved with the <em>GetStats()</em> function.</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">MemoryManager</span><span class="o">::</span><span class="n">Stats</span>
+<span class="p">{</span>
+    <span class="n">NsUInt32</span> <span class="n">allocs</span><span class="p">;</span>            <span class="c1">// current allocated blocks</span>
+    <span class="n">NsUInt32</span> <span class="n">allocsTotal</span><span class="p">;</span>       <span class="c1">// total allocation operations</span>
+    <span class="n">NsSize</span> <span class="n">memory</span><span class="p">;</span>              <span class="c1">// current memory used</span>
+    <span class="n">NsSize</span> <span class="n">memoryMax</span><span class="p">;</span>           <span class="c1">// maximum memory used</span>
+    <span class="n">NsSize</span> <span class="n">memoryTotal</span><span class="p">;</span>         <span class="c1">// total memory requested</span>
+    <span class="n">NsSize</span> <span class="n">memoryWasted</span><span class="p">;</span>        <span class="c1">// current memory wasted by memory manager data</span>
+    <span class="n">NsSize</span> <span class="n">memoryWastedTotal</span><span class="p">;</span>   <span class="c1">// total memory wasted by memory manager data</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="memory-allocations">
+<h2>Memory Allocations</h2>
+<p>Memory allocations are not directly performed by the memory manager. This task is delegated to another class, the MemoryAllocator.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MemoryAllocator</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Allocates a block of memory of specified size</span>
+    <span class="c1">/// \param size Size in bytes of the block requested by the user</span>
+    <span class="c1">/// \param alignment Pointer returned must be aligned to this value</span>
+    <span class="c1">/// \return A pointer to the new allocated block of memory</span>
+    <span class="c1">/// \remarks Thread-safe</span>
+    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="n">Alloc</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">size</span><span class="p">,</span>
+                        <span class="n">NsSize</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">NS_DEFAULT_MEMORY_ALIGNMENT</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Reallocates a block of memory</span>
+    <span class="c1">/// \param ptr Pointer to previously allocated memory block</span>
+    <span class="c1">/// \param size New size in bytes</span>
+    <span class="c1">/// \param alignment Pointer returned must be aligned to this value</span>
+    <span class="c1">/// \return A pointer to the new allocated block of memory</span>
+    <span class="c1">/// \remarks Thread-safe</span>
+    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="n">Realloc</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span>
+                          <span class="n">NsSize</span> <span class="n">size</span><span class="p">,</span>
+                          <span class="n">NsSize</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">NS_DEFAULT_MEMORY_ALIGNMENT</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Deallocates a block of memory</span>
+    <span class="c1">/// \param ptr Pointer to previously allocated memory block</span>
+    <span class="c1">/// \remarks Thread-safe</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Dealloc</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<p>This layer is defined to allow developers to provide its own allocation algorithms. When Kernel is initialized, the user could supply a custom MemoryAllocator object. This object is passed to memory manager and is used to perform all allocation operations.
+NoesisEngine implements a default MemoryAllocator based on standard <em>malloc()</em> and <em>free()</em> functions, the <em>AnsiAllocator</em>. That one is used if no allocator is given.</p>
+<p>The allocator to be used by the Kernel is passed to the Init() function.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Kernel</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+    <span class="c1">/// Initializes the kernel</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Init</span><span class="p">(</span><span class="k">const</span> <span class="n">CommandLine</span><span class="o">&amp;</span> <span class="n">commandLine</span><span class="p">,</span> <span class="n">MemoryAllocator</span><span class="o">*</span> <span class="n">memoryAllocator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration</h2>
+<p>The <a class="reference external" href="Core.Kernel.Configuration.html">Configuration Mechanism</a> is used to activate the different debug features of the Memory Manager. The following options are available:</p>
+<ul class="simple">
+<li><em>Kernel.MemoryManager.TrackMemory</em>. When this option is true, memory manager tracking is enabled. The default value is <em>false</em>.</li>
+<li><em>Kernel.MemoryManager.StoreCallStack</em>. This option controls if a call stack is generated for each allocation. It is only available if tracking is enabled. The default value is <em>false</em>.</li>
+<li><em>Kernel.MemoryManager.CallStackDepth</em>. This options sets the depth of the call stack. It is only available if call stacks are stored. The default value is <em>4</em>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="global-operators">
+<h1>Global operators</h1>
+<div class="section" id="nsalloc-nsrealloc-nsdealloc">
+<h2>NsAlloc, NsRealloc, NsDealloc</h2>
+<p>NsAlloc, NsRealloc and NsDealloc are shortcuts to the functions that are available in the memory manager. These functions can't be used if kernel is not initialized.</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// NoesisEngine global memory management.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">//@{</span>
+<span class="n">NS_CORE_KERNEL_API</span>
+<span class="kt">void</span><span class="o">*</span> <span class="nf">NsAlloc</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">size</span><span class="p">,</span> <span class="n">NsUInt</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">NS_DEFAULT_MEMORY_ALIGNMENT</span><span class="p">);</span>
+
+<span class="n">NS_CORE_KERNEL_API</span>
+<span class="kt">void</span><span class="o">*</span> <span class="nf">NsRealloc</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">size</span><span class="p">,</span> <span class="n">NsUInt</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">NS_DEFAULT_MEMORY_ALIGNMENT</span><span class="p">);</span>
+
+<span class="n">NS_CORE_KERNEL_API</span>
+<span class="kt">void</span> <span class="nf">NsDealloc</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">*</span> <span class="n">NsAlloc</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">count</span><span class="p">,</span> <span class="n">NsUInt</span> <span class="n">alignment</span> <span class="o">=</span> <span class="n">NS_DEFAULT_MEMORY_ALIGNMENT</span><span class="p">);</span>
+<span class="c1">//@}</span>
+</pre></div>
+<p>These functions offers the same functionality that the standard ones plus the support for requesting a memory alignment. It also exists a templated version of the <em>NsAlloc</em> function to request memory for a specific type of object. Here you specify the number of objects to be created:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Data</span>
+<span class="p">{</span>
+    <span class="n">NsInt</span> <span class="n">id</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Data</span><span class="o">*</span> <span class="n">dataArray</span> <span class="o">=</span> <span class="n">NsAlloc</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+<p>This function must only be used for types without contructor and destructor.</p>
+</div>
+<div class="section" id="ansialloc-ansirealloc-ansidealloc">
+<h2>AnsiAlloc, AnsiRealloc, AnsiDealloc</h2>
+<p>These functions define the standard <em>malloc</em>, <em>realloc</em> and <em>free</em> operations, but wrapped to support alignment, and to hide the implementation details for every platform.</p>
+</div>
+<div class="section" id="operator-new-and-delete">
+<h2>Operator new and delete</h2>
+<p>Global operator <em>new</em> and <em>delete</em> are reimplemented on each compilation unit that define <em>NS_OVERLOAD_OPERATOR_NEW</em>. By default, NoesisEngine packages have it defined.[[BR]]</p>
+<p>They use the global functions <em>AnsiAlloc</em> and <em>AnsiDealloc</em> while kernel is not initialized and kernel's memory manager when initialized. Because of this it is not allowed to deallocate memory during kernel lifetime that was allocated before kernel initialization. In the same way, it is not allowed to deallocate memory after kernel shut down that was allocated during kernel lifetime. These two situations will produce a crash.</p>
+</div>
+</div>
+<div class="section" id="components">
+<h1>Components</h1>
+<p>In a higher layer we define components. Components must inherit from <em>BaseComponent</em> base class. They are objects with a lifetime guided by a <a class="reference external" href="Core.Kernel.ComponentReferenceCounting.html">reference count</a> policy. That is, you are not responsible for directly deleting the object, only for releasing your reference. It is easier to manage components by using <a class="reference external" href="Core.Kernel.ComponentSmartPointer.html">smart pointers</a>, that take care of incrementing and decrementing references for you.</p>
+<p>Components are created using the kernel <a class="reference external" href="Core.Kernel.ComponentCreation.html">component factory</a>. To create a component you only need to know its class identifier.</p>
+<div class="highlight"><pre><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetComponentFactory</span><span class="p">();</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IStream</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">factory</span><span class="o">-&gt;</span><span class="n">CreateComponent</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;MemoryStream&quot;</span><span class="p">));</span>
+<span class="n">stream</span><span class="o">-&gt;</span><span class="n">SetLength</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+</pre></div>
+<p>The reference owned by your Ptr variable is automatically released when the variable goes out of scope.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

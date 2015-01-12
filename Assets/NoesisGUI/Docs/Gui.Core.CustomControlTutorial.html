@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Custom Control Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="customcontrol-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">CustomControl Tutorial</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="CustomControl.zip">Tutorial Data</a></p>
+<p>In contrast with <a class="reference external" href="Gui.Core.UserControlTutorial.html">UserControl</a>, that is created by <strong>composition</strong> of controls, a CustomControl <strong>extends</strong> an existing control. CustomControls can be styled and it is usually the best approach to build a control library.</p>
+<p>Creating a CustomControl is quite simple but the challenge is to do it the right way. So before you start creating a control try to answer the following questions:</p>
+<ul class="simple">
+<li>What problem should my control solve?</li>
+<li>Who will use this control? In which context and environment?</li>
+<li>Can I extend or compose existing controls? Have you look at existing controls?</li>
+<li>Should it be possible to style or template my control?</li>
+<li>Is it used in a single project, or part of a reusable library?</li>
+</ul>
+<p>This tutorial gives you a step by step walktrough on how to create a custom control to represent <strong>Date and Time</strong>.</p>
+<div class="section" id="choose-the-right-base-class">
+<h1>Choose the right base class</h1>
+<p>Choosing the right base class is crucial and can save a lot of time. Compare the features of your control with existing controls and start with one that matches close. The following list should give you a good overview from the most lightweight to more heavyweight base types:</p>
+<ul class="simple">
+<li><strong>UIElement</strong>: The most lightweight base class to start from. It has support for Layout, Input, Focus and Events.</li>
+<li><strong>FrameworkElement</strong>: Derives from UIElement and adds support for styling, tooltips and context menus. It is the first base class that takes part in the logical tree and so it supports data binding and resource lookup.</li>
+<li><strong>Control</strong>: is the most common base class for controls (its name speaks for itself). It supports templates and adds some basic properties as Foreground, Background or FontSize.</li>
+<li><strong>ContentControl</strong>: is a control that has an additional Content property. This is often used for simple containers.</li>
+<li><strong>HeaderedContentControl</strong>: is a control that has an Content and a Header property. This is used for controls with a header like Expander, TabControl, GroupBox,...</li>
+<li><strong>ItemsControl</strong>: a control that has an additional Items collection. This is a good choice for controls that display a dynamic list of items without selection.</li>
+<li><strong>Selector</strong>: an ItemsControl whose items can be indexed and selected. This is used for ListBox, ComboBox, ListView, TabControl...</li>
+<li><strong>RangeBase</strong>: is the base class for controls that display a value range like Sliders or ProgressBars. It adds a Value, Minimum and Maximum property.</li>
+</ul>
+<p>In our example we will derive from <strong>Control</strong> base class because our control requires templates to present date and time info. Other features added by more complex base classes are not required. We must follow the steps described in the <a class="reference external" href="Gui.Core.ExtendingTutorial.html">tutorial</a> that describes how to extend NoesisGUI.</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Control.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">DateTime</span><span class="o">:</span> <span class="k">public</span> <span class="n">Control</span>
+<span class="p">{</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">Control</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DateTime&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="override-the-default-style">
+<h1>Override the Default Style</h1>
+<p>Controls separate <strong>behavior</strong> from <strong>appearance</strong>. The behavior is defined in code. The appearance is defined by the XAML. The default template used by the control is by convention wrapped into a style that has an implicit key. We need to override the default value of the <em>DefaultStyleKey</em> property and set it to the Type object of our control.</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Control.h&gt;</span>
+<span class="hll"><span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+</span><span class="hll"><span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+</span><span class="hll"><span class="cp">#include &lt;NsGui/ResourceKeyType.h&gt;</span>
+</span><span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">DateTime</span><span class="o">:</span> <span class="k">public</span> <span class="n">Control</span>
+<span class="p">{</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">Control</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DateTime&quot;</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="n">defaultStyleKey</span> <span class="o">=</span> <span class="n">ResourceKeyType</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="n">FrameworkElement</span><span class="o">::</span><span class="n">DefaultStyleKeyProperty</span><span class="p">,</span>
+</span><span class="hll">            <span class="s">&quot;DefaultStyleKey&quot;</span><span class="p">,</span> <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">defaultStyleKey</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="properties">
+<h1>Properties</h1>
+<p>Our DateTime control needs some public properties to allow users to modify or present the control. We will add the dependency properties <em>Day</em>, <em>Month</em> and <em>Year</em> for representing the date and <em>Hour</em>, <em>Minute</em> and <em>Second</em> for representing the time.</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Control.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/ResourceKeyType.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">DateTime</span><span class="o">:</span> <span class="k">public</span> <span class="n">Control</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+<span class="hll">    <span class="c1">/// Gets or sets day</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetDay</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetDay</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">day</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">,</span> <span class="n">day</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Gets or sets month</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetMonth</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetMonth</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">month</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">,</span> <span class="n">month</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Gets or sets year</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetYear</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetYear</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">year</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Gets or sets hour</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetHour</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetHour</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">hour</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">,</span> <span class="n">hour</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Gets or sets minute</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetMinute</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetMinute</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">minute</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">,</span> <span class="n">minute</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// Gets or sets second</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsInt32</span> <span class="n">GetSecond</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetSecond</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">second</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">,</span> <span class="n">second</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="hll"><span class="nl">public:</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DayProperty</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">MonthProperty</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">YearProperty</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">HourProperty</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">MinuteProperty</span><span class="p">;</span>
+</span><span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">SecondProperty</span><span class="p">;</span>
+</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">Control</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DateTime&quot;</span><span class="p">);</span>
+
+        <span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="n">defaultStyleKey</span> <span class="o">=</span> <span class="n">ResourceKeyType</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+
+<span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">,</span> <span class="s">&quot;Day&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">,</span> <span class="s">&quot;Month&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">,</span> <span class="s">&quot;Year&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">,</span> <span class="s">&quot;Hour&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">,</span> <span class="s">&quot;Minute&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">,</span> <span class="s">&quot;Second&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="n">FrameworkElement</span><span class="o">::</span><span class="n">DefaultStyleKeyProperty</span><span class="p">,</span>
+</span><span class="hll">            <span class="s">&quot;DefaultStyleKey&quot;</span><span class="p">,</span> <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">defaultStyleKey</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">DayProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">MonthProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">YearProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">HourProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">MinuteProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">SecondProperty</span><span class="p">;</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="templates">
+<h1>Templates</h1>
+<p>Using this control in any application will require that you specify a template for the DateTime type. We are going to provide two different approaches to demonstrate the power of control styling and templating.</p>
+<p>The <strong>first</strong> template shows the date and time as a normal text string:</p>
+<img alt="CustomControlTutorialImg1.jpg" src="CustomControlTutorialImg1.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Grid.Resources&gt;</span>
+<span class="hll">        <span class="nt">&lt;ControlTemplate</span> <span class="na">x:Key=</span><span class="s">&quot;TextDateTimeTemplate&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type DateTime}&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">&quot;Horizontal&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Day, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;/&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Month, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;/&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Year, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Hour, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span> <span class="na">Margin=</span><span class="s">&quot;8,0,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;:&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Minute, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;:&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Second, StringFormat=G, RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;/StackPanel&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/ControlTemplate&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;Style</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type DateTime}&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Template&quot;</span> <span class="na">Value=</span><span class="s">&quot;{StaticResource TextDateTimeTemplate}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;/Style&gt;</span>
+</span>    <span class="nt">&lt;/Grid.Resources&gt;</span>
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">&quot;Horizontal&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Date &amp;amp; Time:&quot;</span> <span class="na">FontSize=</span><span class="s">&quot;16&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;DodgerBlue&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Border</span> <span class="na">BorderBrush=</span><span class="s">&quot;Black&quot;</span> <span class="na">BorderThickness=</span><span class="s">&quot;1&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10,0&quot;</span><span class="nt">&gt;</span>
+<span class="hll">            <span class="nt">&lt;DateTime</span> <span class="na">Day=</span><span class="s">&quot;6&quot;</span> <span class="na">Month=</span><span class="s">&quot;2&quot;</span> <span class="na">Year=</span><span class="s">&quot;2012&quot;</span> <span class="na">Hour=</span><span class="s">&quot;18&quot;</span> <span class="na">Minute=</span><span class="s">&quot;32&quot;</span> <span class="na">Second=</span><span class="s">&quot;46&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">/&gt;</span>
+</span>        <span class="nt">&lt;/Border&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>The <strong>second</strong> template is an attempt to simulate an analog clock:</p>
+<img alt="CustomControlTutorialImg2.jpg" src="CustomControlTutorialImg2.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Grid.Resources&gt;</span>
+<span class="hll">         <span class="nt">&lt;HoursConverter</span> <span class="na">x:Key=</span><span class="s">&quot;DateTimeHoursConverter&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;MinutesConverter</span> <span class="na">x:Key=</span><span class="s">&quot;DateTimeMinutesConverter&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;SecondsConverter</span> <span class="na">x:Key=</span><span class="s">&quot;DateTimeSecondsConverter&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;ControlTemplate</span> <span class="na">x:Key=</span><span class="s">&quot;AnalogDateTimeTemplate&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type DateTime}&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">             <span class="nt">&lt;Viewbox</span> <span class="na">Stretch=</span><span class="s">&quot;Uniform&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                 <span class="nt">&lt;Grid</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;Ellipse</span> <span class="na">StrokeThickness=</span><span class="s">&quot;6&quot;</span> <span class="na">Stretch=</span><span class="s">&quot;Uniform&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Ellipse.Stroke&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;LinearGradientBrush</span> <span class="na">EndPoint=</span><span class="s">&quot;0.5,1&quot;</span> <span class="na">StartPoint=</span><span class="s">&quot;0.5,0&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF4D4D4D&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Gray&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Ellipse.Stroke&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Ellipse&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;Ellipse</span> <span class="na">StrokeThickness=</span><span class="s">&quot;5&quot;</span> <span class="na">Stretch=</span><span class="s">&quot;Uniform&quot;</span> <span class="na">Margin=</span><span class="s">&quot;5&quot;</span> <span class="na">Fill=</span><span class="s">&quot;White&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Ellipse.Stroke&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;LinearGradientBrush</span> <span class="na">EndPoint=</span><span class="s">&quot;0.5,1&quot;</span> <span class="na">StartPoint=</span><span class="s">&quot;0.5,0&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF333333&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF999999&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Ellipse.Stroke&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Ellipse&gt;</span>
+</span><span class="hll">
+</span><span class="hll">                     <span class="nt">&lt;Grid</span> <span class="na">Margin=</span><span class="s">&quot;18&quot;</span> <span class="na">TextElement.FontSize=</span><span class="s">&quot;24&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;12&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;3&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;6&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Bottom&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;9&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Grid&gt;</span>
+</span><span class="hll">
+</span><span class="hll">                     <span class="nt">&lt;Path</span> <span class="na">x:Name=</span><span class="s">&quot;BarS&quot;</span> <span class="na">Data=</span><span class="s">&quot;M100,100L100,20&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#FF333333&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span>
+</span><span class="hll">                       <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Path.RenderTransform&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;TransformGroup&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;ScaleTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;SkewTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;RotateTransform</span> <span class="na">Angle=</span><span class="s">&quot;{Binding Second,</span>
+</span><span class="hll"><span class="s">                                   Converter={StaticResource DateTimeSecondsConverter},</span>
+</span><span class="hll"><span class="s">                                   RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;TranslateTransform/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/TransformGroup&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Path&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;Path</span> <span class="na">x:Name=</span><span class="s">&quot;BarM&quot;</span> <span class="na">Data=</span><span class="s">&quot;M100,100L100,20&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Red&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;4&quot;</span>
+</span><span class="hll">                       <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Path.RenderTransform&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;TransformGroup&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;ScaleTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;SkewTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;RotateTransform</span> <span class="na">Angle=</span><span class="s">&quot;{Binding Minute,</span>
+</span><span class="hll"><span class="s">                                   Converter={StaticResource DateTimeMinutesConverter},</span>
+</span><span class="hll"><span class="s">                                   RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;TranslateTransform/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/TransformGroup&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Path&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;Path</span> <span class="na">x:Name=</span><span class="s">&quot;BarH&quot;</span> <span class="na">Data=</span><span class="s">&quot;M100,100L100,40&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#FFCA0000&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;8&quot;</span>
+</span><span class="hll">                       <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Path.RenderTransform&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;TransformGroup&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;ScaleTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;SkewTransform/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;RotateTransform</span> <span class="na">Angle=</span><span class="s">&quot;{Binding Hour,</span>
+</span><span class="hll"><span class="s">                                   Converter={StaticResource DateTimeHoursConverter},</span>
+</span><span class="hll"><span class="s">                                   RelativeSource={RelativeSource TemplatedParent}}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;TranslateTransform/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/TransformGroup&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Path&gt;</span>
+</span><span class="hll">
+</span><span class="hll">                     <span class="nt">&lt;Ellipse</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Width=</span><span class="s">&quot;20&quot;</span> <span class="na">Height=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;Ellipse.Fill&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;RadialGradientBrush&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF343434&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.2&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF666666&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Gray&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.95&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF999999&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF404040&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.9&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/RadialGradientBrush&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/Ellipse.Fill&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Ellipse&gt;</span>
+</span><span class="hll">                 <span class="nt">&lt;/Grid&gt;</span>
+</span><span class="hll">             <span class="nt">&lt;/Viewbox&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;/ControlTemplate&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;Style</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type DateTime}&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">             <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Template&quot;</span> <span class="na">Value=</span><span class="s">&quot;{StaticResource AnalogDateTimeTemplate}&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;/Style&gt;</span>
+</span>     <span class="nt">&lt;/Grid.Resources&gt;</span>
+     <span class="nt">&lt;StackPanel</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Border</span> <span class="na">BorderBrush=</span><span class="s">&quot;Black&quot;</span> <span class="na">BorderThickness=</span><span class="s">&quot;1&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10,0&quot;</span><span class="nt">&gt;</span>
+<span class="hll">             <span class="nt">&lt;DateTime</span> <span class="na">Day=</span><span class="s">&quot;6&quot;</span> <span class="na">Month=</span><span class="s">&quot;2&quot;</span> <span class="na">Year=</span><span class="s">&quot;2012&quot;</span> <span class="na">Hour=</span><span class="s">&quot;19&quot;</span> <span class="na">Minute=</span><span class="s">&quot;12&quot;</span> <span class="na">Second=</span><span class="s">&quot;51&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">/&gt;</span>
+</span>         <span class="nt">&lt;/Border&gt;</span>
+     <span class="nt">&lt;/StackPanel&gt;</span>
+ <span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p><strong>NOTE:</strong> As you can see in the XAML code, we used <strong>converters</strong> to transform control property values into the appropriate rotation angles. This converters will be components of your application that implement the <em>IValueConverter</em> interface. Take a look on how simple is to implement them:</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Control.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/ResourceKeyType.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+<span class="hll"><span class="cp">#include &lt;NsGui/BaseValueConverter.h&gt;</span>
+</span><span class="hll"><span class="cp">#include &lt;NsCore/Boxing.h&gt;</span>
+</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">DateTime</span><span class="o">:</span> <span class="k">public</span> <span class="n">Control</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Gets or sets day</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetDay</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetDay</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">day</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">,</span> <span class="n">day</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// Gets or sets month</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetMonth</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetMonth</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">month</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">,</span> <span class="n">month</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// Gets or sets year</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetYear</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetYear</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">year</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">,</span> <span class="n">year</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// Gets or sets hour</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetHour</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetHour</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">hour</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">,</span> <span class="n">hour</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// Gets or sets minute</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetMinute</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetMinute</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">minute</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">,</span> <span class="n">minute</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// Gets or sets second</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetSecond</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetSecond</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">second</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">,</span> <span class="n">second</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">public:</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DayProperty</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">MonthProperty</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">YearProperty</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">HourProperty</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">MinuteProperty</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">SecondProperty</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">Control</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DateTime&quot;</span><span class="p">);</span>
+
+        <span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="n">defaultStyleKey</span> <span class="o">=</span> <span class="n">ResourceKeyType</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DayProperty</span><span class="p">,</span> <span class="s">&quot;Day&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MonthProperty</span><span class="p">,</span> <span class="s">&quot;Month&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">YearProperty</span><span class="p">,</span> <span class="s">&quot;Year&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HourProperty</span><span class="p">,</span> <span class="s">&quot;Hour&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinuteProperty</span><span class="p">,</span> <span class="s">&quot;Minute&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SecondProperty</span><span class="p">,</span> <span class="s">&quot;Second&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="n">FrameworkElement</span><span class="o">::</span><span class="n">DefaultStyleKeyProperty</span><span class="p">,</span>
+            <span class="s">&quot;DefaultStyleKey&quot;</span><span class="p">,</span> <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">defaultStyleKey</span><span class="p">,</span>
+            <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">DayProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">MonthProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">YearProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">HourProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">MinuteProperty</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">::</span><span class="n">SecondProperty</span><span class="p">;</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="hll"><span class="k">class</span> <span class="nc">HoursConverter</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseValueConverter</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll"><span class="nl">public:</span>
+</span><span class="hll">    <span class="n">NsBool</span> <span class="n">TryConvert</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">targetType</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="o">*</span> <span class="n">parameter</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">targetType</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">());</span>
+</span><span class="hll">        <span class="n">NsInt32</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">Unbox</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">BoxedValue</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">result</span> <span class="o">=</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">hour</span> <span class="o">*</span> <span class="mf">30.0f</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">HoursConverter</span><span class="p">,</span> <span class="n">BaseValueConverter</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;HoursConverter&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="hll"><span class="k">class</span> <span class="nc">MinutesConverter</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseValueConverter</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll"><span class="nl">public:</span>
+</span><span class="hll">    <span class="n">NsBool</span> <span class="n">TryConvert</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">targetType</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="o">*</span> <span class="n">parameter</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">targetType</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">());</span>
+</span><span class="hll">        <span class="n">NsInt32</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">Unbox</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">BoxedValue</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">result</span> <span class="o">=</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">hour</span> <span class="o">*</span> <span class="mf">6.0f</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">MinutesConverter</span><span class="p">,</span> <span class="n">BaseValueConverter</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MinutesConverter&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="hll"><span class="k">class</span> <span class="nc">SecondsConverter</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseValueConverter</span>
+</span><span class="hll"><span class="p">{</span>
+</span><span class="hll"><span class="nl">public:</span>
+</span><span class="hll">    <span class="n">NsBool</span> <span class="n">TryConvert</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">targetType</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="o">*</span> <span class="n">parameter</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">targetType</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">());</span>
+</span><span class="hll">        <span class="n">NsInt32</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">Unbox</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">BoxedValue</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+</span><span class="hll">        <span class="n">result</span> <span class="o">=</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">hour</span> <span class="o">*</span> <span class="mf">6.0f</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">SecondsConverter</span><span class="p">,</span> <span class="n">BaseValueConverter</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;SecondsConverter&quot;</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">};</span>
+</span><span class="hll">
+</span><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span> <span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span>
+    <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+<span class="hll">    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">HoursConverter</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">MinutesConverter</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">SecondsConverter</span><span class="p">)</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="improvements">
+<h1>Improvements</h1>
+<p>A cool feature for this control could be to auto update with system time and date. We can achieve this with a timer in the control instance that updates the time and date values when timer is ticked. Then we can add a boolean property to allow this feature to be enabled or disabled from within XAML.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

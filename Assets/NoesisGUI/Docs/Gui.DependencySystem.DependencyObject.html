@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: DependencyObject</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="dependencyobject">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">DependencyObject</h1>
+
+<div class="section" id="introduction">
+<h1>Introduction</h1>
+<p>The DependencyObject base class enables derived objects to use the dependency property system.</p>
+<p>It also provides the following services and characteristics:</p>
+<ul class="simple">
+<li>Dependency property hosting support. You register a dependency property by calling the RegisterProperty or RegisterPropertyRO (read-only property) method, and storing the created property as a public static field in your class.</li>
+<li>Attached property hosting support. You register an attached property by calling the RegisterProperty method, and storing the created property as a public static field in your class. Your attached property can then be set on any class that derives from DependencyObject.</li>
+<li>Get, set, and clear utility methods for values of any dependency properties that exist on the DependencyObject.</li>
+<li>Metadata, coerce value support, property changed notification, and override callbacks for dependency properties or attached properties. Also, the DependencyObject class facilitates the per-owner property metadata for a dependency property.</li>
+</ul>
+<p>It is the common base class for classes derived from Visual, UIElement, or Freezable.</p>
+</div>
+<div class="section" id="implementation">
+<h1>Implementation</h1>
+<p>Supposing we have a class deriving from DependencyObject:</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// A button that raises Click event after a delay time</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">DelayedButton</span><span class="o">:</span> <span class="k">public</span> <span class="n">Button</span>
+<span class="p">{</span>
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">DelayedButton</span><span class="p">,</span> <span class="n">Button</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+<p>Inheritors must take care of some important points about Noesis Engine implementation of the DependencyObject:</p>
+<ol class="arabic simple">
+<li>DependencyObject is an <strong>ISerializable</strong> class. It automatically serializes all dependency properties stored locally in the object (default values or inherited values are not serialized). But instance members of derived classes must be serialized manually within their Serialize/Unserialize functions.</li>
+</ol>
+<blockquote>
+<div class="highlight"><pre><span class="kt">void</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">Serialize</span><span class="p">(</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_SERIALIZE_PARENT</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;OtherInfo&quot;</span><span class="p">),</span> <span class="n">mOtherInfo</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">Unserialize</span><span class="p">(</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_UNSERIALIZE_PARENT</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;OtherInfo&quot;</span><span class="p">),</span> <span class="n">mOtherInfo</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">NS_ERROR</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Invalid version&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="2">
+<li>DependencyObject is an <strong>IComponentInitializer</strong> class. Before object is initialized, all value modifications are not notified, and expressions are not evaluated (that means that resources and bindings are not resolved). As was the case with serialization, derived classes must initialize instance members that are not dependency properties overriding the <strong>OnInit</strong> function. Inheritors must call parent implementation to not break dependency object initialization:</li>
+</ol>
+<blockquote>
+<div class="highlight"><pre><span class="kt">void</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">OnInit</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ParentClass</span><span class="o">::</span><span class="n">OnInit</span><span class="p">();</span>
+
+    <span class="n">InitComponent</span><span class="p">(</span><span class="n">mOtherInfo</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="3">
+<li>DependencyObject provides an <strong>OnPropertyChanged</strong> function to notify inheritors of property changes. Inheritors must call parent implementation to not break the notification system:</li>
+</ol>
+<blockquote>
+<div class="highlight"><pre><span class="n">NsBool</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyPropertyChangedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsBool</span> <span class="n">handled</span> <span class="o">=</span> <span class="n">ParentClass</span><span class="o">::</span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">handled</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">prop</span> <span class="o">==</span> <span class="n">DelayProperty</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// property change management here</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">handled</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</blockquote>
+</div>
+<div class="section" id="wpf-compatibility">
+<h1>WPF Compatibility</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.dependencyobject.aspx">http://msdn.microsoft.com/en-us/library/system.windows.dependencyobject.aspx</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><strong>Methods:</strong></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="4%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ClearValue</td>
+<td>Yes</td>
+<td>Renamed to ClearLocalValue</td>
+</tr>
+<tr><td>CoerceValue</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>GetValue</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InvalidateProperty</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ReadLocalValue</td>
+<td>Yes</td>
+<td>Renamed to GetLocalValue</td>
+</tr>
+<tr><td>SetCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>SetValue</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><strong>Properties:</strong></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="77%" />
+<col width="6%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>DependencyObjectType</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsSealed</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

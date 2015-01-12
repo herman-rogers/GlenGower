@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Unit Test Guide</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="unit-testing-guide">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Unit Testing Guide</h1>
+
+<p>This guide pretends to describe how unit tests are used in Noesis Engine, why they are useful and what rules you must follow when implementing then.</p>
+<div class="section" id="recommended-readings">
+<h1>Recommended readings</h1>
+<ul class="simple">
+<li><a class="reference external" href="http://entland.homelinux.com/blog/2007/03/13/test-driven-development-by-example/">Test-Driven Development by Example</a></li>
+<li><a class="reference external" href="http://www.amazon.com/Working-Effectively-Legacy-Robert-Martin/dp/0131177052">Working Effectively with Legacy Code</a></li>
+</ul>
+</div>
+<div class="section" id="implementing-unit-tests">
+<h1>Implementing Unit Tests</h1>
+<div class="section" id="how-to-implement-an-unit-test">
+<h2>How to implement an Unit Test</h2>
+<p>A Unit Test is a simple class deriving from BaseComponent and implementing the IUnitTest interface. This is the minimum code to declare a test</p>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/BaseComponent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/IUnitTest.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Reflection.h&gt;</span>
+
+
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Gui</span>
+<span class="p">{</span>
+
+<span class="k">class</span> <span class="nc">VisualTest</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">IUnitTest</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// From IUnitTest</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span> <span class="n">RunTest</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">VisualTest</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Unit Tests must test for positive results (testing that the result is ok) and for negative results (testing that and error is returned in those scenarios that are not considered valid). The following macros facilitates the testing process (defined in NsCore/UnitTestMacros.h)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Macro</th>
+<th class="head">Purpose</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><strong>NS_UNITTEST_CHECK(condition)</strong></td>
+<td>Checks the condition is true, raising an exception if false</td>
+</tr>
+<tr><td><strong>NS_UNITTEST_MUST_FAIL(expression)</strong></td>
+<td>Check an expression that must throw. If an exception is not thrown, the macro raises its own to notify the user</td>
+</tr>
+</tbody>
+</table>
+<p>Care must be taken with code that asserts in Debug throwing exceptions, because in Release the assert expressions are not evaluated. Tests must run correctly in Debug, Release, or any other project configuration.
+What follows is a simple test implementation</p>
+<div class="highlight"><pre><span class="cp">#include &quot;VisualTest.h&quot;</span>
+<span class="cp">#include &lt;NsCore/UnitTestMacros.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Category.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Visual.h&gt;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">VisualTest</span><span class="o">::</span><span class="n">RunTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Gui</span><span class="o">::</span><span class="n">Visual</span><span class="o">&gt;</span> <span class="n">visual</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">Gui</span><span class="o">::</span><span class="n">Visual</span><span class="o">&gt;</span><span class="p">();</span>
+
+    <span class="n">NS_UNITTEST_CHECK</span><span class="p">(</span><span class="n">visual</span><span class="o">-&gt;</span><span class="n">GetParent</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">visual</span><span class="o">-&gt;</span><span class="n">SetParent</span><span class="p">(</span><span class="n">visual</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">VisualTest</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;VisualTest&quot;</span><span class="p">);</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Category</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;UnitTest&quot;</span><span class="p">);</span>
+    <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">IUnitTest</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<p>Unit Tests are registered in the <a class="reference external" href="Core.Kernel.ComponentCreation.html">Component Factory</a> with the category of <em>UnitTest</em>, so it's possible to enumerate all the registered tests at any moment.</p>
+<div class="highlight"><pre><span class="n">NS_REGISTER_REFLECTION</span><span class="p">(</span><span class="n">Gui</span><span class="p">,</span> <span class="n">Core</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">VisualTest</span><span class="p">,</span> <span class="n">NSS</span><span class="p">(</span><span class="n">UnitTest</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="installing-mockups-for-kernel-systems">
+<h2>Installing mockups for kernel systems</h2>
+<p>For some tests you may need getting access to global kernel systems. Inside a unit test it cannot be guaranteed that a kernel system has been initialized. For that purpose the class <em>KernelSystemOverrideRAII</em> is provided to override or install mockup implementations of kernel systems. For example:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="n">XamlReaderTest</span><span class="o">::</span><span class="n">RunTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">KernelSystemOverrideRAII</span> <span class="n">overrideUISystem</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">UISystem</span><span class="p">),</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">UISystemMockup</span><span class="o">&gt;</span><span class="p">());</span>
+
+    <span class="c1">// Executes the test with a UISystem mockup installed</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="external-files">
+<h2>External files</h2>
+<p>Unit Tests must not depend on external files. If a test needs data that is stored in files (for example, the ImageImporterTest needs some png files to check its functionality) these files must be added to the C++ code as an array of bytes, using the <strong>File2Array</strong> tool.</p>
+<p>The data arrays should be used directly from memory, for example through a MemoryStream implementation, but in case that a disk file is mandatory, a temp file can be created in the execution directory and then deleted when the test has finished (DllTest does this).</p>
+</div>
+<div class="section" id="how-to-invoke-an-unit-test">
+<h2>How to invoke an Unit Test</h2>
+<p>The registration in the <a class="reference external" href="Core.Kernel.ComponentCreation.html">Component Factory</a> allows the creation and execution of tests without having direct access to their code declaration.
+The easiest way to run tests is using the UnitTestSystem. It allows to execute a desired test by name, or to execute all the registered tests.
+For the option of executing all tests, an additional parameter indicates to create an XML file in the Bin directory with the result of the execution. This can be useful to send to a <strong>continuous integration</strong> machine</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IUnitTestSystem</span><span class="o">&gt;</span> <span class="n">unitTestSystem</span> <span class="o">=</span> <span class="n">NsGetSystem</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">UnitTestSystem</span><span class="p">));</span>
+
+<span class="c1">// Run one test</span>
+<span class="n">IUnitTestSystem</span><span class="o">::</span><span class="n">TestResult</span> <span class="n">result</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">unitTestSystem</span><span class="o">-&gt;</span><span class="n">RunTest</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">VisualTest</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">NS_WARNING</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;VisualTest failed!. Error is &#39;%s&#39;&quot;</span><span class="p">),</span> <span class="n">result</span><span class="p">.</span><span class="n">exception</span><span class="p">.</span><span class="n">GetDescription</span><span class="p">());</span>
+<span class="p">}</span>
+
+
+<span class="n">NsUInt</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">NsUInt</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">IUnitTestSystem</span><span class="o">::</span><span class="n">TestResult</span><span class="o">&amp;&gt;</span> <span class="o">&gt;</span> <span class="n">it</span><span class="p">;</span>
+
+<span class="c1">// Run all tests creatint the XML file also</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">unitTestSystem</span><span class="o">-&gt;</span><span class="n">RunAllTests</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">failed</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">failed</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_WARNING</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;%d/%d tests failed&quot;</span><span class="p">),</span> <span class="n">failed</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
+
+    <span class="c1">// Print info about the failing tests</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">End</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">NS_INFO_SECTION</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Test %hs failed&quot;</span><span class="p">),</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">Get</span><span class="p">().</span><span class="n">testName</span><span class="p">.</span><span class="n">GetStr</span><span class="p">());</span>
+        <span class="n">it</span><span class="o">-&gt;</span><span class="n">Get</span><span class="p">().</span><span class="n">error</span><span class="p">.</span><span class="n">DumpExceptionToLog</span><span class="p">(</span><span class="n">LogSeverity_Critical</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+        <span class="n">it</span><span class="o">-&gt;</span><span class="n">Get</span><span class="p">().</span><span class="n">error</span><span class="p">.</span><span class="n">ClearCriticalFlag</span><span class="p">();</span>
+        <span class="n">it</span><span class="o">-&gt;</span><span class="n">Advance</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Another option is using the command line tool located in the package <strong>Core/Tester</strong></p>
+<div class="highlight"><pre>PS W:\Noesis\NoesisSDK\Bin&gt; .\Debug.Core.Tester.exe run xamlreadertest
+
+------------------------------------------------------------------------------
+ Tester Tool v0.1
+------------------------------------------------------------------------------
+
+&gt; NoesisApplication Run
+  Test XamlReaderTest sucessfully passed
+  1/1 test passed
+</pre></div>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h1>Guidelines</h1>
+<ul>
+<li><p class="first">Each class submitted to the repository must be accompanied by its corresponding Unit Test. Even private classes must be tested. The philosophy behind Unit Testing is that each class must be isolated and tested independently.</p>
+<p>For example in the Core/Serialization package you can find a test for the <em>MetaData</em> class that is used privately by the Serialization Manager. This class was designed and implemented in parallel with a test. And when all the functionality was ready it was incorporated inside the SerializationManager implementation.</p>
+</li>
+<li><p class="first">Unit Tests must be implemented in parallel with the class implementation. This point is very important to make a good test. Whenever you start implementing a new class you create a empty test. In that test you start designing the class and testing each new functionality as it is being implemented. This guarantee that all the methods are tested inside the unit test.</p>
+</li>
+<li><p class="first">Unit Tests must test all the lines of the corresponding class. 100% code coverage is the ideal for an unit test. This implies that all functions must be invoked (directly or indirectly), all the branches in each conditional code (if, switch, etc) must be tested and each template member must be instantiated at least for one type.</p>
+</li>
+<li><p class="first">Unit Tests must cover edge cases. For example:</p>
+<ul>
+<li><p class="first">Testing than a default constructed class has valid values.</p>
+<div class="highlight"><pre><span class="n">MetaData</span> <span class="n">metaData</span><span class="p">;</span>
+
+<span class="n">NS_UNITTEST_CHECK</span><span class="p">(</span><span class="n">metaData</span><span class="p">.</span><span class="n">GetRoot</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetNumFields</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="n">MetaDataIterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">metaData</span><span class="p">.</span><span class="n">GetIterator</span><span class="p">();</span>
+<span class="n">NS_UNITTEST_CHECK</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">End</span><span class="p">());</span>
+</pre></div>
+</li>
+<li><p class="first">Testing that empty containers inside a class do not crash any public function. And if it must crash, this must be tested too.</p>
+<div class="highlight"><pre><span class="c1">// GetDomain</span>
+<span class="n">NS_UNITTEST_CHECK</span><span class="p">(</span><span class="n">configSystem</span><span class="o">-&gt;</span><span class="n">GetDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">TestDomain</span><span class="p">))</span> <span class="o">==</span> <span class="n">domain</span><span class="p">);</span>
+<span class="n">NS_UNITTEST_CHECK</span><span class="p">(</span><span class="n">configSystem</span><span class="o">-&gt;</span><span class="n">TryGetDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Null</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">configSystem</span><span class="o">-&gt;</span><span class="n">GetDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Null</span><span class="p">)));</span>
+</pre></div>
+</li>
+<li><p class="first">Testing that adding a repeat key to a container value raises an exception (in those cases where this is necessary)</p>
+<div class="highlight"><pre><span class="c1">// AddProperties</span>
+<span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyInt</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyFloat</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="mf">3.0f</span><span class="p">);</span>
+<span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyBool</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span> <span class="nb">true</span><span class="p">);</span>
+<span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyString</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Three&quot;</span><span class="p">));</span>
+
+<span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyInt</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">3</span><span class="p">));</span>
+<span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyFloat</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="mf">3.0f</span><span class="p">));</span>
+<span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyFloat</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="kt">bool</span><span class="p">),</span> <span class="nb">true</span><span class="p">));</span>
+<span class="n">NS_UNITTEST_MUST_FAIL</span><span class="p">(</span><span class="n">domain</span><span class="o">-&gt;</span><span class="n">AddPropertyString</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Three&quot;</span><span class="p">)));</span>
+</pre></div>
+</li>
+</ul>
+</li>
+<li><p class="first">Unit Tests are not code examples. Although they serve as a useful code reference, a unit test must cover all the functionality with usually result in dense code. See for example <em>Math3DTest</em></p>
+</li>
+<li><p class="first">Unit Tests must isolate the current class being tested from the rest of the classes. Sometimes this is not possible because a class uses the interface of another class. In those case the recommended pattern is implementing a mockup. The mockup provides an empty implementation. For example,</p>
+<div class="highlight"><pre><span class="c1">// Mockup implementation of a IStream to be used by this test</span>
+<span class="k">class</span> <span class="nc">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">MockupStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseComponent</span><span class="p">,</span> <span class="k">public</span> <span class="n">IStream</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">MockupStream</span><span class="p">()</span><span class="o">:</span> <span class="n">mReadPos</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">mWritePos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="c1">/// From IStream</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsBool</span> <span class="n">CanSeek</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetPosition</span><span class="p">(</span><span class="n">NsUInt64</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NS_ERROR</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Can&#39;t seek&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">NsUInt64</span> <span class="n">GetPosition</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">NS_ERROR</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Can&#39;t seek&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetLength</span><span class="p">(</span><span class="n">NsUInt64</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NS_ERROR</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Can&#39;t seek&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">NsUInt64</span> <span class="n">GetLength</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">NS_ERROR</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Can&#39;t seek&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">NsBool</span> <span class="n">CanRead</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Read</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">size</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">mBuffer</span><span class="p">)</span> <span class="o">-</span> <span class="n">mReadPos</span><span class="p">);</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">mBuffer</span> <span class="o">+</span> <span class="n">mReadPos</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+        <span class="n">mReadPos</span> <span class="o">+=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">NsInt</span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">NsBool</span> <span class="n">CanWrite</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Write</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">size</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">size</span> <span class="o">&lt;=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">mBuffer</span><span class="p">)</span> <span class="o">-</span> <span class="n">mWritePos</span><span class="p">);</span>
+        <span class="n">memcpy</span><span class="p">(</span><span class="n">mBuffer</span> <span class="o">+</span> <span class="n">mWritePos</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+        <span class="n">mWritePos</span> <span class="o">+=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">NsInt</span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Flush</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="kt">void</span> <span class="n">Close</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="c1">//@}</span>
+
+    <span class="kt">void</span> <span class="n">Reset</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">mReadPos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">mWritePos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="c1">// Internal buffer</span>
+    <span class="n">NsByte</span> <span class="n">mBuffer</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+    <span class="n">NsInt</span> <span class="n">mReadPos</span><span class="p">;</span>
+    <span class="n">NsInt</span> <span class="n">mWritePos</span><span class="p">;</span>
+
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">MockupStream</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">BinaryFormatterTest</span><span class="o">::</span><span class="n">RunTest</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">EqualTest</span><span class="p">(</span><span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryWriter</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryReader</span><span class="o">&gt;</span><span class="p">(),</span>
+        <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">MockupStream</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">EqualTest</span><span class="p">(</span><span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryWriterSwapper</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryReaderSwapper</span><span class="o">&gt;</span><span class="p">(),</span>
+        <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">MockupStream</span><span class="o">&gt;</span><span class="p">());</span>
+
+    <span class="n">NotEqualTest</span><span class="p">(</span><span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryWriterSwapper</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryReader</span><span class="o">&gt;</span><span class="p">(),</span>
+        <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">MockupStream</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">NotEqualTest</span><span class="p">(</span><span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryWriter</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">BinaryReaderSwapper</span><span class="o">&gt;</span><span class="p">(),</span>
+        <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">MockupStream</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li><p class="first">The execution of a test must not alter the global state of the running program. This has several implications like for example that no global kernel systems may be used in a unit test. Another implication is that classes optimized for memory usually does not store a used KernelSystem and whenever they need it, it is acquired from the Kernel. This kind of implementation is not testable because it is using a global kernel system. The recommended solution for this is having two implementations (using a template parameter or a virtual function), in the normal implementation the kernel system is acquired from the Kernel, in the test implementation the kernelsystem is stored inside the class. This stored kernelsystem is created locally inside the test. See the <em>TaskSystemTest</em> and how BaseTask is implemented to be testable inside an unit test.</p>
+<p>In the current implementation of Unit Tests the isolation from the running program is not 100%. For example, the Memory Manager and Symbol Manager is shared between the running the test and the running framework. This is not desirable and probably will be fixed in the future.</p>
+</li>
+</ul>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

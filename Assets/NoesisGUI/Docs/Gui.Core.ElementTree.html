@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Element Tree Overview</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="element-tree-overview">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Element Tree Overview</h1>
+
+<p>The primary tree structure is the object tree. If you create an application page in XAML, then the tree structure is created based on the nesting relationships of the elements in the markup. If you create an application in code, then the tree structure is created based on how you assign property values for properties that implement the content model for a given object. There are really two ways that the object tree is processed and conceptualized: as the logical tree and as the visual tree. The distinctions between logical tree and visual tree are not always necessarily important, but they can occasionally cause issues with certain UI tasks and affect choices you make in markup or code.</p>
+<p>Even though you do not always manipulate either the logical tree or the visual tree directly, understanding the concepts of how the trees interact is a way to understand how property inheritance and event routing works.</p>
+<div class="section" id="the-visual-tree">
+<h1>The Visual Tree</h1>
+<p>The visual tree is the core of all things rendering.  The visual tree describes the structure of visual objects, as represented by the Visual base class. When you write a template for a control, you are defining or redefining the visual tree that applies for that control. The visual tree is also of interest to developers who want lower-level control over drawing for performance and optimization reasons. The visual tree affects all things visual, including input.  For example, setting the opacity to 50% on a visual parent makes all its children 50% as well (if you also set the child's opacity to 50%, it is a cumulative 75% transparent). Similarly, setting a transform on the parent, transforms the child as well.  Hit-testing goes through the visual tree.  Disabling the parent (setting IsEnabled to false) disables visual descendents, etc. Another exposure of the visual tree as part of conventional application programming is that event routes for a routed event mostly travel along the visual tree, not the logical tree. This subtlety of routed event behavior might not be immediately apparent unless you are a control author. Routing events through the visual tree enables controls that implement composition at the visual level to handle events or create event setters.</p>
+</div>
+<div class="section" id="overriding-the-visual-tree">
+<h1>Overriding the Visual Tree</h1>
+<p>Although visual tree concept is defined at Visual, the implementation of that tree is left to control authors. This means that each control decides how to store the visual children. For example, panels have their own collection of elements to store visual children; Decorator defines a single child property to store its visual child.</p>
+<p>Visual defines two virtual methods that should be overriden by controls specific implementations to allow visual tree traversal:</p>
+<div class="highlight"><pre><span class="k">virtual</span> <span class="n">NsSize</span> <span class="n">GetVisualChildrenCount</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Visual</span><span class="o">&gt;</span> <span class="n">GetVisualChild</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+<p>For convenience the base class FrameworkElement defines default storage for a single visual child, <em>mVisualChild</em>, that inheritors could use to update visual child. It also defines a default implementation for previous methods based on mVisualChild content.</p>
+<p>To define how a general object or content model adds or removes objects within the visual tree, controls authors have to use <em>AddVisualChild(child)</em> and <em>RemoveVisualChild(child)</em> methods, that update the parent-child relationship between objects in the visual tree, whenever the visual representation of the control changes.</p>
+</div>
+<div class="section" id="tree-traversal">
+<h1>Tree Traversal</h1>
+<p>The visual tree also supports a helper class for visual tree traversal, <em>VisualTreeHelper</em>. The visual tree is not exposed as conveniently through control-specific properties, so the VisualTreeHelper class is the recommended way to traverse the visual tree if that is necessary for your programming scenario.</p>
+</div>
+<div class="section" id="the-logical-tree">
+<h1>The Logical Tree</h1>
+<p>In xaml, you add content to elements using properties. For example, you add items to a ListBox control using its Items property. By doing this, you are placing items into the ItemCollection of the ListBox control. To add objects to a DockPanel, you use its Children property. Here, you are adding objects to the UIElementCollection of the DockPanel. When you place list items in a ListBox or controls or other elements in a DockPanel, you also use the Items and Children properties, either explicitly or implicitly, as in the following example.</p>
+<div class="highlight"><pre><span class="nt">&lt;DockPanel</span> <span class="na">Name=</span><span class="s">&quot;ParentElement&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!--implicit: &lt;DockPanel.Children&gt;--&gt;</span>
+  <span class="nt">&lt;ListBox</span> <span class="na">DockPanel.Dock=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--implicit: &lt;ListBox.Items&gt;--&gt;</span>
+    <span class="nt">&lt;ListBoxItem&gt;</span>
+      <span class="nt">&lt;TextBlock&gt;</span>Dog<span class="nt">&lt;/TextBlock&gt;</span>
+    <span class="nt">&lt;/ListBoxItem&gt;</span>
+    <span class="nt">&lt;ListBoxItem&gt;</span>
+      <span class="nt">&lt;TextBlock&gt;</span>Cat<span class="nt">&lt;/TextBlock&gt;</span>
+    <span class="nt">&lt;/ListBoxItem&gt;</span>
+    <span class="nt">&lt;ListBoxItem&gt;</span>
+      <span class="nt">&lt;TextBlock&gt;</span>Fish<span class="nt">&lt;/TextBlock&gt;</span>
+    <span class="nt">&lt;/ListBoxItem&gt;</span>
+  <span class="c">&lt;!--implicit: &lt;/ListBox.Items&gt;--&gt;</span>
+  <span class="nt">&lt;/ListBox&gt;</span>
+  <span class="nt">&lt;Button</span> <span class="na">Height=</span><span class="s">&quot;20&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">DockPanel.Dock=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>Buy a Pet<span class="nt">&lt;/Button&gt;</span>
+  <span class="c">&lt;!--implicit: &lt;/DockPanel.Children&gt;--&gt;</span>
+<span class="nt">&lt;/DockPanel&gt;</span>
+</pre></div>
+<p>Note that the property element tags are not explicitly needed because the XAML reader infers the property elements when it creates the objects that create the executable's runtime object representation of the application. For more information about how XAML syntax maps to the created logical tree, and inferred syntax elements, see <a class="reference external" href="Gui.Core.UIXAML.html">XAML Concepts</a>.</p>
+</div>
+<div class="section" id="the-purpose-of-the-logical-tree">
+<h1>The Purpose of the Logical Tree</h1>
+<p>The logical tree exists so that content models can readily iterate over their possible child objects, and so that content models can be extensible. Also, the logical tree provides a framework for certain notifications, such as when all objects in the logical tree are loaded.</p>
+<p>In addition, resource references are resolved by looking upwards through the logical tree for Resources collections on the initial requesting object and then parent objects. The logical tree is used for resource lookup when both the logical tree and the visual tree are present. For more information on resources, see <a class="reference external" href="Gui.Core.UIResources.html">Resources</a>.</p>
+</div>
+<div class="section" id="overriding-the-logical-tree">
+<h1>Overriding the Logical Tree</h1>
+<p>Although content model is defined at FrameworkElement level, the implementation of that model is left to control authors. This means that each control decides how to store the content. For example, panels have their own collection of UIElements to store logical children; ContentControl defines the dependency property Content to store a single logical child.</p>
+<p>FrameworkElement defines two virtual methods that should be overriden by controls specific implementations to allow logical tree traversal:</p>
+<div class="highlight"><pre><span class="k">virtual</span> <span class="n">NsSize</span> <span class="n">GetLogicalChildrenCount</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">FrameworkElement</span><span class="o">&gt;</span> <span class="n">GetLogicalChild</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">index</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+<p>An element doesn't actually pick its logical parent; instead, a parent <em>adopts</em> children.  For example, when you set a property value to the ContentControl.Content property, ContentControl takes that value as its logical child.  To adopt a new logical child, an element simply calls <em>AddLogicalChild</em>.  Similarly, to remove a logical child, an element calls <em>RemoveLogicalChild</em>.  Note that you can't adopt a child that already has a logical parent.</p>
+<p>Default controls already do the work to make the logical tree operate correctly.  And actually it's more general than that - Panel, ItemsControl, ContentControl, and Decorator, which are the most common base classes, all do the work to make the logical tree operate already.  For example, if you create a custom Button that subclasses ContentControl, your Content property will pick up your button as the logical parent without you doing anything.</p>
+</div>
+<div class="section" id="id1">
+<h1>Resources</h1>
+<p>Resource lookup for immediate resources (defined on the page, as opposed to application resources or resources from themes) traverses basically the logical tree. Objects that are not in the logical tree can reference resources, but the resource lookup sequence begins at the point where that object is connected to the logical tree. Only logical tree nodes can have a Resources property that contains a ResourceDictionary, therefore there is no benefit in traversing the visual tree looking for resources.</p>
+<p>However, resource lookup can also extend beyond the immediate logical tree. For application markup, the resource lookup can then continue onward to application resources and to theme support and system values. Themes themselves can also reference system values outside of the theme logical tree if the resource references are dynamic.</p>
+</div>
+<div class="section" id="id2">
+<h1>Tree Traversal</h1>
+<p>The <em>LogicalTreeHelper</em> class provides the <em>GetChildrenCount</em>, <em>GetChild</em>, <em>GetParent</em>, and <em>FindLogicalNode</em> methods for logical tree traversal. In most cases, you should not have to traverse the logical tree of existing controls, because these controls almost always expose their logical child elements as a dedicated collection property that supports collection access such as Add, an indexer, and so on. Tree traversal is mainly a scenario that is used by control authors who choose not to derive from intended control patterns such as ItemsControl or Panel where collection properties are already defined, and who intend to provide their own collection property support.</p>
+<div class="section" id="logical-tree-usage">
+<h2>Logical Tree Usage</h2>
+<p>Often, an element's logical parent is the same as its visual parent.  This is the case with elements in a Panel, such as a Grid; the Panel.Children property is a UIElementCollection type, and UIElementCollection has a feature that all items get the Panel as both the logical parent and the visual parent.  Other times, such as for the content of a Button (or any ContentControl), the two parents are different. The logical parent is relevant for several tree-based features:</p>
+<ul class="simple">
+<li><strong>The Parent property</strong>. As I just said above, the FrameworkElement.Parent property returns the logical parent.  So any ListBoxItem.Parent above returns the ListBox, and Button.Parent returns the DockPanel.</li>
+<li><strong>Property inheritance</strong>. Inheritable properties, such as FontFamily and DataContext, come from an element's logical parent (or logical ancestor).  The exception is that if an element has a visual parent but not a logical parent, the visual parent will be used.</li>
+<li><strong>{DynamicResource} references</strong>. If a property has a {DynamicResource} set on it, it will search the .Resources of logical ancestors.  Just like property inheritance, though, if there's only a visual parent, that link is followed instead.</li>
+<li><strong>Name</strong>. When looking up a name, such as in {Binding ElementName=Foo}, the search walks up the ancestry looking for a name scope, again just as it does for inheritable properties.</li>
+<li><strong>Routed events</strong>. When an event is routing up the tree, such as the MouseLeftButtonDownEvent, the event goes up both the visual parent and the logical parent, if they're different.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example">
+<h1>Example</h1>
+<div class="highlight"><pre><span class="nt">&lt;Window</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">Title=</span><span class="s">&quot;Logical and Visual Trees Example&quot;</span> <span class="na">SizeToContent=</span><span class="s">&quot;WidthAndHeight&quot;</span>
+  <span class="na">Background=</span><span class="s">&quot;White&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;StackPanel&gt;</span>
+    <span class="nt">&lt;Label</span> <span class="na">FontWeight=</span><span class="s">&quot;Bold&quot;</span> <span class="na">FontSize=</span><span class="s">&quot;20&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;Red&quot;</span><span class="nt">&gt;</span>
+      Hello World!
+    <span class="nt">&lt;/Label&gt;</span>
+    <span class="nt">&lt;Label&gt;</span>A label<span class="nt">&lt;/Label&gt;</span>
+    <span class="nt">&lt;Label&gt;</span>Another label<span class="nt">&lt;/Label&gt;</span>
+    <span class="nt">&lt;ListBox&gt;</span>
+      <span class="nt">&lt;ListBoxItem&gt;</span>First item in the list<span class="nt">&lt;/ListBoxItem&gt;</span>
+      <span class="nt">&lt;ListBoxItem&gt;</span>Second item<span class="nt">&lt;/ListBoxItem&gt;</span>
+    <span class="nt">&lt;/ListBox&gt;</span>
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">&quot;Horizontal&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Button</span> <span class="na">MinWidth=</span><span class="s">&quot;75&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>Help<span class="nt">&lt;/Button&gt;</span>
+      <span class="nt">&lt;Button</span> <span class="na">MinWidth=</span><span class="s">&quot;75&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>OK<span class="nt">&lt;/Button&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+    <span class="nt">&lt;StatusBar&gt;</span>Good bye!<span class="nt">&lt;/StatusBar&gt;</span>
+  <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/Window&gt;</span>
+</pre></div>
+<p>Next image shows the logical tree produced by the previous xaml.</p>
+<img alt="600px-WPFUnleashed3-2.jpg" src="600px-WPFUnleashed3-2.jpg" />
+<p>The visual tree is basically an expansion of the logical tree, in which nodes are broken down into their core visual components. That visual representation depends on current UI theme and control styles. The following image shows a possible visual tree for the previous xaml.</p>
+<img alt="600px-WPFUnleashed3-3.jpg" src="600px-WPFUnleashed3-3.jpg" />
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

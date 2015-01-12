@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Kernel Systems</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="kernelsystems">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">KernelSystems</h1>
+
+<p>Kernel systems are components used to expand the functionality provided by the kernel. They are initialized by the kernel and remain alive during all the lifetime of the kernel. They are similar to <a class="reference external" href="Core.Kernel.Singletons.html">singletons</a> but with an explicit order for initialization and desinitialization. Examples of Kernel Systems are: ConfigSystem, RenderSystem, ResourceSystem.</p>
+<p>NoesisEngine is designed to be extended primarily using Kernel Systems.</p>
+<div class="section" id="implementation">
+<h1>Implementation</h1>
+<p>Kernel systems must inherit from <a class="reference external" href="Core.Kernel.BaseClasses.html">base class</a> <em>BaseKernelSystem</em> and reimplement the following functions:</p>
+<ul class="simple">
+<li>Init()</li>
+</ul>
+<blockquote>
+This function is invoked whenever the system is being initialized</blockquote>
+<ul class="simple">
+<li>Shutdown()</li>
+</ul>
+<blockquote>
+Called when shutting down the kernel for each initialized system</blockquote>
+<ul class="simple">
+<li>GetDependencies()</li>
+</ul>
+<blockquote>
+Each system must report the list of systems that it needs before being initialized. Using this information the kernel guarantees that systems are initialized in the proper order.</blockquote>
+<ul class="simple">
+<li>KernelActivate()</li>
+</ul>
+<blockquote>
+<p>This function is invoked by the kernel whenever a kernel system is being installed as a global kernel system accessible from everywhere. Normally the work done here is adding a special metadata to the proper interface. For example:</p>
+<div class="highlight"><pre><span class="c1">//////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">VGLSystem</span><span class="o">::</span><span class="n">KernelActivate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">KernelActivateHelper</span><span class="o">&lt;</span><span class="n">IVGLSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<p>This permits after system initialization getting a reference to the system this way:</p>
+<div class="highlight"><pre><span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IVGLSystem</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CreateContext</span><span class="p">();</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li>KernelDeactivate()</li>
+</ul>
+<blockquote>
+This is the symmetric function to <em>KernelActivate()</em></blockquote>
+</div>
+<div class="section" id="initialization">
+<h1>Initialization</h1>
+<p>There are two possible ways to initialized systems.</p>
+<ol class="arabic simple">
+<li><strong>The manual initialization</strong>. A list of the systems to initialize is given to the kernel. The kernel will initialize them in the proper order:</li>
+</ol>
+<blockquote>
+<div class="highlight"><pre><span class="n">NsSymbol</span> <span class="n">systems</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">NsSymbol</span><span class="p">(</span><span class="s">&quot;CommandSystem&quot;</span><span class="p">),</span> <span class="n">NsSymbol</span><span class="p">(</span><span class="s">&quot;ConfigSystem&quot;</span><span class="p">),</span>
+    <span class="n">NsSymbol</span><span class="p">(</span><span class="s">&quot;UnitTestSystem&quot;</span><span class="p">),</span> <span class="n">Symbol</span><span class="o">::</span><span class="n">Null</span><span class="p">()};</span>
+<span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">InitSystems</span><span class="p">(</span><span class="n">systems</span><span class="p">);</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="2">
+<li><strong>The automatic initialization</strong>, where all the registered systems in the installed packages are initialized in the proper order:</li>
+</ol>
+<blockquote>
+<div class="highlight"><pre><span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">InitSystems</span><span class="p">();</span>
+</pre></div>
+</blockquote>
+</div>
+<div class="section" id="getting-access-to-kernel-systems">
+<h1>Getting access to kernel systems</h1>
+<p>To get a pointer to a kernelsystem you must include the header <em>&lt;NsCore/NsSystem.h&gt;</em> and use the different functions available for that purpose. For example:</p>
+<div class="highlight"><pre><span class="c1">// Getting access by symbol</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;&amp;</span> <span class="n">configSystem</span> <span class="o">=</span> <span class="n">NsGetSystem</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">ConfigSystem</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="c1">// Getting access by type. Faster than the symbol version</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;&amp;</span> <span class="n">configSystem</span> <span class="o">=</span> <span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1">// Using the system without storing it</span>
+<span class="p">{</span>
+    <span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">AddDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Domain0</span><span class="p">));</span>
+    <span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">AddDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Domain1</span><span class="p">));</span>
+    <span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IConfigSystem</span><span class="o">&gt;</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">AddDomain</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Domain2</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="lifetime">
+<h1>Lifetime</h1>
+<p>Kernel Systems remain alive during the Kernel lifetime. When the Kernel is shutdown, Kernel Systems are freed in reverse order of creation.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

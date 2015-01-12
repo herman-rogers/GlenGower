@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Multithreading primitives</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="multithreading-primitives">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Multithreading primitives</h1>
+
+<p>Noesis Engine implements different multithreading primitives that permit implementing scalable algorithm in a portable way.</p>
+<div class="section" id="threads">
+<h1>Threads</h1>
+<p>Threads are managed by the class <em>Thread</em>. Each instance of this component creates an operating system thread within the virtual address of the calling process. To create a thread, a Thread instance is constructed passing a delegate that represent the entry point of the thread. For example,</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">Thread1Func</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Thread %d created&quot;</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span> <span class="n">thread1</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">Thread</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Thread1&quot;</span><span class="p">,</span> <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Thread1Func</span><span class="p">),</span> <span class="mi">500</span><span class="p">);</span>
+    <span class="n">thread1</span><span class="o">-&gt;</span><span class="n">Join</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<p>The Join() method is used to wait for the end of execution of the thread. If the thread instance is destroyed without Joining(), the thread is not stopped, it can continue execution.</p>
+<p>The thread class offers other interesting functionality like Sleeping() the current thread, Yield() the current thread, getting the current thread id, etc. Read the associated documentation to get more information.</p>
+</div>
+<div class="section" id="data-locks">
+<h1>Data Locks</h1>
+<p>Locks can be used to protect shared data between threads. The mutex object encapsulate a lightweight synchronization that can only be owned by a thread. Mutex are supposed to hold a region for a very small period of time.</p>
+<p>The <em>Mutex</em> implementation provides a helper class named Mutex::ScopedLock that automatically acquire/release the mutex in a context.</p>
+<p>Example of usage:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="n">Mutex</span><span class="o">::</span><span class="n">ScopedLock</span> <span class="n">lock</span><span class="p">;</span>
+    <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;This region is protected by a mutex&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="atomic-operations">
+<h1>Atomic Operations</h1>
+<p>Basic operations on primitive types do not need a mutex because they can be executed atomically using the <em>Atomic&lt;T&gt;</em> template. Atomic operations are thread-safe. For example,</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">Add</span><span class="p">(</span><span class="n">Atomic</span><span class="o">&lt;</span><span class="n">NsSize</span><span class="o">&gt;&amp;</span> <span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// This region is thread safe</span>
+    <span class="n">val</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">val</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">val</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">val</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">val</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="tasks">
+<h1>Tasks</h1>
+<p>The <em>TaskSystem</em> is a kernel system available for executing tasks. Tasks are one-shot objects deriving from the base class <em>BaseTask</em>. TaskSystem supports two kind of tasks: <strong>Asynchronous</strong> and <strong>Synchronous</strong>.</p>
+<div class="section" id="asynchronous-tasks">
+<h2>Asynchronous tasks</h2>
+<p>Asynchronous tasks are tasks whose execution is done in parallel with the main thread. An Asynchronous tasks is fired and you forget about it. The task is inserted into a queue and asynchronously executed (in a different thread than the main thread). This kind of tasks are ideal from low priority work than takes more than one frame in execute and whose result is not needed inmediately.</p>
+<p>Each task can be send to a channel and tasks belonging to the same channel are executed in FIFO order. The default channel does not have this property and all the tasks located in that channel may be executed in parallel (in depends on the number of threads created by the Task system for this kind of tasks).</p>
+<p>Whenever the execution of this kind of tasks is finished, the Retire() method is invoke from the main thread.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">TestTask</span><span class="o">:</span> <span class="k">public</span> <span class="n">AsyncTaskTest</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">TestTask</span><span class="p">(</span><span class="n">Atomic</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;&amp;</span> <span class="n">execCount</span><span class="p">,</span> <span class="n">Atomic</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;&amp;</span> <span class="n">retireCount</span><span class="p">,</span> <span class="n">NsInt</span> <span class="n">id</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">mExecCount</span><span class="p">(</span><span class="n">execCount</span><span class="p">),</span>
+        <span class="n">mRetireCount</span><span class="p">(</span><span class="n">retireCount</span><span class="p">),</span> <span class="n">mId</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Exec</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Test%d&quot;</span><span class="p">),</span> <span class="n">mId</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">NsInt32</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mId</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mExecCount</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Retire</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NsInt32</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">mId</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mRetireCount</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">mRetireCount</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">Atomic</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;&amp;</span> <span class="n">mExecCount</span><span class="p">;</span>
+    <span class="n">Atomic</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;&amp;</span> <span class="n">mRetireCount</span><span class="p">;</span>
+    <span class="n">NsInt</span> <span class="n">mId</span><span class="p">;</span>
+
+    <span class="c1">/// Reflection</span>
+    <span class="c1">//@{</span>
+    <span class="n">NS_BEGIN_REFLECTION</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">TestTask</span><span class="p">),</span> <span class="n">TestTask</span><span class="p">,</span> <span class="n">AsyncTaskTest</span><span class="p">)</span>
+    <span class="n">NS_END_REFLECTION</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_COMPONENT_REFLECTION</span>
+    <span class="c1">//@}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">ExecTask</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span> <span class="n">task0</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execCount</span><span class="p">,</span> <span class="n">retireCount</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span> <span class="n">task1</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execCount</span><span class="p">,</span> <span class="n">retireCount</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span> <span class="n">task2</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execCount</span><span class="p">,</span> <span class="n">retireCount</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span> <span class="n">task3</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execCount</span><span class="p">,</span> <span class="n">retireCount</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span> <span class="n">task4</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">TestTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execCount</span><span class="p">,</span> <span class="n">retireCount</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecAsync</span><span class="p">(</span><span class="n">task0</span><span class="p">);</span>
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecAsync</span><span class="p">(</span><span class="n">task1</span><span class="p">);</span>
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecAsync</span><span class="p">(</span><span class="n">task2</span><span class="p">);</span>
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecAsync</span><span class="p">(</span><span class="n">task3</span><span class="p">);</span>
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecAsync</span><span class="p">(</span><span class="n">task4</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="synchronous-tasks">
+<h2>Synchronous tasks</h2>
+<p>Synchronous tasks have to be waited until the execution is finished. Typically a root task is added to the TaskSystem and that task is subdivided into smaller tasks that can be executed concurrently by several threads. In this kind of model the main thread waiting for the end of the execution may collaborate executing pending tasks. Synchronous tasks are not guaranteed to execute concurrently. All the tasks may be executed by the main thread. These tasks are executed using a work-stealing task scheduler as described in <a class="reference external" href="http://supertech.csail.mit.edu/papers/cilkjpdc96.pdf">Cilk: An Efficient Multithreaded Runtime System</a>. The order followed is LIFO as described in that paper to improve local thread cache coherency.</p>
+<p>Inside the execution of a synchronous tasks you have three basic functions: CreateTaskChild(), to create a child of the current task, Spawn() to start executing a child task and Sync() that waits for the execution of all the spawned children.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">FibTask</span><span class="o">:</span> <span class="k">public</span> <span class="n">SyncTaskTest</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">FibTask</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">number</span><span class="p">,</span> <span class="n">NsSize</span><span class="o">&amp;</span> <span class="n">res</span><span class="p">)</span><span class="o">:</span> <span class="n">mNumber</span><span class="p">(</span><span class="n">number</span><span class="p">),</span> <span class="n">mRes</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">Exec</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mNumber</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">mRes</span> <span class="o">=</span> <span class="n">mNumber</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NsSize</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+            <span class="n">Spawn</span><span class="p">(</span><span class="n">CreateChildTask</span><span class="o">&lt;</span><span class="n">FibTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">mNumber</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+            <span class="n">Spawn</span><span class="p">(</span><span class="n">CreateChildTask</span><span class="o">&lt;</span><span class="n">FibTask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">mNumber</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">));</span>
+
+            <span class="n">Sync</span><span class="p">();</span>
+
+            <span class="n">mRes</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsSize</span> <span class="n">mNumber</span><span class="p">;</span>
+    <span class="n">NsSize</span><span class="o">&amp;</span> <span class="n">mRes</span><span class="p">;</span>
+
+    <span class="c1">/// Reflection</span>
+    <span class="c1">//@{</span>
+    <span class="n">NS_BEGIN_REFLECTION</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">FibTask</span><span class="p">),</span> <span class="n">FibTask</span><span class="p">,</span> <span class="n">SyncTaskTest</span><span class="p">)</span>
+    <span class="n">NS_END_REFLECTION</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_COMPONENT_REFLECTION</span>
+    <span class="c1">//@}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">ExecTask</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">NsSize</span> <span class="n">res</span><span class="p">;</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">FibTask</span><span class="o">&gt;</span> <span class="n">task</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">FibTask</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
+    <span class="n">taskSystem</span><span class="o">-&gt;</span><span class="n">ExecSync</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+    <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Fib %d = %d&quot;</span><span class="p">),</span> <span class="mi">25</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

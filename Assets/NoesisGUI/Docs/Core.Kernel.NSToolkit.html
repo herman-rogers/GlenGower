@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: NSToolkit Manual</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="nstoolkit-manual">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">NSToolkit Manual</h1>
+
+<p>NSToolkit is the hearth of Noesis. It can be used for lots of purposes related with a Noesis distribution. A Noesis distribution is a subset of an entire Noesis SDK. The distribution only has the packages that are needed to build the applications of that distribution.</p>
+<div class="section" id="configuration">
+<h1>Configuration</h1>
+<p>A configuration file must be provided to the NSToolkit containing the following sections (paths indicated in that file are relatives to the current path)</p>
+<div class="highlight"><pre># NSToolkit settings file
+
+[global]
+
+# A name that describes this distribution
+NAME = Cognition
+
+# Directory where binaries are stored when using NsToolkit dist command
+DISTDIR = Dist
+
+# Path to NoesisSDK in repository
+REMOTEROOT = svn://svn.noesis/Noesis/NoesisSDK/trunk
+
+# Local path where SDK is downloaded from the repository
+LOCALROOT = NoesisSDK
+
+# Root packages that from this distribution. The full distribution will be composed of these
+# packages and their dependencies
+PACKAGES = Apps/Sample, Test/A
+
+# Solution that will be generated containing all the packages
+SOLUTION = Tests.sln
+</pre></div>
+<p>All of these settings can be overriden from the commandline, using the &quot;--&quot; prefix (for example <em>--packages</em> to override <em>PACKAGES</em> setting).</p>
+<p>If everything is properly configured, you should be able to invoke NSToolkit and get the usage help:</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.65
+------------------------------------------------------------------------------
+
+ Usage:
+
+     NSToolkit command [options]
+
+ Commands:
+
+     make
+         Synchronizes source code, generates project files and solutions, and
+         copies third party binaries.
+
+     list
+         Lists needed packages.
+
+     info
+         Shows information about the selected packages.
+
+     graph
+         Generates a graph of the needed packages.
+
+     dist
+         Extracts a distribution.
+
+ Options:
+
+     --conf ConfigurationFile
+         The configuration file used by NSToolkit.
+
+     --packages PackageList
+         The list of packages used (enclosed by quotes and separated by commas
+         to specify more than one, for example: &quot;Test/A, Test/B, Test/C&quot;).
+         It overrides configuration file PACKAGES section.
+
+     --nodepends
+         Only specified packages used, dependencies ignored.
+
+     --allpackages
+         All packages in the repository used. It overrides --packages option
+         and configuration file PACKAGES section.
+
+     --sync
+         Synchronizes selected packages with last repository version.
+         Available for make command only.
+
+     --genprj
+         Generates a project file for each selected package. Available for
+         make command only.
+
+     --solution SolutionPath
+         The path name of the solution file. It overrides configuration file
+         SOLUTION section. Available for make command only.
+
+     --gensln
+         Generates a solution file with selected packages. Available for make
+         command only.
+
+     --platform [vs2005|vs2008]
+         Sets the target compiler to generate projects and/or solution.
+         Available for make command only.
+
+     --dist3rd
+         Copies needed third party binaries to Bin directory. Available for
+         make command only.
+
+     --compile action.configuration
+         Compile the selected packages. Available for make command only.
+         Possible actions are {build, rebuild, clean}. Configuration is the
+         name of a valid configuration. Example: &quot;--compile build.release&quot;
+
+     --output ImageFile
+         The name of the generated image. Available for graph command only.
+
+     --distdir DisttributionPath
+         Directory where the generated binary distributions are stored.
+         Available for dist command only.
+
+     --distconfig
+         This flag indicates that the .config files from the bin directory
+         must be distributed. By default they are not copied. Available for
+         dist command only.
+
+     --copypdb [public|private]
+         When used in the dist command, this flag indicates that the public
+         or private pdb
+         files must be copied to the dist directory.
+
+     --installer Script
+         This flag indicates to the dist command that an installer must be
+         generated using the configuration stored inside the Installer
+         directory.
+
+     --printcontext
+         Prints context properties. Only for debugging purposes.
+</pre></div>
+<p>The rest of the configuration files are described in the sections <a class="reference external" href="Core.Kernel.ThirdParties.html">ThirdParties in Noesis</a> and <a class="reference external" href="Core.Kernel.MetaFormat.html">Description of Package Meta definition file</a></p>
+<p>NOTE: in the future, NSToolkit will be a compiled executable for each platform to avoid the dependency with Python.</p>
+</div>
+<div class="section" id="make-command">
+<h1>Make command</h1>
+<div class="section" id="package-synchronization">
+<h2>Package Synchronization</h2>
+<p>Each time you want to sync your distribution you must execute</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py make --sync
+</pre></div>
+<p>Getting an output similar to this</p>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+   [Sync]
+
+     Getting NoesisSDK root directories...
+     Calculating dependencies...
+     Syncing needed packages from repository...
+       Updating 20 packages (in 6 modules)...
+        A    NoesisSDK\Src\Packages\Core\Kernel
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\IKernel.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\Error.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\ObjectPool.inl
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\CompilerSettings.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\IReflectionRegistry.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\Exception.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\InterlockMacros.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\DynamicCast.h
+        A    NoesisSDK\Src\Packages\Core\Kernel\Include\NsCore\FixedAllocator.h
+</pre></div>
+</div>
+<div class="section" id="project-generation">
+<h2>Project Generation</h2>
+<p>NSToolkit can be used to generate projects for each platform. You can do it at the same time that you sync or as an alternate step.</p>
+<p>For example, this command will generate the .vcproj files for Microsoft Visual Studio for all the packages that are needed for the selected packages</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py make --genprj
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+   [GenPrj]
+
+    + Core/Kernel
+    + Render/RenderSystem
+    + Core/UnitTestSystem
+    + Core/ConfigSystem
+    + Core/Parser
+    + Scene/VisualComponent
+    + Math/VectorMath
+    + Scene/Mesh
+    + Apps/Sample
+    + Math/Collision
+    + Import/DataCompiler
+    + Import/Importer
+    + Core/CommandSystem
+    + Core/RemoteCommandSystem
+    + Core/Stream
+    + Core/MemoryStream
+    + Core/Serialization
+    + Render/DX9RenderSystem
+    + Import/ColladaMeshImporter
+    + Import/ShaderImporter
+
+    20 packages generated
+</pre></div>
+</div>
+<div class="section" id="solution-generation">
+<h2>Solution Generation</h2>
+<p>Visual Studio solution files can be created also by NSToolkit. The solution will contain all the packages needed by the distribution with the project dependencies set correctly to be able to build in just one step. Solution path file name could be defined in the configuration file or using the --solution option. Distribution information is obtained from configuration file or corresponding options (--packages or --allpackages).</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py make --solution Sample.sln --gensln
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+   [GenSln]
+
+     Sample.sln solution generated
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-command">
+<h1>List command</h1>
+<p>With the list command you can get the list of the packages needed for your distribution or all repository packages.</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py list --packages Apps/Sample
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+     Calculating dependencies...
+     Listing 31 packages in use (sorted by dependency)...
+
+      + Core/Kernel
+      + Core/Serialization
+      + Core/ConfigSystem
+      + Core/UnitTestSystem
+      + Core/Parser
+      + Math/VectorMath
+      + File/FileId
+      + Core/Stream
+      + Core/MemoryStream
+      + Import/ResourceSystem
+      + Render/RenderSystem
+      + Import/DataCompiler
+      + Math/Utils
+      + File/FileSystem
+      + Import/Importer
+      + Scene/VisualSceneManager
+      + Scene/Mesh
+      + Apps/Sample
+      + Math/Collision
+      + Render/VCacheOptimizer
+      + Core/CommandSystem
+      + File/VirtualFileSystem
+      + Core/RemoteCommandSystem
+      + Gui/VGL
+      + Math/Tessellation
+      + File/DiskFileSystem
+      + Drawing/Image
+      + Render/DX9RenderSystem
+      + Import/ColladaMeshImporter
+      + Import/ShaderImporter
+      + Import/ImageImporter
+
+     Listing thirdparties in use...
+
+      + DXSDK
+      + FCollada
+      + FreeImage
+      + LibTess
+      + NVTT
+</pre></div>
+<p>As you can see. Dependencies from 3rdParties are listed too.</p>
+</div>
+<div class="section" id="info-command">
+<h1>Info command</h1>
+<p>To get full information about some package you will use the info command.</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py info --packages Render/RenderSystem --nodepends
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+     * Render/RenderSystem
+
+      - Description:
+          Abstract package for the low-level RenderSystem implementation
+
+      - Dependencies:
+        + Core/Kernel
+        + Core/UnitTestSystem
+        + Core/Serialization
+        + Core/Stream
+        + Import/ResourceSystem
+        + File/FileSystem
+        + Math/VectorMath
+
+      - Used by:
+        + Apps/CursoOviedo
+        + Apps/Sample
+        + Gui/Controls
+        + Gui/UISystem
+        + Gui/VGL
+        + Import/ShaderImporter
+        + Render/DX9RenderSystem
+        + Render/NullRenderSystem
+        + Scene/Mesh
+        + Scene/VisualSceneManager
+</pre></div>
+</div>
+<div class="section" id="graph-command">
+<h1>Graph command</h1>
+<p>With this command you could generate an image that shows the dependencies of the packages in your distribution.</p>
+<div class="highlight"><pre>python NoesisSDK\NSToolkit\NSToolkit.py graph --packages Render/RenderSystem
+</pre></div>
+<div class="highlight"><pre>------------------------------------------------------------------------------
+ NSToolkit - NoesisEngine Toolkit - v0.40
+------------------------------------------------------------------------------
+
+     Calculating dependencies...
+     Writing PkgGraph.png...
+</pre></div>
+<p>And this is the result image:</p>
+<blockquote>
+<a class="reference external image-reference" href="graph.png"><img alt="graph.png" class="align-center" src="graph.png" style="width: 600px;" /></a>
+</blockquote>
+</div>
+<div class="section" id="dist-command">
+<h1>Dist command</h1>
+<p>Dist command is used to generate binary distributions. It is used by the build machines to generate nightly builds. Installation files are generated with this command too.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

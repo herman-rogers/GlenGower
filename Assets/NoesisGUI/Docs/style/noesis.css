@@ -1,0 +1,543 @@
+@import url(pygments.css);
+@import url(docutils.css);
+
+/* Global */
+
+body {
+	/* BUG 1px ALINEANDO FONDOS */
+	overflow: -moz-scrollbars-vertical; 
+	overflow-y: scroll;
+    
+    background-color:#40464F;
+    margin:0;
+    padding:0;
+}
+
+/* Noesis Web */
+
+#noesis_web_wrap .noesis_web_headerContenedor {
+    display:none;
+}
+
+#noesis_web_wrap #noesis_web_cabeceraInterior {
+    display:none;
+}
+
+#noesis_web_wrap #noesis_web_stickyFooter {
+    display:none;
+}
+
+/* Noesis Doc */
+
+#noesis_doc_wrap {
+    margin:auto;
+    padding:0;
+    width:960px;
+    color:#000;
+    background-color:white;
+    border:1px solid #162633;
+    border-top-width:0;
+    border-bottom-width:0;
+    box-shadow: 0 0 20px #10161F;
+    text-align:left;
+    font-size:1.2em;
+    font:normal small 'Segoe UI','Trebuchet MS',Verdana,Helvetica,sans-serif;
+}
+
+#noesis_doc_wrap div.noesis_doc_content {
+    margin:auto;
+    width:900px;
+    padding:0;
+}
+
+#noesis_doc_wrap p, #noesis_doc_wrap div, #noesis_doc_wrap th, #noesis_doc_wrap td {
+    font:normal small 'Segoe UI','Trebuchet MS',Verdana,Helvetica,sans-serif;
+}
+
+
+#noesis_doc_wrap pre, #noesis_doc_wrap code, #noesis_doc_wrap tt {
+    font-family:Consolas,"Courier New",Courier,monospace;
+}
+
+#noesis_doc_wrap h1, #noesis_doc_wrap h2, #noesis_doc_wrap h3, #noesis_doc_wrap h4 {
+    border-bottom:1px solid #ccc;
+    font-family:Calibri,Arial,Helvetica,sans-serif;
+    font-weight:700;
+    letter-spacing:-.018em;
+}
+
+#noesis_doc_wrap h1 {
+    color:#000;
+    font-size:24px;
+    margin:1em 0 .5em;
+}
+
+#noesis_doc_wrap h2 {
+    border-bottom:1px dotted #ccc;
+    color:#444;
+    font-size:18px;
+    margin:1em 0 .5em;
+}
+
+#noesis_doc_wrap h3 {
+    border-bottom:0;
+    color:#666;
+    font-size:18px;
+    margin:1em 0 .5em;
+}
+
+#noesis_doc_wrap hr {
+    border:none;
+    border-top:1px solid #ccb;
+    margin:2em 0;
+}
+
+#noesis_doc_wrap p {
+    font-size:1.1em;
+    line-height:1.4em;
+    margin:0 0 1em;
+    text-align:justify;
+}
+
+#noesis_doc_wrap blockquote {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 40px;
+    -webkit-margin-end: 40px;
+}
+
+#noesis_doc_wrap ol {
+    padding-left: 40px;
+    margin: 0 1.5em 1em -0.5em;
+    text-align: justify;
+}
+
+#noesis_doc_wrap ul {
+    padding-left: 40px;
+    margin: 0 1.5em 1em -0.5em;
+    text-align: justify;
+}
+
+#noesis_doc_wrap li {
+	font-size:1.1em;
+	line-height:1.4em ;
+    margin-bottom:0.4em;
+}
+
+#noesisgui-changelog li {
+    margin-bottom:0;
+}
+
+#noesis_doc_wrap #tutorials li, #noesis_doc_wrap #documentation li {
+    margin-bottom:0;
+}
+
+#noesisgui-changelog li, #gui-animation-documentation li {
+    margin-bottom:0;
+}
+
+#noesis_doc_wrap img {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#noesis_doc_wrap td img {
+    margin:2px;
+}
+
+#noesis_doc_wrap img.noesis_doc_header_img {
+    margin:0;
+}
+
+#noesis_doc_wrap img.align-middle {
+    margin:0;
+    vertical-align: middle;
+    display: inline;
+}
+
+#noesis_doc_wrap img.align-left {
+    margin: 0px 20px 0px 0px;
+    float: left;
+}
+
+#noesis_doc_wrap img.align-right {
+    margin: 0px 0px 0px 20px;
+    float: right;
+}
+
+#noesis_doc_wrap div.clearer {
+    clear: both;
+}
+
+#noesis_doc_wrap table {
+    border:1px solid #999;
+    border-collapse:separate;
+    border-spacing:0;
+    border-width:0 1px 0 0;
+}
+
+#noesis_doc_wrap table thead th {
+    background:#999;
+    border:1px solid #999;
+    color:#fff;
+    font-weight:700;
+}
+
+#noesis_doc_wrap table td {
+    border:1px solid #ccc;
+    border-width:0 0 1px 1px;
+    padding:.3em;
+}
+
+#noesis_doc_wrap a, #noesis_doc_wrap a:link {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#noesis_doc_wrap :link, #noesis_doc_wrap :visited {
+    border-bottom:1px dotted #bbb;
+    color:#1D84BF;
+    text-decoration:none;
+}
+
+#noesis_doc_wrap :link:hover, #noesis_doc_wrap :visited:hover {
+    background-color:#e0efff;
+    color:#10649F;
+}
+
+#noesis_doc_wrap :link img, #noesis_doc_wrap  :visited img {
+    border:none;
+}
+
+#noesis_doc_wrap h1 :link, #noesis_doc_wrap h1 :visited,
+#noesis_doc_wrap h2 :link, #noesis_doc_wrap h2 :visited,
+#noesis_doc_wrap h3 :link, #noesis_doc_wrap h3 :visited,
+#noesis_doc_wrap h4 :link, #noesis_doc_wrap h4 :visited {
+    font-weight:bold;
+}
+
+#noesis_doc_wrap h1 :link, #noesis_doc_wrap h1 :visited,
+#noesis_doc_wrap h2 :link, #noesis_doc_wrap h2 :visited,
+#noesis_doc_wrap h3 :link, #noesis_doc_wrap h3 :visited,
+#noesis_doc_wrap h4 :link, #noesis_doc_wrap h4 :visited,
+#noesis_doc_wrap h5 :link, #noesis_doc_wrap h5 :visited,
+#noesis_doc_wrap h6 :link, #noesis_doc_wrap h6 :visited {
+    color:#000;
+}
+
+#noesis_doc_wrap #navigation {
+    background:#b00;
+    color:#fff;
+    font-size:90%;
+    margin:0 -20px;
+    padding:.2em .5em;
+    text-align:right;
+}
+
+#noesis_doc_wrap #navigation :link, #noesis_doc_wrap #navigation :visited {
+    border:none;
+    color:#fff;
+}
+
+#noesis_doc_wrap #navigation :link:hover, #noesis_doc_wrap #navigation :visited:hover {
+    background:#fff;
+    color:#b00;
+}
+
+#noesis_doc_wrap #navigation span.projinfo {
+    float:left;
+}
+
+#noesis_doc_wrap #footer {
+    border-top:1px solid #d7d7d7;
+    color:#666;
+    font-size:90%;
+    margin:8em -20px 0;
+    padding:.5em 0 2em;
+    text-align:center;
+}
+
+#noesis_doc_wrap #footer :link, #noesis_doc_wrap #footer :visited {
+    color:#666;
+}
+
+#noesis_doc_wrap div.document {
+    display:block;
+    left:0px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0 0px 0 0px;
+    position:relative;
+    text-align:left;
+    width:870px;
+}
+
+#noesis_doc_wrap img.headerimg {
+    height:0px;
+    margin:0px;
+}
+
+#noesis_doc_wrap div.headermenu {
+    font-size:small;
+    margin:0 0px;
+    padding:5px 15px;
+    text-align:right;
+}
+
+#noesis_doc_wrap div.footertext {
+    visibility:collapse;
+    color:#FFF;
+    font-family:Arial,Verdana,'Bitstream Vera Sans',Helvetica,sans-serif;
+    font-size:x-small;
+    line-height:10px;
+    text-align:center;
+}
+
+#noesis_doc_wrap a.headerlink {
+    border:none;
+    color:#666;
+}
+
+#noesis_doc_wrap a.headerlink:hover, #noesis_doc_wrap a.headerlink:visited:hover {
+    background:none;
+    border:none;
+    color:#10649F;
+    text-decoration:underline;
+}
+
+#noesis_doc_wrap div.contents {
+    bottom:0;
+    font-size:90%;
+    left:60em;
+    margin-left:81px;
+    overflow:auto;
+    overflow-x:hidden;
+    position:fixed;
+    right:0;
+    top:30px;
+    font-style:inherit;
+}
+
+#noesis_doc_wrap div.contents .topic-title {
+    display:none;
+}
+
+#noesis_doc_wrap div.contents ul {
+    list-style:none;
+    padding-left:0;
+}
+
+#noesis_doc_wrap div.contents .auto-toc :link, #noesis_doc_wrap div.contents .auto-toc :visited {
+    border:none;
+    color:#e9e9e9;
+    display:block;
+    font-weight:700;
+    padding:1px 5px 2px 10px;
+}
+
+#noesis_doc_wrap div.contents .auto-toc :link:hover, #noesis_doc_wrap div.contents .auto-toc :visited:hover {
+    background:#000;
+    color:#fff;
+}
+
+#noesis_doc_wrap div.contents .auto-toc .auto-toc :link, div.contents .auto-toc .auto-toc :visited {
+    color:#c6c6c6;
+    font-weight:400;
+}
+
+#noesis_doc_wrap h1.title, #noesis_doc_wrap div.document#preface h1 {
+    border:none;
+    color:#1E7FBC;
+    font-size:xx-large;
+    margin:0 -20px 20px;
+    padding:0px 20px 0;
+    text-align:center;
+}
+
+#noesis_doc_wrap h2.subtitle {
+    border-bottom:0;
+    color:#1D9DDB;
+    margin:10px 0 20px;
+    text-align:center;
+}
+
+#noesis_doc_wrap div.document#preface h1.title {
+    text-indent:-4000px;
+}
+
+#noesis_doc_wrap div.document#preface h1 {
+    text-align:center;
+}
+
+#noesis_doc_wrap pre.literal-block, #noesis_doc_wrap div.highlight pre {
+    background:#f4f4f4;
+    border:1px solid #e6e6e6;
+    color:#000;
+    margin:1em;
+    overflow:auto;
+    padding:.25em;
+    font-size:inherit;
+}
+
+#noesis_doc_wrap table.field-list {
+    border-collapse:collapse;
+}
+
+#noesis_doc_wrap table.field-list th.field-name {
+    color:#333;
+    font-weight:400;
+    text-align:right;
+}
+
+#noesis_doc_wrap table.field-list td {
+    border-width:1px;
+}
+
+#noesis_doc_wrap div.admonition, #noesis_doc_wrap div.attention,
+#noesis_doc_wrap div.caution, #noesis_doc_wrap div.danger,
+#noesis_doc_wrap div.error, #noesis_doc_wrap div.hint,
+#noesis_doc_wrap div.important, #noesis_doc_wrap div.note,
+#noesis_doc_wrap div.tip, #noesis_doc_wrap div.warning {
+    border:none;
+    color:#333;
+    font-style:italic;
+    margin:1em 2em;
+}
+
+#noesis_doc_wrap div.attention p.admonition-title,
+#noesis_doc_wrap div.caution p.admonition-title,
+#noesis_doc_wrap div.danger p.admonition-title,
+#noesis_doc_wrap div.error p.admonition-title,
+#noesis_doc_wrap div.warning p.admonition-title {
+    color:#b00;
+}
+
+#noesis_doc_wrap p.admonition-title {
+    margin-bottom:0;
+    text-transform:uppercase;
+}
+
+#noesis_doc_wrap tt.docutils {
+    background-color:transparent;
+}
+
+#noesis_doc_wrap span.pre {
+    white-space:normal;
+}
+
+#noesis_doc_wrap div.section {
+    margin-left:1.5em;
+}
+
+#noesis_doc_wrap div.section div.section {
+    margin-bottom:2em;
+    margin-left:0;
+}
+
+#noesis_doc_wrap div.section div.section div.section {
+    margin-bottom:0;
+}
+
+#noesis_doc_wrap div.headerbg, #noesis_doc_wrap div.footerbg {
+    margin:0 0px;
+}
+
+#noesis_doc_wrap div.section h1,
+#noesis_doc_wrap div.section h2 {
+    margin-left:-.5em;
+}
+
+#noesis_doc_wrap div.section h3 {
+    margin-left:0;
+}
+
+#noesis_doc_wrap div.admonition, #noesis_doc_wrap div.warning {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 1em 0 1em 0;
+    border: 1px solid #86989B;
+    border-radius: 2px;
+    background-color: #f7f7f7;
+    padding: 0;
+}
+
+#noesis_doc_wrap div.admonition p, #noesis_doc_wrap div.warning p {
+    margin: 0.5em 1em 0.5em 1em;
+    padding: 0;
+    font-style: italic;
+}
+
+#noesis_doc_wrap div.admonition pre, #noesis_doc_wrap div.warning pre {
+    margin: 0.4em 1em 0.4em 1em;
+}
+
+#noesis_doc_wrap div.admonition p.admonition-title,
+#noesis_doc_wrap div.warning p.admonition-title {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    font-weight: bold;
+}
+
+#noesis_doc_wrap div.admonition p.last {
+    padding-bottom: 0.5em;
+}
+
+#noesis_doc_wrap div.admonition blockquote.last {
+    padding-bottom: 0.5em;
+}
+
+#noesis_doc_wrap div.warning {
+    border: 1px solid #940000;
+    background-color: #FFCCCF;
+}
+
+#noesis_doc_wrap div.warning p.admonition-title {
+}
+
+#noesis_doc_wrap div.admonition ul, #noesis_doc_wrap div.admonition ol,
+#noesis_doc_wrap div.warning ul, #noesis_doc_wrap div.warning ol {
+    margin: 0.1em 0.5em 0.5em 3em;
+    padding: 0;
+}
+
+#noesis_doc_wrap .noesis_doc_header_bg {
+    background-color:#162633;
+}
+
+#noesis_doc_wrap .noesis_doc_header_menu {
+    text-align: right;
+    padding:8px 30px 12px 30px;
+    margin:0 0 20px 0;
+    background-color:#196d97;
+    background: -webkit-linear-gradient(#196d97, #134e66); /* For Safari */
+    background: -o-linear-gradient(#196d97, #134e66); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#196d97, #134e66); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#196d97, #134e66); /* Standard syntax */
+}
+
+#noesis_doc_wrap a.noesis_doc_header_link {
+    font-weight:normal;
+    font-size:0.9em;
+    color:#85b7cc;
+    text-decoration:underline;
+    border:0;
+}
+
+#noesis_doc_wrap a.noesis_doc_header_link:hover, #noesis_doc_wrap a.noesis_doc_header_link:visited:hover {
+    color:#fff;
+    background:none;
+    text-decoration:underline;
+}
+
+#noesis_doc_wrap .noesis_doc_footer_text {
+    color:white;
+    text-align:center;
+    padding-top:16px;
+    padding-bottom:16px;
+    font-size:0.85em;
+    font-family:sans-serif;
+}

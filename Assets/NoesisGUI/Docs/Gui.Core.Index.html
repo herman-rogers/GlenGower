@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Welcome to NoesisGUI!</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="welcome-to-noesisgui-version">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Welcome to noesisGUI v1.2.0!</h1>
+
+<img alt="logo.png" class="align-left" src="logo.png" />
+<p>This document describes how to use noesisGUI and how to start familiarizing yourself with the <strong>XAML</strong> format. XAML is a declarative XML-based language created by Microsoft that is used in several technologies like Windows Presentation Foundation (WPF), Silverlight, Windows Store apps and Windows Phone apps. NoesisGUI is a multiplatform graphical user interface middleware for realtime applications that <em>understands</em> XAML. Thanks to that, professional tools like Blend can be used to design your interfaces.</p>
+<p>You can view the <a class="reference external" href="Gui.Core.Changelog.html">changelog</a> for this and past versions.</p>
+<div class="section" id="class-hierarchy">
+<h1>Class Hierarchy</h1>
+<p>The indexed reference of framework classes is located in the <a class="reference external" href="Gui.Core._ClassHierarchy.html">class hierarchy list</a>. This index can be used to discover what parts of XAML are implemented or not by noesisGUI. Within the documentation of each class supported events, properties and methods are documentes.</p>
+</div>
+<div class="section" id="tutorials">
+<h1>Tutorials</h1>
+<p>Although there is plenty of documentation on the <a class="reference external" href="http://www.google.com/#q=XAML+introduction">internet covering XAML</a>, the first steps you should perform to familiarize yourself with noesisGUI is reading the following tutorials we have prepared.</p>
+<div class="section" id="common-tutorials">
+<h2>Common Tutorials</h2>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core.XamlIntroduction.html">Tutorial 1: A quick guide to XAML</a></li>
+<li><a class="reference external" href="Gui.Core.ShapesTutorial.html">Tutorial 2: Rendering shapes</a></li>
+<li><a class="reference external" href="Gui.Core.ImagesTutorial.html">Tutorial 3: Images</a></li>
+<li><a class="reference external" href="Gui.Core.TextTutorial.html">Tutorial 4: Text</a></li>
+<li><a class="reference external" href="Gui.Core.AnimationTutorial.html">Tutorial 5: Animation</a></li>
+<li><a class="reference external" href="Gui.Core.LayoutPanelTutorial.html">Tutorial 6: Layout &amp; Panels</a></li>
+<li><a class="reference external" href="Gui.Core.StylingTutorial.html">Tutorial 7: Applying styles and templates</a></li>
+<li><a class="reference external" href="Gui.Core.TouchTutorial.html">Tutorial 8: Touch and Manipulation</a></li>
+</ul>
+</div>
+<div class="section" id="native-tutorials">
+<h2>Native Tutorials</h2>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core.FirstSteps.html">Tutorial 1: First steps with NoesisGUI</a></li>
+<li><a class="reference external" href="Gui.Core.ExtendingTutorial.html">Tutorial 2: Extending NoesisGUI</a></li>
+<li><a class="reference external" href="Gui.Core.CommandsTutorial.html">Tutorial 3: Commands</a></li>
+<li><a class="reference external" href="Gui.Core.BindingsTutorial.html">Tutorial 4: Bindings</a></li>
+<li><a class="reference external" href="Gui.Core.UserControlTutorial.html">Tutorial 5: UserControl example</a></li>
+<li><a class="reference external" href="Gui.Core.CustomControlTutorial.html">Tutorial 6: CustomControl example</a></li>
+<li><a class="reference external" href="Gui.Core.ApplicationTutorial.html">Tutorial 7: Building an application</a></li>
+<li><a class="reference external" href="Gui.Core.SDKGuide.html">Tutorial 8: Integrating NoesisGUI in your application</a></li>
+<li><a class="reference external" href="Gui.Core.BlendTutorial.html">Tutorial 9: Using Microsoft Blend with NoesisGUI</a></li>
+<li><a class="reference external" href="Gui.Core.Ogre3DTutorial.html">Tutorial 10: OGRE3D Integration Tutorial</a></li>
+<li><a class="reference external" href="Gui.Core.OpenSceneGraphTutorial.html">Tutorial 11: OpenSceneGraph Integration Tutorial</a></li>
+</ul>
+</div>
+<div class="section" id="unity-tutorials">
+<h2>Unity Tutorials</h2>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core.Unity3DTutorial.html">Tutorial 1: First steps with NoesisGUI in Unity</a></li>
+<li><a class="reference external" href="Gui.Core.ExtendingTutorial.unity.html">Tutorial 2: Extending NoesisGUI (Unity)</a></li>
+<li><a class="reference external" href="Gui.Core.CommandsTutorial.unity.html">Tutorial 3: Commands (Unity)</a></li>
+<li><a class="reference external" href="Gui.Core.UserControlTutorial.unity.html">Tutorial 4: UserControl example</a></li>
+<li><a class="reference external" href="Gui.Core.BlendTutorial.unity.html">Tutorial 5: First contact with Blend</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="documentation">
+<h1>Documentation</h1>
+<div class="section" id="generic-documentation">
+<h2>Generic Documentation</h2>
+<ul class="simple">
+<li><a class="reference external" href="Resource.BuildTool.BuildTool.html">BuildTool</a></li>
+<li><a class="reference external" href="Gui.Core.Optimizing.html">Optimizing NoesisGUI Performance</a></li>
+</ul>
+</div>
+<div class="section" id="architecture-documentation">
+<h2>Architecture Documentation</h2>
+<p>The following links will guide you trough reference documentation covering internal details on the NoesisGUI architecture:</p>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core.Architecture.html">Architecture</a></li>
+<li>Native Architecture Concepts:</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="Core.Kernel.MemoryManager.html">Memory Management</a></li>
+<li><a class="reference external" href="Core.Kernel.ComponentReferenceCounting.html">Reference Counting</a></li>
+<li><a class="reference external" href="Core.Kernel.ComponentSmartPointer.html">Smart Pointers</a></li>
+<li><a class="reference external" href="Core.Kernel.ComponentBoxing.html">Boxing and Unboxing</a></li>
+<li><a class="reference external" href="Core.Kernel.Delegates.html">Delegates</a></li>
+<li><a class="reference external" href="Core.Kernel.ReflectionType.html">Type Reflection Model</a></li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li><a class="reference external" href="Gui.DependencySystem.Index.html">Dependency System</a></li>
+<li><a class="reference external" href="Gui.Core.ElementTree.html">Element Tree</a></li>
+<li><a class="reference external" href="Gui.Core.Events.html">Events</a></li>
+<li><a class="reference external" href="Gui.Core.MarkupExtensions.html">Markup Extensions</a></li>
+<li><a class="reference external" href="Gui.Core.Binding.html">Binding</a></li>
+<li><a class="reference external" href="Gui.Core.Nullable.html">Nullables</a></li>
+<li><a class="reference external" href="Gui.Core.Resources.html">Resources</a></li>
+<li><a class="reference external" href="Gui.Core.Styles.html">Styles and Templates</a></li>
+<li><a class="reference external" href="Gui.Core.CustomControls.html">Custom Controls</a></li>
+<li><a class="reference external" href="Gui.Animation.Index.html">Animation</a></li>
+</ul>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

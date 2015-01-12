@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Using Command Buffers</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="using-command-buffers">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Using Command Buffers</h1>
+
+<p>All the operations that the RenderSystem send to the graphic device are managed using CommandBuffers. A CommandBuffer is a powerful abstraction where graphic actions are stored in a optimal format to be executed later. This is something very similar to display lists in OpenGL. Instead of sending shaders, states and primitives to the driver, you compile all these commands to a CommandBuffer that can be applied later.</p>
+<p>CommandBuffers offer two main advantages:</p>
+<ul class="simple">
+<li>CommandBuffers creation are thread-safe. Several command buffers can be created in parallel threads. Of course, the execution of the CommandBuffer must be done in the main thread. This allows for interesting scenarios. For example you could generate several shadow maps in different threads. When the CommandBuffers are already generated you send them synchronously to the RenderSystem with the Apply() method.</li>
+<li>A CommandBuffer can be implemented very efficiently in each platform. Applying a command buffer is a lot faster that passing through a generic interface abstracting a generic decive.</li>
+</ul>
+<div class="section" id="how-to-use-command-buffers">
+<h1>How to use Command Buffers</h1>
+<p>Command Buffers are created through the IRenderSystem::CreateCommandBuffer method. The Command Buffer object provides all the method that are needed to display primitives.</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// CommandBuffer</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">NS_RENDER_RENDERSYSTEM_API</span> <span class="n">CommandBuffer</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Constructor</span>
+    <span class="n">CommandBuffer</span><span class="p">();</span>
+    <span class="c1">/// Destructor</span>
+    <span class="o">~</span><span class="n">CommandBuffer</span><span class="p">();</span>
+
+    <span class="c1">/// Clears the command buffer</span>
+    <span class="kt">void</span> <span class="nf">Reset</span><span class="p">();</span>
+
+    <span class="c1">/// Adds another command buffer</span>
+    <span class="kt">void</span> <span class="nf">Append</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">CommandBuffer</span><span class="o">&gt;</span> <span class="n">commands</span><span class="p">);</span>
+
+    <span class="c1">/// Clears the current RenderTarget and DepthStencil</span>
+    <span class="c1">/// \param clearColor Clear the render target</span>
+    <span class="c1">/// \param color Clear the render target to this ARGB color</span>
+    <span class="c1">/// \param clearZ Clear the depth buffer</span>
+    <span class="c1">/// \param z Clear the depth buffer to this new z value which ranges from 0 to 1</span>
+    <span class="c1">/// \param clearStenil Clear the stencil buffer</span>
+    <span class="c1">/// \param stencil Clear the stencil buffer to this new value which ranges from 0 to 2n - 1</span>
+    <span class="c1">///                (n is the bit depth of the stencil buffer).</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Clear</span><span class="p">(</span><span class="n">NsBool</span> <span class="n">clearColor</span><span class="p">,</span> <span class="n">NsUInt</span> <span class="n">color</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">clearZ</span><span class="p">,</span> <span class="n">NsFloat32</span> <span class="n">z</span><span class="p">,</span>
+        <span class="n">NsBool</span> <span class="n">clearStencil</span><span class="p">,</span> <span class="n">NsUInt</span> <span class="n">stencil</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Sets a new set of render targets</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetColorBuffer</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">color0</span><span class="p">,</span>
+                                <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">color1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">color2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">color3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Set a depth-stencil resource</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetDepthBuffer</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">depth</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Resolves a render target to a texture</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Resolve</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;&amp;</span> <span class="n">renderTarget</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Apply a shader</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetShader</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IShader</span><span class="o">&gt;&amp;</span> <span class="n">shader</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">technique</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">pass</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Apply a constant buffer</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetConstantBuffer</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IConstantBuffer</span><span class="o">&gt;&amp;</span> <span class="n">cBuffer</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Apply a vertex source</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetVertices</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IVertexSource</span><span class="o">&gt;&amp;</span> <span class="n">vertices</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Apply a index buffer</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetIndices</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIndexBuffer</span><span class="o">&gt;&amp;</span> <span class="n">indices</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Renders the specified geometric primitive</span>
+    <span class="c1">/// \param primitiveType Type of primitive to render</span>
+    <span class="c1">/// \param startVertexLocation Index of the first vertex</span>
+    <span class="c1">/// \param numVertices Number of vertices to draw</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Draw</span><span class="p">(</span><span class="n">PrimitiveType</span> <span class="n">primitiveType</span><span class="p">,</span> <span class="n">NsInt32</span> <span class="n">startVertexLocation</span><span class="p">,</span>
+        <span class="n">NsUInt32</span> <span class="n">numVertices</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Renders the specified geometric primitive</span>
+    <span class="c1">/// \param primitiveType Type of primitive to render</span>
+    <span class="c1">/// \param baseVertexIndex Offset from the start of the vertex buffer to the first vertex</span>
+    <span class="c1">/// \param minIndex Minimum vertex index for vertices used during this call. This is a zero</span>
+    <span class="c1">///        based index relative to baseVertexIndex</span>
+    <span class="c1">///// \param numVertices Number of vertices used during this call. The first vertex is located</span>
+    <span class="c1">/////        at index: baseVertexIndex + minIndex</span>
+    <span class="c1">/// \param startIndex Index of the first index</span>
+    <span class="c1">/// \param numIndices Number of indices to draw</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">DrawIndexed</span><span class="p">(</span><span class="n">PrimitiveType</span> <span class="n">primitiveType</span><span class="p">,</span> <span class="n">NsInt32</span> <span class="n">baseVertexIndex</span><span class="p">,</span>
+        <span class="n">NsUInt32</span> <span class="n">minIndex</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">numVertices</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">startIndex</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">numIndices</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// Copy the content of the back-buffer renderview to the front buffer of the associated window</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Swap</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderView</span><span class="o">&gt;&amp;</span> <span class="n">renderView</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<p>What follows is a simple example that generate a command buffer that draw in the current active rendertarget a triangle list using the current shader.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">BuildCommandBuffer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderSystem</span><span class="o">&gt;</span> <span class="n">renderSystem</span> <span class="o">=</span> <span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetSystem</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;RenderSystem&quot;</span><span class="p">));</span>
+    <span class="n">mCommandBuffer</span> <span class="o">=</span> <span class="n">renderSystem</span><span class="o">-&gt;</span><span class="n">CreateCommandBuffer</span><span class="p">();</span>
+
+    <span class="n">mCommandBuffer</span><span class="o">-&gt;</span><span class="n">SetVertices</span><span class="p">(</span><span class="n">meshData</span><span class="o">-&gt;</span><span class="n">mVertexSource</span><span class="p">);</span>
+    <span class="n">mCommandBuffer</span><span class="o">-&gt;</span><span class="n">SetIndices</span><span class="p">(</span><span class="n">meshData</span><span class="o">-&gt;</span><span class="n">mIndexBuffer</span><span class="p">);</span>
+
+    <span class="n">mCommandBuffer</span><span class="o">-&gt;</span><span class="n">DrawIndexed</span><span class="p">(</span><span class="n">PrimitiveType_TriangleList</span><span class="p">,</span> <span class="n">baseVertexIndex</span><span class="p">,</span> <span class="n">minIndex</span><span class="p">,</span> <span class="n">numVertices</span><span class="p">,</span>
+        <span class="n">startIndex</span><span class="p">,</span> <span class="n">numIndices</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Introduction to NoesisEngine</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="introduction-to-noesis-engine">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Introduction to Noesis Engine</h1>
+
+<p>Developing 3D real time applications is harder each time. The technology advances exponentially as we have faster machines. Noesis Engine was created to tackle that problem and create a network that can hide the technical problems and allows focusing in the final application.</p>
+<p>Noesis Engine is a platform oriented toward developing 3D real time content. Although its component based architecture allows for using Noesis Engine in other areas. Noesis Engine is structured in two layers. The first one, the low-level one, is implemented in C++ and it is designed to be extensible. The second one, the high-level layer, is implemented using Python. This part is still under development. You can think as the C++ layer as and 3D Real Time Operating System giving services to the Python layer.</p>
+<p>What follows is an enumeration of the main features provided by Noesis Engine.</p>
+<div class="section" id="component-based-architecture">
+<h1>Component Based Architecture</h1>
+<img alt="lego.jpg" src="lego.jpg" />
+<p>Noesis Engine follows the philosophy of using small blocks to construct software. Those blocks are assembled very similar to Lego pieces that combine to create new forms.</p>
+<p>The smaller building block in Noesis is the <a class="reference external" href="Core.Kernel.Package.html">package</a>. A package is a set of files under the same directory. It is a physical association (same directory) and a logical association (all the files inside the package are related). All the packages are located in the packages directory inside the SDK. Examples or packages are: Kernel, DX9RenderSystem, Mesh, etc.</p>
+<p>Each package is associated to other packages by dependencies. A package depends on other package if it needs it to work. For example, the DX9RenderSystem package depends on the Kernel package to work. This way all the packages under Noesis form a dependency graph.</p>
+<p>This dependency system allows for creating the exact package set that is needed to build each application.</p>
+<p><a class="reference external" href="Core.Kernel.NSToolkit.html">NSToolkit</a> is the tool in charge of managing packages: checks dependencies, view installed packages, build packages, etc.</p>
+</div>
+<div class="section" id="a-network-of-packages">
+<h1>A network of packages</h1>
+<p>Noesis Engine try to avoid the problem of reinventing the wheel. Its organic structure allows for incorporating external packages that are already solving a specific problem.</p>
+<p>So, and if the licensees are compatible, external third parties are incorporated to Noesis Engine creating a thin layer that ensures the proper integration of external work.</p>
+<p>Examples of third parties being used in Noesis Engine are Python, Expat, FCollada, etc.</p>
+</div>
+<div class="section" id="customizable-by-the-client">
+<h1>Customizable by the client</h1>
+<p>The term client is used here as an application using Noesis Engine Technology.</p>
+<p>A Noesis Engine client can select the exact packages that will fit its requirements. For example, if I am interested in building a terrain simulator using Noesis Engine I select the root packages I am interested in and the automatic dependency system will gather for me all the packages that I will need. That client will be isolated from the rest of the evolution of Noesis as he is only interested in a subset. The set of packages needed for an application is denominated a distribution.</p>
+</div>
+<div class="section" id="an-extensible-platform">
+<h1>An extensible platform</h1>
+<p>Noesis Engine packages are built using components and interfaces. Using interfaces the implementations are isolated from the public API. This way, each package can be replaced by a new implementation if the interface is respected. This allows for clients substituting those packages by new ones that are better for its domain.</p>
+<p>This extensibility feature of Noesis Engine is the one that allows using Noesis Engine in a a lot of different domains.</p>
+</div>
+<div class="section" id="source-code-oriented">
+<h1>Source Code Oriented</h1>
+<p>Noesis Engine is distributed with source code and with the proper building scripts for each platform (makefiles, vcproj, etc). Each client can tweak how to compile its distribution to better fit its platform.</p>
+</div>
+<div class="section" id="multi-platform">
+<h1>Multi-platform</h1>
+<p>Noesis Engine is designed to be multi-platform. Although at the beginning all the efforts are concentrated in Windows XP and Windows Vista.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

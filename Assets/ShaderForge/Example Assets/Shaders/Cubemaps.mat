@@ -2,17 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 4
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Cubemaps
   m_Shader: {fileID: 4800000, guid: c069feb6b57a37644b0203037181b1d1, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
+      data:
+        first:
+          name: _Specular
+        second:
+          m_Texture: {fileID: 2800000, guid: 26c22711225093d47bd4f1294ca52131, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _Normal
@@ -22,9 +29,9 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Specular
+          name: _node2
         second:
-          m_Texture: {fileID: 2800000, guid: 26c22711225093d47bd4f1294ca52131, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -57,20 +64,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _node2
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _node3
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _node1
         second:
           m_Texture: {fileID: 0}
@@ -81,6 +74,13 @@ Material:
           name: _node_4
         second:
           m_Texture: {fileID: 2800000, guid: 80286949e259c2d44876306923857245, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node3
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:

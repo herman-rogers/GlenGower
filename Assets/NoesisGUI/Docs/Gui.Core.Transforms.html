@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Transforms</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="transforms">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Transforms</h1>
+
+<p>Transformation support for drawing objects</p>
+<div class="section" id="transform">
+<h1>Transform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.transform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.transform.aspx</a></p>
+<img alt="http://i.msdn.microsoft.com/ms635585.wcpsdk_graphicsmm_rotatetransform45degrees(en-us,VS.100).gif" src="http://i.msdn.microsoft.com/ms635585.wcpsdk_graphicsmm_rotatetransform45degrees(en-us,VS.100).gif" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Parse</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TransformBounds</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TryTransform</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="3%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Identity</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Inverse</td>
+<td>No</td>
+<td>Similar result can be obtained calling Inverse() to GetTransform() result</td>
+</tr>
+<tr><td>Value</td>
+<td>No</td>
+<td>Renamed to GetTransform, to be implemented in derived classes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="matrixtransform">
+<h1>MatrixTransform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.matrixtransform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.matrixtransform.aspx</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>MatrixProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rotatetransform">
+<h1>RotateTransform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.rotatetransform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.rotatetransform.aspx</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AngleProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CenterXProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CenterYProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="scaletransform">
+<h1>ScaleTransform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.scaletransform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.scaletransform.aspx</a></p>
+<img alt="http://i.msdn.microsoft.com/ms635521.wcpsdk_graphicsmm_scalecenter(en-us,VS.100).gif" src="http://i.msdn.microsoft.com/ms635521.wcpsdk_graphicsmm_scalecenter(en-us,VS.100).gif" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>CenterXProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CenterYProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ScaleXProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ScaleYProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="skewtransform">
+<h1>SkewTransform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.skewtransform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.skewtransform.aspx</a></p>
+<img alt="http://i.msdn.microsoft.com/ms635527.img_wcpsdk_graphicsmm_skewtransformexample(en-us,VS.100).gif" src="http://i.msdn.microsoft.com/ms635527.img_wcpsdk_graphicsmm_skewtransformexample(en-us,VS.100).gif" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AngleXProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>AngleYProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CenterXProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CenterYProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="transformgroup">
+<h1>TransformGroup</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.transformgroup.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.transformgroup.aspx</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ChildrenProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="translatetransform">
+<h1>TranslateTransform</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.media.translatetransform.aspx">http://msdn.microsoft.com/en-us/library/system.windows.media.translatetransform.aspx</a></p>
+<img alt="http://i.msdn.microsoft.com/ms635609.translate_matrix(en-us,VS.100).gif" src="http://i.msdn.microsoft.com/ms635609.translate_matrix(en-us,VS.100).gif" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Clone</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CloneCurrentValue</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>XProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>YProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

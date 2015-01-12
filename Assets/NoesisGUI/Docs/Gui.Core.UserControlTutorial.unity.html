@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: UserControl Unity Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="usercontrol-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">UserControl Tutorial</h1>
+
+<p>No modern presentation framework would be complete without the ability to create your own reusable controls. If no existing control has a programmatic interface that naturally represents your concept, go ahead and create a user control or custom control.</p>
+<p><strong>User controls</strong> can be seen as a composition of existing controls. They contain a logical tree defining its look and tend to have logic that directly interacts with these child elements.</p>
+<div class="section" id="interface-creation">
+<h1>Interface Creation</h1>
+<p>To implement a UserControl we need a xaml describing the visual aspect and a class implementing the behavior. For this tutorial we are going to implement a Color picker inspired by the implementation found at <a class="reference external" href="http://colorpicker.com/">http://colorpicker.com/</a>.</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">x:Class=</span><span class="s">&quot;Sample.ColorPicker&quot;</span>
+  <span class="na">UseLayoutRounding=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;UserControl.Resources&gt;</span>
+    <span class="nt">&lt;Style</span> <span class="na">x:Key=</span><span class="s">&quot;SpectrumSliderButtonStyle&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type RepeatButton}&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;OverridesDefaultStyle&quot;</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;UseLayoutRounding&quot;</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;IsTabStop&quot;</span> <span class="na">Value=</span><span class="s">&quot;False&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Focusable&quot;</span> <span class="na">Value=</span><span class="s">&quot;False&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;ClickMode&quot;</span> <span class="na">Value=</span><span class="s">&quot;Press&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Delay&quot;</span> <span class="na">Value=</span><span class="s">&quot;250&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Interval&quot;</span> <span class="na">Value=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Template&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Setter.Value&gt;</span>
+          <span class="nt">&lt;ControlTemplate</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type RepeatButton}&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Border</span> <span class="na">Background=</span><span class="s">&quot;Transparent&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/ControlTemplate&gt;</span>
+        <span class="nt">&lt;/Setter.Value&gt;</span>
+      <span class="nt">&lt;/Setter&gt;</span>
+    <span class="nt">&lt;/Style&gt;</span>
+    <span class="nt">&lt;ControlTemplate</span> <span class="na">x:Key=</span><span class="s">&quot;SpectrumSliderThumbTemplate&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Thumb}&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Grid</span> <span class="na">Background=</span><span class="s">&quot;Transparent&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+          <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;*&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;20&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;*&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+        <span class="nt">&lt;Path</span> <span class="na">Grid.Column=</span><span class="s">&quot;0&quot;</span> <span class="na">Data=</span><span class="s">&quot;M0,0L8,5 0,10z&quot;</span> <span class="na">Fill=</span><span class="s">&quot;Black&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Path</span> <span class="na">Grid.Column=</span><span class="s">&quot;2&quot;</span> <span class="na">Data=</span><span class="s">&quot;M8,0L0,5 8,10z&quot;</span> <span class="na">Fill=</span><span class="s">&quot;Black&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/Grid&gt;</span>
+    <span class="nt">&lt;/ControlTemplate&gt;</span>
+    <span class="nt">&lt;ControlTemplate</span> <span class="na">x:Key=</span><span class="s">&quot;SpectrumSliderTemplate&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Slider}&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Grid&gt;</span>
+        <span class="nt">&lt;Rectangle</span> <span class="na">StrokeThickness=</span><span class="s">&quot;1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#000000&quot;</span> <span class="na">Width=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;Rectangle.Fill&gt;</span>
+            <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;0.5, 0&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;0.5, 1&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FFFF0000&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FFFF00FF&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.1666666&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF0000FF&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.3333333&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF00FFFF&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.5&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FF00FF00&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.6666666&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FFFFFF00&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.8333333&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;#FFFF0000&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+          <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+        <span class="nt">&lt;/Rectangle&gt;</span>
+        <span class="nt">&lt;Track</span> <span class="na">x:Name=</span><span class="s">&quot;PART_Track&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;Track.Thumb&gt;</span>
+            <span class="nt">&lt;Thumb</span> <span class="na">Template=</span><span class="s">&quot;{StaticResource SpectrumSliderThumbTemplate}&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,-4&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/Track.Thumb&gt;</span>
+          <span class="nt">&lt;Track.DecreaseRepeatButton&gt;</span>
+            <span class="nt">&lt;RepeatButton</span> <span class="na">Style=</span><span class="s">&quot;{StaticResource SpectrumSliderButtonStyle}&quot;</span> <span class="na">Command=</span><span class="s">&quot;Slider.DecreaseLarge&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/Track.DecreaseRepeatButton&gt;</span>
+          <span class="nt">&lt;Track.IncreaseRepeatButton&gt;</span>
+            <span class="nt">&lt;RepeatButton</span> <span class="na">Style=</span><span class="s">&quot;{StaticResource SpectrumSliderButtonStyle}&quot;</span> <span class="na">Command=</span><span class="s">&quot;Slider.IncreaseLarge&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/Track.IncreaseRepeatButton&gt;</span>
+        <span class="nt">&lt;/Track&gt;</span>
+      <span class="nt">&lt;/Grid&gt;</span>
+    <span class="nt">&lt;/ControlTemplate&gt;</span>
+  <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+  <span class="nt">&lt;Grid</span> <span class="na">Background=</span><span class="s">&quot;Gray&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+      <span class="nt">&lt;RowDefinition</span> <span class="na">Height=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;RowDefinition</span> <span class="na">Height=</span><span class="s">&quot;*&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+
+    <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+      <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;*&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+
+    <span class="c">&lt;!-- Color selected --&gt;</span>
+    <span class="nt">&lt;Grid</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span> <span class="na">Grid.ColumnSpan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">&quot;Horizontal&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">x:Name=</span><span class="s">&quot;Text&quot;</span> <span class="na">FontSize=</span><span class="s">&quot;15&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Width =</span> <span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;50&quot;</span> <span class="na">Height=</span><span class="s">&quot;50&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#000000&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;Rectangle.Fill&gt;</span>
+            <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Name=</span><span class="s">&quot;Color&quot;</span> <span class="na">Color=</span><span class="s">&quot;#FF0000&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+        <span class="nt">&lt;/Rectangle&gt;</span>
+      <span class="nt">&lt;/StackPanel&gt;</span>
+    <span class="nt">&lt;/Grid&gt;</span>
+
+    <span class="c">&lt;!-- Picker --&gt;</span>
+    <span class="nt">&lt;Grid</span> <span class="na">x:Name=</span><span class="s">&quot;HS&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Rectangle&gt;</span>
+        <span class="nt">&lt;Rectangle.Fill&gt;</span>
+          <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;0,1&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;0,0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;White&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">x:Name=</span><span class="s">&quot;Stop&quot;</span> <span class="na">Color=</span><span class="s">&quot;Red&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+        <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+      <span class="nt">&lt;/Rectangle&gt;</span>
+      <span class="nt">&lt;Rectangle</span> <span class="na">StrokeThickness=</span><span class="s">&quot;1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#000000&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Rectangle.Fill&gt;</span>
+          <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;1,0&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;0,0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">Offset=</span><span class="s">&quot;0&quot;</span> <span class="na">Color=</span><span class="s">&quot;#00000000&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span> <span class="na">Color=</span><span class="s">&quot;#FF000000&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+        <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+      <span class="nt">&lt;/Rectangle&gt;</span>
+
+      <span class="nt">&lt;Canvas</span> <span class="na">Height=</span><span class="s">&quot;12&quot;</span> <span class="na">Width=</span><span class="s">&quot;12&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span>  <span class="na">ClipToBounds=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Canvas.RenderTransform&gt;</span>
+          <span class="nt">&lt;TranslateTransform</span> <span class="na">x:Name=</span><span class="s">&quot;PickerTransform&quot;</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Canvas.RenderTransform&gt;</span>
+        <span class="nt">&lt;Grid&gt;</span>
+          <span class="nt">&lt;Ellipse</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">Width=</span><span class="s">&quot;12&quot;</span> <span class="na">Height=</span><span class="s">&quot;12&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;Ellipse</span> <span class="na">Stroke=</span><span class="s">&quot;White&quot;</span> <span class="na">Width=</span><span class="s">&quot;10&quot;</span> <span class="na">Height=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Grid&gt;</span>
+      <span class="nt">&lt;/Canvas&gt;</span>
+
+    <span class="nt">&lt;/Grid&gt;</span>
+
+    <span class="c">&lt;!-- Spectrum --&gt;</span>
+    <span class="nt">&lt;Grid</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Slider</span> <span class="na">x:Name=</span><span class="s">&quot;Slider&quot;</span> <span class="na">Orientation=</span><span class="s">&quot;Vertical&quot;</span> <span class="na">IsMoveToPointEnabled=</span><span class="s">&quot;True&quot;</span> <span class="na">Minimum=</span><span class="s">&quot;0&quot;</span> <span class="na">Maximum=</span><span class="s">&quot;360&quot;</span>
+        <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="na">Template=</span><span class="s">&quot;{StaticResource SpectrumSliderTemplate}&quot;</span> <span class="na">Margin=</span><span class="s">&quot;5,0&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Grid&gt;</span>
+
+  <span class="nt">&lt;/Grid&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>The attribute <strong>x:Name</strong> indicates the class that implements the <strong>code-behind</strong>. The implementation follows the steps in the <a class="reference external" href="Gui.Core.ExtendingTutorial.unity.html">tutorial</a> that describes how to extend NoesisGUI. The unique new detail here, apart from deriving from UserControl, is the class <strong>attribute</strong> UserControlSource. This attribute indicates the XAML file that will be loaded when this user control is initialized. Note that <em>OnPostInit()</em> is the correct place to cache nodes from the xaml and interact with the tree. This method is invoked just after the xaml has been loaded.</p>
+<div class="highlight"><pre><span class="k">using</span> <span class="nn">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Sample</span>
+<span class="p">{</span>
+
+<span class="na">[Noesis.Extended]</span>
+<span class="na">[Noesis.UserControlSource(&quot;Assets/Test/ColorPicker.xaml&quot;)]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ColorPicker</span> <span class="p">:</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">UserControl</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">DependencyProperty</span> <span class="n">ColorProperty</span> <span class="p">=</span> <span class="n">DependencyProperty</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="s">&quot;Color&quot;</span><span class="p">,</span>
+        <span class="k">typeof</span><span class="p">(</span><span class="n">SolidColorBrush</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">ColorPicker</span><span class="p">),</span> <span class="k">new</span> <span class="n">PropertyMetadata</span><span class="p">(</span><span class="k">null</span><span class="p">));</span>
+
+    <span class="k">public</span> <span class="n">SolidColorBrush</span> <span class="n">Color</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">GetValue</span><span class="p">&lt;</span><span class="n">SolidColorBrush</span><span class="p">&gt;(</span><span class="n">ColorProperty</span><span class="p">);</span> <span class="p">}</span>
+        <span class="k">set</span> <span class="p">{</span> <span class="n">SetValue</span><span class="p">&lt;</span><span class="n">SolidColorBrush</span><span class="p">&gt;(</span><span class="n">ColorProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnPostInit</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">_spectrum</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">Slider</span><span class="p">&gt;(</span><span class="s">&quot;Slider&quot;</span><span class="p">);</span>
+        <span class="n">_hs</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">FrameworkElement</span><span class="p">&gt;(</span><span class="s">&quot;HS&quot;</span><span class="p">);</span>
+        <span class="n">_pickerTransform</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">TranslateTransform</span><span class="p">&gt;(</span><span class="s">&quot;PickerTransform&quot;</span><span class="p">);</span>
+        <span class="n">_text</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">TextBlock</span><span class="p">&gt;(</span><span class="s">&quot;Text&quot;</span><span class="p">);</span>
+        <span class="n">_color</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">SolidColorBrush</span><span class="p">&gt;(</span><span class="s">&quot;Color&quot;</span><span class="p">);</span>
+        <span class="n">_stop</span> <span class="p">=</span> <span class="n">FindName</span><span class="p">&lt;</span><span class="n">GradientStop</span><span class="p">&gt;(</span><span class="s">&quot;Stop&quot;</span><span class="p">);</span>
+
+        <span class="n">_spectrum</span><span class="p">.</span><span class="n">ValueChanged</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnSpectrumChange</span><span class="p">;</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">MouseLeftButtonDown</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseLeftButtonDown</span><span class="p">;</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">MouseLeftButtonUp</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseLeftButtonUp</span><span class="p">;</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">MouseMove</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnMouseMove</span><span class="p">;</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">SizeChanged</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnSizeChanged</span><span class="p">;</span>
+
+        <span class="n">_hue</span> <span class="p">=</span> <span class="m">0.0f</span><span class="p">;</span>
+        <span class="n">_saturation</span> <span class="p">=</span> <span class="m">0.5f</span><span class="p">;</span>
+        <span class="n">_value</span> <span class="p">=</span> <span class="m">0.5f</span><span class="p">;</span>
+
+        <span class="n">Update</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnSpectrumChange</span><span class="p">(</span><span class="kt">float</span> <span class="n">oldValue</span><span class="p">,</span> <span class="kt">float</span> <span class="n">newValue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_hue</span> <span class="p">=</span> <span class="n">newValue</span><span class="p">;</span>
+        <span class="n">_stop</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">HSVToColor</span><span class="p">(</span><span class="n">_hue</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">));</span>
+        <span class="n">Update</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnMouseLeftButtonDown</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">c</span><span class="p">,</span> <span class="n">MouseButtonEventArgs</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Focus</span><span class="p">();</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">CaptureMouse</span><span class="p">();</span>
+        <span class="n">Noesis</span><span class="p">.</span><span class="n">Point</span> <span class="n">p</span> <span class="p">=</span> <span class="n">_hs</span><span class="p">.</span><span class="n">PointFromScreen</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+        <span class="n">UpdatePickerPosition</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnMouseLeftButtonUp</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">c</span><span class="p">,</span> <span class="n">MouseButtonEventArgs</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_hs</span><span class="p">.</span><span class="n">ReleaseMouseCapture</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnMouseMove</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">c</span><span class="p">,</span> <span class="n">MouseEventArgs</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_hs</span><span class="p">.</span><span class="n">GetIsMouseCaptured</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">Noesis</span><span class="p">.</span><span class="n">Point</span> <span class="n">p</span> <span class="p">=</span> <span class="n">_hs</span><span class="p">.</span><span class="n">PointFromScreen</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+            <span class="n">UpdatePickerPosition</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnSizeChanged</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">c</span><span class="p">,</span> <span class="n">SizeChangedEventArgs</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Noesis</span><span class="p">.</span><span class="n">Size</span> <span class="n">size</span> <span class="p">=</span> <span class="n">args</span><span class="p">.</span><span class="n">sizeChangedInfo</span><span class="p">.</span><span class="n">newSize</span><span class="p">;</span>
+        <span class="n">_pickerTransform</span><span class="p">.</span><span class="n">SetX</span><span class="p">(</span><span class="n">_value</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="p">-</span> <span class="m">0.5f</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">);</span>
+        <span class="n">_pickerTransform</span><span class="p">.</span><span class="n">SetY</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="p">-</span> <span class="n">_saturation</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="p">-</span> <span class="m">0.5f</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">UpdatePickerPosition</span><span class="p">(</span><span class="n">Noesis</span><span class="p">.</span><span class="n">Point</span> <span class="n">pos</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Noesis</span><span class="p">.</span><span class="n">Size</span> <span class="n">size</span> <span class="p">=</span> <span class="n">_hs</span><span class="p">.</span><span class="n">GetRenderSize</span><span class="p">();</span>
+
+        <span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="m">0.0f</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">));</span>
+        <span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="m">0.0f</span><span class="p">,</span> <span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
+
+        <span class="n">_pickerTransform</span><span class="p">.</span><span class="n">SetX</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="m">0.5f</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">);</span>
+        <span class="n">_pickerTransform</span><span class="p">.</span><span class="n">SetY</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="m">0.5f</span> <span class="p">*</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+
+        <span class="n">_value</span> <span class="p">=</span> <span class="n">pos</span><span class="p">.</span><span class="n">x</span> <span class="p">/</span> <span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">;</span>
+        <span class="n">_saturation</span> <span class="p">=</span> <span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="p">-</span> <span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">/</span> <span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+
+        <span class="n">Update</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">Update</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span> <span class="n">color</span> <span class="p">=</span> <span class="n">HSVToColor</span><span class="p">(</span><span class="n">_hue</span><span class="p">,</span> <span class="n">_saturation</span><span class="p">,</span> <span class="n">_value</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">red</span> <span class="p">=</span> <span class="n">color</span><span class="p">.</span><span class="n">GetRedI</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">green</span> <span class="p">=</span> <span class="n">color</span><span class="p">.</span><span class="n">GetGreenI</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">blue</span> <span class="p">=</span> <span class="n">color</span><span class="p">.</span><span class="n">GetBlueI</span><span class="p">();</span>
+        <span class="n">_text</span><span class="p">.</span><span class="n">SetText</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;#{0:X2}{1:X2}{2:X2}&quot;</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">));</span>
+        <span class="n">_color</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+        <span class="n">Color</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SolidColorBrush</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span> <span class="n">HSVToColor</span><span class="p">(</span><span class="kt">float</span> <span class="n">hue</span><span class="p">,</span> <span class="kt">float</span> <span class="n">saturation</span><span class="p">,</span> <span class="kt">float</span> <span class="k">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">float</span> <span class="n">chroma</span> <span class="p">=</span> <span class="k">value</span> <span class="p">*</span> <span class="n">saturation</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">hueTag</span> <span class="p">=</span> <span class="p">(</span><span class="n">hue</span> <span class="p">%</span> <span class="m">360</span><span class="p">)</span> <span class="p">/</span> <span class="m">60</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">x</span> <span class="p">=</span> <span class="n">chroma</span> <span class="p">*</span> <span class="p">(</span><span class="m">1</span> <span class="p">-</span> <span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">hueTag</span> <span class="p">%</span> <span class="m">2.0f</span> <span class="p">-</span> <span class="m">1</span><span class="p">));</span>
+        <span class="kt">float</span> <span class="n">m</span> <span class="p">=</span> <span class="k">value</span> <span class="p">-</span> <span class="n">chroma</span><span class="p">;</span>
+
+        <span class="k">switch</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">hueTag</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="m">0</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">case</span> <span class="m">3</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">case</span> <span class="m">4</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">default</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">Color</span><span class="p">(</span><span class="n">chroma</span> <span class="p">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">+</span> <span class="n">m</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="n">Slider</span> <span class="n">_spectrum</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">FrameworkElement</span> <span class="n">_hs</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">TranslateTransform</span> <span class="n">_pickerTransform</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">TextBlock</span> <span class="n">_text</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">SolidColorBrush</span> <span class="n">_color</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">GradientStop</span> <span class="n">_stop</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">_hue</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">_saturation</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">_value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+<img alt="UserControlTutorialImg3.jpg" src="UserControlTutorialImg3.jpg" />
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

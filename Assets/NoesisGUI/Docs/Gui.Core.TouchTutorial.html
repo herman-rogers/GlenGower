@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Touch and Manipulation Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="touch-and-manipulation-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Touch and Manipulation Tutorial</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="Touch.zip">Tutorial Data</a></p>
+<p>NoesisGUI enables having user interfaces that receive multiple touches simultaneously. A <strong>touch</strong> is a type of user input generated by putting fingers on a touch-sensitive screen. You can manage touch events in NoesisGUI at three different levels that are explained in the following sections: <em>Native Controls</em>, <em>Touch Events</em> and <em>Manipulation Events</em>.</p>
+<p>In NoeisGUI, if a touch event is not handled, it is <strong>promoted</strong> to a mouse event.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">NOTE</p>
+<p class="last">Multi-touch events are only available in touch devices compatible with NoesisGUi: iOS, Android and Windows 8 for now.</p>
+</div>
+<div class="section" id="native-controls">
+<h1>Native Controls</h1>
+<p>The <a class="reference external" href="Gui.Core._ScrollViewer.html">ScrollViewer</a> defines the <strong>ScrollViewer.PanningMode</strong> attached property that enables you to specify whether touch panning is enabled horizontally, vertically, both, or neither. The <strong>ScrollViewer.PanningDeceleration</strong> property specifies how quickly the scrolling slows down when the user lifts the finger from the touchscreen. The <strong>ScrollViewer.PanningRatio</strong> attached property specifies the ratio of scrolling offset to translate manipulation offset.</p>
+<p>PanningMode can be either set <em>directly</em> on a ScrollViewer or used as an <em>attached property</em>. When a control contains a ScrollViewer in its ControlTemplate, use ScrollViewer.PanningMode as an attached property to specify the behavior of the ScrollViewer in the ControlTemplate. When you use a ScrollViewer outside of a ControlTemplate, set PanningMode directly on the ScrollViewer.</p>
+<p>The following example creates a ScrollViewer and adds several buttons to it. The example sets PanningMode to Both so that the user can scroll the ScrollViewer horizontally and vertically by using a finger.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;ScrollViewer</span> <span class="na">HorizontalScrollBarVisibility=</span><span class="s">&quot;Auto&quot;</span> <span class="na">Height=</span><span class="s">&quot;250&quot;</span> <span class="na">Width=</span><span class="s">&quot;125&quot;</span> <span class="na">PanningMode=</span><span class="s">&quot;Both&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;StackPanel&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+        <span class="nt">&lt;Button</span> <span class="na">Width=</span><span class="s">&quot;150&quot;</span> <span class="na">Height=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>Push me if you dare<span class="nt">&lt;/Button&gt;</span>
+      <span class="nt">&lt;/StackPanel&gt;</span>
+    <span class="nt">&lt;/ScrollViewer&gt;</span>
+
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>The following example creates a TextBox and uses ScrollViewer.PanningMode as an attached property.  The example sets PanningMode to VerticalOnly. This is so that when the user moves a finger horizontally before moving it vertically, the user highlights text.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;TextBox</span> <span class="na">Height=</span><span class="s">&quot;300&quot;</span> <span class="na">Width=</span><span class="s">&quot;300&quot;</span> <span class="na">Name=</span><span class="s">&quot;textBox1&quot;</span> <span class="na">TextWrapping=</span><span class="s">&quot;Wrap&quot;</span>
+    <span class="na">IsReadOnly=</span><span class="s">&quot;True&quot;</span>
+    <span class="na">ScrollViewer.PanningMode=</span><span class="s">&quot;VerticalOnly&quot;</span>
+    <span class="na">ScrollViewer.VerticalScrollBarVisibility=</span><span class="s">&quot;Auto&quot;</span>
+    <span class="na">ScrollViewer.HorizontalScrollBarVisibility=</span><span class="s">&quot;Auto&quot;</span><span class="nt">&gt;</span>
+
+      Hello world 1 Hello world 2 Hello world 3 Hello world 4 Hello world 5
+      Hello world 6 Hello world 7 Hello world 8 Hello world 9 Hello world 10
+      Hello world 11 Hello world 12 Hello world 13 Hello world 14 Hello world 15
+      Hello world 16 Hello world 17 Hello world 18 Hello world 19 Hello world 20
+      Hello world 21 Hello world 22 Hello world 23 Hello world 24 Hello world 25
+      Hello world 26 Hello world 27 Hello world 28 Hello world 29 Hello world 30
+      Hello world 31 Hello world 32 Hello world 33 Hello world 34 Hello world 35
+      Hello world 36 Hello world 37 Hello world 38 Hello world 39 Hello world 40
+      Hello world 41 Hello world 42 Hello world 43 Hello world 44 Hello world 45
+      Hello world 46 Hello world 47 Hello world 48 Hello world 49 Hello world 50
+      Hello world 51 Hello world 52 Hello world 53 Hello world 54 Hello world 55
+      Hello world 56 Hello world 57 Hello world 58 Hello world 59 Hello world 60
+      Hello world 61 Hello world 62 Hello world 63 Hello world 64 Hello world 65
+      Hello world 66 Hello world 67 Hello world 68 Hello world 69 Hello world 70
+      Hello world 71 Hello world 72 Hello world 73 Hello world 74 Hello world 75
+      Hello world 76 Hello world 77 Hello world 78 Hello world 79 Hello world 80
+      Hello world 81 Hello world 82 Hello world 83 Hello world 84 Hello world 85
+      Hello world 86 Hello world 87 Hello world 88 Hello world 89 Hello world 90
+      Hello world 91 Hello world 92 Hello world 93 Hello world 94 Hello world 95
+      Hello world 96 Hello world 97 Hello world 98 Hello world 99 Hello world 100
+      Hello world 101 Hello world 102 Hello world 103 Hello world 104 Hello world 105
+      Hello world 106 Hello world 107 Hello world 108 Hello world 109 Hello world 110
+      Hello world 111 Hello world 112 Hello world 113 Hello world 114 Hello world 115
+      Hello world 116 Hello world 117 Hello world 118 Hello world 119 Hello world 120
+      Hello world 121 Hello world 122 Hello world 123 Hello world 124 Hello world 125
+      Hello world 126 Hello world 127 Hello world 128 Hello world 129 Hello world 130
+      Hello world 131 Hello world 132 Hello world 133 Hello world 134 Hello world 135
+      Hello world 136 Hello world 137 Hello world 138 Hello world 139 Hello world 140
+      Hello world 141 Hello world 142 Hello world 143 Hello world 144 Hello world 145
+      Hello world 146 Hello world 147 Hello world 148 Hello world 149 Hello world 150
+      Hello world 151 Hello world 152 Hello world 153 Hello world 154 Hello world 155
+      Hello world 156 Hello world 157 Hello world 158 Hello world 159 Hello world 160
+      Hello world 161 Hello world 162 Hello world 163 Hello world 164 Hello world 165
+      Hello world 166 Hello world 167 Hello world 168 Hello world 169 Hello world 170
+      Hello world 171 Hello world 172 Hello world 173 Hello world 174 Hello world 175
+      Hello world 176 Hello world 177 Hello world 178 Hello world 179 Hello world 180
+      Hello world 181 Hello world 182 Hello world 183 Hello world 184 Hello world 185
+      Hello world 186 Hello world 187 Hello world 188 Hello world 189 Hello world 190
+      Hello world 191 Hello world 192 Hello world 193 Hello world 194 Hello world 195
+      Hello world 196 Hello world 197 Hello world 198 Hello world 199 Hello world 200
+  <span class="nt">&lt;/TextBox&gt;</span>
+
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="touch-events">
+<h1>Touch Events</h1>
+<p><a class="reference external" href="Gui.Core._UIElement.html">UIElement</a> defines the following events that you can subscribe to so your application will respond to touch:</p>
+<ul class="simple">
+<li>TouchDown</li>
+<li>TouchMove</li>
+<li>TouchUp</li>
+<li>TouchEnter</li>
+<li>TouchLeave</li>
+<li>PreviewTouchDown</li>
+<li>PreviewTouchMove</li>
+<li>PreviewTouchUp</li>
+<li>GotTouchCapture</li>
+<li>LostTouchCapture</li>
+</ul>
+<p>Note that the coordinates of each touch are given in screen space. The method <em>Visual::PointFromScreen</em> must be used to convert them to local coordinates.</p>
+<p>Like keyboard and mouse events, the touch events are <strong>routed</strong> events. The events that begin with Preview are <strong>tunneling</strong> events and the events that begin with Touch are <strong>bubbling</strong> events. The sequence is as follows:</p>
+<ul class="simple">
+<li>The TouchEnter event occurs one time when the user puts a finger on the element.</li>
+<li>The TouchDown event occurs one time.</li>
+<li>The TouchMove event occurs multiple times as the user moves the finger within the element.</li>
+<li>The TouchUp event occurs one time when the user lifts the finger from the element.</li>
+<li>The TouchLeave event occurs one time.</li>
+</ul>
+<p>When more than two fingers are used, the events occur for each finger.</p>
+</div>
+<div class="section" id="manipulation-events">
+<h1>Manipulation Events</h1>
+<p>For cases where an application enables a user to manipulate an object, the <a class="reference external" href="Gui.Core._UIElement.html">UIElement</a> class defines manipulation events. Unlike the touch events that simply report the position of touch, the manipulation events report how the input can be interpreted. There are three types of manipulations: <em>translation</em>, <em>expansion</em>, and <em>rotation</em>. The following list describes how to invoke the three types of manipulations:</p>
+<ul class="simple">
+<li>Put a finger on an object and move the finger across the touchscreen to invoke a translation manipulation. This <strong>moves</strong> the object.</li>
+<li>Put two fingers on an object and move the fingers closer together or farther apart from one another to invoke an expansion manipulation. This <strong>resizes</strong> the object.</li>
+<li>Put two fingers on an object and rotate the fingers around each other to invoke a rotation manipulation. This <strong>rotates</strong> the object.</li>
+</ul>
+<p>The UIElement defines the following manipulation <strong>routed</strong> events:</p>
+<ul class="simple">
+<li>ManipulationStarting</li>
+<li>ManipulationStarted</li>
+<li>ManipulationDelta</li>
+<li>ManipulationInertiaStarting</li>
+<li>ManipulationCompleted</li>
+</ul>
+<p>By default, these manipulation events are not generated. To receive manipulation events on an UIElement, set the dependency property <strong>IsManipulationEnabled</strong> to true in the xaml or by code.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">NOTE</p>
+<p class="last">The manipulation logic does not generate manipulation events if TouchDown events are consumed (handled member set to True)</p>
+</div>
+<div class="section" id="manipulationstarting">
+<h2>ManipulationStarting</h2>
+<p>The ManipulationStarting event occurs when the user places a finger on the object. Among other things, this event allows you to set the <em>ManipulationContainer</em> property. In the subsequent events, the position of the manipulation will be relative to this ManipulationContainer. You can also set the Mode** property to indicate the types of manipulations that are possible (Translate, Rotate, Scale).</p>
+</div>
+<div class="section" id="manipulationstarted">
+<h2>ManipulationStarted</h2>
+<p>The ManipulationStarted event occurs next to ManipulationStarting. This event reports the origin of the manipulation.</p>
+</div>
+<div class="section" id="manipulationdelta">
+<h2>ManipulationDelta</h2>
+<p>The ManipulationDelta event occurs multiple times as a user's fingers move on a touchscreen. The DeltaManipulation property of the ManipulationDeltaEventArgs class reports whether the manipulation is interpreted as movement, expansion, or translation. This is where you perform most of the work of manipulating an object. Note that ManipulationDelta occurs before and after the ManipulationInertiaStarting event. The field <em>ManipulationDeltaEventArgs.isInertial</em> property reports whether the ManipulationDelta event occurs during <strong>inertia</strong>, so you can check that property and perform different actions, depending on its value.</p>
+</div>
+<div class="section" id="manipulationinertiastarting">
+<h2>ManipulationInertiaStarting</h2>
+<p>The ManipulationInertiaStarting event occurs when the user's fingers lose contact with the object. This event enables you to specify the <strong>deceleration</strong> of the manipulations during inertia. This is so your object can emulate different physical spaces or attributes if you choose. For example, suppose your application has two objects that represent items in the physical world, and one is heavier than the other. You can make the heavier object decelerate faster than the lighter object.</p>
+</div>
+<div class="section" id="manipulationcompleted">
+<h2>ManipulationCompleted</h2>
+<p>The ManipulationCompleted event occurs when the manipulation and any inertia ends. That is, after all the ManipulationDelta events occur, the ManipulationCompleted event occurs to signal that the manipulation is complete.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">NOTE</p>
+<p class="last">You can cancel the manipulation by setting the <strong>cancel</strong> member on the event arguments in any manipulation event. When set to True, the manipulation events are no longer raised and mouse events occur for the canceled manipulation.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sample">
+<h1>Sample</h1>
+<div class="section" id="native-sdk">
+<h2>Native SDK</h2>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">x:Class=</span><span class="s">&quot;MyTouch&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;Canvas&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;Red&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span> <span class="na">RenderTransform=</span><span class="s">&quot;1 0 0 1 50 50&quot;</span> <span class="na">IsManipulationEnabled=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;Blue&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span> <span class="na">RenderTransform=</span><span class="s">&quot;1 0 0 1 200 300&quot;</span> <span class="na">IsManipulationEnabled=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Canvas&gt;</span>
+
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+<span class="cp">#include &lt;NsGui/MatrixTransform.h&gt;</span>
+<span class="cp">#include &lt;NsGui/Grid.h&gt;</span>
+<span class="cp">#include &lt;NsMath/Transform.h&gt;</span>
+<span class="cp">#include &lt;NsMath/Constants.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Math</span><span class="p">;</span>
+
+
+<span class="k">class</span> <span class="nc">MyTouch</span><span class="o">:</span> <span class="k">public</span> <span class="n">Grid</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">OnManipulationInertiaStarting</span><span class="p">(</span><span class="k">const</span> <span class="n">ManipulationInertiaStartingEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredTranslationDeceleration</span> <span class="o">=</span> <span class="mf">100.0f</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1000.0f</span> <span class="o">*</span> <span class="mf">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredRotationDeceleration</span> <span class="o">=</span> <span class="mf">360.0f</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1000.0f</span> <span class="o">*</span> <span class="mf">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredExpansionDeceleration</span> <span class="o">=</span> <span class="mf">300.0f</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1000.0f</span> <span class="o">*</span> <span class="mf">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">OnManipulationDelta</span><span class="p">(</span><span class="k">const</span> <span class="n">ManipulationDeltaEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">UIElement</span><span class="o">*</span> <span class="n">rectangle</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">UIElement</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">source</span><span class="p">);</span>
+        <span class="n">MatrixTransform</span><span class="o">*</span> <span class="n">tr</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">MatrixTransform</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">rectangle</span><span class="o">-&gt;</span><span class="n">GetRenderTransform</span><span class="p">());</span>
+        <span class="n">Transform2f</span> <span class="n">matrix</span> <span class="o">=</span> <span class="n">tr</span><span class="o">-&gt;</span><span class="n">GetMatrix</span><span class="p">();</span>
+
+        <span class="n">matrix</span><span class="p">.</span><span class="n">RotateAt</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">rotation</span> <span class="o">*</span> <span class="n">DegToRad_f</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">ScaleAt</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">scale</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">scale</span><span class="p">,</span>
+            <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">Translate</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+        <span class="n">tr</span><span class="o">-&gt;</span><span class="n">SetMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+     <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">MyTouch</span><span class="p">,</span> <span class="n">Grid</span><span class="p">)</span>
+     <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyTouch&quot;</span><span class="p">);</span>
+     <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">MyTouch</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="unity">
+<h2>Unity</h2>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;Canvas&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;Red&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span> <span class="na">RenderTransform=</span><span class="s">&quot;1 0 0 1 50 50&quot;</span> <span class="na">IsManipulationEnabled=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;Blue&quot;</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span> <span class="na">RenderTransform=</span><span class="s">&quot;1 0 0 1 200 300&quot;</span> <span class="na">IsManipulationEnabled=</span><span class="s">&quot;True&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Canvas&gt;</span>
+
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Noesis</span><span class="p">;</span>
+
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Touch</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Grid</span> <span class="n">root_</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">root_</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NoesisGUIPanel</span><span class="p">&gt;().</span><span class="n">GetRoot</span><span class="p">&lt;</span><span class="n">Grid</span><span class="p">&gt;();</span>
+        <span class="n">root_</span><span class="p">.</span><span class="n">ManipulationInertiaStarting</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">ManipulationInertiaStarting</span><span class="p">;</span>
+        <span class="n">root_</span><span class="p">.</span><span class="n">ManipulationDelta</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">ManipulationDelta</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">ManipulationInertiaStarting</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ManipulationInertiaStartingEventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredTranslationDeceleration</span> <span class="p">=</span> <span class="m">100.0f</span> <span class="p">/</span> <span class="p">(</span><span class="m">1000.0f</span> <span class="p">*</span> <span class="m">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredRotationDeceleration</span> <span class="p">=</span> <span class="m">360.0f</span> <span class="p">/</span> <span class="p">(</span><span class="m">1000.0f</span> <span class="p">*</span> <span class="m">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">desiredExpansionDeceleration</span> <span class="p">=</span> <span class="m">300.0f</span> <span class="p">/</span> <span class="p">(</span><span class="m">1000.0f</span> <span class="p">*</span> <span class="m">1000.0f</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">handled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">ManipulationDelta</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">sender</span><span class="p">,</span> <span class="n">ManipulationDeltaEventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Rectangle</span> <span class="n">rectangle</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">source</span><span class="p">.</span><span class="n">As</span><span class="p">&lt;</span><span class="n">Rectangle</span><span class="p">&gt;();</span>
+        <span class="n">MatrixTransform</span> <span class="n">transform</span> <span class="p">=</span> <span class="n">rectangle</span><span class="p">.</span><span class="n">GetRenderTransform</span><span class="p">().</span><span class="n">As</span><span class="p">&lt;</span><span class="n">MatrixTransform</span><span class="p">&gt;();</span>
+        <span class="n">Transform2f</span> <span class="n">matrix</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Transform2f</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">GetMatrix</span><span class="p">());</span>
+
+        <span class="kt">float</span> <span class="n">rotation</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">rotation</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">originX</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">originY</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">manipulationOrigin</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">scale</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">scale</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">translationX</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">translationY</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">deltaManipulation</span><span class="p">.</span><span class="n">translation</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+        <span class="n">matrix</span><span class="p">.</span><span class="n">RotateAt</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="n">originX</span><span class="p">,</span> <span class="n">originY</span><span class="p">);</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">ScaleAt</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">originX</span><span class="p">,</span> <span class="n">originY</span><span class="p">);</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">Translate</span><span class="p">(</span><span class="n">translationX</span><span class="p">,</span> <span class="n">translationY</span><span class="p">);</span>
+
+        <span class="n">transform</span><span class="p">.</span><span class="n">SetMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+        <span class="n">e</span><span class="p">.</span><span class="n">handled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

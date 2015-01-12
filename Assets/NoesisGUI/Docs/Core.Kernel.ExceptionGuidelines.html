@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Exception Guidelines</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+
+
+<div class="highlight"><pre><span class="n">Pendiende</span> <span class="n">de</span> <span class="n">revision</span> <span class="n">y</span> <span class="n">de</span> <span class="n">ser</span> <span class="n">pasado</span> <span class="n">a</span> <span class="n">ingles</span><span class="p">.</span> <span class="n">Solo</span> <span class="n">como</span> <span class="n">recordatorio</span><span class="p">.</span>
+</pre></div>
+<p>NoesisEngine incorpora un mecanismo de gestion de errores que emplea excepciones en aquellas compilaciones de trabajo normal y emplea mecanismos menos sofisticados para aquellas compilaciones en las que la sobrecarga que conllevan las excepciones no son admisibles.</p>
+<p>Ninguna de las funciones de la API de NoesisEngine emplea un valor devuelto (bool, ErrCode) para notificar de un error interno de la API. El comportamiento normal de una funcion es que funcione correctamente (y lo hara asi la gran mayoria de las veces) y por tanto no es necesario chequear frente a un codigo de error devuelto. Esto deja un codigo mucho mas limpio, sin montones de ifs chequeando errores.</p>
+<p>En las versiones de desarrollo donde las funciones generan excepciones hay que tener en cuenta los siguientes aspectos importante:</p>
+<ul class="simple">
+<li>Una funcion generara una exception cuando no pueda llevar a cabo lo que su nombre debe expresar de una manera clara (por ejemplo, FileOpen() debera abrir un fichero si no puede, notiticara mediante una excepcion)</li>
+<li>Cualquier excepcion generada por una funcion se considera un <strong>Bug</strong> y debe ser arreglado lo antes posible. Si la excepcion vino de un codigo con bug (como por ejemplo un acceso de memoria fuera de rango) se arreglara. Si la excepcion se produjo por otro motivo, la API debe dar la funcionalidad adecuada para que la excepcion pueda ser evitada (Por ejemplo, hacer un FileOpen() de un fichero que no exixte, reportara error. La API debe proporcionar el correspondiente ExistFile() que nos indica si un fichero exixte o no. Hay que decir que no es necesario llamar a la funcion ExistFile() siempre antes de un OpenFile() (si no, esta ya lo haria automaticamente) solo en aquellos casos en los que el fichero que se intenta abrir puede que no exista)</li>
+<li>Aquellas funciones que por cuestiones de eficiencia no generen excepciones empezaran su nombre por Try. En estas funciones se permite devolver un Bool o un ErrCode que informe sobre el estado de la operacion (Por ejemplo, si fuera muy ineficiente (habria que demostrarlo) llamas a ExistFile y OpenFile, la API expondria una funcion del tipo TryOpenFile que nunca devolveria excepcion con respecto a la operacion que se espera que realice con el nombre que tiene. Por supuesto puede generar excepciones debido a otros motivos. Por ejemplo TryFileOpen podria devolver una excepcion en caso de quedarse sin memoria)</li>
+<li>Como la generacion de excepciones se considera un bug no se debe usar zonas de codigo que absorban silenciosamente excepciones. Las excepciones generadas deben ser siempre notificadas claramente para que puedan ser arregladas. En algunas circustancias especiales, se permite capturar excepciones, por ejemplo, una Tool para evitar que el usuario pierda el trabajo que no esta grabado, puede dar la oportunidad de grabar los datos antes de propagar el error hacia fuera</li>
+<li>Debido a las caracteristicas del sistema de excepciones descrito arriba. El modelo de gestion de errores de NoesisEngine puede prescindir de excepciones en aquellas compilaciones especialmente criticas y convertir la generacion de errores en un exit(0) (o incluso una excepcion pero sin desenrrollado de pila). Esto deja un codigo totalmente libre de la pequena ineficiencia que un sistema de excepciones incorpora.</li>
+<li>Queda por documentar el conjunto de marcas definidas para el sistema de errores de NoesisEngine. Hace falta funcionalidad para lanzar un error, capturar un error, refinar un error (anadir informacion extra al capturarlo y volverlo a lanzar), convertir un error a assert, convertir un error a warning.</li>
+</ul>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

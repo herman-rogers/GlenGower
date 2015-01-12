@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Kernel Modules</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="kernel-modules">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Kernel Modules</h1>
+
+<p>As described in <a class="reference external" href="Core.Kernel.SDKLayers.html">SDKLayer</a>, kernel modules are implemented inside Core/Kernel. Their lifetime is managed by the kernel itself. The list of modules that are initialized by the kernel is statically defined.</p>
+<div class="section" id="configmanager">
+<h1>ConfigManager</h1>
+<p>ConfigManager is the kernel module used to configure the entire engine (kernel modules, kernel systems and applications).</p>
+<p>ConfigManager is filled with the entries grouped in sections of one or more .ini files located in the /Config application directory. Now, Kernel looks for 2 files with the same name of application EXE file but ending with .ini and .local.ini (for example, if exe file is /Bin/MyApp.exe, then config files are /Config/MyApp.ini and /Config/MyApp.local.ini). If application name includes project configuration name, then it is removed (for example, if exe file is /Bin/Debug.Core.Tester.exe, then config files are /Config/Core.Tester.ini and /Config/Core.Tester.local.ini). Entries in the .local.ini file will have more priority because are applied after the application config file.</p>
+<p>The section name must be simple C identifiers, or a list of C identifers separated by dots:</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Section1</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Section2</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Section2</span><span class="p">.</span><span class="n">Sub1</span><span class="p">]</span>
+<span class="p">[</span><span class="n">Section2</span><span class="p">.</span><span class="n">Sub2</span><span class="p">]</span>
+</pre></div>
+<p>Valid entry values are: basic values, composite values and list values</p>
+<ul>
+<li><p class="first"><strong>Basic type values:</strong> integers, floats, bools or quoted strings</p>
+<div class="highlight"><pre><span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="n">v4</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span>
+</pre></div>
+</li>
+<li><p class="first"><strong>Composite values:</strong> a composite value is formed by more value entries enclosed by curly braces and separated by commas. This introduces recursion, because a sub-value can also be any type of accepted values.</p>
+<div class="highlight"><pre><span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.5</span><span class="p">}</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;Hello World&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">{</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">}}</span>
+</pre></div>
+</li>
+<li><p class="first"><strong>List values:</strong> a list values is formed by more values enclosed by braces and separated by commas. This also introduces recursion.</p>
+<div class="highlight"><pre><span class="n">v1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="p">[{</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="nb">false</span><span class="p">},</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</li>
+</ul>
+<p>Comments in the config file correspond to lines beginning with ';'.</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Section</span><span class="p">]</span>
+<span class="p">;</span> <span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">comment</span> <span class="n">in</span> <span class="n">a</span> <span class="n">config</span> <span class="n">file</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+<p>ConfigManager usage is simple, just ask for a section, and for a value inside.</p>
+<div class="highlight"><pre><span class="n">ConfigManager</span><span class="o">*</span> <span class="n">cfg</span> <span class="o">=</span> <span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetMemoryManager</span><span class="p">();</span>
+
+<span class="c1">// get section</span>
+<span class="k">const</span> <span class="n">ConfigSection</span><span class="o">*</span> <span class="n">section</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">-&gt;</span><span class="n">GetSection</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Section1&quot;</span><span class="p">));</span>
+
+<span class="c1">// basic values</span>
+<span class="n">NsInt</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">section</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;v1&quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsInt</span><span class="p">();</span>
+
+<span class="c1">// complex values</span>
+<span class="k">const</span> <span class="n">ConfigValueComposite</span><span class="o">*</span> <span class="n">val</span> <span class="o">=</span> <span class="n">section</span><span class="o">-&gt;</span><span class="n">GetCompositeValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;v2&quot;</span><span class="p">));</span>
+<span class="n">Vector2f</span> <span class="nf">pos</span><span class="p">(</span><span class="n">val</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsFloat</span><span class="p">(),</span> <span class="n">val</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsFloat</span><span class="p">());</span>
+
+<span class="c1">// list values</span>
+<span class="k">const</span> <span class="n">ConfigValueList</span><span class="o">*</span> <span class="n">val</span> <span class="o">=</span> <span class="n">section</span><span class="o">-&gt;</span><span class="n">GetListValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;v3&quot;</span><span class="p">));</span>
+<span class="n">NsSize</span> <span class="n">numVals</span> <span class="o">=</span> <span class="n">val</span><span class="o">-&gt;</span><span class="n">GetNumVals</span><span class="p">();</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">NsSize</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numVals</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">indices</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">val</span><span class="o">-&gt;</span><span class="n">GetValue</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">AsInt</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+<p>It exists a NsConfig.h header file that makes access to ConfigManager values easier.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;NsCore/NsConfig.h&gt;</span>
+
+<span class="c1">// get a basic value, creating the corresponding entry with the default value if it didn&#39;t exist</span>
+<span class="n">NsInt</span> <span class="n">serverPort</span> <span class="o">=</span> <span class="n">NsConfigValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Core.Logger&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;ServerPort&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;9000&quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsInt</span><span class="p">();</span>
+
+<span class="c1">// get a value from a composite value</span>
+<span class="n">NsInt</span> <span class="n">alpha</span> <span class="o">=</span>
+    <span class="n">NsConfigSubValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Cognition.Viewport&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Background&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;255&quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsInt</span><span class="p">();</span>
+
+<span class="c1">// get a value from a list value</span>
+<span class="n">NsString</span> <span class="n">key</span> <span class="o">=</span> <span class="n">NsConfigListValue</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;InputSystem&quot;</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Bindings&quot;</span><span class="p">),</span> <span class="n">index</span><span class="p">,</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">AsString</span><span class="p">();</span>
+</pre></div>
+<p>There are console commands to dump ConfigManager sections and their entries:</p>
+<ul class="simple">
+<li><strong>Kernel.DumpConfig</strong></li>
+</ul>
+<pre class="literal-block">
+ConfigManager Sections
+------------------------------------------------------------------
+&gt; [Core.Logger]
+  ServerAddress = &quot;127.0.0.1&quot;
+  ServerPort = 9000
+&gt; [Core.MemoryManager]
+  BreakOnId = -1
+  CallStackDepth = 10
+  StoreCallStack = true
+  TrackMemory = true
+</pre>
+<ul class="simple">
+<li><strong>Kernel.DumpConfigSection</strong> <em>sectionName</em></li>
+</ul>
+<pre class="literal-block">
+ConfigManager Section
+------------------------------------------------------------------
+&gt; [Core.Logger]
+  ServerAddress = &quot;127.0.0.1&quot;
+  ServerPort = 9000
+</pre>
+</div>
+<div class="section" id="logger">
+<h1>Logger</h1>
+<p>Logger is the kernel module used to trace messages. Current implementation connects with a remote console to send log messages.</p>
+<p>The use of this kernel module is done through preprocessor macros implemented in <em>LoggerMacros.h</em>. This way, the traces can be disabled in specific configurations. There are four possible log levels: <em>Info</em>, <em>Warning</em>, <em>Critical</em> and <em>Debug</em>.</p>
+<div class="highlight"><pre><span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Registered %d objects&quot;</span><span class="p">),</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">...</span>
+<span class="n">NS_WARNING</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Parameter has a value out of range&quot;</span><span class="p">));</span>
+<span class="p">...</span>
+<span class="n">NS_CRITICAL</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Critical error! System will shutdown&quot;</span><span class="p">));</span>
+<span class="p">...</span>
+<span class="n">NS_DEBUG</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Current counter value: %f&quot;</span><span class="p">),</span> <span class="n">p</span><span class="p">);</span>
+</pre></div>
+<p>The macro NS_ERROR is a bit different, because it logs a message and also signals an error.</p>
+</div>
+<div class="section" id="memory-manager">
+<h1>Memory Manager</h1>
+<p>This module manages every memory allocation and deallocation done during engine lifetime.</p>
+<p>Memory Manager is implemented using different layers that manage allocations and deallocations for specific purposes. For example, a layer could registry allocations to detect if the application terminated with memory leaks or a layer could registry memory requests to perform statistics on memory usage during application execution. These layers could be activated through preprocessor macros defined in configuration files.</p>
+</div>
+<div class="section" id="symbol-manager">
+<h1>Symbol Manager</h1>
+<p>The Symbol Manager stores all the symbols created. Symbols are immutable strings usually defined in compile time. In the <a class="reference external" href="Core.Kernel.Strings.html">strings</a> section you can find a better explanation.</p>
+</div>
+<div class="section" id="reflection-registry">
+<h1>Reflection Registry</h1>
+<p>The Reflection Registry stores all reflection types created. Reflection types are created only when needed and only one instance for each type.</p>
+</div>
+<div class="section" id="component-factory">
+<h1>Component Factory</h1>
+<p>The Component Factory is used by DLLs to register their components. Then, registered components can be created using the factory:</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ICommon</span><span class="o">&gt;</span> <span class="n">component</span> <span class="o">=</span>
+    <span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetComponentFactory</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">CreateComponent</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">ComponentClassId</span><span class="p">));</span>
+</pre></div>
+<p>When components are registered, a category could be assigned to them. So you can enumerate all the components belonging to some category:</p>
+<div class="highlight"><pre><span class="n">NsSymbol</span> <span class="n">categoryName</span> <span class="o">=</span> <span class="n">NSS</span><span class="p">(</span><span class="n">CategoryName</span><span class="p">);</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">componentIt</span> <span class="o">=</span>
+    <span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetComponentFactory</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">EnumComponents</span><span class="p">(</span><span class="n">categoryName</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">componentIt</span><span class="o">-&gt;</span><span class="n">End</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">NsSymbol</span> <span class="n">componentName</span> <span class="o">=</span> <span class="n">componentIt</span><span class="o">-&gt;</span><span class="n">Get</span><span class="p">();</span>
+    <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Component: %s (%s)&quot;</span><span class="p">),</span> <span class="n">componentName</span><span class="p">.</span><span class="n">GetStr</span><span class="p">(),</span> <span class="n">categoryName</span><span class="p">.</span><span class="n">GetStr</span><span class="p">());</span>
+
+    <span class="n">componentIt</span><span class="o">-&gt;</span><span class="n">Advance</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

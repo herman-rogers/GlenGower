@@ -1,0 +1,17 @@
+﻿<StackPanel
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+  Margin="0,40,0,0">
+
+	<Grid x:Name="DescTitleGroup" Margin="0,0,0,24">
+		<TextBlock x:Name="DescTitleShadow" TextWrapping="{Binding TextWrapping, ElementName=DescTitle}" Text="{Binding Text, ElementName=DescTitle}" FontSize="{Binding FontSize, ElementName=DescTitle}" TextAlignment="{Binding TextAlignment, ElementName=DescTitle}" Foreground="{DynamicResource NoesisPopupShadow2Brush}" Margin="0,0,-2,-3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<TextBlock x:Name="DescTitle" TextWrapping="Wrap" Text="CheckBox Sample" FontSize="24" TextAlignment="Center" Foreground="{DynamicResource NoesisBdBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+	</Grid>
+
+	<StackPanel x:Name="DescContent" Orientation="Vertical" Margin="8,0">
+		<TextBlock TextWrapping="Wrap" Text="This sample shows 2 normal check boxes and a 3-state check box." Margin="0,0,0,8"/>
+		<TextBlock TextWrapping="Wrap" Text="Check box events (Checked, Unchecked and Indeterminate) are notified through the colored rectangles." Margin="0,0,0,8"/>
+	</StackPanel>
+
+</StackPanel>

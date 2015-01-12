@@ -1,0 +1,19 @@
+	psai for Unity release history
+			
+	(c) Periscope Studio UG (haftungsbeschränkt) & Co. KG
+			
+	http://www.homeofpsai.com/
+	http://www.persicopestudio.de	
+			
+	Questions? Please don't hestitate to contact us! devsupport@periscopestudio.de
+=====================================================================================	
+	
+2014-11-27	 1.5.13
+	* performance gain: psai now uses auto-generated wrapper-objects as a workaround 
+		for AudioClips not being streamed from disk. To have them created, just run the 
+		psaiMultiAudioObjectEditor on your soundtrack again.
+	
+2014-09-11   1.5.12  (first public Version in the Asset Store)
+	* optimized memory usage  
+	* psaiPlayer now disables the trigger buttons for Highlights whenever there's currently
+		no Segment that would be compatible to the Segment that's currently playing.

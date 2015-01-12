@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Custom Controls</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="custom-controls">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Custom Controls</h1>
+
+<p>Custom controls should be created to extend default controls functionality, in situations where modifying its style, template, dependency properties or triggers is not enough.
+To start with, the <strong>Control Authoring Overview</strong> (<a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms745025.aspx">http://msdn.microsoft.com/en-us/library/ms745025.aspx</a>) article is a must read for all control developers.</p>
+<p>Below are some of the practices that are useful when creating custom controls.</p>
+<div class="section" id="event-handling-practices">
+<h1>Event-handling practices</h1>
+<ul class="simple">
+<li>Use RoutedEvents, Commands and CommandManager whenever possible.</li>
+<li>Use TemplatePartAttribute:</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>Name the controls that are used inside the custom control with something like &quot;PART_SubControlName&quot;. The <strong>PART_</strong> prefix is a convention.</li>
+<li>This is useful if you want your control to be styled using a Designer.</li>
+<li>Specify the <strong>TemplatePartMetaData</strong> for the custom control class. This meta data indicates to template designers the type required for the named parts.</li>
+<li>Override <strong>OnTemplateChanged()</strong> and check for existence of the subcontrols in use. Check using the <strong>FindName()</strong> method over the template root. If a part by that name is absent, throw an exception.</li>
+<li>Attach event handlers on the sub control.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="theme-styles-practices">
+<h1>Theme (styles) practices</h1>
+<ul class="simple">
+<li>Create a ResourceDictionary for resources and styles used by your custom controls.</li>
+<li>Organize multiple resources using MergedDictionaries.</li>
+<li>Override the <strong>DefaultStyleKeyProperty</strong> for your custom controls:</li>
+</ul>
+<div class="highlight"><pre><span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">MyCustomControl</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span> <span class="n">defaultStyleKey</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ResourceKeyType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">FrameworkPropertyMetaData</span><span class="o">&gt;</span><span class="p">(</span>
+        <span class="n">FrameworkElement</span><span class="o">::</span><span class="n">DefaultStyleKeyProperty</span><span class="p">,</span> <span class="s">&quot;DefaultStyleKey&quot;</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">defaultStyleKey</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<ul class="simple">
+<li>Create a component that implements <strong>IControlLibrary</strong> and that has the <strong>ControlLibrary</strong> category. This component will indicate where to find associated resources for your custom controls:</li>
+</ul>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">MyControlLibrary</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="k">public</span> <span class="n">Gui</span><span class="o">::</span><span class="n">IControlLibrary</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// From IControlLibrary</span>
+    <span class="c1">//@{</span>
+    <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">GetResourceFile</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">themeName</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="c1">// Use the same resources for all themes</span>
+        <span class="k">return</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Module/ControlLibrary/Resources.xaml&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">MyControlLibrary</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyControlLibrary&quot;</span><span class="p">);</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">Category</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;ControlLibrary&quot;</span><span class="p">);</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">IControlLibrary</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

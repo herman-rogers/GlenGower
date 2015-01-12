@@ -1,40 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OceanWave : MonoBehaviour {
-    Vector3 waveSource1 = new Vector3 (2.0f, 0.0f, 2.0f);
-    public float freq1 = 0.1f;
-    public float amp1 = 0.01f;
-    public float waveLength1 = 0.05f;
-    Mesh mesh;
-    Vector3[] vertices;
-    // Use this for initialization
-    void Start () {
-    MeshFilter mf = GetComponent<MeshFilter>();
-    if(mf == null)
+public class OceanWave : MonoBehaviour
+{
+    public float frequency = 0.1f;
+    public float amplitude = 0.01f; //amplitude is the vertical distance
+    public float waveLength = 0.05f;
+    private Mesh mesh;
+    private Vector3 waveSource = new Vector3( 2.0f, 0.0f, 2.0f );
+    private Vector3[ ] meshVertices;
+    private MeshCollider oceanCollider;
+
+    private void Start( )
     {
-    Debug.Log("No mesh filter");
-    return;
+        MeshFilter currentMesh = GetComponent<MeshFilter>( );
+        oceanCollider = GetComponent<MeshCollider>( );
+        if ( currentMesh == null )
+        {
+            Debug.Log( "No mesh filter" );
+            return;
+        }
+        mesh = currentMesh.mesh;
+        meshVertices = mesh.vertices;
     }
-    mesh = mf.mesh;
-    vertices = mesh.vertices;
-    }
-    // Update is called once per frame
-    void Update () {
-    CalcWave();
-    }
-    void CalcWave()
+
+    private void Update( )
     {
-    for(int i = 0; i < vertices.Length; i++)
+        CalcWave( );
+    }
+
+    private void CalcWave( )
     {
-    Vector3 v = vertices[i];
-    v.y = 0.0f;
-    float dist = Vector3.Distance(v, waveSource1);
-    dist = (dist % waveLength1) / waveLength1;
-    v.y = amp1 * Mathf.Sin(Time.time * Mathf.PI * 2.0f * freq1
-    + (Mathf.PI * 2.0f * dist));
-    vertices[i] = v;
+        for ( int i = 0; i < meshVertices.Length; i++ )
+        {
+            Vector3 vertice = meshVertices[ i ];
+            vertice.y = 0.0f;
+            float distance = Vector3.Distance( vertice, waveSource );
+            distance = ( distance % waveLength ) / waveLength;
+            vertice.y = amplitude * Mathf.Sin( Time.time * Mathf.PI * 2.0f * frequency
+            + ( Mathf.PI * 2.0f * distance ) );
+            meshVertices[ i ] = vertice;
+        }
+        mesh.vertices = meshVertices;
+        oceanCollider.sharedMesh = null;
+        oceanCollider.sharedMesh = mesh;
     }
-    mesh.vertices = vertices;
-    }
-    }
+}

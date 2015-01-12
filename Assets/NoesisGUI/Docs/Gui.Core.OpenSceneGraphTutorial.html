@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: OpenSceneGraph Integration Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="openscenegraph-integration-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">OpenSceneGraph Integration Tutorial</h1>
+
+<p>In this simple and quick tutorial, we will show you how to integrate NoesisGUI with OpenSceneGraph (OSG), which is one of the most famous 3D rendering engine and widely used in scientific visualization and virtual reality applications.</p>
+<p>You may first download and compile OSG from <a class="reference external" href="http://www.openscenegraph.com">http://www.openscenegraph.com</a> or you may directly download and use the prebuilt binaries from AlphaPixel at <a class="reference external" href="http://www.alphapixel.com/osg/downloads/free-openscenegraph-binary-downloads">http://www.alphapixel.com/osg/downloads/free-openscenegraph-binary-downloads</a>. Build introduction and tutorials about OpenSceneGraph itself can be found in the book <strong>OpenSceneGraph 3.0 Beginners Guide</strong>, written by Rui Wang and Xuelei Qian and published by the Packt Publishing <a class="reference external" href="http://www.packtpub.com/openscenegraph-3-0-beginners-guide/book">http://www.packtpub.com/openscenegraph-3-0-beginners-guide/book</a></p>
+<p>Before you start to work on the integration, don’t forget to add the files, NoesisWrapper.h and NoesisWrapper.cpp, to your project. A NoesisDrawable class is defined and implemented in these files, which will perform GUI operations and drawings in a single drawable of the scene graph, which is totally controlled by the OSG scene management system and rendering backend.  First of all, include necessary header files:</p>
+<div class="highlight"><pre><span class="cp">#include &lt;osgDB/ReadFile&gt;</span>
+<span class="cp">#include &lt;osgGA/StateSetManipulator&gt;</span>
+<span class="cp">#include &lt;osgViewer/ViewerEventHandlers&gt;</span>
+<span class="cp">#include &lt;osgViewer/Viewer&gt;</span>
+<span class="cp">#include &quot;Common/NoesisWrapper.h&quot;</span>
+</pre></div>
+<p>To create a new NoesisDrawable instance, we will have to provide an UI filename for the constructor. The UI file can be any kind of
+XAML files built with the NoesisGUI BuildTool, and will be displayed in the 3D environment we created.</p>
+<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">uiFile</span><span class="p">(</span><span class="s">&quot;Gui/Samples/CarHud.xaml&quot;</span><span class="p">);</span>
+<span class="n">osg</span><span class="o">::</span><span class="n">ref_ptr</span><span class="o">&lt;</span><span class="n">NoesisDrawable</span><span class="o">&gt;</span> <span class="n">noesis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NoesisDrawable</span><span class="p">(</span><span class="n">uiFile</span><span class="p">);</span>
+</pre></div>
+<p>Add the NoesisDrawable instance to a new geode. Note that we must disable the frustum culling feature of this node because a GUI drawable should never be culled. The geode is also treated as a transparent object in the scene, so we can erase the transparent background of UI elements.</p>
+<div class="highlight"><pre><span class="n">osg</span><span class="o">::</span><span class="n">ref_ptr</span><span class="o">&lt;</span><span class="n">osg</span><span class="o">::</span><span class="n">Geode</span><span class="o">&gt;</span> <span class="n">geode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">osg</span><span class="o">::</span><span class="n">Geode</span><span class="p">;</span>
+<span class="n">geode</span><span class="o">-&gt;</span><span class="n">setCullingActive</span><span class="p">(</span> <span class="nb">false</span> <span class="p">);</span>
+<span class="n">geode</span><span class="o">-&gt;</span><span class="n">addDrawable</span><span class="p">(</span> <span class="n">noesis</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="p">);</span>
+<span class="n">geode</span><span class="o">-&gt;</span><span class="n">getOrCreateStateSet</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setMode</span><span class="p">(</span> <span class="n">GL_BLEND</span><span class="p">,</span> <span class="n">osg</span><span class="o">::</span><span class="n">StateAttribute</span><span class="o">::</span><span class="n">ON</span> <span class="p">);</span>
+<span class="n">geode</span><span class="o">-&gt;</span><span class="n">getOrCreateStateSet</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setRenderingHint</span><span class="p">(</span> <span class="n">osg</span><span class="o">::</span><span class="n">StateSet</span><span class="o">::</span><span class="n">TRANSPARENT_BIN</span> <span class="p">);</span>
+</pre></div>
+<p>Next, we create a head-up display camera in the scene graph and use it to display the geode. The camera uses an orthographic projection matrix in the range of [0, 1] to represent all UI elements on the top of all other scene objects.</p>
+<div class="highlight"><pre><span class="n">osg</span><span class="o">::</span><span class="n">ref_ptr</span><span class="o">&lt;</span><span class="n">osg</span><span class="o">::</span><span class="n">Camera</span><span class="o">&gt;</span> <span class="n">camera</span> <span class="o">=</span> <span class="k">new</span> <span class="n">osg</span><span class="o">::</span><span class="n">Camera</span><span class="p">;</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">setClearMask</span><span class="p">(</span> <span class="n">GL_STENCIL_BUFFER_BIT</span> <span class="p">);</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">setClearStencil</span><span class="p">(</span> <span class="mi">1</span> <span class="p">);</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">setReferenceFrame</span><span class="p">(</span> <span class="n">osg</span><span class="o">::</span><span class="n">Transform</span><span class="o">::</span><span class="n">ABSOLUTE_RF</span> <span class="p">);</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">setRenderOrder</span><span class="p">(</span> <span class="n">osg</span><span class="o">::</span><span class="n">Camera</span><span class="o">::</span><span class="n">POST_RENDER</span> <span class="p">);</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">setProjectionMatrix</span><span class="p">(</span> <span class="n">osg</span><span class="o">::</span><span class="n">Matrix</span><span class="o">::</span><span class="n">ortho2D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">);</span>
+<span class="n">camera</span><span class="o">-&gt;</span><span class="n">addChild</span><span class="p">(</span> <span class="n">geode</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="p">);</span>
+</pre></div>
+<p>Now we can create the 3D scene in usual ways, including adding models, textures, animations, shadows and anything else. As an example here, we load a Cessna model into the scene graph and then create the viewer to display both the 2D UI and 3d scene objects.</p>
+<div class="highlight"><pre><span class="n">osg</span><span class="o">::</span><span class="n">ref_ptr</span><span class="o">&lt;</span><span class="n">osg</span><span class="o">::</span><span class="n">Node</span><span class="o">&gt;</span> <span class="n">scene</span> <span class="o">=</span> <span class="n">osgDB</span><span class="o">::</span><span class="n">readNodeFile</span><span class="p">(</span><span class="s">&quot;cessna.osg&quot;</span><span class="p">);</span>
+
+<span class="n">osg</span><span class="o">::</span><span class="n">ref_ptr</span><span class="o">&lt;</span><span class="n">osg</span><span class="o">::</span><span class="n">Group</span><span class="o">&gt;</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">osg</span><span class="o">::</span><span class="n">Group</span><span class="p">;</span>
+<span class="n">root</span><span class="o">-&gt;</span><span class="n">addChild</span><span class="p">(</span> <span class="n">scene</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="p">);</span>
+<span class="n">root</span><span class="o">-&gt;</span><span class="n">addChild</span><span class="p">(</span> <span class="n">camera</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="n">osgViewer</span><span class="o">::</span><span class="n">Viewer</span> <span class="n">viewer</span><span class="p">;</span>
+<span class="n">viewer</span><span class="p">.</span><span class="n">addEventHandler</span><span class="p">(</span> <span class="k">new</span> <span class="n">osgViewer</span><span class="o">::</span><span class="n">StatsHandler</span> <span class="p">);</span>
+<span class="n">viewer</span><span class="p">.</span><span class="n">setSceneData</span><span class="p">(</span> <span class="n">root</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="p">);</span>
+<span class="n">viewer</span><span class="p">.</span><span class="n">realize</span><span class="p">();</span>
+</pre></div>
+<p>The last step of our tutorial is to send a resizing event so NoesisGUI will know the total size of UI elements. This is done by calling the following code:</p>
+<div class="highlight"><pre><span class="n">osgViewer</span><span class="o">::</span><span class="n">GraphicsWindow</span><span class="o">*</span> <span class="n">gw</span> <span class="o">=</span>
+    <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">osgViewer</span><span class="o">::</span><span class="n">GraphicsWindow</span><span class="o">*&gt;</span><span class="p">(</span> <span class="n">viewer</span><span class="p">.</span><span class="n">getCamera</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getGraphicsContext</span><span class="p">()</span> <span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">gw</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Send a window size event for resizing the UI</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">;</span> <span class="n">gw</span><span class="o">-&gt;</span><span class="n">getWindowRectangle</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="p">);</span>
+    <span class="n">viewer</span><span class="p">.</span><span class="n">getEventQueue</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">windowResize</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="p">);</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="n">viewer</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>  <span class="c1">// now run into the simulation loop!</span>
+</pre></div>
+<p>The result should be good:</p>
+<img alt="OSGTutorialImg1.png" src="OSGTutorialImg1.png" />
+<p>There is no need to worry about handling user events like mouse and keyboard inputs. All of them are already done in the NoesisDrawable. The complete source code can be found in the SimpleScene.cpp example in the source code.
+If you want to get feedback from the UI elements, for instance, to get to know if a button is clicked, you may refer to the InteractiveUI.cpp example in the source code.</p>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

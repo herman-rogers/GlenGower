@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Application Framework</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="application-framework">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Application Framework</h1>
+
+<p>Noesis GUI can be <a class="reference external" href="Gui.Core.SDKGuide.html">embedded into an existing framework</a> in a friendly and non intrusive way, but <strong>Noesis Engine</strong> also provides its own application framework to easily build up programs from scratch.</p>
+<p>The application classes hierarchy that Noesis offers is show next:</p>
+<img alt="ApplicationClasses.png" src="ApplicationClasses.png" />
+<p>Deriving your application class from any of the above will give you different benefits, so it's important to know the role and characteristics of each one to choose wisely depending on your application needs.</p>
+<p>NOTE: The code shown at every class description is a trimmed down version for readability.</p>
+<div class="section" id="baseapplication">
+<h1>BaseApplication</h1>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">BaseApplication</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="k">static</span> <span class="n">BaseApplication</span><span class="o">*</span> <span class="n">GetInstance</span><span class="p">();</span>
+    <span class="n">NsBool</span> <span class="nf">Init</span><span class="p">(</span><span class="k">const</span> <span class="n">Core</span><span class="o">::</span><span class="n">CommandLine</span><span class="o">&amp;</span> <span class="n">commandLine</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">MemoryAllocator</span><span class="o">*</span> <span class="n">memoryAllocator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">Shutdown</span><span class="p">();</span>
+
+<span class="nl">protected:</span>
+    <span class="k">virtual</span> <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">GetApplicationName</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">GetConfigPath</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">RegisterComponents</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">InitKernelSystems</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Configure</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Finalize</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+<p>This singleton class ensures that only one application instance is available at a time.</p>
+<p>Classes deriving from BaseApplication are initialized calling the <strong>Init</strong> method and passing the application's command line, and optionally a memory allocator to redirect all the memory allocations requested by Noesis. The <strong>Init</strong> method doesn't raise any exception, but returns a success boolean value. The initializacion process does the next steps:</p>
+<ul class="simple">
+<li>Set the working directory to the location of the application executable.</li>
+<li>Load configuration files to store its values in memory (more on this subject later).</li>
+<li>Initialize kernel with the optional memory allocator.</li>
+</ul>
+<p>The application can be closed calling the <strong>Shutdown</strong> method after a successful initialization.</p>
+<p>There are some virtual methods that can be overridden by derived classes:</p>
+<ul class="simple">
+<li><strong>GetApplicationName</strong>: returns the name of the application that is mainly used for debugging messages .</li>
+<li><strong>GetConfigPath</strong>:  gets the path where the kernel will search for configuration files, relative to the working directory. By default it's the working directory itself.</li>
+<li><strong>InitKernelSystems</strong>: called to initialize needed kernel systems. By default, all registered kernel systems are initialized.</li>
+<li><strong>Configure</strong>: called after system initialization. Empty by default.</li>
+<li><strong>Finalize</strong>: called before system shutdown. Empty by default.</li>
+</ul>
+<div class="section" id="initialization-files">
+<h2>Initialization files</h2>
+<p>Are text files that stores sections, entries and values in a common <em>.ini</em> format. This files are used to modify specific application or engine values without the need to recompile the program. The BaseApplication searchs in the config path for two files with the name of the application executable followed by <strong>.ini</strong> and <strong>.local.ini</strong>. For example, for an <em>Release.Core.Tester.exe</em> executable, it will search for <em>Tester.ini</em> and <em>Tester.local.ini</em> files.</p>
+<p>The first .ini file stores the default values for all the variables, and .local.ini file is intended to override any of these values. This is a &quot;by agreement&quot; behavior, but changes can be made by the user in any of the two files, with values from the later having precedence.</p>
+<p>A .ini sample file:</p>
+<div class="highlight"><pre><span class="k">[Core.MemoryManager]</span>
+<span class="na">TrackMemory</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">StoreCallStack</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">CallStackDepth</span> <span class="o">=</span> <span class="s">10</span>
+<span class="c1">;BreakOnId = 20</span>
+
+<span class="k">[Gui.SystemWindow]</span>
+<span class="na">Implementation</span> <span class="o">=</span> <span class="s">&quot;Win32Window&quot;</span>
+
+<span class="k">[Gui.UISystem]</span>
+<span class="na">ThemeResources</span> <span class="o">=</span> <span class="s">&quot;Gui/Core/Themes/SimpleStyle.xaml&quot;</span>
+
+<span class="k">[Gui.Core]</span>
+<span class="na">MultiSample</span> <span class="o">=</span> <span class="s">8</span>
+
+<span class="k">[Drawing.VGL]</span>
+<span class="na">RenderingQuality</span> <span class="o">=</span> <span class="s">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="consoleapplication">
+<h1>ConsoleApplication</h1>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ConsoleApplication</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseApplication</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NsInt</span> <span class="n">Run</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Log</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">indentation</span><span class="p">,</span> <span class="n">NsByte</span> <span class="n">severity</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">NsFloat64</span> <span class="n">timeStamp</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">channel</span><span class="p">,</span> <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">scope</span><span class="p">,</span> <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">message</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">protected:</span>
+    <span class="k">virtual</span> <span class="n">NsInt</span> <span class="n">Exec</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<p>Is intended for text based applications. Examples in Noesis are Core/Tester and Resource/BuildTool.</p>
+<p>It provides a <strong>Run</strong> method to be called after initialization, redirecting log messages of the default channel to the console. The deriving classes have to implement the abstract method <strong>Exec</strong> that is called from inside Run.</p>
+</div>
+<div class="section" id="windowapplication">
+<h1>WindowApplication</h1>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">WindowApplication</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseApplication</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NsInt</span> <span class="n">Run</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">Quit</span><span class="p">(</span><span class="n">NsInt</span> <span class="n">exitCode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ISystemWindow</span><span class="o">&gt;&amp;</span> <span class="n">GetMainWindow</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">protected:</span>
+    <span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ISystemWindow</span><span class="o">&gt;</span> <span class="n">CreateMainWindow</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Tick</span><span class="p">(</span><span class="n">NsFloat64</span> <span class="n">time</span><span class="p">,</span> <span class="n">NsFloat32</span> <span class="n">deltaTime</span><span class="p">);</span>
+
+    <span class="c1">/// From Application</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span> <span class="nf">Configure</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">Finalize</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+<span class="p">};</span>
+</pre></div>
+<p>This is a base class for applications that use native OS windows. In the current implementation only Win32 windows are supported right now.</p>
+<p>When the application <strong>Configure</strong> method is called on startup, a main window has to be created, and this is done in the abstract <strong>CreateWindow</strong> method that has to be implemented by the deriving classes, returning an OS window encapsulated by the ISystemWindow interface. Currently the Win32Window class implements it supporting the Win32 platform, but other OS can be supported creating a window class that implements ISystemWindow.</p>
+<p>The <strong>Run</strong> methods continuosly ticks the kernel systems to maintain them updated and query the OS application message loop, also calling the virtual <strong>Tick</strong> method in every iteration. The application can be destroyed by closing the main window from the OS, or from code calling the <strong>Quit</strong> method.</p>
+</div>
+<div class="section" id="noesisapplication">
+<h1>NoesisApplication</h1>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">NoesisApplication</span><span class="o">:</span> <span class="k">public</span> <span class="n">WindowApplication</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">SetApplicationFile</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">appFile</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Application</span><span class="o">&gt;&amp;</span> <span class="n">GetApplication</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="nl">protected:</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">LoadUI</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">fileName</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Window</span><span class="o">&gt;&amp;</span> <span class="n">GetUIWindow</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="c1">/// From WindowApplication</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span> <span class="nf">Tick</span><span class="p">(</span><span class="n">NsFloat64</span> <span class="n">time</span><span class="p">,</span> <span class="n">NsFloat32</span> <span class="n">deltaTime</span><span class="p">);</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ISystemWindow</span><span class="o">&gt;</span> <span class="n">CreateMainWindow</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+
+    <span class="c1">/// From Application</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span> <span class="nf">Finalize</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Is a WindowApplication that uses Noesis Gui. Cognition is an example.</p>
+<p>WindowApplication defines an unique xaml application file (usually it's the <em>App.xaml</em> file created from a Blend project) which has been serialized previously using the <em>BuildTool</em> application. When <strong>CreateMainWindow</strong> is called, the <em>StartupUri</em> window defined in the xaml file is instantiated, creating an OS window that is used by the WindowApplication message loop queries.</p>
+<p>Note that the <em>App.xaml</em> file defines an Application derived class, but Application doesn't appear in the hierarchy classes explained here. This is because Application is a class in Gui/Core that implements the functionality of a xaml app, as described in the language reference (just like other xaml defined classes like Button, TextBox, etc...). The Application instance is also ticked continuosly by NoesisApplication.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

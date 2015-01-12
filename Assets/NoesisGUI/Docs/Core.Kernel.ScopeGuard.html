@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: ScopeGuard</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="scopeguard">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">ScopeGuard</h1>
+
+<p>ScopeGuard is a useful mechanism to automatically invoke an &quot;undo&quot; operation of your choosing when it goes out of scope. As a <a class="reference external" href="http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> mechanism it can very handy to &quot;rollback&quot; to a previous state when an exception is thrown. Due to its simplicity it can be used in more scenarios, not only when exceptions can appear.</p>
+<div class="section" id="usage">
+<h1>Usage</h1>
+<p>Basically, when you want to register an action that may need &quot;rolling back&quot; you create a ScopeGuard instance with the function in charge of the undo operation and all the needed parameter. ScopeGuard supports all type of functors: free functions and member functions. Whenever you arrive to a safe state that does not need the &quot;undo&quot; operation you invoke the Dismiss() method of ScopeGuard. This operation disables the &quot;undo&quot; operation.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Manager</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">Manager</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">mFile</span> <span class="o">=</span> <span class="n">File</span><span class="o">::</span><span class="n">Open</span><span class="p">(</span><span class="s">&quot;info.dat&quot;</span><span class="p">,</span> <span class="s">&quot;rb&quot;</span><span class="p">);</span>
+        <span class="n">ScopeGuard</span> <span class="n">guard</span> <span class="o">=</span> <span class="n">MakeGuard</span><span class="p">(</span><span class="o">&amp;</span><span class="n">File</span><span class="o">::</span><span class="n">Close</span><span class="p">,</span> <span class="n">mFile</span><span class="p">);</span>
+
+        <span class="c1">// This operation may raise an exception. If an exception is generated the scopeguard</span>
+        <span class="c1">// will close the opened file handle</span>
+        <span class="n">ReadDatabase</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+
+        <span class="c1">// Ok, we are now in a safe state. We do not need closing the handle because it is needed</span>
+        <span class="c1">// by this instance</span>
+        <span class="n">guard</span><span class="p">.</span><span class="n">Dismiss</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="kt">FILE</span><span class="o">*</span> <span class="n">mFile</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<p>When the Dismiss() operation is nos needed, that is, when you need the undo operation to be executed always, you can use the macro <strong>NS_ON_SCOPE_EXIT</strong> that simplifies the Scope guard usage.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">RegisterDirectory</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">directory</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">UINT</span> <span class="n">errorMode</span> <span class="o">=</span> <span class="n">SetErrorMode</span><span class="p">(</span><span class="n">SEM_FAILCRITICALERRORS</span><span class="p">);</span>
+    <span class="n">NS_ON_SCOPE_EXIT</span><span class="p">(</span><span class="o">&amp;</span><span class="n">SetErrorMode</span><span class="p">,</span> <span class="n">errorMode</span><span class="p">);</span>
+
+    <span class="c1">///</span>
+    <span class="c1">/// Rest of the function</span>
+    <span class="c1">///</span>
+
+    <span class="c1">/// When leaving this function the ScopeGuard mechanism will restore the initial ErrorMode</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="additional-documentation">
+<h1>Additional documentation</h1>
+<p>ScopeGuard implementation is based on the work by Andrei Alexandrescu and Petru Marginean.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ddj.com/cpp/184403758">Generic: Change the Way You Write Exception-Safe Code Forever</a></li>
+<li><a class="reference external" href="http://www.zete.org/people/jlehrer/scopeguard.html">Improvements by Joshua Lehrer</a></li>
+</ul>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

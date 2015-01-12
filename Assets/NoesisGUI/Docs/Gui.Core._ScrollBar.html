@@ -1,0 +1,1343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: ScrollBar Class</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="scrollbar-class">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">ScrollBar Class</h1>
+
+<p>Represents a control that provides a scroll bar that has a sliding Thumb whose position corresponds to a value.</p>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.controls.primitives.scrollbar.aspx">http://msdn.microsoft.com/en-us/library/system.windows.controls.primitives.scrollbar.aspx</a></p>
+<div class="section" id="inheritance-hierarchy">
+<h1>Inheritance Hierarchy</h1>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.DependencySystem._DependencyObject.html">DependencyObject</a></div>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.Core._Visual.html">Visual</a></div>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.Core._UIElement.html">UIElement</a></div>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.Core._FrameworkElement.html">FrameworkElement</a></div>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.Core._Control.html">Control</a></div>
+<div class="line-block">
+<div class="line">• <a class="reference external" href="Gui.Core._RangeBase.html">RangeBase</a></div>
+<div class="line-block">
+<div class="line">• <em>ScrollBar</em></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><img alt="INDEX" class="align-middle" src="icon_index.png" /> <a class="reference external" href="Gui.Core._ClassHierarchy.html">Class Hierarchy Index</a></p>
+</div>
+<div class="section" id="methods">
+<h1>Methods</h1>
+<div class="section" id="from-frameworkelement">
+<h2>From <a class="reference external" href="Gui.Core._FrameworkElement.html">FrameworkElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>BringIntoView</td>
+<td>Attempts to bring this element into view, within any scrollable regions it is contained within.</td>
+</tr>
+<tr><td>BringIntoView</td>
+<td>Attempts to bring the provided region size of this element into view, within any scrollable regions it is contained within.</td>
+</tr>
+<tr><td>Clone</td>
+<td>Returns a clone of this element. Used when applying a template</td>
+</tr>
+<tr><td>FindName</td>
+<td>Provides accessors that simplifies access to the NameScope registration methods</td>
+</tr>
+<tr><td>FindName</td>
+<td>Templated version of FindName</td>
+</tr>
+<tr><td>FindResource</td>
+<td>Finds a resource looking in the logical parent chain</td>
+</tr>
+<tr><td>FindResource</td>
+<td>Templated version of FindResource and TryFindResource</td>
+</tr>
+<tr><td>GetBindingExpression</td>
+<td>Returns a binding expression if the target property has an active binding; otherwise, returns null</td>
+</tr>
+<tr><td>GetParentOrTemplatedParent</td>
+<td>Gets the logical parent, but tries to return templated parent when logical parent is null</td>
+</tr>
+<tr><td>GetStateGroupsRoot</td>
+<td>Gets root for VisualState management</td>
+</tr>
+<tr><td>GetTimeManager</td>
+<td>Gets the TimeManager that controls current element</td>
+</tr>
+<tr><td>IsLoaded</td>
+<td>Gets a value that indicates whether this element has been loaded for presentation.</td>
+</tr>
+<tr><td>SetBinding</td>
+<td>Attaches a binding to this element, based on the provided binding object</td>
+</tr>
+<tr><td>SetBinding</td>
+<td>Attaches a binding to this element, based on the provided source property name as a path qualification to the data source</td>
+</tr>
+<tr><td>SetFocusVisualLayer</td>
+<td>Sets the FocusVisualLayer that renders the focus visual</td>
+</tr>
+<tr><td>SetFrameworkTemplate</td>
+<td>Sets a template on this FrameworkElement that can provide values for some of its properties</td>
+</tr>
+<tr><td>ShowMessageBox</td>
+<td>Shows a modal message box over all controls</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="from-uielement">
+<h2>From <a class="reference external" href="Gui.Core._UIElement.html">UIElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AddHandler</td>
+<td>Public methods in UIElement Adds a handler to the specified routed event</td>
+</tr>
+<tr><td>AddNonRouted</td>
+<td>Adds a handler to the specified non-routed event</td>
+</tr>
+<tr><td>Arrange</td>
+<td>Positions child elements and determines a size for a UIElement. Parent elements call this method from their ArrangeCore implementation to form a recursive layout update. This method constitutes the second pass of a layout update</td>
+</tr>
+<tr><td>CaptureMouse</td>
+<td>Attempts to force capture of the mouse to this element</td>
+</tr>
+<tr><td>CaptureTouch</td>
+<td>Attempts to force capture of a touch to this element</td>
+</tr>
+<tr><td>Focus</td>
+<td>Attempts to set focus to this element.</td>
+</tr>
+<tr><td>GetAncestorList</td>
+<td>Gets a list of all ancestors from this element to the root</td>
+</tr>
+<tr><td>GetArrangeConstraint</td>
+<td>Gets previous arrange constraint</td>
+</tr>
+<tr><td>GetKeyboard</td>
+<td>Gets keyboard input manager</td>
+</tr>
+<tr><td>GetMeasureConstraint</td>
+<td>Other public methods not in .NET documentation Gets previous measure constraint</td>
+</tr>
+<tr><td>GetMouse</td>
+<td>Gets mouse input manager</td>
+</tr>
+<tr><td>GetUIParent</td>
+<td>Gets a valid UI parent for this element</td>
+</tr>
+<tr><td>InvalidateArrange</td>
+<td>Invalidates the arrange state (layout) for the element. After the invalidation, the element will have its layout updated, which will occur asynchronously unless subsequently forced by UIElement.UpdateLayout().</td>
+</tr>
+<tr><td>InvalidateMeasure</td>
+<td>Invalidates the measurement state (layout) for the element.</td>
+</tr>
+<tr><td>InvalidateVisual</td>
+<td>Invalidates the rendering of the element, and forces a complete new layout pass. UIElement.OnRender(DrawingContext) is called after the layout cycle is completed.</td>
+</tr>
+<tr><td>IsArrangeValid</td>
+<td>Indicates if arrange is valid</td>
+</tr>
+<tr><td>IsMeasureValid</td>
+<td>Indicates if measured size is valid</td>
+</tr>
+<tr><td>Measure</td>
+<td>Updates the DesiredSize of a UIElement. Parent elements call this method from their own MeasureCore implementations to form a recursive layout update. Calling this method constitutes the first pass of a layout update in the layout system</td>
+</tr>
+<tr><td>PreRender</td>
+<td>Generates render commands for a UIElement</td>
+</tr>
+<tr><td>PredictFocus</td>
+<td>When overridden in a derived class, returns the element that would receive focus for a specified focus traversal direction, without actually moving focus to that element.</td>
+</tr>
+<tr><td>RaiseEvent</td>
+<td>Raises a specific routed event. The RoutedEvent to be raised is identified within the RoutedEventArgs instance that is provided (as the RoutedEvent property of that event data)</td>
+</tr>
+<tr><td>RaiseNonRouted</td>
+<td>Raises a specific non-routed event</td>
+</tr>
+<tr><td>ReleaseAllTouchCaptures</td>
+<td>Releases all captured touch devices from this element</td>
+</tr>
+<tr><td>ReleaseMouseCapture</td>
+<td>Releases the mouse capture, if this element held the capture</td>
+</tr>
+<tr><td>ReleaseTouchCapture</td>
+<td>Attempts to release the specified touch device from this element</td>
+</tr>
+<tr><td>RemoveHandler</td>
+<td>Removes a handler from the specified routed event</td>
+</tr>
+<tr><td>RemoveNonRouted</td>
+<td>Removes a handler from the specified non-routed event</td>
+</tr>
+<tr><td>UpdateLayout</td>
+<td>Ensures that all visual child elements of this element are properly updated for layout</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="from-visual">
+<h2>From <a class="reference external" href="Gui.Core._Visual.html">Visual</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>CollectStats</td>
+<td>Allows this node to collect rendering stats of its subtree</td>
+</tr>
+<tr><td>DisableDebugFlags</td>
+<td>When enabled draws this node subtree in wireframe mode Disable debug rendering (wireframe, overdraw, etc) for this node and children</td>
+</tr>
+<tr><td>FindCommonVisualAncestor</td>
+<td>Finds the common ancestor of two visuals objects</td>
+</tr>
+<tr><td>IsAncestorOf</td>
+<td>Determines whether the visual object is an ancestor of the descendant visual object</td>
+</tr>
+<tr><td>IsDescendantOf</td>
+<td>Determines whether the visual object is a descendant of the ancestor visual object</td>
+</tr>
+<tr><td>PointFromScreen</td>
+<td>Converts a Point in screen coordinates into a Point that represents the current coordinate system of the Visual</td>
+</tr>
+<tr><td>PointToScreen</td>
+<td>Converts a Point that represents the current coordinate system of the Visual into a Point in screen coordinates</td>
+</tr>
+<tr><td>TransformToAncestor</td>
+<td>Returns a transform that can be used to transform coordinates from the Visual to the specified ancestor of the visual object</td>
+</tr>
+<tr><td>TransformToDescendant</td>
+<td>Returns a transform that can be used to transform coordinates from the Visual to the specified visual object descendant</td>
+</tr>
+<tr><td>TransformToVisual</td>
+<td>Returns a transform that can be used to transform coordinates from the Visual to the specified visual object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="from-dependencyobject">
+<h2>From <a class="reference external" href="Gui.DependencySystem._DependencyObject.html">DependencyObject</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ClearAnimation</td>
+<td>Clears the animation value of a property</td>
+</tr>
+<tr><td>ClearAnimation</td>
+<td>Clears the animation value of a property</td>
+</tr>
+<tr><td>ClearLocalValue</td>
+<td>Clears the local value of a property The property to be cleared is specified by a DependencyProperty identifier</td>
+</tr>
+<tr><td>CoerceValue</td>
+<td>Coerces and validates the effective property value</td>
+</tr>
+<tr><td>CoerceValue</td>
+<td>Coerces and validates the effective property value</td>
+</tr>
+<tr><td>EnumCachedProperties</td>
+<td>Enumerates the dependency properties that have cached values on this object</td>
+</tr>
+<tr><td>EnumLocalProperties</td>
+<td>Enumerates the dependency properties that have locally set values on this object</td>
+</tr>
+<tr><td>GetBaseValue</td>
+<td>Returns the base value without animation nor coerce (this never returns IExpression like GetLocalValue)</td>
+</tr>
+<tr><td>GetLocalValue</td>
+<td>Returns the local value of a dependency property, if it exists.</td>
+</tr>
+<tr><td>GetValue</td>
+<td>Returns the current effective value of a dependency property on this instance of a DependencyObject</td>
+</tr>
+<tr><td>GetValueObject</td>
+<td>Returns the current effective value of a dependency property on this instance of a DependencyObject as a boxed value</td>
+</tr>
+<tr><td>GetValueProvider</td>
+<td>Gets the provider that returns the effective value for the specified dependency property</td>
+</tr>
+<tr><td>HasAnimatedProperties</td>
+<td>Returns true if there is any animated property</td>
+</tr>
+<tr><td>InvalidateProperty</td>
+<td>Re-evaluates the effective value for the specified dependency property if necessary passed, a full re-evaluation could be needed</td>
+</tr>
+<tr><td>IsCached</td>
+<td>Returns if the value is stored in the cache. If true, the priority is returned in the provider field</td>
+</tr>
+<tr><td>SetAnimation</td>
+<td>Sets the animated value of a property</td>
+</tr>
+<tr><td>SetCurrentValue</td>
+<td>Sets the current value of a dependency property. The current value is set on the coerce field, without modifying source or animated value</td>
+</tr>
+<tr><td>SetCurrentValueObject</td>
+<td>Sets the current value of a dependency property using a boxed value</td>
+</tr>
+<tr><td>SetExpression</td>
+<td>Sets the expression to be evaluated dynamically to obtain the value of the property</td>
+</tr>
+<tr><td>SetValue</td>
+<td>Sets the local value of a dependency property</td>
+</tr>
+<tr><td>SetValueObject</td>
+<td>Sets the local value of a dependency property using a boxed value</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="properties">
+<h1>Properties</h1>
+<div class="section" id="from-scrollbar">
+<h2>From ScrollBar</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="24%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Orientation</td>
+<td>Gets or sets whether the ScrollBar is displayed horizontally or vertically.</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>Track</td>
+<td>Gets the Track for a ScrollBar control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>ViewportSize</td>
+<td>Gets or sets the amount of the scrollable content that is currently visible.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="DP_" class="align-middle" src="icon_dp_.png" /> <em>Dependency Property</em> - <img alt="RO_" class="align-middle" src="icon_ro_.png" /> <em>Read only</em></div>
+</div>
+</div>
+<div class="section" id="from-rangebase">
+<h2>From <a class="reference external" href="Gui.Core._RangeBase.html">RangeBase</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="24%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>LargeChange</td>
+<td>Gets or sets a value to be added to or subtracted from the Value of a RangeBase control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Maximum</td>
+<td>Gets or sets the highest possible Value of the range element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Minimum</td>
+<td>Gets or sets the Minimum possible Value of the range element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>SmallChange</td>
+<td>Gets or sets a Value to be added to or subtracted from the Value of a RangeBase control.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Value</td>
+<td>Gets or sets the current magnitude of the range control.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="DP_" class="align-middle" src="icon_dp_.png" /> <em>Dependency Property</em> - <img alt="RO_" class="align-middle" src="icon_ro_.png" /> <em>Read only</em></div>
+</div>
+</div>
+<div class="section" id="from-control">
+<h2>From <a class="reference external" href="Gui.Core._Control.html">Control</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="24%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Background</td>
+<td>Gets or sets a brush that describes the background of a control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>BorderBrush</td>
+<td>Gets or sets a brush that describes the border of a control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>BorderThickness</td>
+<td>Gets or sets the border thickness of a control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>FontFamily</td>
+<td>Gets or sets the font family of the control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>FontSize</td>
+<td>Gets or sets the font size</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>FontStyle</td>
+<td>Gets or sets the font style</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>FontWeight</td>
+<td>Gets or sets the weight or thickness of the specified font</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Foreground</td>
+<td>Gets or sets a brush that describes the foreground color</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>HorizontalContentAlignment</td>
+<td>Gets or sets the horizontal alignment of a control's content</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>IsTabStop</td>
+<td>Gets or sets a value that indicates whether a control is included in tab navigation.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Padding</td>
+<td>Gets or sets the padding inside a control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>TabIndex</td>
+<td>Gets or sets a value that determines the order in which elements receive focus when the user navigates through controls by using the TAB key.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Template</td>
+<td>Gets or sets control template</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>VerticalContentAlignment</td>
+<td>Gets or sets the vertical alignment of a control's content</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="DP_" class="align-middle" src="icon_dp_.png" /> <em>Dependency Property</em> - <img alt="RO_" class="align-middle" src="icon_ro_.png" /> <em>Read only</em></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>From <a class="reference external" href="Gui.Core._FrameworkElement.html">FrameworkElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="18%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>ActualHeight</td>
+<td>Gets the rendered height of this element.</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>ActualWidth</td>
+<td>Gets the rendered width of this element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>ContextMenu</td>
+<td>Gets or sets the context menu element that should appear whenever the context menu is requested through user interface (UI) from within this element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>DataContext</td>
+<td>Gets or sets the data context for an element when it participates in data binding</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>DefaultStyleKey</td>
+<td>Gets or sets the key to use to reference the style for this control, when theme styles are used or defined</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>FocusVisualStyle</td>
+<td>Gets or sets a property that enables customization of appearance, effects, or other style characteristics that will apply to this element when it captures keyboard focus.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Height</td>
+<td>Gets or sets the suggested height of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>HorizontalAlignment</td>
+<td>Gets or sets the horizontal alignment characteristics applied to this element when it is composed within a parent element, such as a panel or items control</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>LayoutTransform</td>
+<td>Gets or sets a graphics transformation that should apply to this element when layout is performed</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Margin</td>
+<td>Gets or sets the outer margin of an element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>MaxHeight</td>
+<td>Gets or sets the maximum height constraint of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>MaxWidth</td>
+<td>Gets or sets the maximum width constraint of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>MinHeight</td>
+<td>Gets or sets the minimum height constraint of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>MinWidth</td>
+<td>Gets or sets the minimum width constraint of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Name</td>
+<td>Gets or sets the identifying name of the element. The name provides a reference so that code-behind, such as event handler code, can refer to a markup element after it is constructed during processing by a XAML processor.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>OverridesDefaultStyle</td>
+<td>Gets or sets a value that indicates whether this element incorporates style properties from theme styles.</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>Parent</td>
+<td>Gets the logical parent element of this element</td>
+</tr>
+<tr><td><img alt="None" class="align-middle" src="icon_none.png" /></td>
+<td>Resources</td>
+<td>Gets or sets the locally-defined resource dictionary</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Style</td>
+<td>Gets or sets the style used by this element when it is rendered</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Tag</td>
+<td>Gets or sets an arbitrary object value that can be used to store custom information about this element</td>
+</tr>
+<tr><td><img alt="None" class="align-middle" src="icon_none.png" /></td>
+<td>TemplatedParent</td>
+<td>Gets or sets the template parent of this element. This property is not relevant if the element was not created through a template</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>ToolTip</td>
+<td>Gets or sets the tool-tip object that is displayed for this element in the user interface</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>Triggers</td>
+<td>Get the trigger collection</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>UseLayoutRounding</td>
+<td>Gets or sets a value that indicates whether layout rounding should be applied to this element's size and position during layout</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>VerticalAlignment</td>
+<td>Gets or sets the vertical alignment characteristics applied to this element when it is composed within a parent element such as a panel or items control.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Width</td>
+<td>Gets or sets the width of the element</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="DP_" class="align-middle" src="icon_dp_.png" /> <em>Dependency Property</em> - <img alt="RO_" class="align-middle" src="icon_ro_.png" /> <em>Read only</em></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>From <a class="reference external" href="Gui.Core._UIElement.html">UIElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="21%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>AllowDrop</td>
+<td>Gets or sets a value indicating whether this element can be used as the target of a drag-and-drop operation.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Clip</td>
+<td>Gets or sets the geometry used to define the outline of the contents of an element</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>ClipToBounds</td>
+<td>Gets or sets a value indicating whether to clip the content of this element (or content coming from the child elements of this element) to fit into the size of the containing element</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>CommandBindings</td>
+<td>Gets a collection of CommandBinding objects associated with this element</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>DesiredSize</td>
+<td>Gets control's desired size (calculated after measure process)</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Focusable</td>
+<td>Gets or sets a value that indicates whether the element can receive focus.</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>InputBindings</td>
+<td>Gets a collection of InputBinding objects associated with this element</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>IsEnabled</td>
+<td>Gets or sets a value indicating whether this element is enabled in the user interface</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsFocused</td>
+<td>Indicates whether this element has the focus</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>IsHitTestVisible</td>
+<td>Gets or sets a value that declares whether this element can possibly be returned as a hit test result from some portion of its rendered content.</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsKeyboardFocusWithin</td>
+<td>Gets a value indicating whether keyboard focus is anywhere within the element or its visual tree child elements</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsKeyboardFocused</td>
+<td>Gets a value indicating whether this element has keyboard focus</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>IsManipulationEnabled</td>
+<td>Gets or sets a value that indicates whether manipulation events are enabled on this element</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsMouseCaptureWithin</td>
+<td>Gets a value that determines whether mouse capture is held by this element or by child elements in its visual tree.</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsMouseCaptured</td>
+<td>Gets a value indicating whether the mouse is captured to this element</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsMouseDirectlyOver</td>
+<td>Gets a value that indicates whether the position of the mouse pointer corresponds to hit test results, which take element compositing into account.</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsMouseOver</td>
+<td>Gets a value indicating whether the mouse pointer is located over this element (including child elements in the visual tree).</td>
+</tr>
+<tr><td><img alt="DP_RO" class="align-middle" src="icon_dp-ro.png" /></td>
+<td>IsVisible</td>
+<td>Indicates whether this element is visible in the user interface</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Opacity</td>
+<td>Gets or sets the opacity factor applied to the entire element when it is rendered</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>OpacityMask</td>
+<td>Gets or sets an opacity mask, as a Brush implementation that is applied to any alpha-channel masking for the rendered content of this element</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Projection</td>
+<td>Gets or sets the perspective projection (3D effect) to apply when rendering this element</td>
+</tr>
+<tr><td><img alt="RO" class="align-middle" src="icon_ro.png" /></td>
+<td>RenderSize</td>
+<td>Gets calculated (during arrange) render size</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>RenderTransform</td>
+<td>Gets or sets transform information that affects the rendering position of this element</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>RenderTransformOrigin</td>
+<td>Gets or sets the center point of any possible render transform declared by RenderTransform, relative to the bounds of the element.</td>
+</tr>
+<tr><td><img alt="DP" class="align-middle" src="icon_dp.png" /></td>
+<td>Visibility</td>
+<td>Gets or sets the user interface visibility of this element</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="DP_" class="align-middle" src="icon_dp_.png" /> <em>Dependency Property</em> - <img alt="RO_" class="align-middle" src="icon_ro_.png" /> <em>Read only</em></div>
+</div>
+</div>
+</div>
+<div class="section" id="events">
+<h1>Events</h1>
+<div class="section" id="id11">
+<h2>From ScrollBar</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="24%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>Scroll</td>
+<td>Occurs one or more times as content scrolls in a ScrollBar when the user moves the Thumb by using the mouse.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="R" class="align-middle" src="ev_r-icon.png" /> <em>Routed Event</em> - <img alt="N" class="align-middle" src="ev_nr-icon.png" /> <em>Non routed event</em> - <img alt="D" class="align-middle" src="ev_d-icon.png" /> <em>Delegate Event</em></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>From <a class="reference external" href="Gui.Core._RangeBase.html">RangeBase</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="24%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ValueChanged</td>
+<td>Occurs when the range value changes.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="R" class="align-middle" src="ev_r-icon.png" /> <em>Routed Event</em> - <img alt="N" class="align-middle" src="ev_nr-icon.png" /> <em>Non routed event</em> - <img alt="D" class="align-middle" src="ev_d-icon.png" /> <em>Delegate Event</em></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>From <a class="reference external" href="Gui.Core._Control.html">Control</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="24%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseDoubleClick</td>
+<td>Occurs when a mouse button is clicked two or more times.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseDoubleClick</td>
+<td>Occurs when a user clicks the mouse button two or more times.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="R" class="align-middle" src="ev_r-icon.png" /> <em>Routed Event</em> - <img alt="N" class="align-middle" src="ev_nr-icon.png" /> <em>Non routed event</em> - <img alt="D" class="align-middle" src="ev_d-icon.png" /> <em>Delegate Event</em></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>From <a class="reference external" href="Gui.Core._FrameworkElement.html">FrameworkElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="24%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ContextMenuClosing</td>
+<td>Occurs just before any context menu on the element is closed.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ContextMenuOpening</td>
+<td>Occurs when any context menu on the element is opened.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>Loaded</td>
+<td>Occurs when the element is laid out, rendered, and ready for interaction.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>SizeChanged</td>
+<td>Occurs when either the ActualHeight or the ActualWidth properties change value on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ToolTipClosing</td>
+<td>Occurs just before any tooltip on the element is closed.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ToolTipOpening</td>
+<td>Occurs when any tooltip on the element is opened.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>Unloaded</td>
+<td>Occurs when the element is removed from within an element tree of loaded elements.</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="R" class="align-middle" src="ev_r-icon.png" /> <em>Routed Event</em> - <img alt="N" class="align-middle" src="ev_nr-icon.png" /> <em>Non routed event</em> - <img alt="D" class="align-middle" src="ev_d-icon.png" /> <em>Delegate Event</em></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>From <a class="reference external" href="Gui.Core._UIElement.html">UIElement</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="2%" />
+<col width="18%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head">Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>DragEnter</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the drag target.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>DragLeave</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the drag origin.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>DragOver</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the potential drop target.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>Drop</td>
+<td>Occurs when the input system reports an underlying drop event with this element as the</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>FocusableChanged</td>
+<td>Occurs when the value of the Focusable property changes.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>GiveFeedback</td>
+<td>Occurs when the input system reports an underlying drag-and-drop event that involves this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>GotFocus</td>
+<td>Occurs when this element gets logical focus</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>GotKeyboardFocus</td>
+<td>Occurs when the keyboard is focused on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>GotMouseCapture</td>
+<td>Occurs when this element captures the mouse.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>GotTouchCapture</td>
+<td>Occurs when a touch is captured to this element</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsEnabledChanged</td>
+<td>Occurs when the value of the IsEnabled property on this element changes.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsHitTestVisibleChanged</td>
+<td>Occurs when the value of the IsHitTestVisible dependency property changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsKeyboardFocusWithinChanged</td>
+<td>Occurs when the value of the IsKeyboardFocusWithinChanged property changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsKeyboardFocusedChanged</td>
+<td>Occurs when the value of the IsKeyboardFocused property changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsMouseCaptureWithinChanged</td>
+<td>Occurs when the value of the IsMouseCaptureWithinProperty changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsMouseCapturedChanged</td>
+<td>Occurs when the value of the IsMouseCaptured property changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsMouseDirectlyOverChanged</td>
+<td>Occurs when the value of the IsMouseDirectlyOver property changes on this element.</td>
+</tr>
+<tr><td><img alt="N" class="align-middle" src="ev_nr-icon.png" /></td>
+<td>IsVisibleChanged</td>
+<td>Occurs when the value of the IsVisible property changes on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>KeyDown</td>
+<td>Occurs when a key is pressed while focus is on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>KeyUp</td>
+<td>Occurs when a key is released while focus is on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>LostFocus</td>
+<td>Occurs when this element loses logical focus.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>LostKeyboardFocus</td>
+<td>Occurs when the keyboard is no longer focused on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>LostMouseCapture</td>
+<td>Occurs when this element loses mouse capture.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>LostTouchCapture</td>
+<td>Occurs when this element loses a touch capture</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ManipulationCompleted</td>
+<td>Occurs when a manipulation and inertia on the UIElement object is complete</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ManipulationDelta</td>
+<td>Occurs when the input device changes position during a manipulation</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ManipulationInertiaStarting</td>
+<td>Occurs when the input device loses contact with the UIElement during a manipulation and inertia begins</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ManipulationStarted</td>
+<td>Occurs when an input device begins a manipulation on the UIElement object</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>ManipulationStarting</td>
+<td>Occurs when the manipulation processor is first created</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseDown</td>
+<td>Occurs when any mouse button is pressed while the pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseEnter</td>
+<td>Occurs when the mouse pointer enters the bounds of this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseLeave</td>
+<td>Occurs when the mouse pointer leaves the bounds of this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseLeftButtonDown</td>
+<td>Occurs when the left mouse button is pressed while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseLeftButtonUp</td>
+<td>Occurs when the left mouse button is released while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseMove</td>
+<td>Occurs when the mouse pointer moves while over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseRightButtonDown</td>
+<td>Occurs when the right mouse button is pressed while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseRightButtonUp</td>
+<td>Occurs when the right mouse button is released while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseUp</td>
+<td>Occurs when any mouse button is released over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>MouseWheel</td>
+<td>Occurs when the user rotates the mouse wheel while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewDragEnter</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the drag target.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewDragLeave</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the drag origin.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewDragOver</td>
+<td>Occurs when the input system reports an underlying drag event with this element as the potential drop target.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewDrop</td>
+<td>Occurs when the input system reports an underlying drop event with this element as the drop target.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewGiveFeedback</td>
+<td>Occurs when a drag-and-drop operation is started.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewGotKeyboardFocus</td>
+<td>Occurs when the keyboard is focused on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewKeyDown</td>
+<td>Occurs when a key is pressed while focus is on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewKeyUp</td>
+<td>Occurs when a key is released while focus is on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewLostKeyboardFocus</td>
+<td>Occurs when the keyboard is no longer focused on this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseDown</td>
+<td>Occurs when any mouse button is pressed while the pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseLeftButtonDown</td>
+<td>Occurs when the left mouse button is pressed while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseLeftButtonUp</td>
+<td>Occurs when the left mouse button is released while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseMove</td>
+<td>Occurs when the mouse pointer moves while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseRightButtonDown</td>
+<td>Occurs when the right mouse button is pressed while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseRightButtonUp</td>
+<td>Occurs when the right mouse button is released while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseUp</td>
+<td>Occurs when any mouse button is released while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewMouseWheel</td>
+<td>Occurs when the user rotates the mouse wheel while the mouse pointer is over this element.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewQueryContinueDrag</td>
+<td>Occurs when there is a change in the keyboard or mouse button state during a drag-and-drop operation.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewTextInput</td>
+<td>Occurs when this element gets text in a device-independent manner.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewTouchDown</td>
+<td>Occurs when a finger touches the screen while the finger is over this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewTouchMove</td>
+<td>Occurs when a finger moves on the screen while the finger is over this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>PreviewTouchUp</td>
+<td>Occurs when a finger is raised off of the screen while the finger is over this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>QueryContinueDrag</td>
+<td>Occurs when there is a change in the keyboard or mouse button state during a drag-and-drop operation.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>QueryCursor</td>
+<td>Occurs when the cursor is requested to display. This event is raised on an element each time that the mouse pointer moves to a new location, which means the cursor object might need to be changed based on its new position.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TextInput</td>
+<td>Occurs when this element gets text in a device-independent manner.</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TouchDown</td>
+<td>Occurs when a finger touches the screen while the finger is over this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TouchEnter</td>
+<td>Occurs when a touch moves from outside to inside the bounds of this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TouchLeave</td>
+<td>Occurs when a touch moves from inside to outside the bounds of this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TouchMove</td>
+<td>Occurs when a finger moves on the screen while the finger is over this element</td>
+</tr>
+<tr><td><img alt="R" class="align-middle" src="ev_r-icon.png" /></td>
+<td>TouchUp</td>
+<td>Occurs when a finger is raised off of the screen while the finger is over this element</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><img alt="None" class="align-middle" src="icon_none.png" /> <img alt="R" class="align-middle" src="ev_r-icon.png" /> <em>Routed Event</em> - <img alt="N" class="align-middle" src="ev_nr-icon.png" /> <em>Non routed event</em> - <img alt="D" class="align-middle" src="ev_d-icon.png" /> <em>Delegate Event</em></div>
+</div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

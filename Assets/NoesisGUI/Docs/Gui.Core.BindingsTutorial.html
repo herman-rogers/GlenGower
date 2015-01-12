@@ -1,0 +1,884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Bindings</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="bindings">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Bindings</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="Bindings.zip">Tutorial Data</a></p>
+<p>Data binding is where you declaratively state that a property in the view is <em>bound</em> to data in your model (or presentation behavior layer). This means that when the model data changes, the UI is updated. Conversely, when a user sets something in the UI layer, the model is then updated.</p>
+<p>On this tutorial we will explain the different ways you might want to use data binding.</p>
+<div class="section" id="data-binding">
+<h1>Data Binding</h1>
+<p>Data binding in XAML is purely declarative. For any given property in the visual tree, the developer can use a binding syntax to declaratively state how to bind. It allows developers to set a <em>data context</em> for a visual element in which the binding declaration works against.</p>
+<div class="section" id="data-contexts">
+<h2>Data Contexts</h2>
+<p>You define data contexts for a visual tree. When the data context is set, it remains in scope for all descendants in the visual tree unless is is set again. Data contexts can be set in XAML or in code and they can be any object. Here is an example of setting a data context that will be used for all of the examples to come:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;UserControl.Resources&gt;</span>
+        <span class="nt">&lt;DataModel1</span> <span class="na">x:Name=</span><span class="s">&quot;dataModel&quot;</span> <span class="na">SimpleText=</span><span class="s">&quot;hello&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{StaticResource dataModel}&quot;</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/BaseComponent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ISerializable.h&gt;</span>
+<span class="cp">#include &lt;NsCore/SerializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/UnserializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/String.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+
+<span class="k">class</span> <span class="nc">DataModel1</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span>
+    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">ISerializable</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">DataModel1</span><span class="p">()</span><span class="o">:</span> <span class="n">_simpleText</span><span class="p">(</span><span class="s">&quot;default&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">DataModel1</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">GetSimpleText</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_simpleText</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetSimpleText</span><span class="p">(</span><span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">simpleText</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_simpleText</span> <span class="o">=</span> <span class="n">simpleText</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// From ISerializable</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsUInt32</span> <span class="n">GetVersion</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Serialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Unserialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NS_ERROR</span><span class="p">(</span><span class="s">&quot;Unknown version %u&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">PostUnserialize</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsString</span> <span class="n">_simpleText</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DataModel1</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DataModel1&quot;</span><span class="p">);</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISerializable</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel1</span><span class="o">::</span><span class="n">GetSimpleText</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel1</span><span class="o">::</span><span class="n">SetSimpleText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="basic-example">
+<h2>Basic example</h2>
+<p>Now that we have seen an example of setting the data context, lets bind to the SimpleText property in the data model:</p>
+<div class="highlight"><pre> <span class="nt">&lt;UserControl</span>
+     <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+     <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+     <span class="nt">&lt;UserControl.Resources&gt;</span>
+         <span class="nt">&lt;DataModel1</span> <span class="na">x:Name=</span><span class="s">&quot;dataModel&quot;</span> <span class="na">SimpleText=</span><span class="s">&quot;hello&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+     <span class="nt">&lt;StackPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{StaticResource dataModel}&quot;</span>
+         <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+<span class="hll">         <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding SimpleText}&quot;</span> <span class="nt">/&gt;</span>
+</span>     <span class="nt">&lt;/StackPanel&gt;</span>
+
+ <span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>By using this simple binding syntax, the text block in the UI will show the value of SimpleText. In this case, the UI will show &quot;hello&quot;.</p>
+</div>
+<div class="section" id="change-notification">
+<h2>Change Notification</h2>
+<p>Displaying data is great and very often, this is all you need.  Often, though, you need to update the UI when the property changes. It becomes the data object's responsibility to notify the listener (the UI in this case) of the change so it knows to modify the text.</p>
+<p>Typically, this is done with the <em>INotifyPropertyChange</em> interface. The interface defines one event <em>PropertyChanged</em> which sends the name of the property that changed. The interface is not specific to the UI layer but the UI layer knows how to process the event through the binding you created in the XAML.</p>
+<p>This is how you implement INotifyPropertyChange in the DataModel class:</p>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/BaseComponent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ISerializable.h&gt;</span>
+<span class="cp">#include &lt;NsCore/SerializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/UnserializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Symbol.h&gt;</span>
+<span class="cp">#include &lt;NsCore/String.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="hll"><span class="cp">#include &lt;NsGui/INotifyPropertyChange.h&gt;</span>
+</span>
+<span class="hll"><span class="n">NS_DECLARE_SYMBOL</span><span class="p">(</span><span class="n">SimpleText</span><span class="p">)</span>
+</span>
+<span class="k">class</span> <span class="nc">DataModel2</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span>
+<span class="hll">    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">INotifyPropertyChange</span><span class="p">,</span>
+</span>    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">ISerializable</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">DataModel2</span><span class="p">()</span><span class="o">:</span> <span class="n">_simpleText</span><span class="p">(</span><span class="s">&quot;default&quot;</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">DataModel2</span><span class="p">()</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="n">_destroyedEvent</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">GetSimpleText</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_simpleText</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetSimpleText</span><span class="p">(</span><span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">simpleText</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="n">_simpleText</span> <span class="o">!=</span> <span class="n">simpleText</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="n">_simpleText</span> <span class="o">=</span> <span class="n">simpleText</span><span class="p">;</span>
+</span><span class="hll">            <span class="n">_changedEvent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">NSS</span><span class="p">(</span><span class="n">SimpleText</span><span class="p">));</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">}</span>
+
+<span class="hll">    <span class="c1">/// From INotifyPropertyChange</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">PropertyChangedEvent</span><span class="o">&amp;</span> <span class="n">PropertyChanged</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">_changedEvent</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">DestroyedDelegate</span><span class="o">&amp;</span> <span class="n">Destroyed</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">_destroyedEvent</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span>
+    <span class="c1">/// From ISerializable</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsUInt32</span> <span class="n">GetVersion</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Serialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Unserialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NS_ERROR</span><span class="p">(</span><span class="s">&quot;Unknown version %u&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">PostUnserialize</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsString</span> <span class="n">_simpleText</span><span class="p">;</span>
+
+<span class="hll">    <span class="n">PropertyChangedEvent</span> <span class="n">_changedEvent</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">DestroyedDelegate</span> <span class="n">_destroyedEvent</span><span class="p">;</span>
+</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DataModel2</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DataModel2&quot;</span><span class="p">);</span>
+<span class="hll">        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">INotifyPropertyChange</span><span class="o">&gt;</span><span class="p">();</span>
+</span>        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISerializable</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel2</span><span class="o">::</span><span class="n">GetSimpleText</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel2</span><span class="o">::</span><span class="n">SetSimpleText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>The first part of this class defines the notifiable property using a common pattern. It uses a private backing store (_simpleText) and delegates to it in the property getter and setter. The setter checks to make sure the value has changed so it doesn't send an event when nothing changed. It then sets the backing store and fires an event saying &quot;SimpleText&quot; has changed.</p>
+<p>The second part of this code implements the event that was defined in the INotifyPropertyChanged interface.</p>
+<p>Now that the DataModel can notify the UI of changes to SimpleText, you can set the property being changed:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+<span class="hll">    <span class="na">x:Class=</span><span class="s">&quot;MainPage1&quot;</span><span class="nt">&gt;</span>
+</span>
+    <span class="nt">&lt;UserControl.Resources&gt;</span>
+        <span class="nt">&lt;DataModel2</span> <span class="na">x:Name=</span><span class="s">&quot;dataModel&quot;</span> <span class="na">SimpleText=</span><span class="s">&quot;hello&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{StaticResource dataModel}&quot;</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding SimpleText}&quot;</span> <span class="nt">/&gt;</span>
+<span class="hll">        <span class="nt">&lt;Button</span> <span class="na">x:Name=</span><span class="s">&quot;btn&quot;</span> <span class="na">Content=</span><span class="s">&quot;Update Text&quot;</span> <span class="na">Click=</span><span class="s">&quot;OnBtnClick&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/ResourceDictionary.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetadata.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">MainPage1</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UserControl</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="n">OnBtnClick</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">sender</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">RoutedEventArgs</span><span class="o">&amp;</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DataModel2</span><span class="o">*</span> <span class="n">dataModel</span> <span class="o">=</span> <span class="n">GetResources</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">FindName</span><span class="o">&lt;</span><span class="n">DataModel2</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;dataModel&quot;</span><span class="p">);</span>
+        <span class="n">dataModel</span><span class="o">-&gt;</span><span class="n">SetSimpleText</span><span class="p">(</span><span class="s">&quot;bye bye&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">MainPage1</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MainPage1&quot;</span><span class="p">);</span>
+
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;OnBtnClick&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">MainPage1</span><span class="o">::</span><span class="n">OnBtnClick</span><span class="p">);</span>
+
+        <span class="c1">// this is the path to the xaml file that defines the MainPage content</span>
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/Bindings/MainPage.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span>
+            <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span>
+            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>In this example, the value begins with &quot;hello&quot; just as before. When you press the &quot;Update Text&quot; button, the SimpleText property is modified. Internally, the property notifies the UI of the change and user sees &quot;bye bye&quot;.</p>
+</div>
+<div class="section" id="dependency-properties">
+<h2>Dependency Properties</h2>
+<p>There is a different mechanism for property notification for Visual elements. <em>Dependency Properties</em> are the preferred method for creating bindable properties on UI elements. More specifically, any class that derives from <em>DependencyObject</em> should avoid using INotifyPropertyChange and use Dependency Properties instead.</p>
+<p>Dependency Properties are created imperatively in the code behind of the visual element. Add a Dependency Property to the MainPage user control:</p>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetadata.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">MainPage2</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UserControl</span>
+<span class="p">{</span>
+<span class="hll">    <span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">GetLocalText</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LocalTextProperty</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetLocalText</span><span class="p">(</span><span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">localText</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LocalTextProperty</span><span class="p">,</span> <span class="n">localText</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">LocalTextProperty</span><span class="p">;</span>
+</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">MainPage2</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MainPage2&quot;</span><span class="p">);</span>
+
+        <span class="c1">// this is the path to the xaml file that defines the MainPage content</span>
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/Bindings/MainPage.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span>
+            <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+
+<span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LocalTextProperty</span><span class="p">,</span> <span class="s">&quot;LocalText&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsString</span><span class="p">(</span><span class="s">&quot;default&quot;</span><span class="p">),</span>
+</span><span class="hll">            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span>        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span>
+            <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">const</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">MainPage2</span><span class="o">::</span><span class="n">LocalTextProperty</span><span class="p">;</span>
+</span></pre></div>
+<p>With this property created, you can now bind to a property in the user control, instead of a data object:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+    <span class="na">x:Class=</span><span class="s">&quot;MainPage2&quot;</span>
+<span class="hll">    <span class="na">x:Name=</span><span class="s">&quot;root&quot;</span><span class="nt">&gt;</span>
+</span>
+    <span class="nt">&lt;StackPanel</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+<span class="hll">        <span class="nt">&lt;TextBox</span> <span class="na">Text=</span><span class="s">&quot;{Binding ElementName=root, Path=LocalText, Mode=TwoWay}&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="nt">/&gt;</span>
+</span><span class="hll">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding ElementName=root, Path=LocalText}&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>There are a few things to notice here:</p>
+<ul class="simple">
+<li><em>ElementName</em> refers to the root control, which is of type <em>MainPage</em>. This ignores the inherited data context.</li>
+<li>In the TextBox, the <em>Mode</em> is set to <em>TwoWay</em>. This tells the control to push any changes back to the property. Since the property has notification built in (since it is a Dependency Property), the second control will get updated automatically; it is bound to the same property.</li>
+</ul>
+<p>The previous example shows how the data context for the text boxes is the root element instead of whatever was set earlier.</p>
+<p>As a rule of thumb, use Dependency Properties if your class derives from DependencyObject. Use INotifyPropertyChange in all other cases.</p>
+</div>
+<div class="section" id="binding-to-other-elements">
+<h2>Binding to Other Elements</h2>
+<p>In addition to binding to data, you may also need to bind to values in the view. You can bind to another element by name:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">x:Name=</span><span class="s">&quot;input&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Text=</span><span class="s">&quot;{Binding ElementName=input, Path=Text}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>In this example, the text of the TextBlock is bound to the text of the TextBox. Since this binding is not TwoWay, the value changes are not reciprocal.</p>
+</div>
+<div class="section" id="binding-to-chained-properties">
+<h2>Binding to Chained Properties</h2>
+<p>In all the examples thus far, data binding has happened on a property of the data context.  This may not be the case when the data's object tree is more complex.  You can get sub properties of a different object, from the data model using property chaining:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;UserControl.Resources&gt;</span>
+        <span class="nt">&lt;DataModel3</span> <span class="na">x:Name=</span><span class="s">&quot;dataModel&quot;</span> <span class="na">SimpleText=</span><span class="s">&quot;hello&quot;</span><span class="nt">&gt;</span>
+<span class="hll">            <span class="nt">&lt;DataModel3.Person&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;Person&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;Person.FullName&gt;</span>
+</span><span class="hll">                        <span class="nt">&lt;PersonName</span> <span class="na">First=</span><span class="s">&quot;John&quot;</span> <span class="na">Last=</span><span class="s">&quot;Doe&quot;</span> <span class="nt">/&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;/Person.FullName&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;/Person&gt;</span>
+</span><span class="hll">            <span class="nt">&lt;/DataModel3.Person&gt;</span>
+</span>        <span class="nt">&lt;/DataModel3&gt;</span>
+    <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{StaticResource dataModel}&quot;</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+<span class="hll">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Person.FullName.First}&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/BaseComponent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ISerializable.h&gt;</span>
+<span class="cp">#include &lt;NsCore/SerializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/UnserializationData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/String.h&gt;</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">PersonName</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span>
+</span>    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">ISerializable</span>
+<span class="p">{</span>
+    <span class="c1">/// From ISerializable</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsUInt32</span> <span class="n">GetVersion</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Serialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;First&quot;</span><span class="p">,</span> <span class="n">_first</span><span class="p">);</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;Last&quot;</span><span class="p">,</span> <span class="n">_last</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Unserialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;First&quot;</span><span class="p">,</span> <span class="n">_first</span><span class="p">);</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;Last&quot;</span><span class="p">,</span> <span class="n">_last</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NS_ERROR</span><span class="p">(</span><span class="s">&quot;Unknown version %u&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">PostUnserialize</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsString</span> <span class="n">_first</span><span class="p">;</span>
+    <span class="n">NsString</span> <span class="n">_last</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">PersonName</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PersonName&quot;</span><span class="p">);</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISerializable</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;First&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">PersonName</span><span class="o">::</span><span class="n">_first</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Last&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">PersonName</span><span class="o">::</span><span class="n">_last</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">Person</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span>
+</span>    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">ISerializable</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">PersonName</span><span class="o">*</span> <span class="n">GetFullName</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_fullName</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetFullName</span><span class="p">(</span><span class="n">PersonName</span><span class="o">*</span> <span class="n">fullName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_fullName</span><span class="p">.</span><span class="n">Reset</span><span class="p">(</span><span class="n">fullName</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">NsFloat32</span> <span class="n">GetWeight</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_weight</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetWeight</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">weight</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_weight</span> <span class="o">=</span> <span class="n">weight</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// From ISerializable</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsUInt32</span> <span class="n">GetVersion</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Serialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;FullName&quot;</span><span class="p">,</span> <span class="n">_fullName</span><span class="p">);</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;Weight&quot;</span><span class="p">,</span> <span class="n">_weight</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Unserialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;FullName&quot;</span><span class="p">,</span> <span class="n">_fullName</span><span class="p">);</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;Weight&quot;</span><span class="p">,</span> <span class="n">_weight</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NS_ERROR</span><span class="p">(</span><span class="s">&quot;Unknown version %u&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">PostUnserialize</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">PersonName</span><span class="o">&gt;</span> <span class="n">_fullName</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">_weight</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">);</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISerializable</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;FullName&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">GetFullName</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">SetFullName</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Weight&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">GetWeight</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">SetWeight</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">DataModel3</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="p">,</span>
+    <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">ISerializable</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">GetSimpleText</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_simpleText</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetSimpleText</span><span class="p">(</span><span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">simpleText</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_simpleText</span> <span class="o">=</span> <span class="n">simpleText</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="n">Person</span><span class="o">*</span> <span class="n">GetPerson</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">_person</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">();</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="kt">void</span> <span class="n">SetPerson</span><span class="p">(</span><span class="n">Person</span><span class="o">*</span> <span class="n">person</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">_person</span><span class="p">.</span><span class="n">Reset</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="c1">/// From ISerializable</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsUInt32</span> <span class="n">GetVersion</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Serialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">SerializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+<span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">Serialize</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">,</span> <span class="n">_person</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">Unserialize</span><span class="p">(</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">UnserializationData</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="n">NsUInt32</span> <span class="n">version</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">version</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="n">_simpleText</span><span class="p">);</span>
+<span class="hll">            <span class="n">data</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">,</span> <span class="n">_person</span><span class="p">);</span>
+</span>        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">NS_ERROR</span><span class="p">(</span><span class="s">&quot;Unknown version %u&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">PostUnserialize</span><span class="p">()</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsString</span> <span class="n">_simpleText</span><span class="p">;</span>
+<span class="hll">    <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">_person</span><span class="p">;</span>
+</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DataModel3</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DataModel3&quot;</span><span class="p">);</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISerializable</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;SimpleText&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel3</span><span class="o">::</span><span class="n">GetSimpleText</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel3</span><span class="o">::</span><span class="n">SetSimpleText</span><span class="p">);</span>
+<span class="hll">        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel3</span><span class="o">::</span><span class="n">GetPerson</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">DataModel3</span><span class="o">::</span><span class="n">SetPerson</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>The same notification rules apply; the UI will update if First is a notifiable property.</p>
+</div>
+<div class="section" id="formatted-text">
+<h2>Formatted Text</h2>
+<p>If you need to format the text display of a given value, you can do so using the <strong>StringFormat</strong> attribute in the binding declaration. With StringFormat you can format the output of information without using code behind or value converters.</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;UserControl.Resources&gt;</span>
+        <span class="nt">&lt;DataModel3</span> <span class="na">x:Name=</span><span class="s">&quot;dataModel&quot;</span> <span class="na">SimpleText=</span><span class="s">&quot;hello&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;DataModel3.Person&gt;</span>
+<span class="hll">                <span class="nt">&lt;Person</span> <span class="na">Weight=</span><span class="s">&quot;87.3975&quot;</span><span class="nt">&gt;</span>
+</span>                    <span class="nt">&lt;Person.FullName&gt;</span>
+                        <span class="nt">&lt;PersonName</span> <span class="na">First=</span><span class="s">&quot;John&quot;</span> <span class="na">Last=</span><span class="s">&quot;Doe&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/Person.FullName&gt;</span>
+                <span class="nt">&lt;/Person&gt;</span>
+            <span class="nt">&lt;/DataModel3.Person&gt;</span>
+        <span class="nt">&lt;/DataModel3&gt;</span>
+    <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{StaticResource dataModel}&quot;</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+<span class="hll">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Person.Weight, StringFormat=F2}&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>More examples of StringFormat:</p>
+<div class="highlight"><pre><span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Amount, StringFormat={}{0:D}}&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Amount, StringFormat=Total: {0:D}}&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Amount, StringFormat=Total: {0:D} units}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+<p>Notice the &quot;{}&quot;&quot; just after the StringFormat attribute?  What that is doing is escaping the text after the &quot;=&quot;&quot; sign. You need to do this because we do not have any text directly after the &quot;=&quot;&quot; sign.</p>
+</div>
+<div class="section" id="value-converters">
+<h2>Value Converters</h2>
+<p>Often, the format of the data is more complex than a simple string format. In cases like this, you can use Value Converters. These are classes that implement <em>IValueConverter</em> and provide functions for Convert and ConvertBack. Whenever binding occurs, the value is passed to the Value Converter which in turn translates the data to be displayed in the UI.</p>
+<p>Here is an example displaying a number with two digits of precision:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;UserControl.Resources&gt;</span>
+<span class="hll">        <span class="nt">&lt;NumberValueConverter</span> <span class="na">x:Name=</span><span class="s">&quot;numeric&quot;</span> <span class="na">Precision=</span><span class="s">&quot;2&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/UserControl.Resources&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span>
+        <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">x:Name=</span><span class="s">&quot;number&quot;</span> <span class="nt">/&gt;</span>
+<span class="hll">        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding ElementName=number, Path=Text, Converter={StaticResource numeric}}&quot;</span> <span class="nt">/&gt;</span>
+</span>    <span class="nt">&lt;/StackPanel&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>The NumberValueConverter handles the conversion from a string value to a double and back to a string with the specified level of precision. Value Converters are easy to build:</p>
+<div class="highlight"><pre><span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsGui/BaseValueConverter.h&gt;</span>
+<span class="cp">#include &lt;NsCore/BoxingForward.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ParserExpr.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/String.h&gt;</span>
+
+<span class="k">class</span> <span class="nc">NumberValueConverter</span><span class="o">:</span> <span class="k">public</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">BaseValueConverter</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NumberValueConverter</span><span class="p">()</span><span class="o">:</span> <span class="n">_precision</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="n">NsInt</span> <span class="n">GetPrecision</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_precision</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetPrecision</span><span class="p">(</span><span class="n">NsInt</span> <span class="n">precision</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_precision</span> <span class="o">=</span> <span class="n">precision</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">NsBool</span> <span class="n">TryConvert</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="k">const</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Type</span><span class="o">*</span> <span class="n">targetType</span><span class="p">,</span>
+        <span class="n">BaseComponent</span><span class="o">*</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">BaseComponent</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="o">::</span><span class="n">BoxedValueImpl</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;*</span> <span class="n">boxed</span> <span class="o">=</span>
+            <span class="n">NsDynamicCast</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="o">::</span><span class="n">BoxedValueImpl</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;*&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">boxed</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="o">::</span><span class="n">Unbox</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">boxed</span><span class="p">);</span>
+
+        <span class="n">NsFloat64</span> <span class="n">num</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">str</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">TryParseNumber</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsString</span><span class="o">::</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;%.*f&quot;</span><span class="p">,</span> <span class="n">_precision</span><span class="p">,</span> <span class="n">num</span><span class="p">));</span>
+
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsBool</span> <span class="n">TryParseNumber</span><span class="p">(</span><span class="k">const</span> <span class="n">NsString</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span> <span class="n">NsFloat64</span><span class="o">&amp;</span> <span class="n">num</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">PE</span><span class="o">::</span><span class="n">Float64</span> <span class="n">expr</span><span class="p">;</span>
+        <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Parser</span><span class="o">&lt;&gt;</span> <span class="n">parser</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">parser</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">parser</span><span class="p">.</span><span class="n">Skip</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">parser</span><span class="p">.</span><span class="n">End</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">expr</span><span class="p">.</span><span class="n">number</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsInt</span> <span class="n">_precision</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">NumberValueConverter</span><span class="p">,</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">BaseValueConverter</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NumberValueConverter&quot;</span><span class="p">);</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Precision&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumberValueConverter</span><span class="o">::</span><span class="n">_precision</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

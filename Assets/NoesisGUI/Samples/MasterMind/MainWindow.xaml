@@ -1,0 +1,1899 @@
+<UserControl
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:noesis="clr-namespace:NoesisGUIExtensions" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" Foreground="White">
+	
+	<UserControl.Resources>	
+		<RadialGradientBrush x:Key="RedCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="Red"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="GreenCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FF158000"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="BlueCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FF0055FF"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="YellowCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="Yellow"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="BrownCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FFFF8000"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="PurpleCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FF9B009B"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="OrangeCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FF666666"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="PinkCircleBrush" Center="0.3,0.3" GradientOrigin="0.3,0.3" RadiusY="0.5" RadiusX="0.5">
+			<GradientStop Offset="-0.25" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FFFF92A5"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="BlackCircleBrush" GradientOrigin="0.3,0.3" Center="0.3,0.3">
+			<GradientStop Offset="-0.95" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="Black"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="WhiteCircleBrush" GradientOrigin="0.3,0.3" Center="0.3,0.3">
+			<GradientStop Offset="0" Color="#FFFFFFFF"/>
+			<GradientStop Offset="1" Color="#FFC1C1C1"/>
+		</RadialGradientBrush>
+		<RadialGradientBrush x:Key="SolutionBrush" GradientOrigin="0.3,0.3" Center="0.3,0.3">
+			<GradientStop Color="#FFA8D6ED" Offset="0"/>
+			<GradientStop Color="#FF2997DE" Offset="1"/>
+		</RadialGradientBrush>
+		<SolidColorBrush x:Key="BlackColorBrush" Color="#FF161F29"/>
+		<RadialGradientBrush x:Key="CircleCheck" >
+			<GradientStop Color="#FF1F3547" Offset="0.815"/>
+			<GradientStop Color="#001F3547" Offset="1"/>
+			<GradientStop Color="#FF1F3547" Offset="0.919"/>
+		</RadialGradientBrush>
+		<LinearGradientBrush x:Key="CircleIndent" EndPoint="0.691,0.962" StartPoint="0.309,0.038">
+			<GradientStop Color="#4C000000" Offset="0"/>
+			<GradientStop Color="#4CFFFFFF" Offset="1"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="ButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.9">
+			<GradientStop Color="#FF112844"/>
+			<GradientStop Color="#FF243242" Offset="1"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="CurrentRowBrush" EndPoint="1,0" StartPoint="0,0" Opacity="0.7">
+			<GradientStop Color="#00466C9D" Offset="0"/>
+			<GradientStop Color="#3353A5F0" Offset="0.15"/>
+			<GradientStop Color="#3353A5F0" Offset="0.85"/>
+			<GradientStop Offset="1" Color="#00466C9D"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="CurrentRowMaskBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="Black" Offset="0.4"/>
+			<GradientStop Offset="0.95"/>
+			<GradientStop Offset="0.05"/>
+			<GradientStop Color="Black" Offset="0.6"/>
+		</LinearGradientBrush>
+		
+		<ControlTemplate x:Key="RBTemplate" TargetType="RadioButton">
+			<Grid Background="Transparent" Margin="5" Width="30" Height="30">
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition GeneratedDuration="0:0:0.1" To="Pressed"/>
+							<VisualTransition From="Pressed" GeneratedDuration="0:0:0.2"/>
+							<VisualTransition From="Normal" GeneratedDuration="0:0:0.1" To="MouseOver"/>
+							<VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2" To="Normal"/>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Normal">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Over">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="MouseOver">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Over">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<ColorAnimation Duration="0" To="#33FFFFFF" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="OverHi" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Pressed">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Over">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Over">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.85"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Over">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.85"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimation Duration="0" To="0.85" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Check" d:IsOptimized="True"/>
+								<DoubleAnimation Duration="0" To="0.85" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Check" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Disabled"/>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="FocusStates"/>
+					<VisualStateGroup x:Name="CheckStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition From="Unchecked" GeneratedDuration="0:0:0.1" To="Checked"/>
+							<VisualTransition From="Checked" GeneratedDuration="0:0:0.2" To="Unchecked"/>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Checked">
+							<Storyboard>
+								<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Check" d:IsOptimized="True"/>
+								<Storyboard Duration="0:0:3" RepeatBehavior="Forever">
+									<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="CheckShine">
+										<EasingColorKeyFrame KeyTime="0" Value="#7F3A648F"/>
+										<EasingColorKeyFrame KeyTime="0:0:1.5" Value="#003A648F">
+											<EasingColorKeyFrame.EasingFunction>
+												<ExponentialEase EasingMode="EaseIn"/>
+											</EasingColorKeyFrame.EasingFunction>
+										</EasingColorKeyFrame>
+										<EasingColorKeyFrame KeyTime="0:0:2" Value="#003A648F"/>
+										<EasingColorKeyFrame KeyTime="0:0:3" Value="#7F3A648F">
+											<EasingColorKeyFrame.EasingFunction>
+												<ExponentialEase EasingMode="EaseInOut" Exponent="3"/>
+											</EasingColorKeyFrame.EasingFunction>
+										</EasingColorKeyFrame>
+									</ColorAnimationUsingKeyFrames>
+									<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="CheckShine">
+										<EasingColorKeyFrame KeyTime="0" Value="#4C6E97C1"/>
+										<EasingColorKeyFrame KeyTime="0:0:1.5" Value="#006E97C1">
+											<EasingColorKeyFrame.EasingFunction>
+												<ExponentialEase EasingMode="EaseIn"/>
+											</EasingColorKeyFrame.EasingFunction>
+										</EasingColorKeyFrame>
+										<EasingColorKeyFrame KeyTime="0:0:2" Value="#006E97C1"/>
+										<EasingColorKeyFrame KeyTime="0:0:3" Value="#4C6E97C1">
+											<EasingColorKeyFrame.EasingFunction>
+												<ExponentialEase EasingMode="EaseInOut"/>
+											</EasingColorKeyFrame.EasingFunction>
+										</EasingColorKeyFrame>
+									</ColorAnimationUsingKeyFrames>
+								</Storyboard>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Unchecked"/>
+						<VisualState x:Name="Indeterminate"/>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="ValidationStates"/>
+				</VisualStateManager.VisualStateGroups>
+				<Grid x:Name="Over" Opacity="0" RenderTransformOrigin="0.5,0.5">
+					<Grid.RenderTransform>
+						<CompositeTransform/>
+					</Grid.RenderTransform>
+					<Ellipse Fill="{TemplateBinding Background}" Margin="1"/>
+					<Ellipse StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+					<Ellipse x:Name="OverHi" Fill="Transparent" Margin="1"/>
+				</Grid>
+				<Grid x:Name="Check" Opacity="0" RenderTransformOrigin="0.5,0.5">
+					<Grid.RenderTransform>
+						<CompositeTransform/>
+					</Grid.RenderTransform>
+					<Ellipse Stroke="{StaticResource CircleCheck}" StrokeThickness="3" Width="34" Height="34" Margin="-2"/>
+					<Ellipse x:Name="CheckShine" StrokeThickness="5" Margin="-4">
+						<Ellipse.Stroke>
+							<RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5">
+								<GradientStop Color="#7F3A648F" Offset="0.735"/>
+								<GradientStop Color="#002E4D6B" Offset="1"/>
+								<GradientStop Color="#4C6E97C1" Offset="0.893"/>
+							</RadialGradientBrush>
+						</Ellipse.Stroke>
+					</Ellipse>
+				</Grid>
+			</Grid>
+		</ControlTemplate>
+		<Style x:Key="RBStyle" TargetType="RadioButton">
+			<Setter Property="Template" Value="{StaticResource RBTemplate}"/>
+		</Style>
+		
+		<ControlTemplate x:Key="TBTemplate" TargetType="ToggleButton">
+			<Grid Width="30" Height="30" Margin="5">
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition From="Normal" GeneratedDuration="0:0:0.1" To="MouseOver"/>
+							<VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2" To="Normal"/>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Normal">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Check">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Disabled">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Check">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.5"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="MouseOver">
+							<Storyboard>
+								<ColorAnimation Duration="0" To="#26FFFFFF" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="Over" d:IsOptimized="True"/>
+								<ColorAnimation Duration="0" To="#0CFFFFFF" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="Over" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Pressed"/>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="FocusStates"/>
+					<VisualStateGroup x:Name="CheckStates">
+						<VisualState x:Name="Checked">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Color">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Color">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Unchecked">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Color">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Color">
+									<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.9">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+									<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+										<EasingDoubleKeyFrame.EasingFunction>
+											<ExponentialEase EasingMode="EaseInOut"/>
+										</EasingDoubleKeyFrame.EasingFunction>
+									</EasingDoubleKeyFrame>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Indeterminate"/>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+				<Grid x:Name="Check" Opacity="1" RenderTransformOrigin="0.5,0.5">
+					<Grid.RenderTransform>
+						<CompositeTransform/>
+					</Grid.RenderTransform>
+					<Ellipse x:Name="Bg" Fill="{StaticResource BlackColorBrush}" Margin="1"/>
+					<Ellipse x:Name="Color" Fill="{TemplateBinding Background}" Margin="1" RenderTransformOrigin="0.5,0.5">
+						<Ellipse.RenderTransform>
+							<CompositeTransform/>
+						</Ellipse.RenderTransform>
+					</Ellipse>
+					<Ellipse StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+				</Grid>
+				<Ellipse x:Name="Over" Margin="1">
+					<Ellipse.Fill>
+						<RadialGradientBrush GradientOrigin="0.6,0.6" Center="0.6,0.6">
+							<GradientStop Color="Transparent" Offset="0"/>
+							<GradientStop Color="Transparent" Offset="1"/>
+						</RadialGradientBrush>
+					</Ellipse.Fill>
+				</Ellipse>
+			</Grid>
+		</ControlTemplate>
+		<Style x:Key="TBStyle" TargetType="ToggleButton">
+			<Setter Property="Template" Value="{StaticResource TBTemplate}"/>
+		</Style>
+		
+		<ControlTemplate x:Key="MyButtonTemplate" TargetType="Button">
+			<Grid Background="Transparent">
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualStateGroup.Transitions>
+							<VisualTransition From="Disabled" GeneratedDuration="0:0:0.3" To="Normal"/>
+							<VisualTransition From="Normal" GeneratedDuration="0:0:0.1" To="MouseOver"/>
+							<VisualTransition From="MouseOver" GeneratedDuration="0:0:0.2" To="Normal"/>
+							<VisualTransition From="Normal" GeneratedDuration="0" To="Disabled">
+								<Storyboard>
+									<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg">
+										<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+										<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+									</DoubleAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualTransition>
+						</VisualStateGroup.Transitions>
+						<VisualState x:Name="Normal">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="MouseOver">
+							<Storyboard>
+								<ColorAnimation Duration="0" To="#CC475E76" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="Bg" d:IsOptimized="True"/>
+								<ColorAnimation Duration="0" To="#CC19314D" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="Bg" d:IsOptimized="True"/>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Pressed">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.95"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.95"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Disabled">
+							<Storyboard>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="0.5"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="BtnImg">
+									<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="FocusStates"/>
+				</VisualStateManager.VisualStateGroups>
+				<Grid x:Name="BtnImg" RenderTransformOrigin="0.5,0.5">
+					<Grid.RenderTransform>
+						<CompositeTransform/>
+					</Grid.RenderTransform>
+					<Border x:Name="Bg" CornerRadius="2" BorderThickness="1" BorderBrush="{StaticResource ButtonBorderBrush}">
+						<Border.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#CC3D5166" Offset="0"/>
+								<GradientStop Color="#CC152940" Offset="1"/>
+							</LinearGradientBrush>
+						</Border.Background>
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+							noesis:Text.Stroke="#40000000" noesis:Text.StrokeThickness="1" Margin="{TemplateBinding Padding}"/>
+					</Border>
+				</Grid>
+			</Grid>
+		</ControlTemplate>
+		<Style x:Key="BtnStyle" TargetType="Button">
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontFamily" Value="Fonts/#Statix"/>
+			<Setter Property="Template" Value="{StaticResource MyButtonTemplate}"/>
+			<Setter Property="Padding" Value="0,0,0,0"/>
+		</Style>
+		<SolidColorBrush x:Key="PanelBackgroundBrush" Color="#4C0B1A2B"/>
+		<SolidColorBrush x:Key="TransparentColorBrush" Color="Transparent"/>
+		<Storyboard x:Name="LogoShineAnim" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.9" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.4" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="360"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="360"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="360"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="360"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="203"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="203"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="86"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="86"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9" Value="252"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="252"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="44"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="44"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:12" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.9" Value="1.2">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.1" Value="1.2"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="0.1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="Shine">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.9" Value="1.2">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.1" Value="1.2"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:6.5" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9" Value="0.1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:9.6" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="0.1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="IntroAnim" SpeedRatio="2.0" Duration="0:0:6">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PanelBg">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TitlePanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="StatusPanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RedRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BlueRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="GreenRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="YellowRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="BrownRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PurpleRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OrangeRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PinkRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SolutionPanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnRestart">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TitlePanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-20">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="TitlePanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="TitlePanel">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.9"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bd0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="-50"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="RowSol0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="RowSol0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="RowSol0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.7" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ChkBtn9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SolGrid0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.1" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SolGrid1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.3" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SolGrid2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SolGrid3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.7" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="SolGrid0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="SolGrid0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="SolGrid1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="SolGrid1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="SolGrid2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="SolGrid2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="SolGrid3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="SolGrid3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.6" Value="0.8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.8" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<BackEase EasingMode="EaseOut" Amplitude="3"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="PinkRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="OrangeRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="PurpleRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="BrownRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="YellowRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="GreenRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.2" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="BlueRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="RedRB">
+				<EasingDoubleKeyFrame KeyTime="0" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.3" Value="-20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="btnRestart">
+				<EasingDoubleKeyFrame KeyTime="0" Value="20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="20"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4.3" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg0">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg3">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg4">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg5">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg6">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg7">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg8">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bg9">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.3" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5.5" Value="1">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="BgAnim" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.Transform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Bg">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:20" Value="2000"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="BgShine">
+				<EasingDoubleKeyFrame KeyTime="0" Value="1500"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="1500"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:5" Value="-1500">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<SineEase EasingMode="EaseInOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:10" Value="-1500"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="Canvas.Loaded">
+			<BeginStoryboard Name="LogoShineAnimAction" Storyboard="{StaticResource LogoShineAnim}"/>
+			<BeginStoryboard Name="IntroAnimAction" Storyboard="{StaticResource IntroAnim}"/>
+			<BeginStoryboard Name="BgAnimAction" Storyboard="{StaticResource BgAnim}"/>
+		</EventTrigger>	
+	</UserControl.Triggers>
+
+	<Grid x:Name="Bg">
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="0,2000" StartPoint="0,0" SpreadMethod="Repeat" MappingMode="Absolute">
+				<LinearGradientBrush.Transform>
+					<CompositeTransform/>
+				</LinearGradientBrush.Transform>
+				<GradientStop Color="#FF0C0E10" Offset="0"/>
+				<GradientStop Color="#FF152430" Offset="0.4"/>
+				<GradientStop Color="#FF0C0E10" Offset="1"/>
+				<GradientStop Color="#FF182635" Offset="0.6"/>
+				<GradientStop Color="#FF1B2E40" Offset="0.2"/>
+				<GradientStop Color="#FF0F283D" Offset="0.8"/>
+			</LinearGradientBrush>
+		</Grid.Background>
+
+		<Rectangle x:Name="BgShine" Height="400" Margin="-500,0" RenderTransformOrigin="0.5,0.5">
+			<Rectangle.RenderTransform>
+				<CompositeTransform Rotation="-12"/>
+			</Rectangle.RenderTransform>
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="Transparent" Offset="0"/>
+					<GradientStop Color="#0FFFFFFF" Offset="0.5"/>
+					<GradientStop Color="Transparent" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+
+		<Viewbox>
+	
+			<Border x:Name="PanelBg" CornerRadius="5" BorderThickness="3" Margin="10" Padding="20,10">
+				<Border.BorderBrush>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.9">
+						<GradientStop Color="#FF222A33" Offset="1"/>
+						<GradientStop Color="#FF2B333B"/>
+					</LinearGradientBrush>
+				</Border.BorderBrush>
+				<Border.Background>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
+						<GradientStop Color="#FF41546C" Offset="0.865"/>
+						<GradientStop Color="#FF5B6F89" Offset="0.126"/>
+						<GradientStop Color="#FF384C5E" Offset="1"/>
+						<GradientStop Color="#FF47576B"/>
+					</LinearGradientBrush>
+				</Border.Background>
+				<StackPanel>
+					<Grid x:Name="TitlePanel" RenderTransformOrigin="0.5,0.5">
+						<Grid.RenderTransform>
+							<CompositeTransform/>
+						</Grid.RenderTransform>
+						<TextBlock x:Name="Title" Text="MasterMind" TextAlignment="Center" FontSize="64" Foreground="White"
+							FontFamily="Fonts/#Zephyrean BRK"
+							noesis:Text.Stroke="#802A3E5D" noesis:Text.StrokeThickness="3.5" RenderTransformOrigin="0.5,0.5">
+							<TextBlock.RenderTransform>
+								<CompositeTransform/>
+							</TextBlock.RenderTransform>
+						</TextBlock>
+						<Path x:Name="Shine" Data="M8,0 L8.88676,6.20729 L8.95332,6.24138 C9.29338,6.42612 9.57388,6.70661 9.75861,7.04668 L9.7927,7.11324 L16,8 L9.7927,8.88676 L9.75861,8.95331 C9.57388,9.29338 9.29338,9.57387 8.95332,9.75861 L8.88676,9.7927 L8,16 L7.11324,9.7927 L7.04668,9.75861 C6.70662,9.57387 6.42612,9.29338 6.24139,8.95331 L6.2073,8.88676 L0,8 L6.2073,7.11324 L6.24139,7.04668 C6.42612,6.70661 6.70662,6.42612 7.04668,6.24138 L7.11324,6.20729 z" HorizontalAlignment="Left" Height="16" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="16" Stroke="#667191B8" Margin="12,-1,0,0" RenderTransformOrigin="0.5,0.5">
+							<Path.RenderTransform>
+								<CompositeTransform/>
+							</Path.RenderTransform>
+							<Path.Fill>
+								<RadialGradientBrush>
+									<GradientStop Color="White" Offset="0"/>
+									<GradientStop Color="#7FFFFFFF" Offset="0.5"/>
+								</RadialGradientBrush>
+							</Path.Fill>
+						</Path>
+					</Grid>
+					<Grid x:Name="StatusPanel">
+						<Border x:Name="StatusBg" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="20,0" Opacity="0.4" />
+						<TextBlock x:Name="StatusText" Text="Status Message" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="21" Foreground="White"
+							FontFamily="Fonts/#Statix"
+							noesis:Text.Stroke="#40000000" noesis:Text.StrokeThickness="2" RenderTransformOrigin="0.5,0.5" Margin="0,5">
+							<TextBlock.RenderTransform>
+								<CompositeTransform/>
+							</TextBlock.RenderTransform>
+						</TextBlock>
+					</Grid>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+						<Border VerticalAlignment="Center" CornerRadius="5" BorderThickness="1" Margin="0,62,10,0">
+			
+							<StackPanel Height="320" Width="40">
+								<RadioButton x:Name="RedRB" Style="{StaticResource RBStyle}" Background="{StaticResource RedCircleBrush}" RenderTransformOrigin="0.5,0.5" IsChecked="True">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="BlueRB" Style="{StaticResource RBStyle}" Background="{StaticResource BlueCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="GreenRB" Style="{StaticResource RBStyle}" Background="{StaticResource GreenCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="YellowRB" Style="{StaticResource RBStyle}" Background="{StaticResource YellowCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="BrownRB" Style="{StaticResource RBStyle}" Background="{StaticResource BrownCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="PurpleRB" Style="{StaticResource RBStyle}" Background="{StaticResource PurpleCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="OrangeRB" Style="{StaticResource RBStyle}" Background="{StaticResource OrangeCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+								<RadioButton x:Name="PinkRB" Style="{StaticResource RBStyle}" Background="{StaticResource PinkCircleBrush}" RenderTransformOrigin="0.5,0.5">
+									<RadioButton.RenderTransform>
+										<CompositeTransform/>
+									</RadioButton.RenderTransform>
+								</RadioButton>
+							</StackPanel>
+						</Border>
+						<StackPanel>
+				
+							<Border x:Name="SolutionPanel" HorizontalAlignment="Left" BorderThickness="1" CornerRadius="5" Padding="2,0" Background="{StaticResource PanelBackgroundBrush}" Margin="-3,10,0,10">
+								<Border.BorderBrush>
+									<LinearGradientBrush EndPoint="0.53,0.987" StartPoint="0.47,0.013">
+										<GradientStop Color="#55000000" Offset="0.642"/>
+										<GradientStop Color="#0EFFFFFF"/>
+									</LinearGradientBrush>
+								</Border.BorderBrush>
+								<StackPanel Orientation="Horizontal">
+									<Grid x:Name="SolGrid0" Height="30" Width="30" Margin="5" RenderTransformOrigin="0.5,0.5">
+										<Grid.RenderTransform>
+											<CompositeTransform/>
+										</Grid.RenderTransform>
+										<Ellipse x:Name="Key0" RenderTransformOrigin="0.5,0.5" Margin="1" Fill="{StaticResource SolutionBrush}"/>
+										<TextBlock x:Name="KeyText0" Text="?" HorizontalAlignment="Center" VerticalAlignment="Center"
+											FontFamily="Fonts/#Statix" Foreground="White" FontSize="16"
+											noesis:Text.Stroke="#60000000" noesis:Text.StrokeThickness="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+									<Grid x:Name="SolGrid1" Height="30" Width="30" Margin="5" RenderTransformOrigin="0.5,0.5">
+										<Grid.RenderTransform>
+											<CompositeTransform/>
+										</Grid.RenderTransform>
+										<Ellipse x:Name="Key1" RenderTransformOrigin="0.5,0.5" Margin="1" Fill="{StaticResource SolutionBrush}"/>
+										<TextBlock x:Name="KeyText1" Text="?" HorizontalAlignment="Center" VerticalAlignment="Center"
+											FontFamily="Fonts/#Statix" Foreground="White" FontSize="16"
+											noesis:Text.Stroke="#60000000" noesis:Text.StrokeThickness="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+									<Grid x:Name="SolGrid2" Height="30" Width="30" Margin="5" RenderTransformOrigin="0.5,0.5">
+										<Grid.RenderTransform>
+											<CompositeTransform/>
+										</Grid.RenderTransform>
+										<Ellipse x:Name="Key2" RenderTransformOrigin="0.5,0.5" Margin="1" Fill="{StaticResource SolutionBrush}"/>
+										<TextBlock x:Name="KeyText2" Text="?" HorizontalAlignment="Center" VerticalAlignment="Center"
+											FontFamily="Fonts/#Statix" Foreground="White" FontSize="16"
+											noesis:Text.Stroke="#60000000" noesis:Text.StrokeThickness="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+									<Grid x:Name="SolGrid3" Height="30" Width="30" Margin="5" RenderTransformOrigin="0.5,0.5">
+										<Grid.RenderTransform>
+											<CompositeTransform/>
+										</Grid.RenderTransform>
+										<Ellipse x:Name="Key3" RenderTransformOrigin="0.5,0.5" Margin="1" Fill="{StaticResource SolutionBrush}"/>
+										<TextBlock x:Name="KeyText3" Text="?" HorizontalAlignment="Center" VerticalAlignment="Center"
+											FontFamily="Fonts/#Statix" Foreground="White" FontSize="16"
+											noesis:Text.Stroke="#60000000" noesis:Text.StrokeThickness="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</StackPanel>
+							</Border>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd0" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg0" Grid.Row="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos00" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos01" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos02" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos03" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol0" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol00" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}"/>
+										<Ellipse x:Name="Sol01" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}"/>
+										<Ellipse x:Name="Sol02" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}"/>
+										<Ellipse x:Name="Sol03" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn0" Style="{StaticResource BtnStyle}" Content="?" RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd1" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg1" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos10" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos11" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos12" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos13" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol1" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol10" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0" Margin="1"/>
+										<Ellipse x:Name="Sol11" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0" Margin="1"/>
+										<Ellipse x:Name="Sol12" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0" Margin="1"/>
+										<Ellipse x:Name="Sol13" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0" Margin="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" StrokeThickness="1" Stroke="{StaticResource CircleIndent}" Margin="1"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" StrokeThickness="1" Stroke="{StaticResource CircleIndent}" Margin="1"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" StrokeThickness="1" Stroke="{StaticResource CircleIndent}" Margin="1"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" StrokeThickness="1" Stroke="{StaticResource CircleIndent}" Margin="1"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn1" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd2" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg2" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos20" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos21" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos22" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos23" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol2" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol20" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}"/>
+										<Ellipse x:Name="Sol21" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol22" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol23" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn2" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd3" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg3" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos30" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos31" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos32" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos33" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol3" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol30" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol31" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol32" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol33" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn3" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd4" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg4" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos40" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos41" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos42" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos43" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol4" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol40" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol41" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol42" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol43" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn4" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd5" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg5" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos50" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos51" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos52" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos53" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol5" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol50" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol51" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol52" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol53" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn5" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd6" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg6" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos60" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos61" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos62" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos63" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol6" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol60" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol61" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol62" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol63" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn6" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd7" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg7" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos70" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos71" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos72" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos73" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol7" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol70" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol71" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol72" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol73" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn7" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd8" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg8" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos80" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos81" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos82" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos83" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol8" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol80" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol81" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol82" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol83" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn8" Style="{StaticResource BtnStyle}" Content="?"  RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+				
+							<StackPanel Orientation="Horizontal">
+								<Grid x:Name="Bd9" Margin="-10,0,0,0" RenderTransformOrigin="0.5,0.5">
+									<Grid.RenderTransform>
+										<CompositeTransform/>
+									</Grid.RenderTransform>
+									<Border x:Name="Bg9" Grid.Column="0" Background="{StaticResource CurrentRowBrush}" OpacityMask="{StaticResource CurrentRowMaskBrush}" Margin="5,0"/>
+									<StackPanel Orientation="Horizontal" Margin="10,0">
+										<ToggleButton x:Name="Pos90" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos91" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos92" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+										<ToggleButton x:Name="Pos93" Style="{StaticResource TBStyle}" Background="{StaticResource TransparentColorBrush}" RenderTransformOrigin="0.5,0.5"/>
+									</StackPanel>
+								</Grid>
+								<Border x:Name="RowSol9" CornerRadius="5" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="{StaticResource BlackColorBrush}" RenderTransformOrigin="0.5,0.5">
+									<Border.RenderTransform>
+										<CompositeTransform/>
+									</Border.RenderTransform>
+									<Grid Margin="2">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Ellipse x:Name="Sol90" Grid.Row="0" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol91" Grid.Row="0" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol92" Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse x:Name="Sol93" Grid.Row="1" Grid.Column="1" Width="8" Height="8" Margin="1" Fill="{StaticResource BlackColorBrush}" StrokeThickness="0"/>
+										<Ellipse Grid.Row="0" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="0" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="0" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+										<Ellipse Grid.Row="1" Grid.Column="1" Width="10" Height="10" Margin="1" StrokeThickness="1" Stroke="{StaticResource CircleIndent}"/>
+									</Grid>
+								</Border>
+								<Button x:Name="ChkBtn9" Style="{StaticResource BtnStyle}" Content="?" RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Width="28" Height="28"/>
+							</StackPanel>
+						</StackPanel>
+			
+					</StackPanel>
+			
+					<Button x:Name="btnRestart" Style="{StaticResource BtnStyle}" Content="Restart Game" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,10" FontSize="21" Padding="10,2" RenderTransformOrigin="0.5,0.5">
+						<Button.RenderTransform>
+							<CompositeTransform/>
+						</Button.RenderTransform>
+					</Button>
+				</StackPanel>
+			</Border>
+		</Viewbox>
+	</Grid>
+</UserControl>

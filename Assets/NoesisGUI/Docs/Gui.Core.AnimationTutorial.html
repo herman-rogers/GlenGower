@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Animation Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="animation-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Animation Tutorial</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="Animation.zip">Tutorial Data</a></p>
+<p>Animation functionality makes it very straightforward to add dynamic effects to your applications or components. Animation might not be appropriate for every piece of software, but there are many situations that can benefit from its reasonable use to enhance the viewing experience of the user.</p>
+<p>On this tutorial we demonstrate how to create some simple animations to bring your interface into life.</p>
+<div class="section" id="animations-in-xaml">
+<h1>Animations in XAML</h1>
+<p>We can start with a simple rectangle in the middle of the screen.</p>
+<img alt="AnimationTutorialImg1.jpg" src="AnimationTutorialImg1.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<p>Animations are specified in XAML using <em>Storyboard</em> objects. A Storyboard defines a timeline of property modifications that will be applied to interface elements over time. But, where should they be placed in order to be fired? An animation can begin in response to an event, for example, a button click. So, the next step should be to add a button to our example:</p>
+<img alt="AnimationTutorialImg2.jpg" src="AnimationTutorialImg2.jpg" />
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span><span class="nt">/&gt;</span>
+<span class="hll">     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">/&gt;</span>
+</span> <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<p>Every control can define a set of actions that are executed in response to a routed event. They are called event triggers, and can be specified in the <em>Triggers</em> property of any control. So if we want to launch an animation when the button in the sample is clicked we should add the following code to the XAML:</p>
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+<span class="hll">         <span class="nt">&lt;Button.Triggers&gt;</span>
+</span><span class="hll">             <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;/Button.Triggers&gt;</span>
+</span>     <span class="nt">&lt;/Button&gt;</span>
+ <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<p>The action that launches an animation is represented by the <em>BeginStoryboard</em> class, and it defines a simple <em>Storyboard</em> property where the animation is specified.</p>
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Button.Triggers&gt;</span>
+             <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+<span class="hll">                 <span class="nt">&lt;BeginStoryboard&gt;</span>
+</span><span class="hll">                     <span class="c">&lt;!-- Storyboard property is the content property of BeginStoryboard --&gt;</span>
+</span><span class="hll">                     <span class="c">&lt;!-- class, so we don&#39;t need to make it explicit in the code --&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;Storyboard</span> <span class="nt">/&gt;</span>
+</span><span class="hll">                 <span class="nt">&lt;/BeginStoryboard&gt;</span>
+</span>             <span class="nt">&lt;/EventTrigger&gt;</span>
+         <span class="nt">&lt;/Button.Triggers&gt;</span>
+     <span class="nt">&lt;/Button&gt;</span>
+ <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<p>The first animation we could add can be moving the rectangle within the screen. We can do that by applying a <em>TranslateTransform</em> to the <em>RenderTransform</em> property of the rectangle. But we need a way to refer to the rectangle from the animation timeline, and this is obviously done by setting the <em>Name</em> of the rectangle element. The example will look now like this:</p>
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+<span class="hll">     <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+</span><span class="hll">             <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">         <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+</span><span class="hll">     <span class="nt">&lt;/Rectangle&gt;</span>
+</span>     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Button.Triggers&gt;</span>
+             <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;BeginStoryboard&gt;</span>
+<span class="hll">                     <span class="nt">&lt;Storyboard</span> <span class="na">TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                       <span class="na">TargetProperty=</span><span class="s">&quot;(UIElement.RenderTransform).(TranslateTransform.X)&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;DoubleAnimation</span> <span class="na">Duration=</span><span class="s">&quot;0:0:1&quot;</span> <span class="na">From=</span><span class="s">&quot;0&quot;</span> <span class="na">To=</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Storyboard&gt;</span>
+</span>                 <span class="nt">&lt;/BeginStoryboard&gt;</span>
+             <span class="nt">&lt;/EventTrigger&gt;</span>
+         <span class="nt">&lt;/Button.Triggers&gt;</span>
+     <span class="nt">&lt;/Button&gt;</span>
+ <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<p>Now, when the user clicks the button, the green rectangle is displaced horizontally to the right by 50 pixels during one second. You can read <a class="reference external" href="Gui.Animation.Introduction.html">Animation</a> reference to obtain full information about the properties that are available to customize animations (begin time, auto reverse, repeat behavior, etc.).</p>
+<p>In case we want to animate more than one property of the same object or from different objects, we can benefit of the attached behavior of <em>TargetProperty</em> and <em>TargetName</em> properties. For example, to fade out the rectangle while it is being moved we could add the following:</p>
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+             <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+     <span class="nt">&lt;/Rectangle&gt;</span>
+     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Button.Triggers&gt;</span>
+             <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;BeginStoryboard&gt;</span>
+<span class="hll">                     <span class="nt">&lt;Storyboard&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;DoubleAnimation</span> <span class="na">Duration=</span><span class="s">&quot;0:0:1&quot;</span> <span class="na">From=</span><span class="s">&quot;0&quot;</span> <span class="na">To=</span><span class="s">&quot;50&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(UIElement.RenderTransform).(TranslateTransform.X)&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;DoubleAnimation</span> <span class="na">Duration=</span><span class="s">&quot;0:0:1&quot;</span> <span class="na">From=</span><span class="s">&quot;1&quot;</span> <span class="na">To=</span><span class="s">&quot;0&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(Shape.Fill).(Brush.Opacity)&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                     <span class="nt">&lt;/Storyboard&gt;</span>
+</span>                 <span class="nt">&lt;/BeginStoryboard&gt;</span>
+             <span class="nt">&lt;/EventTrigger&gt;</span>
+         <span class="nt">&lt;/Button.Triggers&gt;</span>
+     <span class="nt">&lt;/Button&gt;</span>
+ <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<img alt="AnimationTutorialImg3.jpg" src="AnimationTutorialImg3.jpg" />
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">Animations can also be launched automatically when a XAML is loaded. This can be achieved by using the <em>FrameworkElement.Loaded</em> routed event instead of responding to a <em>Button.Click</em> event.</p>
+</div>
+</div>
+<div class="section" id="keyframe-animations">
+<h1>Keyframe animations</h1>
+<p>The normal animation classes only support linear interpolation from one value to another (or limited forms of nonlinear interpolation thanks to AccelerationRatio and DecelerationRatio). If you want to represent a more complicated animation, you can specify keyframes, which provide specific values at specific times. The use of keyframes requires a keyframe-enabled animation class. For example, <em>DoubleAnimation</em> has a companion class called <em>DoubleAnimationUsingKeyFrames</em>, as do all the other animation classes.</p>
+<p>The keyframe animation classes have the same properties and events as their counterparts, except for the <em>From</em>, <em>To</em>, and <em>By</em> properties. Instead, they have a <em>KeyFrames</em> collection that can hold keyframe instances specific to the type being animated. There are three kinds of keyframes:</p>
+<ul class="simple">
+<li><strong>Linear Keyframes</strong>: linear interpolation is performed between keyframe values.</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+            <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+    <span class="nt">&lt;/Rectangle&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Button.Triggers&gt;</span>
+            <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;BeginStoryboard&gt;</span>
+                    <span class="nt">&lt;Storyboard&gt;</span>
+<span class="hll">                        <span class="nt">&lt;DoubleAnimationUsingKeyFrames</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(UIElement.RenderTransform).(TranslateTransform.X)&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;LinearDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;LinearDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;50&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;LinearDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;-20&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:2&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;LinearDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;80&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:3&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                        <span class="nt">&lt;/DoubleAnimationUsingKeyFrames&gt;</span>
+</span>                    <span class="nt">&lt;/Storyboard&gt;</span>
+                <span class="nt">&lt;/BeginStoryboard&gt;</span>
+            <span class="nt">&lt;/EventTrigger&gt;</span>
+        <span class="nt">&lt;/Button.Triggers&gt;</span>
+    <span class="nt">&lt;/Button&gt;</span>
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li><strong>Spline Keyframes</strong>: the spline keyframe classes have an additional <em>KeySpline</em> property that differentiates themselves from the linear classes. KeySpline can be set to an instance of a KeySpline object, which describes the desired motion as a cubic Bezier curve. KeySpline has two properties of type Point that represent the curve's control points.</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+            <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+    <span class="nt">&lt;/Rectangle&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Button.Triggers&gt;</span>
+            <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;BeginStoryboard&gt;</span>
+                    <span class="nt">&lt;Storyboard&gt;</span>
+<span class="hll">                        <span class="nt">&lt;DoubleAnimationUsingKeyFrames</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(UIElement.RenderTransform).(TranslateTransform.X)&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;SplineDoubleKeyFrame</span> <span class="na">KeySpline=</span><span class="s">&quot;0,1 1,0&quot;</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;SplineDoubleKeyFrame</span> <span class="na">KeySpline=</span><span class="s">&quot;0,1 1,0&quot;</span> <span class="na">Value=</span><span class="s">&quot;50&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;SplineDoubleKeyFrame</span> <span class="na">KeySpline=</span><span class="s">&quot;0,1 1,0&quot;</span> <span class="na">Value=</span><span class="s">&quot;-20&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:2&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;SplineDoubleKeyFrame</span> <span class="na">KeySpline=</span><span class="s">&quot;0,1 1,0&quot;</span> <span class="na">Value=</span><span class="s">&quot;80&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:3&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                        <span class="nt">&lt;/DoubleAnimationUsingKeyFrames&gt;</span>
+</span>                    <span class="nt">&lt;/Storyboard&gt;</span>
+                <span class="nt">&lt;/BeginStoryboard&gt;</span>
+            <span class="nt">&lt;/EventTrigger&gt;</span>
+        <span class="nt">&lt;/Button.Triggers&gt;</span>
+    <span class="nt">&lt;/Button&gt;</span>
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+</blockquote>
+<ul class="simple">
+<li><strong>Discrete Keyframes</strong>: a discrete keyframe simply indicates that no interpolation should be done from the previous keyframe.</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+            <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+    <span class="nt">&lt;/Rectangle&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Button.Triggers&gt;</span>
+            <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;BeginStoryboard&gt;</span>
+                    <span class="nt">&lt;Storyboard&gt;</span>
+<span class="hll">                        <span class="nt">&lt;DoubleAnimationUsingKeyFrames</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                          <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(UIElement.RenderTransform).(TranslateTransform.X)&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;DiscreteDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;0&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;DiscreteDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;50&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:1&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;DiscreteDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;-20&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:2&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                            <span class="nt">&lt;DiscreteDoubleKeyFrame</span> <span class="na">Value=</span><span class="s">&quot;80&quot;</span> <span class="na">KeyTime=</span><span class="s">&quot;0:0:3&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                        <span class="nt">&lt;/DoubleAnimationUsingKeyFrames&gt;</span>
+</span>                    <span class="nt">&lt;/Storyboard&gt;</span>
+                <span class="nt">&lt;/BeginStoryboard&gt;</span>
+            <span class="nt">&lt;/EventTrigger&gt;</span>
+        <span class="nt">&lt;/Button.Triggers&gt;</span>
+    <span class="nt">&lt;/Button&gt;</span>
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+</blockquote>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">Each keyframe instance can give a specific value and a time for that value to be applied. Setting KeyTime is optional, however. If you omit one, the animation system assumes the keyframe occurs halfway between the surrounding keyframes. If you omit the KeyTime on all keyframes, they are spaced evenly across the duration of the animation.</p>
+</div>
+</div>
+<div class="section" id="easing-functions">
+<h1>Easing functions</h1>
+<p>Easing functions allow you to apply custom mathematical formulas to your animations. For example, you may want an object to realistically bounce or behave as though it were on a spring. You could use KeyFrame or even From/To/By animations to approximate these effects but it would take a significant amount of work and the animation would be less accurate than using a mathematical formula.</p>
+<p>Besides creating your own custom easing function by inheriting from <em>EasingFunctionBase</em>, you can use one of several <a class="reference external" href="Gui.Animation.EasingFunctions.html">easing functions</a> provided by the animation system to create common effects.</p>
+<div class="highlight"><pre> <span class="nt">&lt;Canvas</span>
+   <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+   <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+   <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;Rectangle</span> <span class="na">x:Name=</span><span class="s">&quot;Rect&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;60&quot;</span> <span class="na">Margin=</span><span class="s">&quot;60&quot;</span> <span class="na">Fill=</span><span class="s">&quot;YellowGreen&quot;</span> <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+             <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;0&quot;</span> <span class="na">Y=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+         <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+     <span class="nt">&lt;/Rectangle&gt;</span>
+     <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Start Animation&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Left&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Top&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;Button.Triggers&gt;</span>
+             <span class="nt">&lt;EventTrigger</span> <span class="na">RoutedEvent=</span><span class="s">&quot;Button.Click&quot;</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;BeginStoryboard&gt;</span>
+                     <span class="nt">&lt;Storyboard&gt;</span>
+<span class="hll">                         <span class="nt">&lt;DoubleAnimation</span> <span class="na">Duration=</span><span class="s">&quot;0:0:1&quot;</span> <span class="na">From=</span><span class="s">&quot;1&quot;</span> <span class="na">To=</span><span class="s">&quot;0&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetName=</span><span class="s">&quot;Rect&quot;</span>
+</span><span class="hll">                           <span class="na">Storyboard.TargetProperty=</span><span class="s">&quot;(Shape.Fill).(Brush.Opacity)&quot;</span><span class="nt">&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;DoubleAnimation.EasingFunction&gt;</span>
+</span><span class="hll">                                 <span class="nt">&lt;SineEase</span> <span class="na">EasingMode=</span><span class="s">&quot;EaseInOut&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                             <span class="nt">&lt;/DoubleAnimation.EasingFunction&gt;</span>
+</span><span class="hll">                         <span class="nt">&lt;/DoubleAnimation&gt;</span>
+</span>                     <span class="nt">&lt;/Storyboard&gt;</span>
+                 <span class="nt">&lt;/BeginStoryboard&gt;</span>
+             <span class="nt">&lt;/EventTrigger&gt;</span>
+         <span class="nt">&lt;/Button.Triggers&gt;</span>
+     <span class="nt">&lt;/Button&gt;</span>
+ <span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

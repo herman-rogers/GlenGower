@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Binding</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="binding">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Binding</h1>
+
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.data.binding.aspx">http://msdn.microsoft.com/en-us/library/system.windows.data.binding.aspx</a></p>
+<img alt="http://i.msdn.microsoft.com/ms617928.DataBindingMostBasic(en-us,VS.100).png" src="http://i.msdn.microsoft.com/ms617928.DataBindingMostBasic(en-us,VS.100).png" />
+<p>Binding allows the connection of an object's property to any data source (property from other object, database, XML file, etc...).
+Current implementation only supports the connection between object properties.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="6%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ShouldSerializePath</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ShouldSerializeSource</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ShouldSerializeValidationRules</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>XamlNamespaceManagerPropert</td>
+<td>Yes</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="77%" />
+<col width="6%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AsyncState</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>BindsDirectlyToSource</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Converter</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ConverterCulture</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ConverterParameter</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ElementName</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsAsync</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Mode</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>NotifyOnSourceUpdated</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>NotifyOnTargetUpdated</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>NotifyOnValidationError</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Path</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RelativeSource</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Source</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UpdateSourceExceptionFilter</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UpdateSourceTrigger</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ValidatesOnDataErrors</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ValidatesOnExceptions</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ValidationRules</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>XPath</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="72%" />
+<col width="6%" />
+<col width="6%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Routed Events</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>SourceUpdatedEvent</td>
+<td>Yes</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TargetUpdatedEvent</td>
+<td>Yes</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>In a binding there are 3 main elements: a Target, a Source and a Path to the value in the Binding Source</p>
+<ul class="simple">
+<li>The <strong>Target</strong> is always a Dependency Property</li>
+<li>The <strong>Source</strong> can be a Dependency Property, or a &quot;normal&quot; property from an object that implements the INotifyChange interface</li>
+<li>The <strong>Path</strong> is created from a string that tells how to reach the binding value in the Source</li>
+</ul>
+<p>The Binding object is stored in the Target as an expression, so a call to DependencyObject::ReadLocalValue over a local binding will return an object that can be casted to BindingExpression.</p>
+<div class="section" id="source">
+<h1>Source</h1>
+<p>The source of a Binding can be expressed in several ways:</p>
+<ul class="simple">
+<li><strong>ElementName</strong>: The source search traverses the tree upwards looking in the namescopes until the root is reached</li>
+<li><strong>Source</strong>: Explicit set of the source, for example using a DynamicResource extension</li>
+<li><strong>RelativeSource</strong>: Useful when the source is relative (an ancestor) to the target object. The relative source can be:</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li><strong>Self</strong>: Set the source equal to the target object</li>
+<li><strong>AncestorType</strong>: Gets an ancestor matching the specified type</li>
+<li><strong>AncestorLevel</strong>: To know how many ancestors (of type AncestorType if indicated) have to skipped to reach the desired source</li>
+<li><strong>TemplatedParent</strong>: To get the source from the target's templated parent.</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li><strong>DataContext</strong>: Is explained later in this document</li>
+</ul>
+<div class="highlight"><pre><span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;Red&quot;</span> <span class="na">Foreground=</span><span class="s">&quot;{Binding RelativeSource={RelativeSource Self}, Path=Background}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}, AncestorLevel=2}, Path=Background}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="return-value">
+<h1>Return value</h1>
+<p>When a binding can't be resolved for any reason (invalid property path, source not found, converter not available, etc...) it returns the FallbackValue if set. If there is no FallbackValue, the binding returns a DependencyProperty::UnsetValue and when this value is evaluated in the DependencyObject, the default value of the target property is stored.</p>
+</div>
+<div class="section" id="binding-modes">
+<h1>Binding modes</h1>
+<p>Data flow in a binding can be modified with the Binding::Mode property. There are 4 flow modes:</p>
+<ul class="simple">
+<li><strong>OneWay</strong>: Updates the binding target property when the binding source changes</li>
+<li><strong>TwoWay</strong>: Updates either the source property or the target property when the other changes</li>
+<li><strong>OneWayToSource</strong>: Updates the source property when the target property changes</li>
+<li><strong>OneTime</strong>: Updates the binding target when the application starts or when the data context changes</li>
+</ul>
+</div>
+<div class="section" id="update-timing">
+<h1>Update timing</h1>
+<p>For TwoWay or OneWayToSource bindings the moment when the target is updated can be controller with the UpdateSourceTrigger property. It has 3 possible values:</p>
+<ul class="simple">
+<li><strong>PropertyChanged</strong>: It's the most common. The source is updated immediately after a target property change</li>
+<li><strong>LostFocus</strong>: The update is done when the target object loses focus. It's the default behavior for TextBox::Text property</li>
+<li><strong>Explicit</strong>: The update is done by code, calling BindingExpression::UpdateSource method</li>
+<li><strong>Default</strong>: The value is read from the target property Metadata (FrameworkPropertyMetaData::DefaultUpdateSourceTrigger)</li>
+</ul>
+</div>
+<div class="section" id="type-converters">
+<h1>Type Converters</h1>
+<p>Target and Source values can have different types. To allow the assignment of values of different types, an intermediate conversion is done by a converter (an object that implements IValueConverter interface).</p>
+<p>The converter can be specified by the user (even when target and source types are the same).
+If the types are different and the user doesn't specify a converter, the binding object instantiates a DefaultValueConverter which internally uses Core::TypeConverters from source and target types. Internally, the DefaultValueConverter first instantiates the target type converter, and if the conversion can't be done it makes a second try with the source type converter; if the second one also fails, then the binding can't resolve.</p>
+</div>
+<div class="section" id="string-format">
+<h1>String Format</h1>
+<p>When the target property is a String, the user can also specify a StringFormat property to indicate how to format the bound value (the StringFormat is only applied in the Source to Target data flow). If StringFormat is specified, the DefaultValueConverter is not utilized in the Source to Target data flow, but for user setted converters the converter is evaluated first and then the StringFormat is applied to the resulting value.</p>
+<p>There are several formatting types for StringFormat:</p>
+<ul class="simple">
+<li>Numeric format</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>Standard format (<a class="reference external" href="http://msdn.microsoft.com/en-us/library/dwhawy9k.aspx">http://msdn.microsoft.com/en-us/library/dwhawy9k.aspx</a>)</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>Currency <strong>C</strong>: Implemented as number + 2 decimals + Euro symbol, but number is lacking thousands separator</li>
+<li>Decimal <strong>D</strong>: Implemented</li>
+<li>Scientific <strong>E</strong>: Implemented</li>
+<li>Fixed Point <strong>F</strong>: Implemented</li>
+<li>General <strong>G</strong>: Implemented</li>
+<li>Number <strong>N</strong>: Implemented as Fixed Point</li>
+<li>Percent <strong>P</strong>: Implemented</li>
+<li>Round Trip <strong>R</strong>: Currently not implemented</li>
+<li>Hexadecimal <strong>H</strong>: Implemented</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Custom format (<a class="reference external" href="http://msdn.microsoft.com/en-us/library/0c899ak8.aspx">http://msdn.microsoft.com/en-us/library/0c899ak8.aspx</a>). Currently not implemented</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Date and Time format: currently not implemented</li>
+<li>Enum format: currently not implemented</li>
+</ul>
+</div>
+<div class="section" id="datacontext">
+<h1>DataContext</h1>
+<p>When several properties are binding to a common source the DataContext property of FrameworkElement and FrameworkContentElement can be set to allow the children in the same tree to resolve using the same source.</p>
+<div class="highlight"><pre><span class="nt">&lt;DockPanel</span> <span class="na">DataContext=</span><span class="s">&quot;{Binding Source={StaticResource Blog}}&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Label</span> <span class="na">Content=</span><span class="s">&quot;{Binding Path=Name}&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;Label</span> <span class="na">Content=</span><span class="s">&quot;{Binding Path=Author}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/DockPanel&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="templatebinding">
+<h1>TemplateBinding</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.templatebindingextension.aspx">http://msdn.microsoft.com/en-us/library/system.windows.templatebindingextension.aspx</a></p>
+<p>TemplateBinding is an ligthweight Binding version equivalent to using RelativeSource=TemplatedParent</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="77%" />
+<col width="6%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Converter</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ConverterParameter</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Property</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Background=</span><span class="s">&quot;{TemplateBinding Background}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

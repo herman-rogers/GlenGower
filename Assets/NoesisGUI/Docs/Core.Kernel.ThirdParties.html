@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Integrating Third Parties</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="integrating-third-parties-into-noesis-engine">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Integrating Third Parties into Noesis Engine</h1>
+
+<p>Everything about Third Parties you always wanted to ask, yet never dared to. :)</p>
+<div class="section" id="introduction">
+<h1>Introduction</h1>
+<p>Third Parties are external libraries that are not being developed inside Noesis. The modular structure of Noesis allows for easily integrating external work avoiding reinventing the wheel. Examples of third parties are:</p>
+<ul class="simple">
+<li>FreeType</li>
+<li>FreeImage</li>
+<li>OpenAL</li>
+<li>Python</li>
+</ul>
+<p>There are three characteristic points that differentiate a third party package from a Noesis package:</p>
+<ul class="simple">
+<li>Third parties are stored inside the <a class="reference external" href="Core.Kernel.SDKStructure.html">3rdParty directory</a></li>
+<li>Third parties are stored in the repository as binaries + source code. The libraries and binaries are precompiled and commited to Noesis Repository.</li>
+<li>The development of the third party is not tracked inside Noesis Repository. Normally, only stable versions are deployed to the repository</li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h1>Configuration</h1>
+<p>Third parties are located inside the <strong>NoesisSDK3rdParty</strong> directory. Each package is stored in a directory. In the root of that directory a <strong>ThirdParty.def</strong> file can be found. That file configures the third party library for proper integration in Noesis. For example, the ThirdParty.def file for FreeType is the following:</p>
+<div class="highlight"><pre>#
+# ThirdParty definition file
+#
+
+[global]
+
+DESC = FreeType, A Free, High-Quality, and Portable Font Engine
+WEB = http://www.freetype.org
+LICENSE = http://www.freetype.org/FTL.TXT
+INCLUDE = freetype-2.3.5/include
+
+LIB = freetype-2.3.5/objs
+
+# Changes to the package
+#   The version compiled is Release Multithread. PDB generation have been activated (vc80.pdb)
+</pre></div>
+<p>Most of the settings are self-explanatory, but they are described here one by one</p>
+<div class="section" id="description">
+<h2>Description</h2>
+<p>A description of the package is specified here.</p>
+</div>
+<div class="section" id="web">
+<h2>Web</h2>
+<p>A web link to the home page related to the project must be specified here.</p>
+</div>
+<div class="section" id="license">
+<h2>License</h2>
+<p>This field is reserved to describe the license under which this package is being used in Noesis. A clear description or, even better, a link to the licence must be found here.
+It is very important to describe this field correctly. Whenever possible free or non restrictive licences must be used. Licences supporting source code are preferred. More restrictive licenses can incur in a extra costs to users of Noesis. (TODO: this must be managed by NsToolkit)</p>
+</div>
+<div class="section" id="include">
+<h2>Include</h2>
+<p>A list of paths (relative to the main folder of this library) where include files are stored. This paths are automatically added to packages depending from this library. For example, with the definition of Include found above a package using this 3rdParty could write</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// (c) Copyright 2007 Noesis Engine. All Rights Reserved.</span>
+<span class="c1">/// $Id: Font.h 380 2008-05-30 01:07:53Z jsantos $</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#ifndef __DRAWING_FONT_H__</span>
+<span class="cp">#define __DRAWING_FONT_H__</span>
+
+
+<span class="cp">#include &lt;NsCore/BaseComponent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Reflection.h&gt;</span>
+<span class="cp">#include &lt;NsDrawing/IFont.h&gt;</span>
+
+<span class="cp">#include &lt;hash_map&gt;</span>
+
+<span class="cp">#include &lt;ft2build.h&gt;</span>
+<span class="cp">#include FT_FREETYPE_H</span>
+</pre></div>
+</div>
+<div class="section" id="lib">
+<h2>Lib</h2>
+<p>A list of paths (relative to the main folder of this library) where library files are stored. Library files are not automatically linked in the dependant packages. The path is automatically added to the project, but the link must still be forced. For example, following with the above example</p>
+<div class="highlight"><pre><span class="cp">#pragma comment(lib, &quot;freetype235MT.lib&quot;)</span>
+</pre></div>
+<p>Some projects have different directories for each build configuration. This can be specified in the definition file as follows</p>
+<div class="highlight"><pre>[Debug]
+LIB = expat-2.0.1/win32/bin/debug
+
+[Release]
+LIB = expat-2.0.1/win32/bin/release
+</pre></div>
+</div>
+<div class="section" id="bin">
+<h2>Bin</h2>
+<p>A list of binary files (relative to the main folder of this library) that must be copied to the <strong>/NoesisSDK/bin</strong> directory whenever this 3rdParty is used. The copy is done with the <strong>--dist3rd</strong> option of <a class="reference external" href="Core.Kernel.NSToolkit.html">NSToolkit</a>. All the binaries that are needed for proper use of the package must be copied: dynamic libraries, debug symbols, etc.</p>
+<p>Example,</p>
+<div class="highlight"><pre>BIN = Original_Files_From_SDK/bin/Win32/wrap_oal.dll,
+      OpenAL_Trunk_1471/OpenAL-Windows/Router/Release/Win32/OpenAL32.dll,
+      OpenAL_Trunk_1471/OpenAL-Windows/Router/Release/Win32/OpenAL32.pdb
+</pre></div>
+<p>If the Thirdparty is compiled as an static library this field must not declared and can be omitted from the definition file.</p>
+</div>
+<div class="section" id="comments">
+<h2>Comments</h2>
+<p>The end of the file is reserved for comments. Any change done to the ThirdParty must be commented here. For example:</p>
+<div class="highlight"><pre># Modifications done to the original project
+#
+# For ALL projects
+#   Debug
+#     Runtime library: MT Debug DLL
+#   Release
+#     Runtime library: DLL
+#     Enhanced instruction set: SSE
+#
+# For ROUTER TEST project
+#   Debug
+#     Additional include diretories: ..\..\include\al
+#     Additional library diretories: ..\router\debug\win32
+#   Release
+#     Additional include diretories: ..\..\include\al
+#     Additional library diretories: ..\router\release\win32
+#
+# NOTE: Could compile the code for Unicode, but there is no explicit project for this in the
+#       current solution
+# NOTE: There is no code for Creative EFX-Util.lib, so the version of the SDK is included
+</pre></div>
+</div>
+<div class="section" id="pre-compiling-thirdparties">
+<h2>Pre-Compiling ThirdParties</h2>
+<p>Third parties must be precompiled in the repository. That way, they are not being compiled each time a <strong>Rebuild All</strong> command is executed. And that makes sense because third parties do not often change. The following rules must be followed when compiling the 3rdParties:</p>
+<ul class="simple">
+<li>If possible, always compile as dynamic library instead of static library. <em>[General -&gt; Configuration Type]</em></li>
+<li>Always compile with CRT in Multithread DLL (Debug or Release). This is the official CRT mode supported by all the packages and the option that better integrates with the <a class="reference external" href="Core.Kernel.MemoryManager.html">memory manager</a>. <em>[C/C++ -&gt; Code Generation -&gt; Runtime Library]</em></li>
+<li>Enable Whole program optimization. <em>[General -&gt; Whole Program Optimization + Linker -&gt; Optimization -&gt; Link Time Code Generation]</em></li>
+<li>Enable utilization of SIMD Extensions for 32-bit builds and SIMD Extensions 2 for 64-bit builds. <em>[C/C++ -&gt; Code Generation -&gt; Enable Enhanced Instruction Set]</em></li>
+<li>Symbols must me properly configured. No warnings must appear when linking with the ThirdParty</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>For static libraries, the symbol files must be stored in the same directory that the lib. <em>[C/C++ -&gt; Program Database File Name]</em></li>
+<li>For dynamic libraries, symbol files must be specified in the BIN option of the definition file. That way, they will be copied to the <strong>/Bin</strong> directory. <em>[Linker -&gt; Debugging -&gt; Generate Debug Info + Generate Program Database File]</em></li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Respect as much as possible the project settings provided by the ThirdParty author. This permits easier upgrading. Any change done to the default settings must be clearly described in the definition file.</li>
+<li>Normally, only an optimized release configuration must be generated. In that case, the Release CRT library must be discarded when linking a package in debug. This can be done with the following commands</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="cp">#ifdef _DEBUG</span>
+<span class="c1">// FreeType library is compiled in Release. When being used by a Debug Package we disable</span>
+<span class="c1">//  Release runtime libraries to avoid conflicts</span>
+<span class="cp">#pragma comment(linker, &quot;/NODEFAULTLIB:MSVCRT.lib&quot;)</span>
+<span class="cp">#endif</span>
+</pre></div>
+</blockquote>
+</div>
+</div>
+<div class="section" id="subversion-integration">
+<h1>Subversion Integration</h1>
+<p>Third parties are managed in the repository as described in the subversion documentation: <a class="reference external" href="http://svnbook.red-bean.com/en/1.1/ch07s05.html">Vendor branches</a>:</p>
+<ul class="simple">
+<li>Original (unmodified) libraries are stored in <strong>Noesis/3rdParty</strong> (outside NoesisSDK). Inside that directory you will find a folder for each version committed and the folder <strong>'current</strong>' with the latest integrated version. Note that this folder is not include in the data that is branched when a new NoesisSDK branch is created.</li>
+<li>Inside NoesisSDK there is another 3rdParty directory (<strong>Noesis/NoesisSDK/3rdParty</strong>). Each 3rdParty has its own directory inside this folder. At the root of this directory, you can find the <strong>ThirdParty.def</strong> described above and a <strong>'local</strong>' folder that contains an integration of the latest version being used by the branch and optionally the required changes needed in Noesis for the 3rdParty to work. This structure is repeated for each branch. This way branched versions of NoesisSDK may use different versions of each 3rdParty.</li>
+</ul>
+<div class="section" id="upgrading-a-thirdparty-to-a-new-version">
+<h2>Upgrading a ThirdParty to a new version</h2>
+<ul class="simple">
+<li>As described in <a class="reference external" href="http://svnbook.red-bean.com/en/1.1/ch07s05.html">Vendor branches</a>, it is recommended to use the <strong>svn_load_dirs.pl</strong> script. It is located in the root of the 3rdParty directory. For it to work you need to install the following prerequisites:</li>
+</ul>
+<blockquote>
+<ul>
+<li><p class="first"><a class="reference external" href="http://www.activestate.com/activeperl/">ActivePerl</a>, because the script is written in perl</p>
+</li>
+<li><p class="first">A <a class="reference external" href="http://gnuwin32.sourceforge.net/packages/diffutils.htm">diff utility</a>. It must be added to the PATH environment</p>
+</li>
+<li><p class="first">A subversion client is needed. By default, the svn_load_dirs.pl has been modified to use the svn.exe located in the NsToolkit:</p>
+<div class="highlight"><pre># Specify the location of the svn command.
+my $svn = &#39;W:\Noesis\NoesisSDK\NSToolkit\Extra\Svn\svn.exe&#39;;
+</pre></div>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p class="first">Unpack the new version of the 3rdparty in a new directory. In our example we are going to unpack it to a folder called <strong>'drop</strong>'.</p>
+</li>
+<li><p class="first">Then apply the following command (note that the <strong>drop</strong> folder is a local directory and the <strong>current</strong> folder is a remote directory. You do not need to checkout the <strong>current</strong> folder):</p>
+<div class="highlight"><pre>W:\Noesis\3rdParty\NVTT&gt; perl ..\svn_load_dirs.pl -t 2.0.6
+  svn://svn.noesis/Noesis/3rdParty/NVTT current drop
+</pre></div>
+</li>
+<li><p class="first">The script will show you a list with the files that are going to be added and deleted. Before performing this operation it gives you the chance to detect files that have been renamed. It is very important to manually detect these renames to optimize repository storage and bandwidth in the server. The script will be unable to continue if the <strong>case-sensitivity</strong> of one or more files has changed. You must solve this problem manually before invoking the script. This is the recommended option given by the tortoise manual:</p>
+<blockquote>
+<p><em>It is important to rename it within subversion. Just renaming in the explorer will corrupt your working copy!</em></p>
+<ul class="simple">
+<li>Commit the changes in your working copy.</li>
+<li>Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser.</li>
+<li>Update your working copy.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">The final step is to integrate the new library inside the NoesisSDK branch (a merge operation from <strong>Noesis/3rdParty</strong> to <strong>Noesis/NoesisSDK/3rdParty</strong>). During this merge, conflicts between the new library version and the local modifications must be resolved.</p>
+</li>
+</ul>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

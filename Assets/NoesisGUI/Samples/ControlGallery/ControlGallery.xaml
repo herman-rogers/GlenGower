@@ -1,0 +1,394 @@
+<Grid
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Name="Gallery">
+
+	<Grid.Resources>
+		<ResourceDictionary>
+        
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="../../Themes/NoesisStyle.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+            
+			<Storyboard x:Key="ShowContainer1" BeginTime="0:0:0.5" SpeedRatio="0.75">
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Fade">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.Opacity)" Storyboard.TargetName="Fade">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Container1">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Container1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="100"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseOut"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="Container1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-15"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CircleEase EasingMode="EaseOut"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Container2">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Container2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-100">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseIn"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="Container2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-15">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CircleEase EasingMode="EaseIn"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FadeDesc">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.Opacity)" Storyboard.TargetName="FadeDesc">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DescriptionHost1">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DescriptionHost1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="200"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseOut" Amplitude="0.4"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DescriptionHost2">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DescriptionHost2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="200">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseIn" Amplitude="0.4"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<Storyboard x:Key="ShowContainer2" BeginTime="0:0:0.5" SpeedRatio="0.75">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.Opacity)" Storyboard.TargetName="Fade">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Fade">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Container1">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Container1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-100">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseIn"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="Container1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-15">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CircleEase EasingMode="EaseIn"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Container2">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Container2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="100"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="100"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseOut"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)" Storyboard.TargetName="Container2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="-15"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-15"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<CircleEase EasingMode="EaseOut"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FadeDesc">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(Brush.Opacity)" Storyboard.TargetName="FadeDesc">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DescriptionHost1">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Collapsed}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DescriptionHost1">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="200">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseIn" Amplitude="0.4"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DescriptionHost2">
+					<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}"/>
+					<DiscreteObjectKeyFrame KeyTime="0:0:0.4" Value="{x:Static Visibility.Visible}"/>
+				</ObjectAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="DescriptionHost2">
+					<EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="200"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<BackEase EasingMode="EaseOut" Amplitude="0.4"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+			<SolidColorBrush x:Key="HilightBorderBrush" Color="#408D959B"/>
+			<SolidColorBrush x:Key="NoesisBdBrush" Color="#FF54B3E5"/>
+			<SolidColorBrush x:Key="NoesisPopupShadow1Brush" Color="#201E2428"/>
+			<SolidColorBrush x:Key="NoesisPopupShadow2Brush" Color="#401E2428"/>
+		</ResourceDictionary>
+	</Grid.Resources>
+
+	<Grid UseLayoutRounding="True" Background="{StaticResource NormalBgBrush}" TextElement.Foreground="{StaticResource NormalFgBrush}">
+		<Border>
+			<Border.Background>
+				<RadialGradientBrush RadiusY="0.6" Center="0.5,0.4">
+					<GradientStop Color="#3FBFBFBF" Offset="0"/>
+					<GradientStop Color="#7F000000" Offset="1"/>
+				</RadialGradientBrush>
+			</Border.Background>
+		</Border>
+		<Grid Margin="8">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="60"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Foreground="White" FontWeight="Bold" FontSize="36" Text="Control &amp; Style Gallery" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,8"/>
+			<Border BorderBrush="{StaticResource NoesisPopupShadow2Brush}" BorderThickness="2" Grid.Row="1" Margin="-2" CornerRadius="8"/>
+			<Border BorderBrush="{StaticResource NoesisPopupShadow1Brush}" BorderThickness="2" Grid.Row="1" Margin="-4" CornerRadius="10"/>
+			<Border Grid.Row="1" Background="{StaticResource NormalBgBrush}" CornerRadius="8"/>
+			<Border Grid.Row="1" CornerRadius="8" BorderBrush="{StaticResource HilightBorderBrush}" BorderThickness="1"/>
+			<Border BorderThickness="0" CornerRadius="0,0,8,8" Grid.Row="1">
+				<Grid d:LayoutOverrides="Height">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="200"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<Border CornerRadius="8,0,0,8" Padding="8">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<StackPanel Orientation="Vertical" Margin="0,40,0,0">
+								<TextBlock Text="Select a style:"/>
+								<ComboBox x:Name="StyleSelector" MaxDropDownHeight="100" SelectedIndex="0" Margin="0,4,0,0" Padding="6,4">
+									<ComboBoxItem Content="Noesis Style"/>
+									<ComboBoxItem Content="Simple Style"/>
+									<ComboBoxItem Content="Windows Style"/>
+								</ComboBox>
+								<CheckBox x:Name="EnableControls" Content="Enable controls" Margin="0,16,0,0" IsChecked="True"/>
+								<TextBlock Text="Select a sample:" Margin="0,16,0,0"/>
+							</StackPanel>
+							<TreeView x:Name="Samples" Grid.Row="1" Margin="0,4,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
+								<TreeViewItem Header="Brushes">
+									<TreeViewItem Header="All brushes" Tag="Brushes.xaml"/>
+									<TreeViewItem Header="ImageBrush Stretch" Tag="ImageBrushStretch.xaml"/>
+									<TreeViewItem Header="ImageBrush Tile" Tag="ImageBrushTile.xaml"/>
+									<TreeViewItem Header="ImageBrush Viewbox" Tag="ImageBrushViewbox.xaml"/>
+									<TreeViewItem Header="Image Atlas" Tag="ImageAtlas.xaml"/>
+									<TreeViewItem Header="Reflections" Tag="Reflections.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Shapes">
+									<TreeViewItem Header="Butterfly" Tag="Butterfly.xaml"/>
+									<TreeViewItem Header="Lion" Tag="Lion.xaml"/>
+									<TreeViewItem Header="Tiger" Tag="Tiger.xaml"/>
+									<TreeViewItem Header="Time" Tag="Time.xaml"/>
+									<TreeViewItem Header="Tux" Tag="Tux.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Panels">
+									<TreeViewItem Header="Canvas" Tag="Canvas.xaml"/>
+									<TreeViewItem Header="DockPanel" Tag="DockPanel.xaml"/>
+									<TreeViewItem Header="Grid" Tag="Grid.xaml"/>
+									<TreeViewItem Header="StackPanel" Tag="StackPanel.xaml"/>
+									<TreeViewItem Header="WrapPanel" Tag="WrapPanel.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Button controls">
+									<TreeViewItem Header="Button" Tag="Button.xaml"/>
+									<TreeViewItem Header="CheckBox" Tag="CheckBox.xaml"/>
+									<TreeViewItem Header="RadioButton" Tag="RadioButton.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Selector controls">
+									<TreeViewItem Header="ComboBox" Tag="ComboBox.xaml"/>
+									<TreeViewItem Header="ListBox" Tag="ListBox.xaml"/>
+									<TreeViewItem Header="TreeView" Tag="TreeView.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Menu controls">
+									<TreeViewItem Header="Menu" Tag="Menu.xaml"/>
+									<TreeViewItem Header="ContextMenu" Tag="ContextMenu.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Range controls">
+									<TreeViewItem Header="Slider" Tag="Slider.xaml"/>
+									<TreeViewItem Header="ProgressBar" Tag="ProgressBar.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Bars">
+									<TreeViewItem Header="ToolBar" Tag="ToolBar.xaml"/>
+									<TreeViewItem Header="StatusBar" Tag="StatusBar.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Text controls">
+									<TreeViewItem Header="TextBlock" Tag="Text.xaml"/>
+									<TreeViewItem Header="TextBox" Tag="TextBox.xaml"/>
+								</TreeViewItem>
+								<TreeViewItem Header="Expander" Tag="Expander.xaml"/>
+								<TreeViewItem Header="Projection" Tag="Projection.xaml"/>
+								<TreeViewItem Header="Styles" Tag="Styles.xaml"/>
+								<TreeViewItem Header="Control palette" Tag="Palette.xaml"/>
+							</TreeView>
+						</Grid>
+					</Border>
+					<Grid Grid.Column="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Border Margin="-1,7,7,7" BorderThickness="1" CornerRadius="3" BorderBrush="{StaticResource HilightBorderBrush}">
+							<Border BorderBrush="{StaticResource NormalBdBrush}" BorderThickness="1" CornerRadius="2" >
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FF1A324C" Offset="1"/>
+										<GradientStop Color="#FF2D5A86"/>
+										<GradientStop Color="#FF336599" Offset="0.05"/>
+									</LinearGradientBrush>
+								</Border.Background>
+								<Grid ClipToBounds="True">
+									<Path x:Name="LogoSolid" Data="M64.552314,61.408115 L90.473059,64.639252 65.938536,97.224111 96.858771,170.22477 151.36087,176.44062 176.65871,144.70187 186.30899,167.69955 161.64456,200.54165 161.67601,200.616 161.59547,200.607 161.58871,200.616 161.58436,200.60576 80.812194,191.57223 39.84973,94.993889 39.792533,94.988837 39.827483,94.941438 39.795542,94.866129 39.877661,94.873381 z M48.254649,23.461594 L152.37839,36.271423 152.39023,36.254608 152.39867,36.273918 152.47414,36.283203 152.43013,36.345898 169.09616,74.476677 153.32091,95.305482 137.28592,57.748096 58.689337,48.038651 58.673125,48.036747 26.085236,92.157874 40.901858,129.9017 16.161385,126.74894 0.054993554,89.015839 0,89.009022 0.032970434,88.96424 0,88.887 0.082319526,88.897202 z M136.8885,0 L177.74499,4.9307785 177.71051,4.9764633 210.32399,79.460176 147.11883,163.21723 147.15199,163.28851 147.07187,163.27949 147.05067,163.30756 147.0357,163.27541 105.70369,158.62394 95.540381,134.55325 136.09376,139.68585 183.81151,76.187043 161.88087,25.886173 121.79224,19.86055 z" Fill="#07000000" Stretch="Uniform" StrokeLineJoin="Round" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
+										<Path.RenderTransform>
+											<TransformGroup>
+												<ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+												<SkewTransform/>
+												<RotateTransform/>
+												<TranslateTransform/>
+											</TransformGroup>
+										</Path.RenderTransform>
+									</Path>
+									<Border Width="600" Height="400" HorizontalAlignment="Left" VerticalAlignment="Top">
+										<Border.Background>
+											<RadialGradientBrush GradientOrigin="1,1" Center="1,1" RadiusX="2" RadiusY="2">
+												<GradientStop Color="#00009CFF" Offset="0.5"/>
+												<GradientStop Color="#33009CFF" Offset="0.6"/>
+												<GradientStop Color="#66000000" Offset="0.7"/>
+											</RadialGradientBrush>
+										</Border.Background>
+									</Border>
+									<ScrollViewer x:Name="ContainerScroll" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+										<Grid x:Name="Container" IsEnabled="{Binding IsChecked, ElementName=EnableControls}" Margin="8">
+											<Border x:Name="Container1" Panel.ZIndex="100" RenderTransformOrigin="0.5,0.5">
+												<Border.RenderTransform>
+													<TransformGroup>
+														<ScaleTransform/>
+														<SkewTransform/>
+														<RotateTransform/>
+														<TranslateTransform/>
+													</TransformGroup>
+												</Border.RenderTransform>
+											</Border>
+											<Border x:Name="Container2" Panel.ZIndex="0" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+												<Border.RenderTransform>
+													<TransformGroup>
+														<ScaleTransform/>
+														<SkewTransform/>
+														<RotateTransform/>
+														<TranslateTransform/>
+													</TransformGroup>
+												</Border.RenderTransform>
+											</Border>
+										</Grid>
+									</ScrollViewer>
+									<Border x:Name="Fade" Visibility="Collapsed">
+										<Border.Background>
+											<SolidColorBrush Color="#FF1C3752" Opacity="0"/>
+										</Border.Background>
+									</Border>
+								</Grid>
+							</Border>
+						</Border>
+						<Grid Grid.Column="1" Width="200" Margin="0,8,8,8" ClipToBounds="True">
+							<Border x:Name="DescriptionHost1" RenderTransformOrigin="0.5,0.5">
+								<Border.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Border.RenderTransform>
+							</Border>
+							<Border x:Name="DescriptionHost2" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+								<Border.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</Border.RenderTransform>
+							</Border>
+							<Border x:Name="FadeDesc" Visibility="Collapsed">
+								<Border.Background>
+									<SolidColorBrush Color="#FF454D54" Opacity="0"/>
+								</Border.Background>
+							</Border>
+						</Grid>
+					</Grid>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Grid>

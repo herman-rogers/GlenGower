@@ -1,0 +1,97 @@
+<Grid
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+      <Grid.Resources>
+        <ControlTemplate x:Key="ImageListScrollThumbTemplate" TargetType="{x:Type Thumb}">
+          <Grid Background="Transparent">
+            <Rectangle x:Name="Rect" RadiusX="4" RadiusY="4" Margin="4,0" Fill="#802060A0"/>
+          </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ImageListScrollBarTemplate" TargetType="{x:Type ScrollBar}">
+          <Grid Background="Transparent">
+            <Track x:Name="PART_Track" Margin="0" Orientation="Horizontal">
+              <Track.Thumb>
+                <Thumb Margin="0" Template="{StaticResource ImageListScrollThumbTemplate}"/>
+              </Track.Thumb>
+            </Track>
+          </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ImageListScrollViewerTemplate" TargetType="{x:Type ScrollViewer}">
+          <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="8*"/>
+              <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" Grid.RowSpan="2"/>
+            <ScrollBar x:Name="PART_HorizontalScrollBar" Template="{StaticResource ImageListScrollBarTemplate}" Margin="0" Minimum="0" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+          </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ImageListTemplate" TargetType="{x:Type ListBox}">
+          <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Template="{StaticResource ImageListScrollViewerTemplate}">
+            <Border Background="#FF103050" Padding="0,2">
+              <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
+            </Border>
+          </ScrollViewer>
+        </ControlTemplate>
+        <Style x:Key="ImageListStyle" TargetType="{x:Type ListBox}">
+          <Setter Property="OverridesDefaultStyle" Value="True"/>
+          <Setter Property="Template" Value="{StaticResource ImageListTemplate}"/>
+        </Style>
+      </Grid.Resources>
+
+    <Grid>
+        <Border>
+    		<Border.Background>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="#FF1A324C" Offset="1"/>
+    				<GradientStop Color="#FF2D5A86"/>
+    				<GradientStop Color="#FF336599" Offset="0.05"/>
+    			</LinearGradientBrush>
+    		</Border.Background>
+    	</Border>
+		<Border Width="600" Height="400" HorizontalAlignment="Left" VerticalAlignment="Top">
+			<Border.Background>
+				<RadialGradientBrush GradientOrigin="1,1" Center="1,1" RadiusX="2" RadiusY="2">
+					<GradientStop Color="#00009CFF" Offset="0.5"/>
+					<GradientStop Color="#33009CFF" Offset="0.6"/>
+					<GradientStop Color="#66000000" Offset="0.7"/>
+                </RadialGradientBrush>
+            </Border.Background>
+        </Border>
+        <Path x:Name="LogoSolid" Data="M64.552314,61.408115 L90.473059,64.639252 65.938536,97.224111 96.858771,170.22477 151.36087,176.44062 176.65871,144.70187 186.30899,167.69955 161.64456,200.54165 161.67601,200.616 161.59547,200.607 161.58871,200.616 161.58436,200.60576 80.812194,191.57223 39.84973,94.993889 39.792533,94.988837 39.827483,94.941438 39.795542,94.866129 39.877661,94.873381 z M48.254649,23.461594 L152.37839,36.271423 152.39023,36.254608 152.39867,36.273918 152.47414,36.283203 152.43013,36.345898 169.09616,74.476677 153.32091,95.305482 137.28592,57.748096 58.689337,48.038651 58.673125,48.036747 26.085236,92.157874 40.901858,129.9017 16.161385,126.74894 0.054993554,89.015839 0,89.009022 0.032970434,88.96424 0,88.887 0.082319526,88.897202 z M136.8885,0 L177.74499,4.9307785 177.71051,4.9764633 210.32399,79.460176 147.11883,163.21723 147.15199,163.28851 147.07187,163.27949 147.05067,163.30756 147.0357,163.27541 105.70369,158.62394 95.540381,134.55325 136.09376,139.68585 183.81151,76.187043 161.88087,25.886173 121.79224,19.86055 z" Fill="#07000000" Stretch="Uniform" StrokeLineJoin="Round" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
+			<Path.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Path.RenderTransform>
+		</Path>
+    </Grid>
+    
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="2*"/>
+      </Grid.RowDefinitions>
+
+      <Border x:Name="root" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image x:Name="canvas" Source="tiger.jpg" RenderTransform="1 0 0 1 0 0" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" IsManipulationEnabled="True"/>
+      </Border>
+
+      <ListBox x:Name="list" Style="{StaticResource ImageListStyle}" Grid.Row="1" ScrollViewer.PanningMode="HorizontalOnly" ScrollViewer.CanContentScroll="False" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <Image Stretch="Uniform" Source="tiger.jpg"/>
+        <Image Stretch="Uniform" Source="bear.jpg"/>
+        <Image Stretch="Uniform" Source="cat.jpg"/>
+        <Image Stretch="Uniform" Source="chipmunk.jpg"/>
+        <Image Stretch="Uniform" Source="dog.jpg"/>
+        <Image Stretch="Uniform" Source="dolphin.jpg"/>
+        <Image Stretch="Uniform" Source="gorilla.jpg"/>
+        <Image Stretch="Uniform" Source="iguana.jpg"/>
+        <Image Stretch="Uniform" Source="snake.jpg"/>
+        <Image Stretch="Uniform" Source="zebra.jpg"/>
+      </ListBox>
+    </Grid>
+</Grid>

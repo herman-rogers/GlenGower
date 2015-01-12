@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Styles &amp; Templates Overview</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="styles-templates-overview">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Styles &amp; Templates Overview</h1>
+
+<p>Styling and templating represent a set of tools (styles, templates, triggers, and storyboards) that allow developers and designers to create visually compelling effects and to create a consistent appearance for their product. Although developers and or designers can customize the appearance extensively on an application-by-application basis, a strong styling and templating model is necessary to allow maintenance and sharing of the appearance within and among applications.</p>
+<p>Another important aspect of styling is the ability to give any user interface element a radically different look without having to give up all of the built-in functionality that it provides.</p>
+<p>We will describe here three kinds appearance customization tools present in Noesis GUI Framework: styles, templates and themes.</p>
+<div class="section" id="styles">
+<h1>Styles</h1>
+<p>A style is a pretty simple entity. Its main function is to group together property values that could otherwise be set individually. The intent is to then share this group of values among multiple elements. Any individual element can override aspects of its Style by directly setting a property to a local value.</p>
+<p>Style uses a collection of Setters to set the target properties. Creating a Setter is just a matter of specifying the name of a dependency property (qualified with its class name) and its desired value.</p>
+<p>Defining a Style as a resource also gives you all the flexibility that the resource mechanism provides. For example, you could define one version of a button style at the application level, but override it with a different Style in an individual Window's Resources collection.</p>
+<p>Despite its name, there's nothing inherently visual about a Style. But it's typically used for setting properties that affect visuals. Indeed, Style only enables the setting of dependency properties, which tend to be visual in nature.</p>
+<p>If you want to enforce that a Style can only be applied to a particular type, you can set its <em>TargetType</em> property accordingly. Any attempt to apply this Style to another element type generates an error. In addition, when you apply a TargetType to a Style, you no longer need to prefix the property names inside Setters with the type name. Applying a TargetType to a Style gives you another feature as well. If you omit its Key, the Style gets implicitly applied to all elements of that target type within the same scope. This is typically called a typed style as opposed to a named style.</p>
+<p>Styles can also contain a collection of triggers that applies their setters based on one or more conditions. There are two types of triggers supported by a Style: property triggers (invoked when the value of a dependency property changes) and event triggers (invoked when a routed event is raised).</p>
+<p>Even more, styles can inherit from another style by using the <em>BasedOn</em> property.</p>
+<p>Style definition examples:</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid&gt;</span>
+    <span class="nt">&lt;Grid.Resources&gt;</span>
+        <span class="c">&lt;!-- named style --&gt;</span>
+        <span class="nt">&lt;Style</span> <span class="na">x:Key=</span><span class="s">&quot;ButtonStyle&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Button}&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Background&quot;</span> <span class="na">Value=</span><span class="s">&quot;Navy&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Foreground&quot;</span> <span class="na">Value=</span><span class="s">&quot;LightBlue&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;FontSize&quot;</span> <span class="na">Value=</span><span class="s">&quot;21&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Margin&quot;</span> <span class="na">Value=</span><span class="s">&quot;2,1&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Padding&quot;</span> <span class="na">Value=</span><span class="s">&quot;20,5&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Style&gt;</span>
+        <span class="c">&lt;!-- typed style --&gt;</span>
+        <span class="nt">&lt;Style</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Button}&quot;</span> <span class="na">BasedOn=</span><span class="s">&quot;{StaticResource ButtonStyle}&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;FontWeight&quot;</span> <span class="na">Value=</span><span class="s">&quot;Bold&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;Style.Triggers&gt;</span>
+                <span class="nt">&lt;Trigger</span> <span class="na">Property=</span><span class="s">&quot;IsMouseOver&quot;</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Foreground&quot;</span> <span class="na">Value=</span><span class="s">&quot;White&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Trigger&gt;</span>
+            <span class="nt">&lt;/Style.Triggers&gt;</span>
+        <span class="nt">&lt;/Style&gt;</span>
+    <span class="nt">&lt;/Grid.Resources&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>Applying a style example:</p>
+<div class="highlight"><pre><span class="nt">&lt;StackPanel&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Style=</span><span class="s">&quot;{StaticResource ButtonStyle}&quot;</span> <span class="na">Content=</span><span class="s">&quot;Using named style&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Using typed style&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<img alt="StyledButton.png" src="StyledButton.png" />
+</div>
+<div class="section" id="templates">
+<h1>Templates</h1>
+<p>A template allows the user to completely replace an element's visual tree with anything he can dream up, while keeping all of its functionality intact. And templates aren't just some add-on mechanism for third parties;
+the default visuals for every Control are defined in templates (and customized for each theme). The source code for every control is completely separated from its default visual tree representations.</p>
+<p>Control templates are represented by the <em>ControlTemplate</em> class that derives from the abstract FrameworkTemplate class. The important piece of the ControlTemplate class is its VisualTree content property,
+which contains the tree of elements that define the desired look. After you define a ControlTemplate in XAML, you can attach it to any Control by setting its <em>Template</em> property.</p>
+<p>As with Style, ControlTemplate has a <em>TargetType</em> property that can restrict where the template can be applied. It also enables you to remove the class name qualifications on any property references inside a template (such as the values of Trigger.Property and Setter.Property).</p>
+<p>Templates can also contain all types of triggers in the Triggers collection to add interactivity to the control.</p>
+<p>Naming an element with x:Name inside a template does not make it become a field to access programmatically, unlike its behavior outside of a template. This is because a template can be applied to multiple elements in the same scope. The main purpose of naming elements in a template is for referencing them from triggers (typically defined in XAML).</p>
+<p>Unlike a Style, the use of TargetType does not enable you to remove the template's x:Key (when used in a dictionary). There is no such thing as a default control template; you have to set the template inside a typed Style to get such behavior.</p>
+<p>In order to respect the templated parent's properties we can use the <em>TemplateBinding</em> extension to bind the value of template element properties. No matter what type of control you're creating a control template for, there are undoubtedly other properties on the target control that should be honored if you want the template to be reusable: Height and Width, perhaps Background, Padding, and so on. Some properties (such as Foreground, FontSize, FontWeight, and so on) might automatically inherit their desired values thanks to property value inheritance in the visual tree, but other properties need explicit attention.</p>
+<p>Defining a template:</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid.Resources&gt;</span>
+    <span class="c">&lt;!-- template --&gt;</span>
+    <span class="nt">&lt;ControlTemplate</span> <span class="na">x:Key=</span><span class="s">&quot;ButtonTemplate&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Button}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Border</span> <span class="na">x:Name=</span><span class="s">&quot;Bd&quot;</span>
+            <span class="na">Background=</span><span class="s">&quot;{TemplateBinding Background}&quot;</span>
+            <span class="na">BorderBrush=</span><span class="s">&quot;LightBlue&quot;</span>
+            <span class="na">BorderThickness=</span><span class="s">&quot;4&quot;</span>
+            <span class="na">CornerRadius=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ContentPresenter</span> <span class="na">Margin=</span><span class="s">&quot;{TemplateBinding Padding}&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Border&gt;</span>
+        <span class="nt">&lt;ControlTemplate.Triggers&gt;</span>
+            <span class="nt">&lt;Trigger</span> <span class="na">Property=</span><span class="s">&quot;IsMouseOver&quot;</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Setter</span> <span class="na">TargetName=</span><span class="s">&quot;Bd&quot;</span> <span class="na">Property=</span><span class="s">&quot;BorderBrush&quot;</span> <span class="na">Value=</span><span class="s">&quot;Gold&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Trigger&gt;</span>
+            <span class="nt">&lt;Trigger</span> <span class="na">Property=</span><span class="s">&quot;IsPressed&quot;</span> <span class="na">Value=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Setter</span> <span class="na">TargetName=</span><span class="s">&quot;Bd&quot;</span> <span class="na">Property=</span><span class="s">&quot;Background&quot;</span> <span class="na">Value=</span><span class="s">&quot;Black&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;Setter</span> <span class="na">TargetName=</span><span class="s">&quot;Bd&quot;</span> <span class="na">Property=</span><span class="s">&quot;BorderBrush&quot;</span> <span class="na">Value=</span><span class="s">&quot;Orange&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Trigger&gt;</span>
+        <span class="nt">&lt;/ControlTemplate.Triggers&gt;</span>
+    <span class="nt">&lt;/ControlTemplate&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/Grid.Resources&gt;</span>
+</pre></div>
+<p>Applying the template:</p>
+<div class="highlight"><pre><span class="c">&lt;!-- as a setter value --&gt;</span>
+<span class="nt">&lt;Style</span> <span class="na">x:Key=</span><span class="s">&quot;ButtonStyle&quot;</span> <span class="na">TargetType=</span><span class="s">&quot;{x:Type Button}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Template&quot;</span> <span class="na">Value=</span><span class="s">&quot;{StaticResource ButtonTemplate}&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Style&gt;</span>
+
+<span class="c">&lt;!-- as a resource applied to a button --&gt;</span>
+<span class="nt">&lt;Button</span> <span class="na">Template=</span><span class="s">&quot;{StaticResource ButtonTemplate}&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+<img alt="TemplatedButton.png" src="TemplatedButton.png" />
+</div>
+<div class="section" id="themes">
+<h1>Themes</h1>
+<p>Themes refers to the act of changing an application's appearance (or skin). The best approach is to make ResourceDictionary the root of a theme representation. ResourceDictionary makes a great extensibility point in general because of the ease in which it can be swapped in and out or merged with others. When defining a theme, it makes sense for the ResourceDictionary to contain Styles and Templates for all the controls.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

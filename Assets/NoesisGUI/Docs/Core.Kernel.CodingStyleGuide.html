@@ -1,0 +1,1045 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Coding Style Guide</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="coding-style-guide">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Coding Style Guide</h1>
+
+<p>The purpose of creating a <em>Coding Style Guide</em> is to allow creating code that is easier to understand, review and revise after you write it. It is very important that everyone working in the team reads this document before starting to write code.</p>
+<p>Most of the rules enumerated here are arbitrary and their main objective is to create a consistent set of naming conventions to improve the readability across development groups.</p>
+<p>3 books are recommended after reading this document (in order of importance):</p>
+<ul class="simple">
+<li><a class="reference external" href="http://cc2e.com/">Code Complete</a> by Steve McConnell</li>
+<li><a class="reference external" href="http://www.gotw.ca/publications/c++cs.htmC++">Coding Standards</a> by Herb Sutter and Andrei Alexandrescu</li>
+<li><a class="reference external" href="http://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620">Large-Scale C++ Software Design</a> by John Lakos</li>
+</ul>
+<div class="section" id="c-rules">
+<h1>C++ rules</h1>
+<div class="section" id="file-format">
+<h2>File format</h2>
+<p>Use 4 spaces per indentation level. Tabs must be avoided. As code is normally visualized with fixed width font this allows everyone seeing exactly the same layout.</p>
+<p>Main blocks inside a file are separated with double blank lines. For the rest, only single blank lines are allowed. For example:</p>
+<div class="highlight"><pre><span class="p">[</span><span class="kt">FILE</span> <span class="n">HEADER</span><span class="p">]</span>
+
+
+<span class="p">[</span><span class="n">GUARDS</span><span class="p">]</span>
+
+
+<span class="p">[</span><span class="n">INCLUDES</span><span class="p">]</span>
+
+
+<span class="p">[</span><span class="n">CODE</span><span class="p">]</span>
+</pre></div>
+<p>The following header should be used for all the files:</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009-2010 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">// [CR #586 #1030]</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+</pre></div>
+<p>When files are reviewed in a code review, they are marked with the CR tags shown in the example above. The ticket associated to that code review is indicated. In the example, the file was reviewed in the codereview described in the ticket 586. Later it was reviewed again in the codereview 1030.</p>
+<p>Limit all lines to a maximum of 100 characters. Comment blocks have exactly this width and can be used to check that lines are not beyond the limit. In Visual Studio there is a little trick to show column guides. You should add this entry to your registry:</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">HKEY_CURRENT_USER</span><span class="err">\</span><span class="n">Software</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">VisualStudio</span><span class="err">\</span><span class="mf">8.0</span><span class="err">\</span><span class="n">Text</span> <span class="n">Editor</span><span class="p">]</span>
+<span class="s">&quot;Guides&quot;</span><span class="o">=</span><span class="s">&quot;RGB(220, 220, 220) 100&quot;</span>
+</pre></div>
+<p>All expressions introduced by the programmer should be in English. This applies to all kinds of text a programmer might use in source file: type names, variable names, function names, comments and explanations. An implication of this rule is that abbreviations should only be used if they are generally accepted.</p>
+</div>
+<div class="section" id="header-files">
+<h2>Header Files</h2>
+<p>For include files (.h) the guards should follow the file header. The guard name must be: __MODULE_PACKAGE_H__. For example:</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">MemoryManager</span><span class="p">.</span><span class="n">h</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009-2010 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#ifndef __CORE_MEMORYMANAGER_H__</span>
+<span class="cp">#define __CORE_MEMORYMANAGER_H__</span>
+
+
+<span class="cp">#endif</span>
+</pre></div>
+<p>The first include in a header file (.h) should be always <strong>Noesis.h</strong>. The rest of the include files in a header file must be only the strictly needed ones.</p>
+<p>Include statements should be sorted and grouped, first by privacity (public or private) and then, for public includes, by Package.</p>
+<p>Whenever possible forward class declarations to reduce dependencies and speed up compilation times. Forwarded classes are always grouped in comment blocks. For example:</p>
+<div class="highlight"><pre><span class="c1">// Forward declarations</span>
+<span class="c1">//@{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+<span class="k">class</span> <span class="nc">TypeClass</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">BaseObject</span><span class="p">;</span>
+<span class="k">struct</span> <span class="n">ReflectionFunctions</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ClassT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BaseT</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TypeClassCreator</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">EnumT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">EnumHelperT</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TypeEnumCreator</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">namespace</span> <span class="n">Render</span>
+<span class="p">{</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IRenderView</span><span class="p">;</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IRenderTarget</span><span class="p">;</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IVertexBuffer</span><span class="p">;</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IIndexBuffer</span><span class="p">;</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IVertexSource</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//@}</span>
+</pre></div>
+</div>
+<div class="section" id="implementation-files">
+<h2>Implementation Files</h2>
+<p>For implementation files (.cpp) the first include should be always its own header file. This guarantees that the used header file is self sufficient for compilation (it doesn't depend on other include file). You should not create include files that rely on one header file to include another one.</p>
+<p>The root names of the .cpp and the .h files should match exactly. Several classes may be implemented in a single .h/.cpp unit as long as they form a cohesive unit (for example a class and the iterator for that class). If you have more than one class in a file, identify each class clearly. Give the file a name that is related to the class name. A class name <em>CustomerAccount</em> would have files named <em>CustomerAccount.cpp</em> and <em>CustomerAccount.h</em>, for example.</p>
+<p>Include statements should be sorted and grouped as in header files. As the first file to include is always the header file, public or private includes block can come first depending on the privacity of the header file. Includes to external files (from Third Parties) are always the last ones.</p>
+<p>Angle brackets are used for public includes, double quotes for local (private) includes. Include file paths must never be absolute. Includes to public headers (inside the Include folder of each package) of packages must always contain the name of the module. For example, to include the public header {{{IFile.h}}} from the Core module, {{{#include &lt;NsCore/IFile&gt;}}} must be written. Includes to private headers (inside the Src folder) of other packages packages are forbidden.</p>
+<div class="highlight"><pre><span class="cp">#include &quot;AnsiFile.h&quot;</span>
+<span class="cp">#include &quot;PrivateFile.h&quot;</span>
+
+<span class="cp">#include &lt;NsCore/Boxing.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Thread.h&gt;</span>
+<span class="cp">#include &lt;NsFile/IFileSystem.h&gt;</span>
+
+<span class="cp">#include &lt;fstream&gt;</span>
+<span class="cp">#include &lt;math.h&gt;</span>
+</pre></div>
+<p>Macros are allowed after include files. For third party includes, macros could be necessary before the include itself.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;NsDrawing/Image.h&gt;</span>
+<span class="cp">#include &lt;NsDrawing/Color.h&gt;</span>
+<span class="cp">#include &lt;NsCore/LoggerMacros.h&gt;</span>
+
+<span class="cp">#define FREEIMAGE_LIB</span>
+<span class="cp">#include &lt;FreeImage.h&gt;</span>
+
+<span class="cp">#define NS_LOG_GUI(...) NS_LOG(LogSeverity_Info, NST(&quot;Gui&quot;), __VA_ARGS__)</span>
+<span class="cp">#define NS_GUI_ENABLE_PARSER_LOG</span>
+
+<span class="n">NS_DECLARE_SYMBOL</span><span class="p">(</span><span class="n">Key</span><span class="p">)</span>
+<span class="n">NS_DECLARE_SYMBOL</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+<span class="n">NS_DECLARE_SYMBOL</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="namespaces">
+<h2>Namespaces</h2>
+<p>At least two level of namespaces are used. The first one is the Noesis namespace. The second one is the namespace for the module. More namespace levels can be used but it is not usual. Namespaces are not indented.</p>
+<div class="highlight"><pre><span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>All the packages should be always under this two-level namespace hierarchy. To avoid excessive typing implementation files are allowed to use <strong>using namespace</strong> directives whenever it is possible. The <em>using namespace</em> directive is not allowed in public header files to avoid polluting the global namespace.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;NsRender/CommandBuffer.h&gt;</span>
+<span class="cp">#include &lt;NsCore/MemProfiler.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Render</span><span class="p">;</span>
+</pre></div>
+<p>Anonymous namespaces must be used for local declarations in implementation files.</p>
+</div>
+<div class="section" id="comments">
+<h2>Comments</h2>
+<p>Lines starting with three slashes should be used when commenting classes, functions, enums, etc. These comments are used to generate code documentation automatically.</p>
+<div class="highlight"><pre><span class="c1">/// The format of the Index Buffer</span>
+<span class="k">enum</span> <span class="n">IndexFormat</span>
+<span class="p">{</span>
+    <span class="c1">/// Indices are 16 bits each</span>
+    <span class="n">IndexFormat_16</span><span class="p">,</span>
+    <span class="c1">/// Indices are 32 bits each</span>
+    <span class="n">IndexFormat_32</span>
+<span class="p">};</span>
+</pre></div>
+<p>To apply comments to blocks the following syntax is used:</p>
+<div class="highlight"><pre><span class="c1">/// Copy constructor and copy operators disabled</span>
+<span class="c1">//@{</span>
+<span class="n">Kernel</span><span class="p">(</span><span class="k">const</span> <span class="n">Kernel</span><span class="o">&amp;</span> <span class="n">copy</span><span class="p">);</span>
+<span class="n">Kernel</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Kernel</span><span class="o">&amp;</span> <span class="n">copy</span><span class="p">);</span>
+<span class="c1">//@}</span>
+</pre></div>
+<p>Function parameters are documented this way:</p>
+<div class="highlight"><pre><span class="c1">/// Allocates a block of memory of specified size</span>
+<span class="c1">/// \param size Size in bytes of the block allocated</span>
+<span class="c1">/// \return A pointer to the new allocated block of memory</span>
+<span class="c1">/// \remarks Thread-safe</span>
+<span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="n">Alloc</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">size</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+<p>Parameter comments exceeding 100 columns must be splitted in lines indented with 4 spaces:</p>
+<div class="highlight"><pre><span class="c1">/// Clear items in position</span>
+<span class="c1">/// \param position Position in the internal array to clear the stored</span>
+<span class="c1">///     items (if the position is already cleared an exception is raised)</span>
+<span class="kt">void</span> <span class="nf">ClearItems</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">position</span><span class="p">);</span>
+</pre></div>
+<p>By default, functions are not considered Thread-Safe. The remarks section is used to indicate that a function is Thread-Safe.</p>
+<p>Before a comment there should be a blank line. After the comment a blank line shouldn't appear. This helps a reader scan the code.</p>
+<div class="highlight"><pre><span class="c1">/// Creates a vertex source</span>
+<span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IVertexSource</span><span class="o">&gt;</span> <span class="n">CreateVertexSource</span><span class="p">(</span><span class="k">const</span> <span class="n">VertexSourceDesc</span><span class="o">&amp;</span> <span class="n">vertexSourceDesc</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">/// Creates a command buffer</span>
+<span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">CommandBuffer</span><span class="o">&gt;</span> <span class="n">CreateCommandBuffer</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+<p>Comments describing a class and its members must only appear in the declaration file (.h) and not in the implementation file (.cpp) to avoid desynchronization.</p>
+<p>The comments to indicate that a part is not finished or that something has to be revised use the token <em>TODO</em> plus the name of the author.</p>
+<div class="highlight"><pre><span class="c1">// TODO: [marlo] Probably this is not the better algorithm</span>
+<span class="c1">//       [claudio] I&#39;ve improved the algorithm to O(n log n), but I think it can be done</span>
+<span class="c1">//  in linear time O(n)</span>
+</pre></div>
+</div>
+<div class="section" id="naming-schemes">
+<h2>Naming Schemes</h2>
+<p>Definition of the naming schemes referred to in the rest of the document:</p>
+<ul class="simple">
+<li><strong>Lower mixed case</strong>: The name is written in lowercase, each new word begins with a capital. For example: lowerMixedCase, localToWorld.</li>
+<li><strong>Upper mixed case</strong>: Same as lower mixed case except it begins with a capital letter. The first letter after a digit is uppercase. For example: UpperMixedCase, LocalToWorld.</li>
+<li><strong>Upper underscore</strong>: The name is written in uppercase, words are separated by underscores. For example: UPPER_UNDERSCORE_CASE, LOCAL_TO_WORLD</li>
+</ul>
+<p>This table describes how the different described schemes are applied to in each case:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="29%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head"><strong>Naming scheme</strong></th>
+<th class="head"><strong>Examples</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Type Names</td>
+<td>Upper mixed case</td>
+<td>class Book, NsInt32</td>
+</tr>
+<tr><td>Typedef Names</td>
+<td>Upper mixed case</td>
+<td>typedef Noesis::Core::Int NsInt</td>
+</tr>
+<tr><td>Variable Names</td>
+<td>Lower mixed case</td>
+<td>Book book, totalObjects</td>
+</tr>
+<tr><td>Named Constants</td>
+<td>Upper mixed case</td>
+<td>const NsFloat32 Pi = 3.141592f</td>
+</tr>
+<tr><td>Function Names</td>
+<td>Upper mixed case</td>
+<td>void CalculatePosition()</td>
+</tr>
+<tr><td>Macro Names</td>
+<td>Upper underscore case</td>
+<td>NS_ASSERT(b &lt; 5)</td>
+</tr>
+<tr><td>Namespaces Names</td>
+<td>Upper mixed case</td>
+<td>namespace Noesis</td>
+</tr>
+<tr><td>Template Type Names</td>
+<td>Upper mixed case</td>
+<td>template&lt;class C, class D&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>When declaring a function typedef the new type should be suffixed with 'Fn':</p>
+<div class="highlight"><pre><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span><span class="n">RegisterObjectsFn</span><span class="p">)(</span><span class="n">IObjectFactory</span><span class="o">*</span><span class="p">,</span> <span class="n">NsBool</span><span class="p">);</span>
+<span class="n">RegisterObjectsFn</span> <span class="n">registerObjects</span> <span class="o">=</span>
+    <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">RegisterObjectsFn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetProcAddress</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">&quot;RegisterObjects&quot;</span><span class="p">));</span>
+</pre></div>
+<p>Typedefs, functions and classes outside the Noesis namespace must be prefixed with 'Ns'. For example:</p>
+<div class="highlight"><pre><span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+<span class="k">class</span> <span class="nc">Symbol</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// Global access of symbol type.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">typedef</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Symbol</span> <span class="n">NsSymbol</span><span class="p">;</span>
+</pre></div>
+<p>Pointers and references should have their reference symbol (* for pointers, &amp; for references) next to the type rather than to the name:</p>
+<div class="highlight"><pre><span class="n">NsInt32</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">Vec3f</span><span class="o">&amp;</span> <span class="n">position</span> <span class="o">=</span> <span class="n">obj</span><span class="o">-&gt;</span><span class="n">GetPosition</span><span class="p">();</span>
+</pre></div>
+<p>It is recommended that generic variables have the same name as their type. For example:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="n">OpenFile</span><span class="p">(</span><span class="n">File</span><span class="o">*</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+<p>Abbreviations and acronyms must be uppercase when used as name:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">ExportHTMLSource</span><span class="p">();</span>  <span class="c1">// NOT: ExportHtmlSource</span>
+<span class="kt">void</span> <span class="nf">OpenDVDPlayer</span><span class="p">();</span>     <span class="c1">// NOT: OpenDvdPlayer</span>
+<span class="k">class</span> <span class="nc">UIElement</span><span class="p">;</span>          <span class="c1">// NOT: UiElement</span>
+<span class="k">class</span> <span class="nc">VGLSurface</span><span class="p">;</span>         <span class="c1">// NOT: VglSurface</span>
+</pre></div>
+</div>
+<div class="section" id="code-block-layouts">
+<h2>Code Block Layouts</h2>
+<p>Examples showing the recommended style and layout for each code block:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">NsInt</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="n">Option_Yes</span>:
+    <span class="p">{</span>
+        <span class="c1">//...</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="n">Option_No</span>:
+    <span class="p">{</span>
+        <span class="c1">//...</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="k">default</span>:
+    <span class="p">{</span>
+        <span class="c1">// default case option must be managed always</span>
+        <span class="n">NS_ASSERT</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>As shown in the examples, in construction like <strong>for</strong>, <strong>switch</strong> and <strong>if</strong> a space is always left before the parenthesis.</p>
+<p>Blocks following a control-flow statement (<strong>if</strong>, <strong>switch</strong>, etc.) should always be enclosed with braces. This is applied to one-sentence blocks too.</p>
+<p>Before and after some operators a space is mandatory. Specifically for comparisons (==, &lt;, &gt;, etc) and assignment operators (=) spaces are needed after and before. Comma and semi colon characters(, ;) only have the space after them. Otherwise spaces can be used along with parentheses to structure and make more readable complicated formulas:</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">NsInt</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">do</span>
+<span class="p">{</span>
+<span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">x1</span> <span class="o">+</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">z1</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">b1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a1</span> <span class="o">+</span> <span class="n">c1</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="n">x2</span> <span class="o">+</span> <span class="n">y2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x2</span> <span class="o">+</span> <span class="n">z2</span><span class="p">))</span> <span class="o">+</span>
+    <span class="p">(</span><span class="n">a2</span> <span class="o">+</span> <span class="n">b2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">a2</span> <span class="o">+</span> <span class="n">c2</span><span class="p">);</span>
+</pre></div>
+<p>When a line doesn't fit into the anchor limits (100 characters) the next line must be indented with a single tab.</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">SomeProcess</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">fileName</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span> <span class="n">nameList</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">processAll</span><span class="p">,</span> <span class="n">NsInt</span><span class="o">&amp;</span> <span class="n">count</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span> <span class="n">processedNameList</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">HMODULE</span> <span class="n">fileModule</span> <span class="o">=</span> <span class="n">CreateFile</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">GENERIC_READ</span><span class="p">,</span> <span class="n">FILE_SHARE_READ</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">OPEN_EXISTING</span><span class="p">,</span>
+        <span class="n">FILE_ATTRIBUTE_NORMAL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">((</span><span class="n">fileModule</span> <span class="o">!=</span> <span class="n">INVALID_HANDLE_VALUE</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">nameList</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">NS_MIN_NAMES_TO_PROCESS</span><span class="p">)</span> <span class="o">||</span>
+        <span class="n">processAll</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="c1">/// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="basic-types">
+<h2>Basic Types</h2>
+<p>In <em>&lt;NsCore/Types.h&gt;</em> (automatically included by &lt;Noesis.h&gt;) several types are defined that must be used instead of the standard ones to ensure compatibility across different platforms.</p>
+<ul class="simple">
+<li><strong>NsByte</strong>, 8-bit unsigned</li>
+<li><strong>NsInt8</strong>, 8-bit signed</li>
+<li><strong>NsUInt8</strong>, 8-bit unsigned</li>
+<li><strong>NsInt16</strong>, 16-bit signed</li>
+<li><strong>NsUInt16</strong>, 16-bit unsigned</li>
+<li><strong>NsInt32</strong>, 32-bit signed</li>
+<li><strong>NsUInt32</strong>, 32-bit unsigned</li>
+<li><strong>NsInt64</strong>, 64-bit signed</li>
+<li><strong>NsUInt64</strong>, 64-bit unsigned</li>
+<li><strong>NsInt</strong>, default integer</li>
+<li><strong>NsUInt</strong>, default unsigned integer</li>
+<li><strong>NsSize</strong>, Anything that represents a size in bytes or an index</li>
+<li><strong>NsIntPtr</strong>, pointers that are treated as integers</li>
+<li><strong>NsUIntPtr</strong>, pointers that are treated as unsigned integers</li>
+<li><strong>NsPtrDiff</strong></li>
+<li><strong>NsFloat32</strong>, 32-bit IEEE floating point.</li>
+<li><strong>NsFloat16</strong>, 64-bit IEEE floating point.</li>
+<li><strong>NsBool</strong>, boolean</li>
+<li><strong>NsChar8</strong>, single byte character</li>
+<li><strong>NsChar16</strong>, two byte-wide character</li>
+<li><strong>NsChar</strong>, redirected to NsChar8 or NsChar16 depending of compilation settings</li>
+<li><strong>NsString8</strong>, single byte string</li>
+<li><strong>NsString16</strong>,two byte-wide string</li>
+<li><strong>NsString</strong>, redirected to NsString8 or NsString16 depending of compilation settings</li>
+</ul>
+<p>NsInt should be used whenever the size of the integer is not important. NsInt is the most efficient integer for the architecture (in a 32 bit OS it is an alias for NsInt32).</p>
+<p>Do not assume that sizeof(NsChar) == sizeof(NsInt8), because in Unicode compilations that is not true. Strings should always be written enclosed with the macro NST.</p>
+<div class="highlight"><pre><span class="k">const</span> <span class="n">NSChar</span> <span class="n">msg</span><span class="p">[]</span> <span class="o">=</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;This is a string&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="classes">
+<h2>Classes</h2>
+<p>The layout of a class has the following parts:</p>
+<ol class="arabic simple">
+<li>Header comment describing the class</li>
+<li>Constructors and destructors</li>
+<li>Public functions: class routines first, inherited routines next</li>
+<li>Protected functions</li>
+<li>Protected member variables</li>
+<li>Private functions</li>
+<li>Private member variables</li>
+</ol>
+<p>Member variables should start with <strong>m</strong>. That way it is easy to distinguish class variables from local scratch variables.
+Static member variables should start with <strong>s</strong>.</p>
+<p>Every class member variable should be declared one at each line.</p>
+<p>Between the type and the instance name only one space is allowed. Spaces to align member variables are not allowed.</p>
+<p>Before the <strong>public</strong>, <strong>private</strong> and <strong>protected</strong> keywords a blank line should appear (or a line with a { ). After the keyword the blank line shouldn't appear. Functions and member variables are considered different blocks and must separately be enclose inside a public, protected, private block. See example below.</p>
+<p>The implementation of the class in the cpp file must follow the same function order specified in the include file. The only exception are static variables that should appear before any function implementation and constructors and destructors that should be always the first functions in the cpp file.</p>
+<p>Methods to get or set a data member of a class are called accessor methods. Names of accessor methods are written in upper mixed case and use the name of the accessed class member, prefixed by 'Get' or 'Set'.</p>
+<p>When a class implements an <strong>Interface</strong>, the functions belonging to that interface and enclosed with a <em>//&#64;{ ... //&#64;}</em> block and the comment <em>From IInterface</em> is used. The same is used when reimplementing functions inherited from a base class. See the example below.</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">MyClass</span><span class="p">.</span><span class="n">h</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009-2010 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#ifndef __TEST_MYCLASS_H__</span>
+<span class="cp">#define __TEST_MYCLASS_H__</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+
+
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Test</span>
+<span class="p">{</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// MyClass. Here a brief description of the class.</span>
+<span class="c1">/// For long descriptions a link to documentation (wiki) pages is prefered.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">MyClass</span><span class="o">:</span> <span class="k">public</span> <span class="n">MyBase</span><span class="p">,</span> <span class="k">public</span> <span class="n">IMyInterface</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Default constructor</span>
+    <span class="n">MyClass</span><span class="p">();</span>
+
+    <span class="c1">/// Copy constructor</span>
+    <span class="n">MyClass</span><span class="p">(</span><span class="k">const</span> <span class="n">MyClass</span><span class="o">&amp;</span> <span class="n">myClass</span><span class="p">);</span>
+
+    <span class="c1">/// Destructor</span>
+    <span class="o">~</span><span class="n">MyClass</span><span class="p">();</span>
+
+    <span class="c1">/// Get the current position</span>
+    <span class="c1">/// \return The current position</span>
+    <span class="k">const</span> <span class="n">Vec3f</span><span class="o">&amp;</span> <span class="n">GetPosition</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="c1">/// Set a new position</span>
+    <span class="c1">/// \param position The new position</span>
+    <span class="kt">void</span> <span class="nf">SetPosition</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec3f</span><span class="o">&amp;</span> <span class="n">position</span><span class="p">);</span>
+
+    <span class="c1">/// From IMyInterface</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span> <span class="nf">Init</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">Shutdown</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">private:</span>
+    <span class="c1">/// Check the internal state of the instance</span>
+    <span class="kt">void</span> <span class="nf">CheckState</span><span class="p">();</span>
+
+<span class="nl">private:</span>
+    <span class="n">Vec3f</span> <span class="n">mPosition</span><span class="p">;</span>
+    <span class="n">NsInt32</span> <span class="n">mCount</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="cp">#endif</span>
+</pre></div>
+<div class="highlight"><pre><span class="p">[</span><span class="n">MyClass</span><span class="p">.</span><span class="n">cpp</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009-2010 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#include &quot;MyClass.h&quot;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Test</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">MyClass</span><span class="o">::</span><span class="n">MyClass</span><span class="p">()</span><span class="o">:</span> <span class="n">MyBase</span><span class="p">(),</span> <span class="n">mPosition</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">),</span> <span class="n">mCount</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">MyClass</span><span class="o">::</span><span class="n">MyClass</span><span class="p">(</span><span class="k">const</span> <span class="n">MyClass</span><span class="o">&amp;</span> <span class="n">myClass</span><span class="p">)</span><span class="o">:</span> <span class="n">MyBase</span><span class="p">(),</span> <span class="n">mPosition</span><span class="p">(</span><span class="n">myClass</span><span class="p">.</span><span class="n">mPosition</span><span class="p">),</span>
+    <span class="n">mCount</span><span class="p">(</span><span class="n">myClass</span><span class="p">.</span><span class="n">mCount</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">MyClass</span><span class="o">::~</span><span class="n">MyClass</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">const</span> <span class="n">Vec3f</span><span class="o">&amp;</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">GetPosition</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">mPosition</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">SetPosition</span><span class="p">(</span><span class="k">const</span> <span class="n">Vec3f</span><span class="o">&amp;</span> <span class="n">position</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mPosition</span> <span class="o">=</span> <span class="n">position</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">Init</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">Shutdown</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">MyClass</span><span class="o">::</span><span class="n">CheckState</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+<p>To improve interface readability, function declaration and implementation is always separated. For inline functions, an <strong>inl</strong> file is used for the inline implementation. This file is included at the end of the header file. The .inl file is always included outside namespaces. Namespaces must be declared again in the .inl file. Include files that are only needed by the .inl file must me moved from the .h file to the .inl</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">ObjectPool</span><span class="p">.</span><span class="n">h</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009-2010 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#ifndef __CORE_OBJECTPOOL_H__</span>
+<span class="cp">#define __CORE_OBJECTPOOL_H__</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/KernelApi.h&gt;</span>
+
+
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// A pool of objects. The template parameter T indicates the type of object to be create in each</span>
+<span class="c1">/// allocation. The template parameter N indicates the number of object in each internal chunk</span>
+<span class="c1">/// (a contiguous block of memory)</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">NsInt</span> <span class="n">N</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">ObjectPool</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Constrcutor</span>
+    <span class="n">ObjectPool</span><span class="p">();</span>
+
+    <span class="c1">/// \return An object allocation</span>
+    <span class="n">T</span><span class="o">*</span> <span class="nf">Allocate</span><span class="p">();</span>
+
+    <span class="c1">/// Free a pointer</span>
+    <span class="c1">/// \param A pointer previously allocated with Allocate()</span>
+    <span class="kt">void</span> <span class="nf">Deallocate</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">obj</span><span class="p">);</span>
+
+<span class="nl">private:</span>
+    <span class="n">FixedAllocator</span> <span class="n">fixedAllocator</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Inline include</span>
+<span class="cp">#include &lt;Core/ObjectPool.inl&gt;</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+<div class="highlight"><pre><span class="p">[</span><span class="n">ObjectPool</span><span class="p">.</span><span class="n">inl</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">NsInt</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="n">ObjectPool</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;::</span><span class="n">ObjectPool</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">fixedAllocator</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">N</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">NsInt</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">ObjectPool</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;::</span><span class="n">Allocate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">fixedAllocator</span><span class="p">.</span><span class="n">Allocate</span><span class="p">();</span>
+    <span class="k">return</span> <span class="k">new</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span> <span class="n">T</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">NsInt</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">ObjectPool</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;::</span><span class="n">Deallocate</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">obj</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">obj</span><span class="o">-&gt;~</span><span class="n">T</span><span class="p">();</span>
+    <span class="n">fixedAllocator</span><span class="p">.</span><span class="n">Deallocate</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>By default all functions must be declared no inline (with the exceptions of templates, of course, that must be always inlined). Later, in an optimization phase, the studied functions that are giving problems may me moved to inline. The main idea of this rule is to avoid prematurely incrementing the size of the executable and compilation times.</p>
+</div>
+<div class="section" id="structs">
+<h2>Structs</h2>
+<p>Although in the C language, class and struct is conceptually the same. In Noesis, we use struct for small classes with all the members public and without functions. The <strong>m</strong> should not be added to variable names of the struct. Constructors and destructor are usually defined within structs.</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Data</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="interfaces">
+<h2>Interfaces</h2>
+<p>Interfaces follow the same rules that classes but all the functions should be pure virtuals and variable members are not allowed. Instead of the class keyword, NS_INTERFACE is used.</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">IMemoryStream</span><span class="p">.</span><span class="n">h</span><span class="p">]</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// Noesis Engine - http://www.noesisengine.com</span>
+<span class="c1">// Copyright (c) 2009 Noesis Technologies S.L. All Rights Reserved.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+
+
+<span class="cp">#ifndef __CORE_IMEMORYSTREAM_H__</span>
+<span class="cp">#define __CORE_IMEMORYSTREAM_H__</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ICommon.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Reflection.h&gt;</span>
+
+
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Core</span>
+<span class="p">{</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// IMemoryStream. Interface for a memory block</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IMemoryStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">ICommon</span>
+<span class="p">{</span>
+    <span class="c1">/// \param buffer Returns the pointer to the internal buffer</span>
+    <span class="c1">/// \param buffer Returns the size of the internal buffer</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">GetBuffer</span><span class="p">(</span><span class="kt">void</span><span class="o">*&amp;</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">NsSize</span><span class="o">&amp;</span> <span class="n">size</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">/// \param buffer The new internal buffer. Previous one is released</span>
+    <span class="c1">/// \param size The size of the buffer</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetBuffer</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">size</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION_</span><span class="p">(</span><span class="n">IMemoryStream</span><span class="p">,</span> <span class="n">ICommon</span><span class="p">)</span>
+<span class="p">};</span>
+
+
+<span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<div class="section" id="enums">
+<h2>Enums</h2>
+<p>Enumeration values are written in upper underscore beginning with the name of the enumeration followed by an underscore:</p>
+<div class="highlight"><pre><span class="k">enum</span> <span class="n">TextAlignment</span>
+<span class="p">{</span>
+    <span class="n">TextAlignment_Left</span><span class="p">,</span>
+    <span class="n">TextAlignment_Right</span><span class="p">,</span>
+    <span class="n">TextAlignment_Center</span>
+<span class="p">};</span>
+</pre></div>
+<p>The declaration of enumerations is usually outside the class that uses them. For example:</p>
+<div class="highlight"><pre><span class="c1">/// RenderTarget Type</span>
+<span class="k">enum</span> <span class="n">RenderTargetType</span>
+<span class="p">{</span>
+    <span class="n">RenderTargetType_Texture</span><span class="p">,</span>
+    <span class="n">RenderTargetType_ShadowMap</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// IRenderSystem</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_INTERFACE</span> <span class="n">IRenderSystem</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">ICommon</span>
+<span class="p">{</span>
+    <span class="c1">/// Creates a RenderTarget</span>
+    <span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderTarget</span><span class="o">&gt;</span> <span class="n">CreateRenderTarget</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">width</span><span class="p">,</span> <span class="n">NsSize</span> <span class="n">height</span><span class="p">,</span>
+        <span class="n">RenderTargetType</span> <span class="n">type</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<p>This is the preferred option. This way you can write</p>
+<div class="highlight"><pre><span class="n">renderSystem</span><span class="o">-&gt;</span><span class="n">CreateRenderTarget</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">RenderTargetType_ShadowMap</span><span class="p">);</span>
+</pre></div>
+<p>instead of the more verbose</p>
+<div class="highlight"><pre><span class="n">renderSystem</span><span class="o">-&gt;</span><span class="n">CreateRenderTarget</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">IRenderSystem</span><span class="o">::</span><span class="n">RenderTargetType_ShadowMap</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="platform-dependent-blocks">
+<h2>Platform-dependent blocks</h2>
+<p>Blocks that are enclosed by <strong>#ifdef / #endif</strong> preprocessor directives (normally platform specific code) must be hierarchically nested. For example:</p>
+<div class="highlight"><pre><span class="cp">#ifdef _WIN32</span>
+    <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">windows</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="cp">#else</span>
+    <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">pthread</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="cp">#endif</span>
+</pre></div>
+<p>This rule is not followed inside classes or functions. In this case, the source code must be written as if the preprocessor directives didn't exist. The preprocessor directives must be aligned to the left. For example:</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">TLSValue</span><span class="o">::</span><span class="n">Free</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">IsInitialized</span><span class="p">());</span>
+
+<span class="cp">#ifdef _WIN32</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">TlsFree</span><span class="p">(</span><span class="n">mKey</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">HandleWinError</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;TlsFree&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="cp">#else</span>
+    <span class="kt">int</span> <span class="n">status</span> <span class="o">=</span> <span class="n">pthread_key_delete</span><span class="p">(</span><span class="n">mKey</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">HandleSystemError</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;pthread_key_delete&quot;</span><span class="p">),</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="cp">#endif</span>
+
+    <span class="n">mKey</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="recommended-c-programming-practices">
+<h2>Recommended C++ programming practices</h2>
+<ul>
+<li><p class="first">Write self documenting code. Do not write redundant code. Comments should augment the code</p>
+<div class="highlight"><pre><span class="c1">// This is an example of bad code</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span><span class="p">;</span>
+
+<span class="c1">// This is an example of better code</span>
+<span class="n">totalMoney</span> <span class="o">=</span> <span class="n">moneyFromWorkA</span> <span class="o">+</span> <span class="n">moneyFromWorkB</span> <span class="o">+</span> <span class="n">moneyFromWorkC</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><p class="first">Function should express what they return</p>
+<div class="highlight"><pre><span class="c1">// Examples of good names for functions</span>
+
+<span class="kt">bool</span> <span class="n">IsEmpty</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">SetProperty</span><span class="p">(</span><span class="n">NSInt32</span> <span class="n">val</span><span class="p">);</span>
+<span class="n">NSInt32</span> <span class="n">GetProperty</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">ExistProperty</span><span class="p">(</span><span class="n">NSInt32</span> <span class="n">val</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="nf">CanOpen</span><span class="p">();</span>
+<span class="kt">bool</span> <span class="nf">ShouldSort</span><span class="p">();</span>
+</pre></div>
+<p>If the function returns an iterator the convention should be the following</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">EnumProperties</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">EnumCommands</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">EnumDomains</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><p class="first">Write const correct code.</p>
+<div class="highlight"><pre><span class="kt">bool</span> <span class="n">IsReady</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">Vector3f</span><span class="o">&amp;</span> <span class="n">AddPosition</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector3f</span><span class="o">&amp;</span> <span class="n">position</span><span class="p">);</span>
+</pre></div>
+</li>
+<li><p class="first">Type conversions must always be done explicitly. C++ style casts should be preferred to C style casts.</p>
+<div class="highlight"><pre><span class="n">floatValue</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">intValue</span><span class="p">);</span>
+</pre></div>
+</li>
+<li><p class="first">0 should be used instead of NULL.</p>
+</li>
+<li><p class="first">In the extremely rare case that a warning must be disabled:</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><p class="first">Disable the warning only locally (using push and pop sentences)</p>
+</li>
+<li><p class="first">The compiler warning must be added as a comment before the <strong>#pragma</strong> line</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(push)</span>
+<span class="c1">// warning C4251: Symbol::mStr needs to have dll-interface to be used by clients of</span>
+<span class="c1">//  class Symbol</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+<span class="p">...</span>
+
+<span class="cp">#pragma warning(pop)</span>
+</pre></div>
+</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Those classes (and only those) with a lifetime similar or equal to a singleton must follow the <strong>Init</strong> / <strong>Shutdown</strong> protocol.</li>
+</ul>
+<blockquote>
+<ul>
+<li><p class="first">The explicit initialization of the class is done through a <strong>Init()</strong> function</p>
+</li>
+<li><p class="first">The explicit uninitialization of the class is done through a <strong>Shutdown()</strong> function</p>
+</li>
+<li><p class="first">A class must assert when it it doubly initialized</p>
+</li>
+<li><p class="first">A class must assert when it is uninitialized without having been initialized</p>
+</li>
+<li><p class="first">The destructor of the class must assert that the class is in uninitialized state</p>
+</li>
+<li><p class="first">For the rest of classes, the constructor and destructor must be used as the <strong>Init</strong> / <strong>Shutdown</strong> protocol</p>
+<div class="highlight"><pre><span class="c1">///////////////////////////////////////////////////////////////////////</span>
+<span class="n">BaseKernelSystem</span><span class="o">::</span><span class="n">BaseKernelSystem</span><span class="p">()</span><span class="o">:</span> <span class="n">mInitialized</span><span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="c1">///////////////////////////////////////////////////////////////////////</span>
+<span class="n">BaseKernelSystem</span><span class="o">::~</span><span class="n">BaseKernelSystem</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">NS_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">mInitialized</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">///////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">BaseKernelSystem</span><span class="o">::</span><span class="n">Init</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">NS_ASSERT</span><span class="p">(</span><span class="o">!</span><span class="n">mInitialized</span><span class="p">);</span>
+    <span class="n">mInitialized</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">///////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">BaseKernelSystem</span><span class="o">::</span><span class="n">Shutdown</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">mInitialized</span><span class="p">);</span>
+    <span class="n">mInitialized</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+<li><p class="first">There is another scenario where the <strong>Init</strong> / <strong>Shutdown</strong> protocol is useful. In those cases where you need to invoke virtual functions from the constructor or destructor you must implement this protocol because C++ does not allow calling virtual functions from this methods (at least not in a generic way although very restrict scenarios can be implemented without the Init/Shutdown protocol)</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p class="first">Classes must store strings as <strong>NsString</strong> but the input/output from functions must be <strong>const NsChar*</strong>.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">ShaderImplementation</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">SetDesc</span><span class="p">(</span><span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">desc</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">mDesc</span> <span class="o">=</span> <span class="n">desc</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="n">NsChar</span><span class="o">*</span> <span class="n">GetDesc</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">mDesc</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsString</span> <span class="n">mDesc</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="python-rules">
+<h1>Python rules</h1>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

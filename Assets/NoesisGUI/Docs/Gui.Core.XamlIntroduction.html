@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>Xaml Introduction</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="a-quick-guide-to-xaml">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">A quick guide to XAML</h1>
+
+<p>This tutorial describes the features of the XAML language and demonstrates how you can use XAML to write noesisGUI interfaces. Even though there are tools that generate XAML, you'll invariably want to go under the covers to understand or tweak the XAML. Besides, sometimes it's just easier to code UI by hand when you want fine control or just want to know what's going on.</p>
+<div class="section" id="what-is-xaml">
+<h1>What is XAML?</h1>
+<p>XAML is a declarative markup language that you can use to create application UI such as controls, shapes, text, and other content presented on the screen. If you're familiar with web programming, you can think of XAML as similar to HTML. Like HTML, XAML is made up of elements and attributes. But XAML is XML-based and therefore must follow XML rules.</p>
+<p>XAML directly represents the instantiation of objects. The following example shows how you might create a <a class="reference external" href="Gui.Core._Button.html">button</a> as part of a UI:</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Click Me!&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">The attribute xmlns in the root element is explained later in this document.</p>
+</div>
+<p>For UI, XAML is easier to read and more compact than procedural code. But in rare cases it's necessary to use procedural code to create UI dynamically. The following code is equivalent to the XAML shown above:</p>
+<div class="section" id="c">
+<h2>C++</h2>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;</span> <span class="n">button</span> <span class="o">=</span> <span class="o">*</span><span class="k">new</span> <span class="n">Button</span><span class="p">();</span>
+<span class="n">button</span><span class="o">-&gt;</span><span class="n">SetContent</span><span class="p">(</span><span class="s">&quot;Click Me!&quot;</span><span class="p">);</span>
+
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Grid</span><span class="o">&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="o">*</span><span class="k">new</span> <span class="n">Grid</span><span class="p">();</span>
+<span class="n">grid</span><span class="o">-&gt;</span><span class="n">GetChildren</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h2>C#</h2>
+<div class="highlight"><pre><span class="n">Button</span> <span class="n">button</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Button</span><span class="p">();</span>
+<span class="n">button</span><span class="p">.</span><span class="n">Content</span> <span class="p">=</span> <span class="s">&quot;Click Me!&quot;</span><span class="p">;</span>
+
+<span class="n">Grid</span> <span class="n">grid</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Grid</span><span class="p">();</span>
+<span class="n">grid</span><span class="p">.</span><span class="n">Children</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+</pre></div>
+<p>One aspect of using a declarative language like XAML is having some separation between the markup that makes up the UI and the code that makes the application do something. For example, a designer on your team could design a UI and then hand off the XAML to the developer to add the procedural code. Even if the designer and the developer are the same person (as they often are), you can keep your visuals in XAML files (.xaml) and your procedural UI code in code-behind files (.cs and .cpp).</p>
+</div>
+</div>
+<div class="section" id="xaml-syntax-in-brief">
+<h1>XAML Syntax in Brief</h1>
+<p>The following sections explain the basic forms of XAML syntax. Much of the material in the next few sections will be elementary to you if you have previous familiarity with the XML language. This is a consequence of one of the basic design principles of XAML. The XAML language defines concepts of its own, but these concepts work within the XML language and markup form.</p>
+<div class="section" id="xaml-object-elements">
+<h2>XAML Object Elements</h2>
+<p>An object element typically declares an instance of a type. Object element syntax always starts with an opening angle bracket (&lt;). This is followed by the name of the type where you want to create an instance. (The name can possibly include a prefix, a concept that will be explained later.) After this, you can optionally declare attributes on the object element. To complete the object element tag, end with a closing angle bracket (&gt;). You can instead use a self-closing form that does not have any content, by completing the tag with a forward slash and closing angle bracket in succession (/&gt;). For example, look at the previously shown markup snippet again:</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Click Me!&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>This specifies two object elements: &lt;Grid&gt; (with content, and a closing tag later), and &lt;Button .../&gt; (the self-closing form, with several attributes). The object elements <a class="reference external" href="Gui.Core._Grid.html">Grid</a> and <a class="reference external" href="Gui.Core._Button.html">Button</a> each map to the name of a class that is defined by noesisGUI. When you specify an object element tag, you create an instruction for XAML processing to create a new instance. Each instance is created by calling the default constructor of the underlying type when parsing and loading the XAML.</p>
+</div>
+<div class="section" id="attribute-syntax-properties">
+<h2>Attribute Syntax (Properties)</h2>
+<p>Properties of an object can often be expressed as attributes of the object element. An attribute syntax names the property that is being set in attribute syntax, followed by the assignment operator (=). The value of an attribute is always specified as a string that is contained within quotation marks.</p>
+<p>Attribute syntax is the most streamlined property setting syntax and is the most intuitive syntax to use for developers who have used markup languages in the past. In the next example, we create a red <a class="reference external" href="Gui.Core._Rectangle.html">Rectangle</a>. We set the Fill attribute to a predefined color name, which the XAML parser converts into a <a class="reference external" href="Gui.Core._SolidColorBrush.html">SolidColorBrush</a> appropriate for the Fill property.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;Red&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="property-element-syntax">
+<h2>Property Element Syntax</h2>
+<p>For some properties of an object element, attribute syntax is not possible, because the object or information necessary to provide the property value cannot be adequately expressed within the quotation mark and string restrictions of attribute syntax. For these cases, a different syntax known as property element syntax can be used.</p>
+<p>The syntax for the property element start tag is &lt;typeName.propertyName&gt;. Generally, the content of that tag is an object element of the type that the property takes as its value . After specifying content, you must close the property element with an end tag. The syntax for the end tag is &lt;/typeName.propertyName&gt;.</p>
+<p>If an attribute syntax is possible, using the attribute syntax is typically more convenient and enables a more compact markup, but that is often just a matter of style, not a technical limitation. The following example shows the same properties being set as in the previous attribute syntax example, but this time by using property element syntax for all properties of the Button.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle&gt;</span>
+        <span class="nt">&lt;Rectangle.Fill&gt;</span>
+            <span class="nt">&lt;SolidColorBrush</span> <span class="na">Color=</span><span class="s">&quot;Red&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+    <span class="nt">&lt;/Rectangle&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>The next example creates a Rectangle, but instead of a simple red fill, it uses a gradient created by a LinearGradientBrush.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- This rectangle is painted with a diagonal linear gradient. --&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Rectangle.Fill&gt;</span>
+            <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;0,0&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;1,1&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Yellow&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.0&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Red&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.25&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Blue&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.75&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;LimeGreen&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1.0&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/LinearGradientBrush&gt;</span>
+        <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+    <span class="nt">&lt;/Rectangle&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="collection-syntax">
+<h2>Collection Syntax</h2>
+<p>The XAML language includes some optimizations that produce more human-readable markup. One such optimization is that if a particular property takes a collection type, then items that you declare in markup as child elements within that property's value become part of the collection. In this case a collection of child object elements is the value being set to the collection property.</p>
+<p>The following example shows a <a class="reference external" href="Gui.Core._Grid.html">Grid</a> container that contains one element, a <a class="reference external" href="Gui.Core._Rectangle.html">Rectangle</a>.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="xaml-content-properties">
+<h2>XAML Content Properties</h2>
+<p>XAML specifies a language feature whereby a class can designate exactly one of its properties to be the XAML content property. Child elements of that object element are used to set the value of that content property. In other words, for the content property uniquely, you can omit a property element when setting that property in XAML markup and produce a more visible parent/child metaphor in the markup.</p>
+<p>For example, Border specifies a content property of Child. The following two Border elements are treated identically. The first one takes advantage of the content property syntax and omits the Border.Child property element. The second one shows Border.Child explicitly.</p>
+<div class="highlight"><pre><span class="nt">&lt;Border&gt;</span>
+  <span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Border&gt;</span>
+<span class="c">&lt;!--explicit equivalent--&gt;</span>
+<span class="nt">&lt;Border&gt;</span>
+  <span class="nt">&lt;Border.Child&gt;</span>
+    <span class="nt">&lt;TextBox</span> <span class="na">Width=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Border.Child&gt;</span>
+<span class="nt">&lt;/Border&gt;</span>
+</pre></div>
+<p>If the property that is declared as the XAML content property is the Object type, or is type String, then the XAML content syntax supports what's basically inner text in the XML document model: a string between the opening and closing object tags. For example, the Text property in a <a class="reference external" href="Gui.Core._TextBlock.html">TextBlock</a> is used to set Text, but the string &quot;Text&quot; never appears in the markup. Here's an example usage:</p>
+<div class="highlight"><pre><span class="nt">&lt;TextBlock&gt;</span>Hello!<span class="nt">&lt;/TextBlock&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="attribute-syntax-events">
+<h2>Attribute Syntax (Events)</h2>
+<p>Attribute syntax can also be used for members that are events rather than properties. In this case, the attribute's name is the name of the event. What you're supplying here is the function name for an event handler function. That function must be defined in the code-behind for the XAML page. For example, the following markup assigns a handler for the Click event to a <a class="reference external" href="Gui.Core._Button.html">Button</a> created in markup:</p>
+<div class="highlight"><pre><span class="nt">&lt;Page</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">x:Class=</span><span class="s">&quot;ExampleNamespace.ExamplePage&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Button</span> <span class="na">Click=</span><span class="s">&quot;Button_Click&quot;</span> <span class="nt">&gt;</span>Click Me!<span class="nt">&lt;/Button&gt;</span>
+<span class="nt">&lt;/Page&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="markup-extensions">
+<h1>Markup Extensions</h1>
+<p>Markup extensions are a XAML language concept. When used to provide the value of an attribute syntax, curly braces ({ and }) indicate a markup extension usage. This usage directs the XAML processing to escape from the general treatment of attribute values as either a literal string or a string-convertible value.</p>
+<p>The most common markup extensions used in noesisGUI are <a class="reference external" href="Gui.Core._Binding.html">Binding</a>, used for data binding expressions, and the resource references <strong>StaticResource</strong> and <strong>DynamicResource</strong>. By using markup extensions, you can use attribute syntax to provide values for properties even if that property does not support an attribute syntax in general. Markup extensions often use intermediate expression types to enable features such as deferring values or referencing other objects that are only present at run time.</p>
+<p>For example, the following markup sets the value of the Style property using attribute syntax. The Style property takes an instance of the Style class, which by default could not be instantiated by an attribute syntax string. But in this case, the attribute references a particular markup extension, StaticResource. When that markup extension is processed, it returns a reference to a style that was previously instantiated as a keyed resource in a resource dictionary.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Grid.Resources&gt;</span>
+      <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Key=</span><span class="s">&quot;MyBrush&quot;</span> <span class="na">Color=</span><span class="s">&quot;Gold&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;Style</span> <span class="na">TargetType=</span><span class="s">&quot;Border&quot;</span> <span class="na">x:Key=</span><span class="s">&quot;PageBackground&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Setter</span> <span class="na">Property=</span><span class="s">&quot;Background&quot;</span> <span class="na">Value=</span><span class="s">&quot;{StaticResource MyBrush}&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/Style&gt;</span>
+    <span class="nt">&lt;/Grid.Resources&gt;</span>
+
+    <span class="nt">&lt;Border</span> <span class="na">Style=</span><span class="s">&quot;{StaticResource PageBackground}&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="type-converters">
+<h1>Type Converters</h1>
+<p>In the Attribute Syntax section, it was stated that the attribute value must be able to be set by a string. The basic, native handling of how strings are converted into other object types or primitive values is based on the String type itself. But many noesisGUI types or members of those types extend the basic string attribute processing behavior, in such a way that instances of more complex object types can be specified as strings and attributes.</p>
+<p>The Thickness structure is an example of a type that has a type conversion enabled for XAML usages. Thickness indicates measurements within a nested rectangle and is used as the value for properties such as Margin. By placing a type converter on Thickness, all properties that use a Thickness are easier to specify in XAML because they can be specified as attributes. The following example uses a type conversion and attribute syntax to provide a value for a Margin:</p>
+<div class="highlight"><pre><span class="nt">&lt;Button</span> <span class="na">Margin=</span><span class="s">&quot;10,20,10,30&quot;</span> <span class="na">Content=</span><span class="s">&quot;Click me&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+<p>The previous attribute syntax example is equivalent to the following more verbose syntax example, where the Margin is instead set through property element syntax containing a Thickness object element. The four key properties of Thickness are set as attributes on the new instance:</p>
+<div class="highlight"><pre><span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Click me&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Button.Margin&gt;</span>
+    <span class="nt">&lt;Thickness</span> <span class="na">Left=</span><span class="s">&quot;10&quot;</span> <span class="na">Top=</span><span class="s">&quot;20&quot;</span> <span class="na">Right=</span><span class="s">&quot;10&quot;</span> <span class="na">Bottom=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/Button.Margin&gt;</span>
+<span class="nt">&lt;/Button&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="xaml-root-elements-and-xaml-namespaces">
+<h1>XAML Root Elements and XAML Namespaces</h1>
+<p>A XAML file must have only one root element in order to be both a well-formed XML file and a valid XAML file. For typical scenarios, you use a root element that has a prominent meaning in the application model (for example, Window or Page for a page, ResourceDictionary for an external dictionary, or Application for the application definition). The following example shows the root element of a typical XAML file with the root element of Page.</p>
+<div class="highlight"><pre><span class="nt">&lt;Page</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/Page&gt;</span>
+</pre></div>
+<p>The root element also contains the attributes <strong>xmlns</strong> and <strong>xmlns:x</strong>. These attributes indicate to a XAML processor which XAML namespaces contain the type definitions for backing types that the markup will reference as elements. The xmlns attribute specifically indicates the default XAML namespace. Within the default XAML namespace, object elements in the markup can be specified without a prefix.  For compatibility purpose the default XAML namespace is mapped to the WPF namespace <cite>http://schemas.microsoft.com/winfx/2006/xaml/presentation</cite>. The xmlns:x attribute indicates an additional XAML namespace, which maps the XAML language namespace <cite>http://schemas.microsoft.com/winfx/2006/xaml</cite>.</p>
+<p>Note that the <strong>xmlns</strong> attributes are only strictly necessary on the root element of each XAML file. xmlns definitions will apply to all descendant elements of the root element.</p>
+<div class="section" id="the-x-prefix">
+<h2>The x: Prefix</h2>
+<p>The following is a listing of the most common x: prefix programming constructs you will use:</p>
+<ul class="simple">
+<li><strong>x:Key</strong>: Sets a unique key for each resource in a <a class="reference external" href="Gui.Core._ResourceDictionary.html">ResourceDictionary</a>. x:Key will probably account for 90% of the x: usages you will see in a typical markup.</li>
+<li><strong>x:Name</strong>: Add this attribute on any XAML object element where you want to be able to reference the created runtime instance as part of your code-behind logic.</li>
+<li><strong>x:Class</strong>: Specifies the namespace and class name for the class that provides code-behind for a XAML page. You must have such a class to support code-behind, and therefore you almost always see x: mapped, even if there are no resources.</li>
+<li><strong>x:Type</strong>: Constructs a Type reference based on a type name. This is used to specify attributes that take Type, such as Style::TargetType, although frequently the property has native string-to-Type conversion in such a way that the x:Type markup extension usage is optional.</li>
+<li><strong>x:Null</strong>: If you ever need to specify a null value in XAML.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="attached-properties-and-attached-events">
+<h1>Attached Properties and Attached Events</h1>
+<p>XAML specifies a language feature that enables certain properties or events to be specified on any element, regardless of whether the property or event exists in the type's definitions for the element it is being set on. The properties version of this feature is called an <strong>attached property</strong>, the events version is called an <strong>attached event</strong>. Conceptually, you can think of attached properties and attached events as global members that can be set on any XAML element instance.</p>
+<p>Attached properties in XAML are typically used through attribute syntax. In attribute syntax, you specify an attached property in the form ownerType.propertyName. The most common scenario for attached properties is to enable child elements to report a property value to their parent element:</p>
+<div class="highlight"><pre><span class="nt">&lt;Canvas&gt;</span>
+  <span class="nt">&lt;Button</span> <span class="na">Canvas.Left=</span><span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/Button&gt;</span>
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Shaders</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="shaders">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Shaders</h1>
+
+<p>RenderSystem does not directly expose an API for managing individual render states, vertex shaders, pixel shaders, geometry shaders, etc. Instead a portable concept of <strong>shader</strong> is exposed. In noesis the concept shader refers to a set of low-level shaders (vertex, pixel, etc) that offers a platform independent interface and that are implemented for each platform.</p>
+<div class="section" id="shader-interface">
+<h1>Shader Interface</h1>
+<p>Shader interfaces are stored in .shader files.</p>
+<p>The shader interface expose the set of properties that can be set in the shader. For example,</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Type</span> <span class="o">=</span> <span class="n">Metal</span><span class="p">;</span> <span class="n">ZSlot</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">Desc</span> <span class="o">=</span> <span class="s">&quot;This is a test shader&quot;</span><span class="p">]</span>
+<span class="n">Shader</span>
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        <span class="n">shared</span> <span class="n">Frame</span>
+        <span class="p">{</span>
+            <span class="kt">bool</span> <span class="n">b1</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">[</span><span class="n">Min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">Max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;]</span> <span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">i2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">};</span>
+            <span class="kt">float</span> <span class="n">f1</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">f2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">};</span>
+            <span class="n">vector2</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">};</span>
+            <span class="n">vector3</span> <span class="n">v3</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+            <span class="n">vector4</span> <span class="n">v4</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">};</span>
+            <span class="n">matrix3</span> <span class="n">m3</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">};</span>
+            <span class="n">matrix4</span> <span class="n">m4</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span>
+                          <span class="mf">10.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">};</span>
+            <span class="n">transform3</span> <span class="n">t3</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span>
+                             <span class="mf">11.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">};</span>
+            <span class="n">rgba</span> <span class="n">color</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">};</span>
+            <span class="n">texture</span> <span class="n">t0</span> <span class="o">=</span> <span class="s">&quot;Textures/Brick.texture.nsd&quot;</span><span class="p">;</span>
+         <span class="p">}</span>
+
+         <span class="n">Tweaks</span>
+         <span class="p">{</span>
+             <span class="p">[</span><span class="n">Desc</span> <span class="o">=</span> <span class="s">&quot;StepSize&quot;</span><span class="p">]</span> <span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span>
+             <span class="p">[</span><span class="n">Desc</span> <span class="o">=</span> <span class="s">&quot;DiffuseColor&quot;</span><span class="p">]</span> <span class="n">rgba</span> <span class="n">diffuseColor</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">Macros</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">Hidden</span><span class="p">;]</span> <span class="n">Debug</span> <span class="o">=</span> <span class="p">{</span> <span class="n">DEBUG</span><span class="p">,</span> <span class="mh">0x3</span> <span class="p">};</span>
+        <span class="p">[</span><span class="n">Hidden</span><span class="p">;]</span> <span class="n">Lod</span> <span class="o">=</span> <span class="p">{</span> <span class="n">LOD</span><span class="p">,</span> <span class="mh">0x4</span> <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Public properties are exposed through groups. As we will see later, each group can be set independently to the RenderSystem. A group that can be shared between several shaders is marked with the keyword <strong>shared</strong>. The following properties are supported:</p>
+<ul class="simple">
+<li>bool</li>
+<li>int</li>
+<li>float</li>
+<li>vector2</li>
+<li>vector3</li>
+<li>vector4</li>
+<li>matrix3</li>
+<li>matrix4</li>
+<li>transform3</li>
+<li>rgb</li>
+<li>rgba</li>
+<li>texture</li>
+</ul>
+<p>Array of properties and default values are supported with the trivial syntax shown in the example above.
+Before the definition of a property a block of metadata can be specified. That metadata is freely interpreted by the the user of each shader.</p>
+<div class="section" id="macros">
+<h2>Macros</h2>
+<p>Macros are similar to properties but they are normally translated to #define preprocessor instructions inside the shader implementation. For each macro there is an associated mask that determine the valid range of values. In the example above the following macros are found:</p>
+<ul class="simple">
+<li>Debug (mask = 0x011), 4 values: DEBUG = 0, DEBUG = 1, DEBUG = 2, DEBUG = 3</li>
+<li>Lod   (mask=  0x100), 2 values: LOD = 0, LOD = 1</li>
+</ul>
+<p>Macros can be combined. For example, the instance 0x111 (we will see later how this is activated) will select the shader with (DEBUG=3 and LOD = 1)</p>
+</div>
+</div>
+<div class="section" id="shader-implementations">
+<h1>Shader Implementations</h1>
+<div class="section" id="dx9">
+<h2>DX9</h2>
+<p>DX9 driver implements the shader using HLSL and a syntax very similar to Microsoft FX. Implementation is stored in .nfx files. For example,</p>
+<div class="highlight"><pre><span class="cp">#ifdef VERTEX_SHADER</span>
+    <span class="n">float3</span>   <span class="n">camPos</span><span class="o">:</span> <span class="k">register</span><span class="p">(</span><span class="n">c18</span><span class="p">);</span>
+    <span class="n">float4</span>   <span class="n">time</span><span class="o">:</span> <span class="k">register</span><span class="p">(</span><span class="n">c19</span><span class="p">);</span>
+    <span class="n">float4x4</span> <span class="n">viewProj</span><span class="o">:</span> <span class="k">register</span><span class="p">(</span><span class="n">c20</span><span class="p">);</span>
+<span class="cp">#endif</span>
+
+
+<span class="n">float4x4</span> <span class="n">world</span><span class="p">;</span>
+<span class="n">float4x4</span> <span class="n">worldViewProj</span><span class="p">;</span>
+
+<span class="n">float3</span> <span class="n">color</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">VS_OUTPUT</span>
+<span class="p">{</span>
+    <span class="n">float4</span> <span class="n">Position</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">;</span>
+    <span class="n">float3</span> <span class="n">Normal</span><span class="o">:</span> <span class="n">NORMAL0</span><span class="p">;</span>
+    <span class="n">float2</span> <span class="n">Coords</span> <span class="o">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">VS_OUTPUT</span> <span class="nf">WireVS</span><span class="p">(</span><span class="n">in</span> <span class="n">float4</span> <span class="n">vPosition</span> <span class="o">:</span> <span class="n">POSITION</span><span class="p">,</span> <span class="n">in</span> <span class="n">float3</span> <span class="n">vNormal</span><span class="o">:</span> <span class="n">NORMAL0</span><span class="p">,</span>
+    <span class="n">in</span> <span class="n">float2</span> <span class="n">vCoords</span> <span class="o">:</span> <span class="n">TEXCOORD0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">VS_OUTPUT</span> <span class="n">Output</span><span class="p">;</span>
+    <span class="n">Output</span><span class="p">.</span><span class="n">Position</span> <span class="o">=</span> <span class="n">mul</span><span class="p">(</span> <span class="n">vPosition</span><span class="p">,</span> <span class="n">worldViewProj</span><span class="p">);</span>
+    <span class="n">Output</span><span class="p">.</span><span class="n">Coords</span> <span class="o">=</span> <span class="n">vCoords</span><span class="p">;</span>
+    <span class="n">Output</span><span class="p">.</span><span class="n">Normal</span> <span class="o">=</span> <span class="n">vNormal</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">Output</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">PS_OUTPUT</span>
+<span class="p">{</span>
+    <span class="n">float4</span> <span class="n">RGBColor</span> <span class="o">:</span> <span class="n">COLOR0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">PS_OUTPUT</span> <span class="nf">WirePS</span><span class="p">(</span> <span class="n">VS_OUTPUT</span> <span class="n">In</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PS_OUTPUT</span> <span class="n">Output</span><span class="p">;</span>
+    <span class="n">float3</span> <span class="n">light</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">float3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">));</span>
+    <span class="n">In</span><span class="p">.</span><span class="n">Normal</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">In</span><span class="p">.</span><span class="n">Normal</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">prod</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">((</span><span class="n">dot</span><span class="p">(</span><span class="n">In</span><span class="p">.</span><span class="n">Normal</span><span class="p">,</span><span class="n">light</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">Output</span><span class="p">.</span><span class="n">RGBColor</span> <span class="o">=</span> <span class="n">float4</span><span class="p">(</span><span class="n">color</span> <span class="o">*</span> <span class="n">prod</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">Output</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+
+
+<span class="c1">// -------------------------------------------------------------------------------</span>
+
+<span class="n">technique</span> <span class="n">Render</span>
+<span class="p">{</span>
+    <span class="n">pass</span> <span class="n">p0</span>
+    <span class="p">{</span>
+        <span class="n">VertexShader</span> <span class="o">=</span> <span class="n">compile</span> <span class="n">vs_3_0</span> <span class="n">WireVS</span><span class="p">();</span>
+        <span class="n">PixelShader</span> <span class="o">=</span> <span class="n">compile</span> <span class="n">ps_3_0</span> <span class="n">WirePS</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Interface properties and shader implementation properties are matched by name. Properties of a shared group must be bound to hardware registers (:register(...)) in this implementation.</p>
+<div class="section" id="defines">
+<h3>Defines</h3>
+<p>For this implementation the following defines can be used:</p>
+<ul class="simple">
+<li>D3D9</li>
+<li>HLSL</li>
+<li>VERTEX_SHADER (only for vertex shaders)</li>
+<li>PIXEL_SHADER (only for pixel shaders)</li>
+</ul>
+</div>
+<div class="section" id="renderstates">
+<h3>RenderStates</h3>
+<p>RenderStates are declated inside each pass. The following render states are implemented (default states indicated):</p>
+<ul class="simple">
+<li>ZEnable = <strong>true</strong> | false;</li>
+<li>ZWriteEnable = <strong>true</strong> | false;</li>
+<li>ZFunc = Never | LessEqual | <strong>Less</strong> | Equal | GreaterEqual | Greater | NotEqual | Always;</li>
+<li>FillMode = <strong>Solid</strong> | Wireframe;</li>
+<li>CullMode = <strong>None</strong> | Front | Back;</li>
+<li>ScissorTestEnable = true | <strong>false</strong>;</li>
+<li>PointSize = <strong>1.0</strong>;</li>
+<li>PointSpriteEnable = true | <strong>false</strong>;</li>
+<li>AlphaToCoverageEnable = true | <strong>false</strong>;</li>
+<li>AlphaBlendEnable = true | <strong>false</strong>;</li>
+<li>SrcBlend = Zero | <strong>One</strong> | SrcColor | InvSrcColor | SrcAlpha | InvSrcAlpha | DestColor | InvDestColor | DestAlpha | InvDestAlpha;</li>
+<li>DestBlend = <strong>Zero</strong> | One | SrcColor | InvSrcColor | SrcAlpha | InvSrcAlpha | DestColor | InvDestColor | DestAlpha | InvDestAlpha;</li>
+<li>ColorWriteEnable = <strong>0xf</strong>;</li>
+<li>StencilEnable = true | <strong>false</strong>;</li>
+<li>StencilFail = <strong>Keep</strong> | Zero | Replace | IncrSat | DecrSat | Invert | Incr | Decr;</li>
+<li>StencilZFail = <strong>Keep</strong> | Zero | Replace | IncrSat | DecrSat | Invert | Incr | Decr;</li>
+<li>StencilPass = <strong>Keep</strong> | Zero | Replace | IncrSat | DecrSat | Invert | Incr | Decr;</li>
+<li>StencilFunc = Never | LessEqual | Less | Equal | GreaterEqual | Greater | NotEqual | <strong>Always</strong>;</li>
+<li>StencilRef = <strong>0</strong> | &lt;<em>Constant</em>&gt;;</li>
+<li>StencilMask = <strong>0xffffffff</strong>;</li>
+<li>StencilWriteMask = <strong>0xffffffff</strong>;</li>
+</ul>
+<p>Some RenderStates can get its value from interface properties. An example for the <em>StencilRef</em> value:</p>
+<div class="highlight"><pre><span class="n">Mask</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">stencilRef</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">technique</span> <span class="n">Render</span>
+<span class="p">{</span>
+    <span class="n">pass</span> <span class="n">p0</span>
+    <span class="p">{</span>
+        <span class="n">StencilRef</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">stencilRef</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="sampler-states">
+<h3>Sampler states</h3>
+<p>Sampler states are declared inside each sampler. The following sampler states are implemented:</p>
+<ul class="simple">
+<li>AddressU | AddressU  | AddressW = Wrap | Mirror | Clamp | Border | MirrorOnce;</li>
+<li>MagFilter | MinFilter | MipFilter = None | Point | Linear | Anisotropic;</li>
+<li>Texture = a texture property that must appear in the shader interface</li>
+<li>MaxAnisotropy = 1;</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="using-shaders">
+<h1>Using shaders</h1>
+<p>Having a resource shader loaded the first step is instantiating each property group. The following code, create a constant buffer for the group <strong>Tweaks</strong>. When creating a constant buffer you must indicate if its content will change frequently or not. A dynamic constant buffer will copy its content to the command buffer when it is activated. A static constant buffer will only copy a reference to the data inside the command buffer. In this example the constant buffers is considered dynamic.</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Render</span><span class="o">::</span><span class="n">IShader</span><span class="o">&gt;</span> <span class="n">shader</span> <span class="o">=</span> <span class="n">resourceSystem</span><span class="o">-&gt;</span><span class="n">Load</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Shader</span><span class="p">),</span> <span class="n">NST</span><span class="p">(</span><span class="s">&quot;Solid.shader.nsd&quot;</span><span class="p">));</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Render</span><span class="o">::</span><span class="n">IConstantBuffer</span><span class="o">&gt;</span> <span class="n">cb</span> <span class="o">=</span>
+    <span class="n">shader</span> <span class="o">-&gt;</span><span class="n">CreateConstantBuffer</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">Tweaks</span><span class="p">),</span> <span class="n">ConstantBufferUsage_Dynamic</span><span class="p">);</span>
+</pre></div>
+<p>To change properties values, the IConstantBuffer interface is used</p>
+<div class="highlight"><pre><span class="n">cb</span><span class="o">-&gt;</span><span class="n">GetProperties</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Matrix4f</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="n">WorldViewProj</span><span class="p">),</span> <span class="n">Transpose</span><span class="p">(</span><span class="n">mView</span> <span class="o">*</span> <span class="n">mProj</span><span class="p">));</span>
+</pre></div>
+<p>Before rendering a primitive we need to bind the shader and its corresponding constant buffers. Before doing it, we need to define a context. The context indicates the instance (the combination of macros that are active), the technique and the pass. In this example, there is only one instance, one technique and one pass:</p>
+<div class="highlight"><pre><span class="n">IShader</span><span class="o">::</span><span class="n">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="n">shader</span><span class="o">-&gt;</span><span class="n">GetContext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetShader</span><span class="p">(</span><span class="n">shader</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetConstantBuffer</span><span class="p">(</span><span class="n">cb</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">Draw</span><span class="p">(</span><span class="n">PrimitiveType_LineList</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">);</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: PropertyMetadata</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="propertymetadata">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">PropertyMetadata</h1>
+
+<div class="section" id="introduction">
+<h1>Introduction</h1>
+<p>When registering a dependency property, we use a PropertyMetaData object to set some values associated with the property.</p>
+<p>First we can defined its <strong>default value</strong>. This value could probably be stored inside the property, but the default value (and other info that will be explained later) is stored in a metadata because a dependency property can have different metadatas associated with different reflection types. This gives us the potential to override the default value of a property in derived classes. For example:</p>
+<div class="highlight"><pre><span class="c1">// DerivedDelayedButton.cpp</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">DerivedDelayedButton</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">DelayProperty</span><span class="p">,</span> <span class="s">&quot;Delay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">5.0f</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+<p>Instances of the derived class will have a different default value:</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DelayedButton</span><span class="o">&gt;</span> <span class="n">btn1</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">DelayedButton</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">NsFloat32</span> <span class="n">delayBtn1</span> <span class="o">=</span> <span class="n">btn1</span><span class="o">-&gt;</span><span class="n">GetDelay</span><span class="p">();</span> <span class="c1">// -&gt; returns 1.0f</span>
+
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DerivedDelayedButton</span><span class="o">&gt;</span> <span class="n">btn2</span> <span class="o">=</span> <span class="n">NsCreateComponent</span><span class="o">&lt;</span><span class="n">DerivedDelayedButton</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">NsFloat32</span> <span class="n">delayBtn2</span> <span class="o">=</span> <span class="n">btn2</span><span class="o">-&gt;</span><span class="n">GetDelay</span><span class="p">();</span> <span class="c1">// -&gt; returns 5.0f</span>
+</pre></div>
+<p>In addition, other metadata values that have not been modified (overridden) are merged with the metadata associated with the ancestor classes. This other metadata values are: the property changed delegate and the coerce delegate. But PropertyMetaData derived classes can expand property info with more values.</p>
+<p>The <strong>property changed delegate</strong> is a static function that is called every time the real value of the property changes in a DependencyObject. The signature of the function must be the following:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">PropertyChangedDelegate</span><span class="p">(</span><span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="n">DependencyPropertyChangedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">);</span>
+</pre></div>
+<p>The function receives the object where the property is changed, and a struct with change info:</p>
+<blockquote>
+<ul class="simple">
+<li><em>e.prop:</em> The property that has changed</li>
+<li><em>e.oldValue:</em> The value in the dependency object before the change</li>
+<li><em>e.newValue:</em> The new value set in the dependency object</li>
+</ul>
+</blockquote>
+<p>Using this info a class can manage changes of its dependency properties and update other values or launch events.</p>
+<p>The <strong>coerce delegate</strong> is a static function that is called whenever a dependency property value is being re-evaluated, or coercion is specifically requested through CoerceValue method. The signature of the function must be the following:</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">CoerceDelegate</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">);</span>
+</pre></div>
+<p>Coercion interacts with the base value of a dependency property to ensure that some constraints are applied as those constraints exist at the time, but the base value is still retained. The most common use of the coerce delegate is to ensure that a value is between minimum and maximum values. Continuing with the previous example, we can define two more properties, MinimumDelay and MaximumDelay, in our DelayedButton class, and associate a CoerceDelegate to the Delay property:</p>
+<div class="highlight"><pre><span class="c1">// DelayedButton.h</span>
+
+<span class="k">class</span> <span class="nc">DelayedButton</span><span class="o">:</span> <span class="k">public</span> <span class="n">Button</span>
+<span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="k">static</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">CoerceDelay</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// DelayedButton.cpp</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceDelay</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="n">NsFloat32</span> <span class="n">newValue</span> <span class="o">=</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">NsFloat32</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">baseValue</span><span class="p">);</span>
+
+    <span class="n">newValue</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">btn</span><span class="o">-&gt;</span><span class="n">GetMinimumDelay</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">newValue</span><span class="p">,</span> <span class="n">btn</span><span class="o">-&gt;</span><span class="n">GetMaximumDelay</span><span class="p">()));</span>
+
+    <span class="k">return</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">newValue</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">DelayedButton</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DelayProperty</span><span class="p">,</span> <span class="s">&quot;Delay&quot;</span><span class="p">,</span> <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span>
+        <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceDelay</span><span class="p">)));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinimumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MinimumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MaximumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MaximumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">10.0f</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+<p>But we also need to ensure that minimum value is lesser than maximum value, so we apply coerce functions to that properties too:</p>
+<div class="highlight"><pre><span class="c1">// DelayedButton.h</span>
+
+<span class="k">class</span> <span class="nc">DelayedButton</span><span class="o">:</span> <span class="k">public</span> <span class="n">Button</span>
+<span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="k">static</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">CoerceMin</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">);</span>
+    <span class="k">static</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">CoerceMax</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// DelayedButton.cpp</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMin</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="n">NsFloat32</span> <span class="n">newValue</span> <span class="o">=</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">NsFloat32</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">baseValue</span><span class="p">);</span>
+
+    <span class="n">NsFloat32</span> <span class="n">maxValue</span> <span class="o">=</span> <span class="n">btn</span><span class="o">-&gt;</span><span class="n">GetMaximumDelay</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">newValue</span> <span class="o">&gt;</span> <span class="n">maxValue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">newValue</span> <span class="o">=</span> <span class="n">maxValue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">newValue</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">BaseComponent</span><span class="o">&gt;</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMax</span><span class="p">(</span><span class="k">const</span> <span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">baseValue</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*</span> <span class="n">btn</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">DelayedButton</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+    <span class="n">NsFloat32</span> <span class="n">newValue</span> <span class="o">=</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">NsFloat32</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">baseValue</span><span class="p">);</span>
+
+    <span class="n">NsFloat32</span> <span class="n">minValue</span> <span class="o">=</span> <span class="n">btn</span><span class="o">-&gt;</span><span class="n">GetMinimumDelay</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">newValue</span> <span class="o">&lt;</span> <span class="n">minValue</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">newValue</span> <span class="o">=</span> <span class="n">minValue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">Boxing</span><span class="o">::</span><span class="n">Box</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">newValue</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">DelayedButton</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DelayProperty</span><span class="p">,</span> <span class="s">&quot;Delay&quot;</span><span class="p">,</span> <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span>
+        <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceDelay</span><span class="p">)));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinimumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MinimumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMin</span><span class="p">)));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MaximumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MaximumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">10.0f</span><span class="p">,</span> <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMax</span><span class="p">)));</span>
+<span class="p">}</span>
+</pre></div>
+<p>And finally we must check if minimum and maximum values change to update current delay value:</p>
+<div class="highlight"><pre><span class="c1">// DelayedButton.h</span>
+
+<span class="k">class</span> <span class="nc">DelayedButton</span><span class="o">:</span> <span class="k">public</span> <span class="n">Button</span>
+<span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">OnMinMaxChanged</span><span class="p">(</span><span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="n">DependencyPropertyChangedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// DelayedButton.cpp</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="kt">void</span> <span class="n">DelayedButton</span><span class="o">::</span><span class="n">OnMinMaxChanged</span><span class="p">(</span><span class="n">DependencyObject</span><span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="n">DependencyPropertyChangedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">DelayProperty</span><span class="o">-&gt;</span><span class="n">CoerceValue</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">DelayedButton</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">DependencyData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DelayProperty</span><span class="p">,</span> <span class="s">&quot;Delay&quot;</span><span class="p">,</span> <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span>
+        <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceDelay</span><span class="p">)));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MinimumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MinimumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">OnMinMaxChanged</span><span class="p">),</span>
+        <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMin</span><span class="p">)));</span>
+    <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsFloat32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MaximumDelayProperty</span><span class="p">,</span> <span class="s">&quot;MaximumDelay&quot;</span><span class="p">,</span>
+        <span class="n">PropertyMetaData</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="mf">10.0f</span><span class="p">,</span> <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">OnMinMaxChanged</span><span class="p">),</span>
+        <span class="n">MakeDelegate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">DelayedButton</span><span class="o">::</span><span class="n">CoerceMax</span><span class="p">)));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="wpf-compatibility">
+<h1>WPF Compatibility</h1>
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.propertymetadata.aspx">http://msdn.microsoft.com/en-us/library/system.windows.propertymetadata.aspx</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><strong>Properties:</strong></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="4%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>CoerceValueCallback</td>
+<td>Yes</td>
+<td>Renamed to CoerceDelegate</td>
+</tr>
+<tr><td>DefaultValue</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PropertyChangedCallback</td>
+<td>Yes</td>
+<td>Renamed to PropertyChangedDelegate</td>
+</tr>
+</tbody>
+</table>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

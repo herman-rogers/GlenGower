@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Optimizing NoesisGUI Performance</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="optimizing-noesisgui-performance">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Optimizing NoesisGUI Performance</h1>
+
+<p>This section is intended as a reference for ways to improve the performance of NoesisGUI.</p>
+<div class="section" id="rendering-performance">
+<h1>Rendering Performance</h1>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<blockquote class="last">
+<p>For optimizing graphics performance XamlPlayer has a Statistics panel that can be toggled with F2.</p>
+<img alt="Optimizing1.png" src="Optimizing1.png" />
+</blockquote>
+</div>
+<div class="section" id="antialiasing">
+<h2>Antialiasing</h2>
+<p>NoesisGUI implements a very fast antialising algorithm that can be used instead of GPU full-scene antialiasing. To use it you have to activate the PPA (per-primitive algorithm) algorithm in the renderer. PPA implements antialiasing by extruding the contours of the triangles smoothing them. The paths are slightly altered though.</p>
+</div>
+<div class="section" id="opacity-groups">
+<h2>Opacity Groups</h2>
+<p>Whenever possible element's Opacity property must be avoided because it can cause the use of offscreen surfaces. The number of offscreen surfaces used is indicated in the stats panel by the counter RT_Changes.</p>
+<p>For example, in the following XAML:</p>
+<div class="highlight"><pre><span class="nt">&lt;StackPanel</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span> <span class="na">Background=</span><span class="s">&quot;Aqua&quot;</span> <span class="na">Width=</span><span class="s">&quot;500&quot;</span> <span class="na">Height=</span><span class="s">&quot;500&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;#FFFF0000&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Opacity=</span><span class="s">&quot;0.50&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Fill=</span><span class="s">&quot;#80FF0000&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<p>Although the aspect of both rectangles is the same, the first one is being rendered to an offscreen texture and later being copied to the main surface. It is very important not using this kind of opacity when there is only a single node (like in this example). In these cases is better transferring the alpha to the brush, like shown in the second example. We could detect and optimize this case in the future but it is better not relying on it.</p>
+<p>When you use a Brush to set the Fill or Stroke of an element, it is better to set the Brush.Opacity value rather than the setting the element's Opacity property.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title">Tip</p>
+<blockquote class="last">
+In XamlPlayer, the Overdraw debug mode (CTRL + O) displays opacities in red color.</blockquote>
+</div>
+</div>
+<div class="section" id="batching">
+<h2>Batching</h2>
+<p>As a general rule, the minimal number of paths must be used. If you can collapse several paths in the same one, it will improve render performance because the number of drawcalls (batches) sent to the GPU is minimized. Do this whenever your content allows it. Even if you don't do it, NoesisGUI is able to optimize the number of batches by following these rules:</p>
+<ul class="simple">
+<li><strong>Solid color</strong> brushes always batch. Solid color is the fastest brush. Use it whenever possible.</li>
+<li><strong>Linear</strong> brushes batch if they are using the same ramp.</li>
+<li><strong>Radial</strong> gradients only batch is using the same parameters (radius and focus).</li>
+<li><strong>Image</strong> brushes batch if the images are in the same texture (atlas).</li>
+</ul>
+<p>The statistics panel display the percentage of triangles for each kind of brush. You can also activate the Batching debug mode (CTRL + B) in XamlPllayer to visually display each batch with a different color.</p>
+</div>
+<div class="section" id="share-resources">
+<h2>Share Resources</h2>
+<p>Use dictionaries to share resources whenever possible. This is an important factor to reduce memory but it is also important to reduce rendering performance because it allow us to improve batching. Using resources in Blend is very easy, you only have to click on the white dot of the resource and select &quot;Convert to New Resource...&quot;.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Grid.Resources&gt;</span>
+        <span class="nt">&lt;GradientStopCollection</span> <span class="na">x:Key=</span><span class="s">&quot;grad&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">Offset=</span><span class="s">&quot;0&quot;</span> <span class="na">Color=</span><span class="s">&quot;Red&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;GradientStop</span> <span class="na">Offset=</span><span class="s">&quot;1&quot;</span> <span class="na">Color=</span><span class="s">&quot;Yellow&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/GradientStopCollection&gt;</span>
+    <span class="nt">&lt;/Grid.Resources&gt;</span>
+    <span class="nt">&lt;StackPanel&gt;</span>
+        <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Rectangle.Fill&gt;</span>
+                <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;0,0&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;0,1&quot;</span> <span class="na">GradientStops=</span><span class="s">&quot;{StaticResource grad}&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+        <span class="nt">&lt;/Rectangle&gt;</span>
+        <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Rectangle.Fill&gt;</span>
+                <span class="nt">&lt;LinearGradientBrush</span> <span class="na">StartPoint=</span><span class="s">&quot;0,0&quot;</span> <span class="na">EndPoint=</span><span class="s">&quot;1,0&quot;</span> <span class="na">GradientStops=</span><span class="s">&quot;{StaticResource grad}&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+        <span class="nt">&lt;/Rectangle&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

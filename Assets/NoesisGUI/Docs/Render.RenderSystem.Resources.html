@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: RenderSystem Resources</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="rendersystem-resources">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">RenderSystem Resources</h1>
+
+<p>Basically, the <em>IRenderSystem</em> interface offers function to create resources. In this section, the different resources that can be created using that interface are described.</p>
+<div class="section" id="rendertargets">
+<h1>RenderTargets</h1>
+<p>A <em>RenderTarget</em> is a surface that is the destination of render commands. RenderTargets can store color or depth information.</p>
+<p>To activate a render target you need to invoke the methods SetColorBuffer and SetDepthBuffer of the CommandBuffer.</p>
+<p>For example, the following example create a color and depth buffer and binds them.</p>
+<div class="highlight"><pre><span class="n">mShadowMapRT</span> <span class="o">=</span> <span class="n">mRenderSystem</span><span class="o">-&gt;</span><span class="n">CreateRenderTarget</span><span class="p">(</span>
+    <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">SurfaceFormat_R32F</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">RenderTargetFlags_Resolvable</span><span class="p">);</span>
+<span class="n">mDepthStencil</span> <span class="o">=</span> <span class="n">mRenderSystem</span><span class="o">-&gt;</span><span class="n">CreateRenderTarget</span><span class="p">(</span>
+    <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">SurfaceFormat_DepthStencil</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// Binding</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetColorBuffer</span><span class="p">(</span><span class="n">mShadowMapRT</span><span class="p">);</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetDepthBuffer</span><span class="p">(</span><span class="n">mDepthStencil</span><span class="p">);</span>
+
+<span class="c1">// Clear</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">Clear</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+<p>RenderTargets can not be used as textures. To create a RenderTarget that can be used as a texture the <strong>RenderTargetFlags_Resolvable</strong> flag must be set when creating the render target. When you want to copy the contents of the surface to the texture, the resolve command must be invoked.</p>
+<div class="highlight"><pre><span class="n">commands</span><span class="o">-&gt;</span><span class="n">Resolve</span><span class="p">(</span><span class="n">mShadowMapRT</span><span class="p">);</span>
+
+<span class="c1">// This is the texture where the surface will be resolved (when the command is executed)</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ITexture2D</span><span class="o">&gt;</span> <span class="n">shadowMapTexture</span> <span class="o">=</span> <span class="n">mShadowMapRT</span><span class="o">-&gt;</span><span class="n">GetResolveTexture</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="renderviews">
+<h1>RenderViews</h1>
+<p><em>RenderViews</em> are special RenderTargets that have an associated window. In fact, a RenderView implements both the IRenderTarget and IRenderView interface.</p>
+<p>To create a RenderView a window handle is needed.</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderView</span><span class="o">&gt;</span> <span class="n">renderView</span> <span class="o">=</span> <span class="n">renderSystem</span><span class="o">-&gt;</span><span class="n">CreateRenderView</span><span class="p">(</span><span class="n">hWnd0</span><span class="p">);</span>
+
+<span class="c1">// A render view can be used as a normal render target</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetColorBuffer</span><span class="p">(</span><span class="n">renderView</span><span class="p">);</span>
+</pre></div>
+<p>A RenderView maintains a backbuffer where all the commands are executed. To show the content of a render view it must be swapped to the window.</p>
+<div class="highlight"><pre><span class="n">commands</span><span class="o">-&gt;</span><span class="n">Swap</span><span class="p">(</span><span class="n">rv</span><span class="p">);</span>
+</pre></div>
+<p>The size of the internal render target managed by the RenderView and the size of the window does not necessarily need to match. In fact, the internal size of the backbuffer is only modified with the Resize() method of the IRenderView.</p>
+<p>This is a example where the backbuffer is resized when the window changes its dimensions.</p>
+<div class="highlight"><pre><span class="n">LRESULT</span> <span class="n">CALLBACK</span> <span class="nf">NoesisWndProc</span><span class="p">(</span><span class="n">HWND</span> <span class="n">hWnd</span><span class="p">,</span> <span class="n">UINT</span> <span class="n">iMsg</span><span class="p">,</span> <span class="n">WPARAM</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">iMsg</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="n">WM_CREATE</span>:
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="n">WM_SIZE</span>:
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">wParam</span> <span class="o">!=</span> <span class="n">SIZE_MINIMIZED</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">IRenderView</span><span class="o">*</span> <span class="n">rv</span> <span class="o">=</span> <span class="p">(</span><span class="n">IRenderView</span><span class="o">*</span><span class="p">)</span><span class="n">GetWindowLongPtr</span><span class="p">(</span><span class="n">hWnd</span><span class="p">,</span> <span class="n">GWLP_USERDATA</span><span class="p">);</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">rv</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">rv</span><span class="o">-&gt;</span><span class="n">Resize</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="n">WM_CLOSE</span>:
+        <span class="p">{</span>
+            <span class="n">PostQuitMessage</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">DefWindowProc</span><span class="p">(</span><span class="n">hWnd</span><span class="p">,</span> <span class="n">iMsg</span><span class="p">,</span> <span class="n">wParam</span><span class="p">,</span> <span class="n">lParam</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="vertexbuffers-indexbuffers-and-vertexsources">
+<h1>VertexBuffers, IndexBuffers and VertexSources</h1>
+<p><em>VertexBuffers</em> are resources to store vertex information: positions, normals, tangents, etc. A VertexBuffer is an untyped raw buffer that later can be bound to the device through a VertexSource.</p>
+<p>An <em>IndexBuffers</em> is used to store indices. Indices are needed to draw indexed primitives. An IndexBuffer can store 16-bits or 32-bits indices. A IndexBuffer is bound to the device with the SetIndices command.</p>
+<p>A <em>VertexSource</em> is a set of vertex buffers with a given semantic. Several VertexBuffers can be associated to a VertexSource, each one in a stream. A VertexSource describes the information that is accessible when drawing primitives. You bind a VertexSource using the SetVertexSource command.</p>
+<p>What follows is an example that creates a simple quad using a VertexBuffer, an IndexBuffer and a VertexSource.</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">QuadVertex</span>
+<span class="p">{</span>
+    <span class="n">Vector3f</span> <span class="n">pos</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">QuadVertex</span> <span class="n">vertices</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+<span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">pos</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">u</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">v</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">pos</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">u</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">v</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">pos</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">u</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">v</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">pos</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">u</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+<span class="n">vertices</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">v</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+
+<span class="n">NsUInt16</span> <span class="n">idx</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+
+<span class="c1">// 1. The VertexBuffer is created and filled with vertex data</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IVertexBuffer</span><span class="o">&gt;</span> <span class="n">vb</span> <span class="o">=</span> <span class="n">mRenderSystem</span><span class="o">-&gt;</span><span class="n">CreateVertexBuffer</span><span class="p">(</span>
+    <span class="mi">4</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">QuadVertex</span><span class="p">),</span> <span class="n">UpdateFrequency_Immutable</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vertices</span><span class="p">);</span>
+
+<span class="c1">// 2. The IndexBuffer is created and filled with index data (16-bit indices are used here)</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IIndexBuffer</span><span class="o">&gt;</span> <span class="n">ib</span> <span class="o">=</span> <span class="n">mRenderSystem</span><span class="o">-&gt;</span><span class="n">CreateIndexBuffer</span><span class="p">(</span>
+    <span class="mi">6</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">NsUInt16</span><span class="p">),</span> <span class="n">UpdateFrequency_Immutable</span><span class="p">,</span> <span class="n">IndexFormat_16</span><span class="p">,</span> <span class="n">idx</span><span class="p">);</span>
+
+<span class="c1">// 3. A VertexSource describing the streams that will be used when drawing primitives</span>
+<span class="n">VertexSourceDesc</span> <span class="n">vsDesc</span><span class="p">;</span>
+
+<span class="n">Stream</span> <span class="n">stream</span><span class="p">;</span>
+<span class="n">stream</span><span class="p">.</span><span class="n">AddElement</span><span class="p">(</span><span class="n">VertexElement</span><span class="p">(</span><span class="n">VertexElementUsage_Position</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">VertexElementType_Float3</span><span class="p">))</span>
+      <span class="p">.</span><span class="n">AddElement</span><span class="p">(</span><span class="n">VertexElement</span><span class="p">(</span><span class="n">VertexElementUsage_TexCoord</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">VertexElementType_Float2</span><span class="p">));</span>
+<span class="n">vsDesc</span><span class="p">.</span><span class="n">AddStream</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+
+<span class="c1">// 4. Associate the stream 0 of the vertexsource with the VertexBuffer we just created</span>
+<span class="n">vs</span> <span class="o">=</span> <span class="n">mRenderSystem</span><span class="o">-&gt;</span><span class="n">CreateVertexSource</span><span class="p">(</span><span class="n">vsDesc</span><span class="p">);</span>
+<span class="n">vs</span><span class="o">-&gt;</span><span class="n">SetStreamData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">vb</span><span class="p">);</span>
+</pre></div>
+<div class="section" id="dynamic-data">
+<h2>Dynamic Data</h2>
+<p>VertexBuffers and IndexBuffers objects are directly stored inside the graphic device. That information is supposed to never change or do it infrequently. This usage information is given when those resources are created passing the <strong>UpdateFrequency_Default</strong> or the <strong>UpdateFrequency_Immutable</strong> flag.</p>
+<p>Dynamic data is not managed using vertex buffers. Dynamic data is supposed to change frequently (at least one time per frame for example) and it is copied each time that resource is needed by the device. That copy is internally optimized by the render system.</p>
+<p>To use dynamic data instead of binding a VertexBuffer to the VertexSource, you pass a raw pointer with the dynamic data.</p>
+<div class="highlight"><pre><span class="n">Vector3f</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0f</span><span class="p">);</span>
+<span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vector3f</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0f</span><span class="p">);</span>
+
+<span class="n">vertexSource</span><span class="o">-&gt;</span><span class="n">SetStreamData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Vector3f</span><span class="p">));</span>
+<span class="n">commands</span><span class="o">-&gt;</span><span class="n">SetVertices</span><span class="p">(</span><span class="n">mVsWire</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="commandbuffers">
+<h1>CommandBuffers</h1>
+<p>CommandBuffers are created to store render commands. They are described in the <a class="reference external" href="Render.RenderSystem.CommandBuffers.html">Using Command Buffers</a> section.</p>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

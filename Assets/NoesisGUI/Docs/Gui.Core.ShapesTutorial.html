@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Rendering shapes</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="rendering-shapes">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Rendering shapes</h1>
+
+<p>In this tutorial we are going to learn how to use <a class="reference external" href="Gui.Core._Shape.html">Shapes</a> and <a class="reference external" href="Gui.Core._Brush.html">Brushes</a>.</p>
+<p><strong>Shape</strong> elements are used for drawing vector graphics. A Shape has a <strong>Fill</strong> property, for the background color, and a <strong>Stroke</strong> property, for the outline color. Both properties are of type <strong>Brush</strong>. With the <strong>StrokeWidth</strong> property you can control the thickness of the outline.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">NOTE</p>
+<p class="last"><em>Shape.Stroke</em> being a <em>Brush</em> rather than a <em>Pen</em> is an unfortunate inconsistency that is present in WPF. We decided to follow the same API in NoesisGUI. Internally, a Pen is indeed used to create the outline of the Shape. But rather than exposing the Pen directly, Shape defines Stroke as a Brush and exposes additional properties to tweak the settings of the internal Pen: <em>StrokeStartLineCap</em>, <em>StrokeEndLineCap</em>, <em>StrokeThickness</em>, and so on.</p>
+</div>
+<div class="section" id="id1">
+<h1>Brushes</h1>
+<p>Stroke and Fill properties need to be set to a valid <a class="reference external" href="Gui.Core._Brush.html">Brush</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core.SolidColorBrush.html">Solid</a>: to fill the target area with a single color. It has a simple Color property. Because of the type converter that converts string like &quot;Blue&quot; or &quot;#FFFFFFFF&quot; into <em>SolidColorBrushes</em>, they are indistinguishable from their underlying <em>Color</em> in XAML.</li>
+<li><a class="reference external" href="Gui.Core.LinearGradientBrush.html">Linear gradient</a>: to fill an area with a gradient defined by colors at specific points along an imaginary line segment, with linear interpolation between those points.</li>
+<li><a class="reference external" href="Gui.Core.RadialGradientBrush.html">Radial gradient</a> works like <em>LinearGradientBrush</em>, except it has a single starting point with each <em>GradientStop</em> emanating from it in the shape of an ellipse.</li>
+<li><a class="reference external" href="Gui.Core.ImageBrush.html">Image</a>: An image brush paints an area with a bitmap. The <em>ImageSource</em> property is meant to hold the bitmap content. There is a <a class="reference external" href="Gui.Core.ImagesTutorial.html#imagebrush">chapter</a> dedicated to <em>ImageBrushes</em> in the <a class="reference external" href="Gui.Core.ImagesTutorial.html">Images Tutorial</a>.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h1>Shapes</h1>
+<p>NoesisGUI supports the following basic shapes:</p>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core._Rectangle.html">Rectangle</a>: for rectangles or squares with or without rounded corners</li>
+</ul>
+<img alt="ShapesTutorialImg3.jpg" class="align-right" src="ShapesTutorialImg3.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;StackPanel</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">RadiusX=</span><span class="s">&quot;10&quot;</span> <span class="na">RadiusY=</span><span class="s">&quot;30&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">RadiusX=</span><span class="s">&quot;30&quot;</span> <span class="na">RadiusY=</span><span class="s">&quot;10&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Rectangle</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span> <span class="na">RadiusX=</span><span class="s">&quot;100&quot;</span> <span class="na">RadiusY=</span><span class="s">&quot;50&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<div class="clearer container">
+<img alt="spacer.png" src="spacer.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core._Ellipse.html">Ellipse</a>: for drawing ovals or circles</li>
+</ul>
+<img alt="ShapesTutorialImg4.jpg" class="align-right" src="ShapesTutorialImg4.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;StackPanel</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Ellipse</span> <span class="na">Width=</span><span class="s">&quot;200&quot;</span> <span class="na">Height=</span><span class="s">&quot;100&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Ellipse</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span> <span class="na">Height=</span><span class="s">&quot;200&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<div class="clearer container">
+<img alt="spacer.png" src="spacer.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core._Line.html">Line</a>: for segments connecting two points</li>
+</ul>
+<img alt="ShapesTutorialImg5.jpg" class="align-right" src="ShapesTutorialImg5.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;StackPanel</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Line</span> <span class="na">X1=</span><span class="s">&quot;100&quot;</span> <span class="na">Y1=</span><span class="s">&quot;50&quot;</span> <span class="na">X2=</span><span class="s">&quot;400&quot;</span> <span class="na">Y2=</span><span class="s">&quot;200&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Orange&quot;</span>
+      <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Line</span> <span class="na">X1=</span><span class="s">&quot;100&quot;</span> <span class="na">Y1=</span><span class="s">&quot;0&quot;</span> <span class="na">X2=</span><span class="s">&quot;400&quot;</span> <span class="na">Y2=</span><span class="s">&quot;0&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Orange&quot;</span>
+      <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Line</span> <span class="na">X1=</span><span class="s">&quot;100&quot;</span> <span class="na">Y1=</span><span class="s">&quot;150&quot;</span> <span class="na">X2=</span><span class="s">&quot;400&quot;</span> <span class="na">Y2=</span><span class="s">&quot;0&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Orange&quot;</span>
+      <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span> <span class="na">Margin=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<div class="clearer container">
+<img alt="spacer.png" src="spacer.png" />
+</div>
+<ul class="simple">
+<li><a class="reference external" href="Gui.Core._Path.html">Path</a>: for complex shapes</li>
+</ul>
+<img alt="ShapesTutorialImg6.jpg" class="align-right" src="ShapesTutorialImg6.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;StackPanel</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Path</span> <span class="na">Fill=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;10&quot;</span>
+      <span class="na">Data=</span><span class="s">&quot;M 80,200 A 100,50 45 1 0 100,50 Z&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/StackPanel&gt;</span>
+</pre></div>
+<div class="clearer container">
+<img alt="spacer.png" src="spacer.png" />
+</div>
+<p>Shapes are typically placed inside a <a class="reference external" href="Gui.Core.Canvas.html">Canvas</a> because it supports absolute positioning of its child objects. The following example illustrates some of the basic shapes:</p>
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">Height=</span><span class="s">&quot;300&quot;</span> <span class="na">Width=</span><span class="s">&quot;300&quot;</span> <span class="na">Background=</span><span class="s">&quot;LightGray&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;Line</span> <span class="na">X1=</span><span class="s">&quot;30&quot;</span> <span class="na">Y1=</span><span class="s">&quot;30&quot;</span> <span class="na">X2=</span><span class="s">&quot;130&quot;</span> <span class="na">Y2=</span><span class="s">&quot;130&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;8&quot;</span>
+      <span class="na">StrokeStartLineCap=</span><span class="s">&quot;Round&quot;</span> <span class="na">StrokeEndLineCap=</span><span class="s">&quot;Round&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;Ellipse</span> <span class="na">Canvas.Top=</span><span class="s">&quot;25&quot;</span> <span class="na">Canvas.Left=</span><span class="s">&quot;160&quot;</span> <span class="na">Height=</span><span class="s">&quot;120&quot;</span> <span class="na">Width=</span><span class="s">&quot;120&quot;</span>
+      <span class="na">StrokeThickness=</span><span class="s">&quot;4&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Ellipse.Fill&gt;</span>
+      <span class="nt">&lt;RadialGradientBrush</span> <span class="na">GradientOrigin=</span><span class="s">&quot;0.75,0.25&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Yellow&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.0&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Orange&quot;</span> <span class="na">Offset=</span><span class="s">&quot;0.5&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;GradientStop</span> <span class="na">Color=</span><span class="s">&quot;Red&quot;</span> <span class="na">Offset=</span><span class="s">&quot;1.0&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/RadialGradientBrush&gt;</span>
+    <span class="nt">&lt;/Ellipse.Fill&gt;</span>
+  <span class="nt">&lt;/Ellipse&gt;</span>
+
+  <span class="nt">&lt;Rectangle</span> <span class="na">Canvas.Left=</span><span class="s">&quot;45&quot;</span> <span class="na">Canvas.Top=</span><span class="s">&quot;250&quot;</span> <span class="na">Height=</span><span class="s">&quot;150&quot;</span> <span class="na">Width=</span><span class="s">&quot;80&quot;</span> <span class="na">RadiusX=</span><span class="s">&quot;9&quot;</span> <span class="na">RadiusY=</span><span class="s">&quot;9&quot;</span>
+      <span class="na">Fill=</span><span class="s">&quot;LightBlue&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Green&quot;</span> <span class="na">StrokeDashArray=</span><span class="s">&quot;3,1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Rectangle.RenderTransform&gt;</span>
+      <span class="nt">&lt;RotateTransform</span> <span class="na">Angle=</span><span class="s">&quot;-80&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Rectangle.RenderTransform&gt;</span>
+  <span class="nt">&lt;/Rectangle&gt;</span>
+
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<img alt="ShapesTutorialImg1.jpg" class="align-right" src="ShapesTutorialImg1.jpg" />
+<p>Apart from the details already commented above there are the following interesting details in this example:</p>
+<ul class="simple">
+<li>The start and end stroking caps are being changed through the <strong>StrokeStartLineCap</strong> and <strong>StrokeEndLineCap</strong> properties.</li>
+<li>Stroke dashing is set through the <strong>StrokeDashArray</strong> property.</li>
+<li>Elements can define their position inside the Canvas through attached properties or changing the <strong>RenderTrasform</strong> property.</li>
+</ul>
+<div class="clearer container">
+<img alt="spacer.png" src="spacer.png" />
+</div>
+<p>Paths are more complex shapes used to draw figures expressed in a special <strong>path markup syntax</strong>, a mini-language for making compact code. More information about this language can be found in the <a class="reference external" href="http://www.w3.org/TR/SVG/paths.html">SVG specification</a>. <a class="reference external" href="http://inkscape.org/">Inkscape</a> is an amazing tool for converting from SVG files to XAML path format.</p>
+<div class="highlight"><pre><span class="nt">&lt;Canvas</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">Height=</span><span class="s">&quot;440&quot;</span> <span class="na">Width=</span><span class="s">&quot;385&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;Path</span> <span class="na">Fill=</span><span class="s">&quot;#FFF2F000&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;#FF000000&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;9&quot;</span>
+      <span class="na">Data=</span><span class="s">&quot;m 608.07798 229.66418 c -88.45345 78.6253 -223.89753 70.658 -302.52283 -17.79545</span>
+<span class="s">        -78.62529 -88.45345 -70.65799 -223.897534 17.79546 -302.522828 86.89794 -77.242622</span>
+<span class="s">        219.53868 -71.098432 298.92375 13.846751 L 465.71429 69.505043 z&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Path.RenderTransform&gt;</span>
+      <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;-245.7143&quot;</span> <span class="na">Y=</span><span class="s">&quot;150.8571&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+  <span class="nt">&lt;/Path&gt;</span>
+
+  <span class="nt">&lt;Ellipse</span> <span class="na">Height=</span><span class="s">&quot;45&quot;</span> <span class="na">Width=</span><span class="s">&quot;45&quot;</span> <span class="na">Fill=</span><span class="s">&quot;#FF000000&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Ellipse.RenderTransform&gt;</span>
+      <span class="nt">&lt;TranslateTransform</span> <span class="na">X=</span><span class="s">&quot;201&quot;</span> <span class="na">Y=</span><span class="s">&quot;110&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Ellipse.RenderTransform&gt;</span>
+  <span class="nt">&lt;/Ellipse&gt;</span>
+
+<span class="nt">&lt;/Canvas&gt;</span>
+</pre></div>
+<img alt="ShapesTutorialImg2.jpg" src="ShapesTutorialImg2.jpg" />
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

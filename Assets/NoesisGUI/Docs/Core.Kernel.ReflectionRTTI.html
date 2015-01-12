@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: RTTI</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="rtti">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">RTTI</h1>
+
+<p>The RTTI (Run-time Type Information or Run-time Type Identification) system allows keeping information about an object's data type in memory at run-time. Run-time type information can be applied to <strong>basic types</strong>, such as integers and characters, to <strong>classes</strong>, to <strong>components</strong> and to <strong>interfaces</strong>. For classes, components and interfaces special reflection marks must be added to the class definition to implement the RTTI for each type.</p>
+<p>In order to be able to define class reflection for types you must include the file <em>Reflection.h</em>. This file includes all necessary headers.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;NsCore/Reflection.h&gt;</span>
+</pre></div>
+<p>Type information is stored in a hierarchy of classes whose root is the <em>Type</em> class. This is the class used for simple types and the base for more complex types like <em>TypeClass</em> and <em>TypeEnum</em>. More information about the type hierarchy can be found in the <a class="reference external" href="Core.Kernel.ReflectionType.html">Type Reflection Model</a> document.</p>
+<div class="section" id="basic-types">
+<h1>Basic Types</h1>
+<p>Type information for basic types is stored in <em>Type</em> instances. For example, to obtain the type information for an integer:</p>
+<div class="highlight"><pre><span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">type</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="noesisengine-objects">
+<h1>NoesisEngine objects</h1>
+<p>As mentioned in the <a class="reference external" href="Core.Kernel.SDKHierarchy.html">Class Hierarchy</a> document, in NoesisEngine there can be found three type of instances: <strong>simple classes</strong>, <strong>polymorphic classes</strong> and <strong>components</strong>.</p>
+<div class="section" id="simple-classes">
+<h2>Simple Classes</h2>
+<p>Run-time type information for simple classes is accessed through the functions <strong>StaticGetClassType</strong> (for the static type) and <strong>GetClassType</strong> (for the dynamic type).</p>
+<p><strong>Note</strong>: Simple classes are supposed not be polymorphic, so <em>GetClassType</em> is not virtual and only static type information can be obtained from it.</p>
+<p>The implementation of these functions is automatically done when using reflection macros. The reflection macros are composed by two blocks, the first one inside the class declaration:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Size2D</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">width</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">Size2D</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+<p>The first parameter macro of NS_DECLARE_REFLECTION is the type being reflected, the second one is the parent type (<em>Noesis::Core::NoParent</em> for root classes).</p>
+<p>The second block is located in the implementation file and it is used to implement the reflection information.</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">// @File: Size2D.cpp</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">Size2D</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;width&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Size2D</span><span class="o">::</span><span class="n">width</span><span class="p">);</span>
+    <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;height&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Size2D</span><span class="o">::</span><span class="n">height</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>Using two blocks is the recommended option. But you can declare and implement the reflection in a single block. This is the unique option when implementing reflection for templates. For example:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Size2D</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">width</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Size2D</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;width&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Size2D</span><span class="o">::</span><span class="n">width</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;height&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Size2D</span><span class="o">::</span><span class="n">height</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Adding these macros to the class does not add any extra size to the instance. Only static data is added to the class type where macros are being added.</p>
+<p><strong>Note</strong>: For empty implementation blocks, there are special version of the macros (<strong>NS_IMPLEMENT_REFLECTION_</strong>, <strong>NS_IMPLEMENT_INLINE_REFLECTION_</strong>) that must be used. For example:</p>
+<div class="highlight"><pre><span class="n">NS_IMPLEMENT_REFLECTION_</span><span class="p">(</span><span class="n">Size2D</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="polymorphic-classes">
+<h2>Polymorphic classes</h2>
+<p>They use the same macros as simple classes. The only difference is that <em>GetClassType</em> functions is virtual, so when used, they return dynamic runtime information about the class.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">A</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseObject</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">BaseObject</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="o">:</span> <span class="k">public</span> <span class="n">A</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NS_DECLARE_REFLECTION</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="c1">//...</span>
+
+<span class="n">A</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="p">;</span>
+<span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">GetClassType</span><span class="p">()</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">Get</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="section" id="components">
+<h2>Components</h2>
+<p>Components are reflected the same way than normal classes. The tag <strong>NsImpl&lt;&gt;</strong> is used to give information about the interfaces implemented by the component.</p>
+<div class="highlight"><pre><span class="c1">// @File: DX9IndexBuffer.h</span>
+<span class="k">class</span> <span class="nc">DX9IndexBuffer</span><span class="o">:</span> <span class="k">public</span> <span class="n">DX9BaseResource</span><span class="p">,</span> <span class="k">public</span> <span class="n">IIndexBuffer</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">DX9IndexBuffer</span><span class="p">(</span><span class="n">NsSize</span> <span class="n">sizeInBytes</span><span class="p">,</span> <span class="n">IndexFormat</span> <span class="n">format</span><span class="p">,</span> <span class="n">DX9RenderSystem</span><span class="o">*</span> <span class="n">renderSystem</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="o">~</span><span class="n">DX9IndexBuffer</span><span class="p">();</span>
+
+    <span class="c1">/// From IVertexBuffer</span>
+    <span class="c1">//@{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="nf">Lock</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">Unlock</span><span class="p">();</span>
+    <span class="c1">//@}</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">DX9IndexBuffer</span><span class="p">,</span> <span class="n">DX9BaseResource</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">IIndexBuffer</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>As with classes, components provide both functions <strong>StaticGetClassType()</strong> and <strong>GetClassType()</strong> to access the Type object that stores the RTTI information.</p>
+</div>
+<div class="section" id="interfaces">
+<h2>Interfaces</h2>
+<p>The reflection for interfaces can only be specified with the inline version of the macros.</p>
+<div class="highlight"><pre><span class="n">NS_INTERFACE</span> <span class="n">IIndexBuffer</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">Interface</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">void</span><span class="o">*</span> <span class="n">Lock</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Unlock</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION_</span><span class="p">(</span><span class="n">IIndexBuffer</span><span class="p">,</span> <span class="n">Interface</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metadata">
+<h1>MetaData</h1>
+<p>Metadata is very powerful way to extend the reflection associated to a class. All types deriving from <em>TypeMeta</em> have the capability to contain metadata. Each metadata is a class deriving from <em>TypeMetaData</em>. Metadata is declared using the tag <strong>NsMeta&lt;&gt;</strong>:</p>
+<div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">FrameworkTemplate</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;FrameworkTemplate&quot;</span><span class="p">);</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">ContentPropertyMetaData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsSymbol</span><span class="p">(</span><span class="s">&quot;VisualTree&quot;</span><span class="p">));</span>
+    <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">INameScope</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Resources&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">FrameworkTemplate</span><span class="o">::</span><span class="n">mResources</span><span class="p">);</span>
+    <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;VisualTree&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">FrameworkTemplate</span><span class="o">::</span><span class="n">mVisualTree</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="typeid">
+<h1>TypeId</h1>
+<p><strong>Type</strong> class has the method <em>GetName()</em> that can be used for debugging purposes. The string returned by this method is not portable and may vary between platforms. Whenever portable IDs for types are necessary, the TypeId metadata must be used. This metadata is used by the component factory and the serialization to uniquely identify components.</p>
+<div class="highlight"><pre><span class="n">NS_IMPLEMENT_REFLECTION</span><span class="p">(</span><span class="n">DiskFileSystem</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;DiskFileSystem&quot;</span><span class="p">);</span>
+    <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">IDiskFileSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="rtti-usage">
+<h1>RTTI usage</h1>
+<p>NoesisEngine RTTI system allows:</p>
+<ul class="simple">
+<li>Getting useful information about a type (read <a class="reference external" href="Core.Kernel.ReflectionType.html">Type Reflection Model</a> section for more details).</li>
+<li>Testing if an object's class is exactly a specified class. As explained before, using the templated helper class <em>TypeOf</em> you could test which one is the type of an object.</li>
+<li>Dynamic typecasting (explained in depth below).</li>
+</ul>
+<div class="section" id="nsdynamiccast">
+<h2>NsDynamicCast</h2>
+<p>In the case of objects, NoesisEngine keeps information about object's inheritance tree, and uses it to perform safe dynamic casts.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">Func</span><span class="p">(</span><span class="n">IMyInterface</span><span class="o">*</span> <span class="n">myInterface</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">MyComponent</span><span class="o">*</span> <span class="n">myComponent</span> <span class="o">=</span> <span class="n">NsDynamicCast</span><span class="o">&lt;</span><span class="n">MyComponent</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">myInterface</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">myComponent</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">myComponent</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">myInterface</span><span class="o">-&gt;</span><span class="n">Process</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+<p><a class="reference external" href="Core.Kernel.ComponentSmartPointer.html">Ptr</a> internally uses NsDynamicCast to copy pointers of different types, making easier the cast between objects:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">Func</span><span class="p">(</span><span class="k">const</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;&amp;</span> <span class="n">myInterface</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">MyComponent</span><span class="o">&gt;</span> <span class="n">myComponent</span><span class="p">(</span><span class="n">myInterface</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">myComponent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">myComponent</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">myComponent</span><span class="o">-&gt;</span><span class="n">Process</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="section" id="nsstaticcast">
+<h2>NsStaticCast</h2>
+<p>Dynamic casts are not as efficient as static casts. In case you are totally sure that the pointer to a base class is exactly a known derived class you could use NsStaticCast. To detect wrong castings, NsStatic is implemented as NsDynamicCast in debug configurations.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">Func</span><span class="p">(</span><span class="n">IMyInterface</span><span class="o">*</span> <span class="n">myInterface</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">MyComponent</span><span class="o">*</span> <span class="n">myComponent</span> <span class="o">=</span> <span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">MyComponent</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">myInterface</span><span class="p">);</span>
+  <span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">myComponent</span><span class="p">);</span>
+  <span class="n">myComponent</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">();</span>
+  <span class="n">myInterface</span><span class="o">-&gt;</span><span class="n">Process</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

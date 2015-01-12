@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: UserControl Tutorial</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="usercontrol-tutorial">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">UserControl Tutorial</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="UserControl.zip">Tutorial Data</a></p>
+<p>No modern presentation framework would be complete without the ability to create your own reusable controls. If no existing control has a programmatic interface that naturally represents your concept, go ahead and create a user control or custom control.</p>
+<p><strong>User controls</strong> can be seen as a composition of existing controls. They contain a logical tree defining its look and tend to have logic that directly interacts with these child elements.</p>
+<p>In contrast <strong>Custom controls</strong> are needed when you want to create a totally new control or extend the functionality of an existing control. A custom control tends to get its look from a visual tree defined in a separate control template and generally has logic that works even if the user changes its visual tree completely.</p>
+<p>In this tutorial  we will focus on the development of a simple <strong>user control</strong> that implements the typical numeric spinner. The <a class="reference external" href="Gui.Core.CustomControlTutorial.html">next tutorial</a> will be dedicated to <strong>custom controls</strong>.</p>
+<div class="section" id="interface-creation">
+<h1>Interface Creation</h1>
+<p>Let's create a very simple user control, a <strong>NumericUpDown</strong> control composed of two buttons to increment and decrement and a text box to show the current value.</p>
+<img alt="UserControlTutorialImg1.jpg" src="UserControlTutorialImg1.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">x:Class=</span><span class="s">&quot;NumericUpDown&quot;</span>
+  <span class="na">UseLayoutRounding=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Grid&gt;</span>
+        <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+            <span class="nt">&lt;RowDefinition/&gt;</span>
+            <span class="nt">&lt;RowDefinition/&gt;</span>
+        <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+        <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+            <span class="nt">&lt;ColumnDefinition/&gt;</span>
+            <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+
+        <span class="nt">&lt;Border</span> <span class="na">Grid.RowSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">Grid.ColumnSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">BorderThickness=</span><span class="s">&quot;1&quot;</span>
+          <span class="na">BorderBrush=</span><span class="s">&quot;Gray&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;TextBlock</span> <span class="na">Grid.RowSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;5,3,4,3&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;RepeatButton</span> <span class="na">Name=</span><span class="s">&quot;UpButton&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span>
+          <span class="na">Margin=</span><span class="s">&quot;0,2,2,0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Path</span> <span class="na">Data=</span><span class="s">&quot;M1,1L4,4 7,1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span>
+              <span class="na">StrokeStartLineCap=</span><span class="s">&quot;Round&quot;</span> <span class="na">StrokeEndLineCap=</span><span class="s">&quot;Round&quot;</span>
+              <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Path.RenderTransform&gt;</span>
+                    <span class="nt">&lt;ScaleTransform</span> <span class="na">ScaleY=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+            <span class="nt">&lt;/Path&gt;</span>
+        <span class="nt">&lt;/RepeatButton&gt;</span>
+
+        <span class="nt">&lt;RepeatButton</span> <span class="na">Name=</span><span class="s">&quot;DownButton&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span>
+          <span class="na">Margin=</span><span class="s">&quot;0,0,2,2&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Path</span> <span class="na">Data=</span><span class="s">&quot;M1,1L4,4 7,1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span>
+              <span class="na">StrokeStartLineCap=</span><span class="s">&quot;Round&quot;</span> <span class="na">StrokeEndLineCap=</span><span class="s">&quot;Round&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/RepeatButton&gt;</span>
+
+    <span class="nt">&lt;/Grid&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<p>This interface will correspond to a C++ class that implements the control's <strong>code-behind</strong>:</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">NumericUpDown</span><span class="o">:</span> <span class="k">public</span> <span class="n">UserControl</span>
+<span class="p">{</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NumericUpDown&quot;</span><span class="p">);</span>
+
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/UserControl/NumericUpDown.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>We are following the steps in the <a class="reference external" href="Gui.Core.ExtendingTutorial.html">tutorial</a> that describes how to extend NoesisGUI. The unique new detail here, apart from deriving from UserControl, is the property source that is declated in the reflection of the class. This property is assigned the XAML file that will be loaded when this user control is initialized.</p>
+</div>
+<div class="section" id="properties">
+<h1>Properties</h1>
+<p>Now we define the properties that this control will expose. We talked about the numeric spinner value, so this could be our first property: <em>Value</em>. A <a class="reference external" href="Gui.DependencySystem.DependencyProperty.html">dependency property</a> must be declared as a public static member with getter and setter accessors to facilitate the use of the control within the code:</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">NumericUpDown</span><span class="o">:</span> <span class="k">public</span> <span class="n">UserControl</span>
+<span class="p">{</span>
+ <span class="nl">public:</span>
+     <span class="c1">/// Gets or sets numeric spinner value</span>
+     <span class="c1">//@{</span>
+<span class="hll">     <span class="n">NsInt32</span> <span class="n">GetValue</span><span class="p">()</span> <span class="k">const</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">         <span class="k">return</span> <span class="n">DependencyObject</span><span class="o">::</span><span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">     <span class="kt">void</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">value</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">         <span class="n">DependencyObject</span><span class="o">::</span><span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span>     <span class="c1">//@}</span>
+
+<span class="hll"> <span class="nl">public:</span>
+</span><span class="hll">     <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">ValueProperty</span><span class="p">;</span>
+</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NumericUpDown&quot;</span><span class="p">);</span>
+
+<span class="hll">        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Value&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">GetValue</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">SetValue</span><span class="p">);</span>
+</span>
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/UserControl/NumericUpDown.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="s">&quot;Value&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+</span>        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">NumericUpDown</span><span class="o">::</span><span class="n">ValueProperty</span><span class="p">;</span>
+</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>The interface has a text block to show the spinner value. If we want to automatically update the interface we can bind its <em>Text</em> property to the <em>Value</em> property we just created. Besides that, the interface has two buttons that increment or decrement the value of the spinner, so we can add some code-behind that responds to the <em>Click</em> event of these buttons to update the <em>Value</em> property appropriately:</p>
+<div class="highlight"><pre><span class="nt">&lt;UserControl</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">x:Class=</span><span class="s">&quot;NumericUpDown&quot;</span>
+<span class="hll">  <span class="na">x:Name=</span><span class="s">&quot;NumericUpDownControl&quot;</span>
+</span>  <span class="na">UseLayoutRounding=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Grid&gt;</span>
+        <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+            <span class="nt">&lt;RowDefinition/&gt;</span>
+            <span class="nt">&lt;RowDefinition/&gt;</span>
+        <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+        <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+            <span class="nt">&lt;ColumnDefinition/&gt;</span>
+            <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+
+        <span class="nt">&lt;Border</span> <span class="na">Grid.RowSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">Grid.ColumnSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">BorderThickness=</span><span class="s">&quot;1&quot;</span>
+          <span class="na">BorderBrush=</span><span class="s">&quot;Gray&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;TextBlock</span> <span class="na">Grid.RowSpan=</span><span class="s">&quot;2&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;5,3,4,3&quot;</span>
+<span class="hll">          <span class="na">Text=</span><span class="s">&quot;{Binding Value, ElementName=NumericUpDownControl}&quot;</span><span class="nt">/&gt;</span>
+</span>
+        <span class="nt">&lt;RepeatButton</span> <span class="na">Name=</span><span class="s">&quot;UpButton&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span>
+<span class="hll">          <span class="na">Margin=</span><span class="s">&quot;0,2,2,0&quot;</span> <span class="na">Click=</span><span class="s">&quot;UpButton_Click&quot;</span><span class="nt">&gt;</span>
+</span>            <span class="nt">&lt;Path</span> <span class="na">Data=</span><span class="s">&quot;M1,1L4,4 7,1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span>
+              <span class="na">StrokeStartLineCap=</span><span class="s">&quot;Round&quot;</span> <span class="na">StrokeEndLineCap=</span><span class="s">&quot;Round&quot;</span>
+              <span class="na">RenderTransformOrigin=</span><span class="s">&quot;0.5,0.5&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;Path.RenderTransform&gt;</span>
+                    <span class="nt">&lt;ScaleTransform</span> <span class="na">ScaleY=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+            <span class="nt">&lt;/Path&gt;</span>
+        <span class="nt">&lt;/RepeatButton&gt;</span>
+
+        <span class="nt">&lt;RepeatButton</span> <span class="na">Name=</span><span class="s">&quot;DownButton&quot;</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Padding=</span><span class="s">&quot;4,1&quot;</span>
+<span class="hll">          <span class="na">Margin=</span><span class="s">&quot;0,0,2,2&quot;</span> <span class="na">Click=</span><span class="s">&quot;DownButton_Click&quot;</span><span class="nt">&gt;</span>
+</span>            <span class="nt">&lt;Path</span> <span class="na">Data=</span><span class="s">&quot;M1,1L4,4 7,1&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">StrokeThickness=</span><span class="s">&quot;2&quot;</span>
+              <span class="na">StrokeStartLineCap=</span><span class="s">&quot;Round&quot;</span> <span class="na">StrokeEndLineCap=</span><span class="s">&quot;Round&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/RepeatButton&gt;</span>
+
+    <span class="nt">&lt;/Grid&gt;</span>
+
+<span class="nt">&lt;/UserControl&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="hll"><span class="cp">#include &lt;NsGui/RoutedEvent.h&gt;</span>
+</span><span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">NumericUpDown</span><span class="o">:</span> <span class="k">public</span> <span class="n">UserControl</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Gets or sets numeric spinner value</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetValue</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">DependencyObject</span><span class="o">::</span><span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DependencyObject</span><span class="o">::</span><span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">public:</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">ValueProperty</span><span class="p">;</span>
+
+<span class="nl">private:</span>
+<span class="hll">    <span class="kt">void</span> <span class="nf">UpButton_Click</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">sender</span><span class="p">,</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">RoutedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="p">(</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="kt">void</span> <span class="nf">DownButton_Click</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">sender</span><span class="p">,</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">RoutedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">SetValue</span><span class="p">(</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span>    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NumericUpDown&quot;</span><span class="p">);</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Value&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">GetValue</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">SetValue</span><span class="p">);</span>
+
+<span class="hll">        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;UpButton_Click&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">UpButton_Click</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;DownButton_Click&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">DownButton_Click</span><span class="p">);</span>
+</span>
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/UserControl/NumericUpDown.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="s">&quot;Value&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">NumericUpDown</span><span class="o">::</span><span class="n">ValueProperty</span><span class="p">;</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="events">
+<h1>Events</h1>
+<p>Next step is exposing an event to notify users when the value of the numeric spinner changes. We call this event <em>ValueChanged</em> and implement it as a <a class="reference external" href="Gui.Core.Events.html">routed event</a>. Routed events must be declared with a public static member and with a virtual function that raises the event so inheritors can override the basic implementation:</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UserControl.h&gt;</span>
+<span class="cp">#include &lt;NsGui/UIElementData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/FrameworkPropertyMetaData.h&gt;</span>
+<span class="cp">#include &lt;NsGui/RoutedEvent.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">NumericUpDown</span><span class="o">:</span> <span class="k">public</span> <span class="n">UserControl</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="c1">/// Gets or sets numeric spinner value</span>
+    <span class="c1">//@{</span>
+    <span class="n">NsInt32</span> <span class="n">GetValue</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">DependencyObject</span><span class="o">::</span><span class="n">GetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">SetValue</span><span class="p">(</span><span class="n">NsInt32</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DependencyObject</span><span class="o">::</span><span class="n">SetValue</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//@}</span>
+
+<span class="nl">public:</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">ValueProperty</span><span class="p">;</span>
+<span class="hll">    <span class="k">static</span> <span class="k">const</span> <span class="n">RoutedEvent</span><span class="o">*</span> <span class="n">ValueChangedEvent</span><span class="p">;</span>
+</span>
+<span class="nl">protected:</span>
+<span class="hll">    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">OnValueChanged</span><span class="p">(</span><span class="k">const</span> <span class="n">RoutedPropertyChangedEventArgs</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;&amp;</span> <span class="n">args</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">RaiseEvent</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1">/// From DependencyObject</span>
+</span><span class="hll">    <span class="c1">//@{</span>
+</span><span class="hll">    <span class="n">NsBool</span> <span class="nf">OnPropertyChanged</span><span class="p">(</span><span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">DependencyPropertyChangedEventArgs</span><span class="o">&amp;</span> <span class="n">args</span><span class="p">)</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">NsBool</span> <span class="n">handled</span> <span class="o">=</span> <span class="n">ParentClass</span><span class="o">::</span><span class="n">OnPropertyChanged</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">handled</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">prop</span> <span class="o">==</span> <span class="n">ValueProperty</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">{</span>
+</span><span class="hll">                <span class="n">NsInt32</span> <span class="n">oldValue</span> <span class="o">=</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">NsInt32</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">oldValue</span><span class="p">);</span>
+</span><span class="hll">                <span class="n">NsInt32</span> <span class="n">newValue</span> <span class="o">=</span> <span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">NsInt32</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="n">newValue</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">                <span class="n">RoutedPropertyChangedEventArgs</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span> <span class="n">e</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">ValueChangedEvent</span><span class="p">,</span>
+</span><span class="hll">                    <span class="n">oldValue</span><span class="p">,</span> <span class="n">newValue</span><span class="p">);</span>
+</span><span class="hll">                <span class="n">OnValueChanged</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="k">return</span> <span class="n">handled</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">    <span class="c1">//@}</span>
+</span><span class="hll">
+</span><span class="nl">private:</span>
+    <span class="kt">void</span> <span class="nf">UpButton_Click</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">sender</span><span class="p">,</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">RoutedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="p">(</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">DownButton_Click</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">sender</span><span class="p">,</span> <span class="k">const</span> <span class="n">Gui</span><span class="o">::</span><span class="n">RoutedEventArgs</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">SetValue</span><span class="p">(</span><span class="n">GetValue</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">,</span> <span class="n">UserControl</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NumericUpDown&quot;</span><span class="p">);</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;Value&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">GetValue</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">SetValue</span><span class="p">);</span>
+
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;UpButton_Click&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">UpButton_Click</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;DownButton_Click&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">NumericUpDown</span><span class="o">::</span><span class="n">DownButton_Click</span><span class="p">);</span>
+
+        <span class="n">NsString</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&quot;Gui/Tutorials/UserControl/NumericUpDown.xaml&quot;</span><span class="p">;</span>
+
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">UIElementData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SelfClass</span><span class="o">&gt;</span><span class="p">());</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterProperty</span><span class="o">&lt;</span><span class="n">NsInt32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ValueProperty</span><span class="p">,</span> <span class="s">&quot;Value&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">NsInt32</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+        <span class="n">data</span><span class="o">-&gt;</span><span class="n">OverrideMetadata</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UserControl</span><span class="o">::</span><span class="n">SourceProperty</span><span class="p">,</span> <span class="s">&quot;Source&quot;</span><span class="p">,</span>
+            <span class="n">FrameworkPropertyMetadata</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">FrameworkOptions_None</span><span class="p">));</span>
+
+<span class="hll">        <span class="n">data</span><span class="o">-&gt;</span><span class="n">RegisterEvent</span><span class="p">(</span><span class="n">ValueChangedEvent</span><span class="p">,</span> <span class="s">&quot;ValueChanged&quot;</span><span class="p">,</span> <span class="n">RoutingStrategy_Bubbling</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">const</span> <span class="n">DependencyProperty</span><span class="o">*</span> <span class="n">NumericUpDown</span><span class="o">::</span><span class="n">ValueProperty</span><span class="p">;</span>
+<span class="hll"><span class="k">const</span> <span class="n">RoutedEvent</span><span class="o">*</span> <span class="n">NumericUpDown</span><span class="o">::</span><span class="n">ValueChangedEvent</span><span class="p">;</span>
+</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">NumericUpDown</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="improvements">
+<h1>Improvements</h1>
+<p>The source code that accompanies this tutorial incorporates several improvements. We have extend the functionality of the spinner by adding new dependency properties to control the maximum and minimum value, and the step factor whenever the up/down buttons are clicked. It is recommended that you read the code carefully.</p>
+</div>
+<div class="section" id="usage">
+<h1>Usage</h1>
+<p>Now we can use our control in any other XAML file. For example as an editor for the values of an RGB color:</p>
+<img alt="UserControlTutorialImg2.jpg" src="UserControlTutorialImg2.jpg" />
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+  <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>
+  <span class="na">UseLayoutRounding=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;StackPanel</span> <span class="na">Orientation=</span><span class="s">&quot;Horizontal&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;GroupBox</span> <span class="na">Header=</span><span class="s">&quot;BACKGROUND: &quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,20,0,0&quot;</span> <span class="na">Padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Grid&gt;</span>
+                <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition/&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition/&gt;</span>
+                <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+
+                <span class="nt">&lt;Rectangle</span> <span class="na">Stretch=</span><span class="s">&quot;Fill&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">Width=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Rectangle.Fill&gt;</span>
+                        <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Name=</span><span class="s">&quot;BgColor&quot;</span> <span class="na">Color=</span><span class="s">&quot;White&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+                <span class="nt">&lt;/Rectangle&gt;</span>
+
+                <span class="nt">&lt;Grid</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10,0,4,0&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                    <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;R:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;G:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;B:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Grid&gt;</span>
+
+                <span class="nt">&lt;Grid</span> <span class="na">Grid.Column=</span><span class="s">&quot;2&quot;</span> <span class="na">Width=</span><span class="s">&quot;60&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                    <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+<span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,0,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,2,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;2&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,2,0,0/&gt;</span>
+</span><span class="s">                &lt;/Grid&gt;</span>
+
+<span class="s">            &lt;/Grid&gt;</span>
+<span class="s">        &lt;/GroupBox&gt;</span>
+<span class="s">        &lt;GroupBox Header=&quot;</span><span class="err">FOREGROUND:</span> <span class="err">&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;20,20,0,0&quot;</span> <span class="na">Padding=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Grid&gt;</span>
+                <span class="nt">&lt;Grid.ColumnDefinitions&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition/&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition</span> <span class="na">Width=</span><span class="s">&quot;Auto&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;ColumnDefinition/&gt;</span>
+                <span class="nt">&lt;/Grid.ColumnDefinitions&gt;</span>
+
+                <span class="nt">&lt;Rectangle</span> <span class="na">Stretch=</span><span class="s">&quot;Fill&quot;</span> <span class="na">Stroke=</span><span class="s">&quot;Black&quot;</span> <span class="na">Width=</span><span class="s">&quot;80&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Rectangle.Fill&gt;</span>
+                        <span class="nt">&lt;SolidColorBrush</span> <span class="na">x:Name=</span><span class="s">&quot;FgColor&quot;</span> <span class="na">Color=</span><span class="s">&quot;Black&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/Rectangle.Fill&gt;</span>
+                <span class="nt">&lt;/Rectangle&gt;</span>
+
+                <span class="nt">&lt;Grid</span> <span class="na">Grid.Column=</span><span class="s">&quot;1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;10,0,4,0&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                    <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;R:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;G:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;B:&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Right&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Grid.Row=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/Grid&gt;</span>
+
+                <span class="nt">&lt;Grid</span> <span class="na">Grid.Column=</span><span class="s">&quot;2&quot;</span> <span class="na">Width=</span><span class="s">&quot;60&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                        <span class="nt">&lt;RowDefinition/&gt;</span>
+                    <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+<span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;0&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,0,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;1&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,2,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                    <span class="nt">&lt;NumericUpDown</span> <span class="na">Grid.Row=</span><span class="s">&quot;2&quot;</span> <span class="na">Margin=</span><span class="s">&quot;0,2,0,0&quot;</span><span class="nt">/&gt;</span>
+</span><span class="hll">                <span class="nt">&lt;/Grid&gt;</span>
+</span>
+            <span class="nt">&lt;/Grid&gt;</span>
+        <span class="nt">&lt;/GroupBox&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;Sample Text&quot;</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Margin=</span><span class="s">&quot;20,30,0,0&quot;</span> <span class="na">FontSize=</span><span class="s">&quot;24&quot;</span> <span class="na">Padding=</span><span class="s">&quot;10,5&quot;</span>
+             <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">Background=</span><span class="s">&quot;{Binding ElementName=BgColor}&quot;</span>
+             <span class="na">Foreground=</span><span class="s">&quot;{Binding ElementName=FgColor}&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

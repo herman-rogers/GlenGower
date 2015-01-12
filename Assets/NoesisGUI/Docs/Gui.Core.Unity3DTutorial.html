@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Using NoesisGUI within Unity</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="unity-using-noesisgui-within-unity">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title"><img alt="Unity" class="align-middle" src="unity.jpg" /> Using NoesisGUI within Unity</h1>
+
+<p>Steps needed to render user interfaces using NoesisGUI in <a class="reference external" href="http://unity3d.com/">Unity</a> are described in this tutorial. It is recommended that you read the rest of <a class="reference external" href="Gui.Core.Index.html">tutorials</a> to have familiarity with the basic concepts of Xaml and NoesisGUI architecture. This document is structured as follows:</p>
+<ul class="simple">
+<li>How to install NoesisGUI in Unity</li>
+<li>How data is organized</li>
+<li>Configuring NoesisGUI</li>
+<li>Steps to add new resources to your project</li>
+<li>How to attach a .xaml to a camera</li>
+<li>Render to Texture</li>
+<li>How to implement code behind in Unity</li>
+<li>Extra instructions for building on iOS and Android</li>
+</ul>
+<p>Several of these steps are shown in this <a class="reference external" href="http://vimeo.com/65549290">Video tutorial</a>.</p>
+<div class="section" id="installation">
+<h1>Installation</h1>
+<p>The first thing is installing the provided <strong>NoesisGUI-X.X.X.XXXX.unitypackage</strong> into your Unity project. You can do this by clicking on the Unity menu option</p>
+<blockquote>
+<em>Assets</em> -&gt; <em>Import Package</em> -&gt; <em>Custom Package...</em></blockquote>
+<p>and selecting the file NoesisGUI-X.X.X.XXXX.unitypackage that you have downloaded from our web page.</p>
+<img alt="Unity3DTutorialImg1.png" src="Unity3DTutorialImg1.png" />
+</div>
+<div class="section" id="directory-structure">
+<h1>Directory Structure</h1>
+<p>After importing the package into the project, the following directories appear inside the <strong>Assets/</strong> folder:</p>
+<ul class="simple">
+<li><strong>Editor/NoesisGUI</strong>: contains all the scripts and tools that are used while in Unity Editor.</li>
+<li><strong>NoesisGUI/Doc</strong>: with all the documentation corresponding to NoesisGUI, including this document.</li>
+<li><strong>NoesisGUI/Samples</strong>: our demo scenes showing different features of NoesisGUI.</li>
+<li><strong>NoesisGUI/Themes</strong>: sample themes for styling your controls.</li>
+<li><strong>Plugins</strong>: root folder that stores libraries and scripts that are needed in runtime for each platform.</li>
+<li><strong>StreamingAssets/NoesisGUI</strong>: contains the preprocessed resources to be used in runtime by each platform. This folder is copied entirely to the standalone executable. For now, there is no filtering implemented. To reduce the size of the final distributable it is recommended to prune the unused folders in the standalone, not in this directory because the content would be lost.</li>
+</ul>
+</div>
+<div class="section" id="configuring-noesisgui">
+<h1>Configuring NoesisGUI</h1>
+<p>The integration of NoesisGUI inside Unity provides automatic resource building. This means that you don't have to use external tools to prepare the resources for runtime. Each time you add, delete, move or edit a .xaml or .font the data base is updated accordingly.</p>
+<p>You only have to indicate the desired platforms. The corresponding platform must be active before generating the standalone package. Note that DX9 or GL should be always selected because it is the platform used by the Unity editor.</p>
+<img alt="Unity3DTutorialImg21.png" src="Unity3DTutorialImg21.png" />
+<img alt="Unity3DTutorialImg22.png" src="Unity3DTutorialImg22.png" />
+<p>Error and warning are displayed in the Unity console. It is very important to have this window visible while you are importing or editing resources.</p>
+<img alt="Unity3DTutorialImg23.png" src="Unity3DTutorialImg23.png" />
+<p>Apart from the console, each component displays errors and warning corresponding to the .xaml being attached to it.</p>
+<img alt="Unity3DTutorialImg24.png" src="Unity3DTutorialImg24.png" />
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<blockquote class="last">
+For now only DirectX9, OpenGL, iOS and Android platforms are supported.</blockquote>
+</div>
+</div>
+<div class="section" id="adding-new-resources">
+<h1>Adding new resources</h1>
+<p>You are free to put resources in any place inside the project /Assets folder. Next to each resource a .make file is automatically generated to track the resource.</p>
+<p>There are two types of resources recognized by NoesisGUI:</p>
+<ul class="simple">
+<li><strong>.xaml</strong>: generated by your <a class="reference external" href="Gui.Core.BlendTutorial.unity.html">favorite</a> or by hand. The unique restriction here is that Window or App classes cannot be used because the application is managed by Unity itself. The same for the Window, that is created by Unity.</li>
+<li><strong>.font</strong>: a font resource is a text file with a list of file font references, one item per line. For example, Roboto.font contains:</li>
+</ul>
+<div class="highlight"><pre>Roboto-Regular.ttf
+Roboto-Italic.ttf
+Roboto-Bold.ttf
+Roboto-BoldItalic.ttf
+</pre></div>
+<p>Note that referenced .ttf files must be found next to the .font file. The .font file can contain as many references as you wish, even a single one, but it is recommended that all the referenced files belongs to the same font family being that family the name of the .font file.</p>
+<p>The above .font could be used this way:</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid&gt;</span>
+  <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Click Me!&quot;</span> <span class="na">FontFamily=</span><span class="s">&quot;Fonts/#Roboto&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;Button</span> <span class="na">Content=</span><span class="s">&quot;Click Me!&quot;</span> <span class="na">FontFamily=</span><span class="s">&quot;Fonts/#Roboto&quot;</span> <span class="na">FontWeight=</span><span class="s">&quot;Bold&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>Note that the reference to the font is relative to the location of the .xaml file. Here we are supposing that Roboto.font is located in the subfolder Fonts/ relative to the .xaml.</p>
+<p>Referenced fonts must always be inside the project folder. Operating system fonts are not supported.</p>
+<p>You might be wondering why images are not considered resources themselves. For example,</p>
+<div class="highlight"><pre><span class="nt">&lt;Image</span> <span class="na">Source=</span><span class="s">&quot;Images/Icon.png&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+<p>The reason is that images referenced by a xaml are all bundled together within the .xaml when being preprocessed for runtime. This is a behavior that may change in the future.</p>
+</div>
+<div class="section" id="camera-rendering">
+<h1>Camera Rendering</h1>
+<p>For rendering an user interface on top of a camera you must attach the <strong>Noesis GUIPanel</strong> component to that camera.</p>
+<img alt="Unity3DTutorialImg3.png" src="Unity3DTutorialImg3.png" />
+<p>With the component attached, inspect the object to display its options.</p>
+<img alt="Unity3DTutorialImg4.png" src="Unity3DTutorialImg4.png" />
+<p>These are the fields exposed by every NoesisGUI component:</p>
+<ul class="simple">
+<li><strong>Xaml</strong>: This field contains the interface resource that will be loaded when game is played. Any .xaml from the project folder can be dragged here. Note that only xamls with a FrameworkElement derived root can be rendered.</li>
+<li><strong>Style</strong>: A xaml resource that describes how different controls (Buttons, CheckBoxes, ListBoxes, etc) are visually represented. Several themes are provided inside Assets/NoesisGUI: <em>NoesisStyle</em>, <em>SimpleStyle</em> and <em>WindowsStyle</em>.</li>
+<li><strong>Antialiasing</strong>: Defines the desired antialiasing technique. The MSAA option renders using the multisampling antialiasing algorithm that is implemented by moderns GPUs. In case this option is not available or its performance is not acceptable the PPA option can be used. PPA implements antialiasing by extruding the contours of the triangles smoothing them. Shapes are slightly altered by this technique though.</li>
+<li><strong>Quality</strong>: Adjusts the number of polygons that are generated when curve paths are tessellated. The default quality provides an error inferior to 0.5 pixels.</li>
+<li><strong>Offscreen resolution</strong>: Specifies offscreen surfaces resolution relative to main surface. For example, a Offscreen Width 2 indicates that offscreen surfaces will dobule the width of the main window. Offscreen surfaces are used for opacity groups and visual brushes. A 0 size disables this feature. By default, it is 1. Normaly, two offscreen surfaces are created.</li>
+<li><strong>Real Time Clock</strong>: When enabled, Time.realtimeSinceStartup is used instead of Time.time for animations. This can be used, for example, to make a user interface that is not affected by game slow motions.</li>
+</ul>
+<p>Once you have set a valid xaml file press the <strong>Play</strong> button in the Editor and the <strong>Game View</strong> will render your scene, and on top of it, the selected UI resource.</p>
+<img alt="Unity3DTutorialImg6.png" src="Unity3DTutorialImg6.png" />
+</div>
+<div class="section" id="render-to-texture">
+<h1>Render to Texture</h1>
+<p>Sometimes you don't want the user interface to be directly rendered to the screen or camera. NoesisGUI supports rendering XAML to textures that are mapped to the mesh of an object. For that purpose you must create a Unity RenderTexture.</p>
+<img alt="Unity3DTutorialImg61.png" src="Unity3DTutorialImg61.png" />
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">For masking, NoesisGUI needs an active stencil buffer. This can be activated in Unity by selecting a 24-bits Depth Buffer.</p>
+</div>
+<p>This texture must be used by one of the materials of the Mesh, a Cube, in this example.</p>
+<img alt="Unity3DTutorialImg62.png" src="Unity3DTutorialImg62.png" />
+<p>And finally, the NoesisGUI component must be attached to the object. Once this have been done, the .xaml will be rendered onto the texture the next time you hit Play.</p>
+<img alt="Unity3DTutorialImg63.png" src="Unity3DTutorialImg63.png" />
+<p>If you want to interact with the GUI rendered in the texture, your GameObject must have a <strong>MeshCollider</strong> so texture coordinates can be obtained when doing the hit testing.</p>
+</div>
+<div class="section" id="attaching-to-events">
+<h1>Attaching to Events</h1>
+<p>In contrast with the native version of NoesisGUI, .xaml resources in Unity does not support Code-Behind classes automatically. But it can be easily emulated by a script that in the Start() function caches the named nodes and attaches to desired events.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p class="last">Code-Behind classes will be implemented in a future version.</p>
+</div>
+<p>If you want to react to user interface events you need to create a script component and attach it to your GameObject. For example, let's attach the <em>CodeBehind.cs</em> script:</p>
+<img alt="Unity3DTutorialImg7.png" src="Unity3DTutorialImg7.png" />
+<p>Next thing you probably want is caching &quot;interesting&quot; nodes inside your script. This can be done using the <em>FindName()</em> function. Best place for this code is inside the <em>Start()</em> function provided by the base class <em>MonoBehaviour</em>.</p>
+<div class="highlight"><pre><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Noesis</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">CodeBehind</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Button</span> <span class="n">_button</span><span class="p">;</span>
+    <span class="n">Slider</span> <span class="n">_slider</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Access to the NoesisGUI component</span>
+        <span class="n">NoesisGUIPanel</span> <span class="n">noesisGUI</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NoesisGUIPanel</span><span class="p">&gt;();</span>
+
+        <span class="c1">// Obtain the root of the loaded UI resource, in this case it is a Grid element</span>
+        <span class="n">Grid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">noesisGUI</span><span class="p">.</span><span class="n">GetRoot</span><span class="p">&lt;</span><span class="n">Grid</span><span class="p">&gt;();</span>
+
+        <span class="c1">// Store references to important elements for future use</span>
+        <span class="n">_button</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">FindName</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;(</span><span class="s">&quot;Button1&quot;</span><span class="p">);</span>
+        <span class="n">_slider</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">FindName</span><span class="p">&lt;</span><span class="n">Slider</span><span class="p">&gt;(</span><span class="s">&quot;Delay&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Binding to events exposed by each control is done through delegates.</p>
+<div class="highlight"><pre> <span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+ <span class="k">using</span> <span class="nn">Noesis</span><span class="p">;</span>
+
+ <span class="k">public</span> <span class="k">class</span> <span class="nc">CodeBehind</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+ <span class="p">{</span>
+     <span class="n">Button</span> <span class="n">_button</span><span class="p">;</span>
+     <span class="n">Slider</span> <span class="n">_slider</span><span class="p">;</span>
+
+     <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+     <span class="p">{</span>
+         <span class="c1">// Access to the NoesisGUI component</span>
+         <span class="n">NoesisGUIPanel</span> <span class="n">noesisGUI</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NoesisGUIPanel</span><span class="p">&gt;();</span>
+
+         <span class="c1">// Obtain the root of the loaded UI resource, in this case it is a Grid element</span>
+         <span class="n">Grid</span> <span class="n">grid</span> <span class="p">=</span> <span class="n">noesisGUI</span><span class="p">.</span><span class="n">GetRoot</span><span class="p">&lt;</span><span class="n">Grid</span><span class="p">&gt;();</span>
+
+         <span class="c1">// Store references to important elements for future use</span>
+         <span class="n">_button</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">FindName</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;(</span><span class="s">&quot;Button1&quot;</span><span class="p">);</span>
+         <span class="n">_slider</span> <span class="p">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">FindName</span><span class="p">&lt;</span><span class="n">Slider</span><span class="p">&gt;(</span><span class="s">&quot;Delay&quot;</span><span class="p">);</span>
+
+<span class="hll">         <span class="c1">// Bind to button click event</span>
+</span><span class="hll">         <span class="n">_button</span><span class="p">.</span><span class="n">Click</span> <span class="p">+=</span> <span class="k">this</span><span class="p">.</span><span class="n">OnButtonClick</span><span class="p">;</span>
+</span>     <span class="p">}</span>
+
+<span class="hll">     <span class="k">void</span> <span class="nf">OnButtonClick</span><span class="p">(</span><span class="n">BaseComponent</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">args</span><span class="p">)</span>
+</span><span class="hll">     <span class="p">{</span>
+</span><span class="hll">         <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Button was clicked&quot;</span><span class="p">);</span>
+</span><span class="hll">     <span class="p">}</span>
+</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="hit-testing">
+<h1>Hit Testing</h1>
+<p>In some situations it is necessary to check if mouse is over or was clicked over any element of the UI. This can be done with the Hit Testing method available through the VisualTreeHelper class.</p>
+<p>Here is an example where a Collider mouse event was received and we want to find out if we should discard it because any UI element could have been clicked before:</p>
+<div class="highlight"><pre><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Noesis</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">HitTestSample</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="n">Visual</span> <span class="n">_root</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">gui</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NoesisGUIPanel</span><span class="p">&gt;();</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">_root</span> <span class="p">=</span> <span class="n">gui</span><span class="p">.</span><span class="n">GetRoot</span><span class="p">&lt;</span><span class="n">Visual</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">OnMouseDown</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">mousePos</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">mousePosition</span><span class="p">;</span>
+        <span class="n">Point</span> <span class="n">point</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">mousePos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">Screen</span><span class="p">.</span><span class="n">height</span> <span class="p">-</span> <span class="n">mousePos</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">HitTestResult</span> <span class="n">hit</span> <span class="p">=</span> <span class="n">VisualTreeHelper</span><span class="p">.</span><span class="n">HitTest</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">_root</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">hit</span><span class="p">.</span><span class="n">visualHit</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// No UI element was hit</span>
+
+            <span class="c1">// ...your code here</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="software-keyboard">
+<h1>Software Keyboard</h1>
+<p>When using a mobile/touch platform a software keyboard is used to generate the input keys that are sent to the application. NoesisGUI uses the <em>TouchScreenKeyboard</em> provided by Unity to open the software keyboard when a TextBox or PasswordBox gets the application focus. The default software keyboard manager is exposed by NoesisGUISystem:</p>
+<div class="highlight"><pre><span class="k">public</span> <span class="k">class</span> <span class="nc">SoftwareKeyboardManager</span>
+<span class="p">{</span>
+    <span class="c1">// Called when a UI element gets the focus and software keyboard should be opened</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnShowKeyboard</span><span class="p">(</span><span class="n">Noesis</span><span class="p">.</span><span class="n">UIElement</span> <span class="n">focusedElement</span><span class="p">);</span>
+
+    <span class="c1">// Override if you want to open the software keyboard for a TextBox with your own options</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="n">TouchScreenKeyboard</span> <span class="nf">OpenTextBoxKeyboard</span><span class="p">(</span><span class="n">Noesis</span><span class="p">.</span><span class="n">TextBox</span> <span class="n">textBox</span><span class="p">);</span>
+
+    <span class="c1">// Override if you want to open the software keyboard for a PasswordBox with your own options</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="n">TouchScreenKeyboard</span> <span class="nf">OpenPasswordBoxKeyboard</span><span class="p">(</span><span class="n">Noesis</span><span class="p">.</span><span class="n">PasswordBox</span> <span class="n">passwordBox</span><span class="p">);</span>
+
+    <span class="c1">// Called when UI element loses focus and software keyboard should be closed</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnHideKeyboard</span><span class="p">();</span>
+
+    <span class="c1">// Called to update focused UI element text</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnUpdateText</span><span class="p">();</span>
+
+    <span class="c1">// Indicates if software keyboard is open</span>
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="kt">bool</span> <span class="nf">IsOpenOverride</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<p>The user can override the default behavior by providing its own <em>SoftwareKeyboardManager</em>:</p>
+<div class="highlight"><pre><span class="k">public</span> <span class="k">class</span> <span class="nc">AppKeyboardManager</span> <span class="p">:</span> <span class="n">Noesis</span><span class="p">.</span><span class="n">SoftwareKeyboardManager</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">override</span> <span class="n">TouchScreenKeyboard</span> <span class="nf">OpenTextBoxKeyboard</span><span class="p">(</span><span class="n">Noesis</span><span class="p">.</span><span class="n">TextBox</span> <span class="n">textBox</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">textBox</span><span class="p">.</span><span class="n">GetName</span><span class="p">()</span> <span class="p">==</span> <span class="s">&quot;emailField&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">TouchScreenKeyboard</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">textBox</span><span class="p">.</span><span class="n">GetText</span><span class="p">(),</span>
+                <span class="n">TouchScreenKeyboardType</span><span class="p">.</span><span class="n">EmailAddress</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">base</span><span class="p">.</span><span class="n">OpenTextBoxKeyboard</span><span class="p">(</span><span class="n">textBox</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">public</span> <span class="k">class</span> <span class="nc">AppLogic</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="c1">// Use this for initialization</span>
+    <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">NoesisGUISystem</span><span class="p">.</span><span class="n">SoftwareKeyboardManager</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AppKeyboardManager</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="building-on-ios">
+<h1>Building on iOS</h1>
+<p>The process of building for iOS is not as straightforward as on Windows or OS X. Unity generates a XCode project that needs to be modified to incorporate NoesisGUI. Each time any Unity content changes the XCode project needs to be regenerated before it can be viewed on the iOS device. The steps to follow are:</p>
+<ol class="arabic simple">
+<li>Select File -&gt; Build Settings...</li>
+</ol>
+<img alt="Unity3DTutorialImg8.png" src="Unity3DTutorialImg8.png" />
+<ol class="arabic simple" start="2">
+<li>Select the Scenes to be deployed</li>
+<li>Select platform iOS</li>
+<li>Adjust the desired Player Settings (Resolution, Icons, Splash Image...). Make sure that Target iOS Version is at least 5.0. NoesisGUI is not compatible with previous iOS versions. Graphics Level must be set to OpenGL ES 2.0</li>
+<li>Click the Build button</li>
+<li>Select the location where you want to save the XCode project</li>
+</ol>
+<img alt="Unity3DTutorialImg9.png" src="Unity3DTutorialImg9.png" />
+<ol class="arabic simple" start="7">
+<li>If the project already exists a warning appears indicating if you want to Append or Replace. Select Append to avoid losing changes done on the XCode project.</li>
+</ol>
+<img alt="Unity3DTutorialImg10.png" src="Unity3DTutorialImg10.png" />
+<ol class="arabic simple" start="8">
+<li>Open the XCode project</li>
+</ol>
+<blockquote>
+<div class="admonition-note admonition">
+<p class="first admonition-title">Note</p>
+<p>This step is not longer necessary in Unity version 4.2 or above. To activate the stencil buffer in these versions you only need to activate a 24-bit Depth Buffer in the iOS Player Settings.</p>
+<img alt="Unity3DTutorialImg101.png" class="last" src="Unity3DTutorialImg101.png" />
+</div>
+<p>Note that when returning to the Unity Editor, iOS platform is left active and an error is notified indicating that iOS editor mode is not compatible with NoesisGUI. You must activate PC, Mac &amp; Linux to continue working in the editor.</p>
+<p>By default, Unity does not create a Stencil surface in iOS. As NoesisGUI renders masks using Stencil we need to modify the file GlesHelper.mm to activate this feature. Note that the changes are emphasized.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">CreateSharedDepthbuffer</span><span class="p">(</span><span class="n">UnityRenderingSurface</span><span class="o">*</span> <span class="n">surface</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">EAGLContextSetCurrentAutoRestore</span> <span class="n">autorestore</span><span class="p">(</span><span class="n">surface</span><span class="o">-&gt;</span><span class="n">context</span><span class="p">);</span>
+    <span class="n">DestroySharedDepthbuffer</span><span class="p">(</span><span class="n">surface</span><span class="p">);</span>
+
+<span class="hll">    <span class="c1">//surface-&gt;depthFormat = surface-&gt;use24bitDepth ? GL_DEPTH_COMPONENT24_OES : GL_DEPTH_COMPONENT16_OES;</span>
+</span><span class="hll">    <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthFormat</span> <span class="o">=</span> <span class="n">GL_DEPTH24_STENCIL8_OES</span><span class="p">;</span>
+</span>
+    <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glGenRenderbuffersOES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthRB</span><span class="p">));</span>
+    <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glBindRenderbufferOES</span><span class="p">(</span><span class="n">GL_RENDERBUFFER_OES</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthRB</span><span class="p">));</span>
+
+    <span class="kt">bool</span> <span class="n">needMSAA</span> <span class="o">=</span> <span class="n">GL_APPLE_framebuffer_multisample</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">surface</span><span class="o">-&gt;</span><span class="n">msaaSamples</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="cp">#if GL_APPLE_framebuffer_multisample</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">needMSAA</span><span class="p">)</span>
+        <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glRenderbufferStorageMultisampleAPPLE</span><span class="p">(</span><span class="n">GL_RENDERBUFFER_OES</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">msaaSamples</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthFormat</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">targetW</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">targetH</span><span class="p">));</span>
+<span class="cp">#endif</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">needMSAA</span><span class="p">)</span>
+        <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glRenderbufferStorageOES</span><span class="p">(</span><span class="n">GL_RENDERBUFFER_OES</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthFormat</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">targetW</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">targetH</span><span class="p">));</span>
+
+    <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glFramebufferRenderbufferOES</span><span class="p">(</span><span class="n">GL_FRAMEBUFFER_OES</span><span class="p">,</span> <span class="n">GL_DEPTH_ATTACHMENT_OES</span><span class="p">,</span> <span class="n">GL_RENDERBUFFER_OES</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthRB</span><span class="p">));</span>
+<span class="hll">    <span class="n">GLES_CHK</span><span class="p">(</span><span class="n">glFramebufferRenderbufferOES</span><span class="p">(</span><span class="n">GL_FRAMEBUFFER_OES</span><span class="p">,</span> <span class="n">GL_STENCIL_ATTACHMENT_OES</span><span class="p">,</span> <span class="n">GL_RENDERBUFFER_OES</span><span class="p">,</span> <span class="n">surface</span><span class="o">-&gt;</span><span class="n">depthRB</span><span class="p">));</span>
+</span><span class="p">}</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="9">
+<li>Optimize deployed data</li>
+</ol>
+<blockquote>
+By default all the directory /Assets/StreamingAssets of the Unity project is deployed to the device. Unity copies the entire directory to the /Raw folder of the XCode project. If you want to optimize the data that is copied to the device it is recommended to leave only the IOS folder in the ($XCODE_PROJECT_DIR)/Data/Raw/NoesisGUI/Data folder.</blockquote>
+<ol class="arabic simple" start="10">
+<li>Build and Run the project from XCode</li>
+</ol>
+</div>
+<div class="section" id="building-on-android">
+<h1>Building on Android</h1>
+<p>The process of building for Android is very simple, only a few settings should be taken into account. The steps to follow are:</p>
+<ol class="arabic simple">
+<li>Optimize deployed data</li>
+</ol>
+<p>By default all the directory /Assets/StreamingAssets of the Unity project is deployed into the .apk package. If you want to optimize the data that is copied to the device it is recommended to select only the Android platform under Window -&gt; NoesisGUI -&gt; Settings window and click the Build button before you start the Unity building process.</p>
+<ol class="arabic simple" start="2">
+<li>Select File -&gt; Build Settings...</li>
+</ol>
+<img alt="Unity3DTutorialImg11.png" src="Unity3DTutorialImg11.png" />
+<ol class="arabic simple" start="3">
+<li>Select the Scenes to be deployed</li>
+<li>Select platform Android</li>
+<li>Adjust the desired Player Settings (Resolution, Icons, Splash Image...). Make sure that <strong>Minimum API Level</strong> is at least <em>Android 2.3.3 'Gingerbread'</em>. NoesisGUI is not compatible with previous Android versions. <strong>Graphics Level</strong> must be set to <em>OpenGL ES 2.0</em>.</li>
+<li>Click the Build button</li>
+<li>Select the location where you want to save the .apk file</li>
+<li>Install the .apk into your Android device and Run it</li>
+</ol>
+<p>You can also generate an <strong>Eclipse</strong> project to extend your application. In that case the steps are the following:</p>
+<ol class="arabic simple">
+<li>Select File -&gt; Build Settings...</li>
+<li>Select the Scenes to be deployed</li>
+<li>Select platform Android</li>
+<li>Adjust the desired Player Settings (Resolution, Icons, Splash Image...). Make sure that <strong>Minimum API Level</strong> is at least <em>Android 2.3.3 'Gingerbread'</em>. NoesisGUI is not compatible with previous Android versions. <strong>Graphics Level</strong> must be set to <em>OpenGL ES 2.0</em></li>
+<li>Click the Export button</li>
+<li>Select the location where you want to store the Eclipse project</li>
+<li>Optimize deployed data</li>
+</ol>
+<blockquote>
+By default all the directory /Assets/StreamingAssets of the Unity project is deployed to the assets/ folder of the Eclipse project. If you want to optimize the data that is copied to the device it is recommended to leave only the ANDROID folder in ($ECLIPSE_PROJECT_DIR)/assets/NoesisGUI/Data/ folder.</blockquote>
+<ol class="arabic simple" start="8">
+<li>Build project with Eclipse to generate the .apk file</li>
+<li>Install the .apk into your Android device and Run it</li>
+</ol>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

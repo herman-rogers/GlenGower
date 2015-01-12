@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: NoesisEngine Type Reflection Model</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="noesisengine-type-reflection-model-reflection">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">NoesisEngine Type Reflection Model (Reflection)</h1>
+
+<p>Reflection is the ability of a program to inspect in run-time the structure and state of the data with the possibility of modifying it. Languages as Java or C# incorporate such functionality by default. However, in C++ language it is not possible to obtain this kind of information directly.</p>
+<p>Having reflection information in run-time allows for advanced features. For example, with the reflection information about a class, an automatic dialog could be generated to edit that class. Or it could be automatically serialized to disk.</p>
+<p>NoesisEngine defines reflection capabilities extending the <a class="reference external" href="Core.Kernel.ReflectionRTTI.html">RTTI</a> system. For each class deriving from the base <strong>Type</strong> class, new methods are implemented that expose reflection information for each kind of object. That hierarchy is exposed here and explained in detail in next sections:</p>
+<img alt="Reflection.jpg" src="Reflection.jpg" />
+<p>In order to be able to use these classes you must include the file <em>Reflection.h</em> and only this one. This file includes all necessary headers.</p>
+<div class="highlight"><pre><span class="cp">#include &lt;NsCore/Reflection.h&gt;</span>
+</pre></div>
+<div class="section" id="type">
+<h1>Type</h1>
+<p>Is the base class for RTTI system. Type objects identify basic types as integers, floats, characters, etc. It provides a name for the type that can be used for debugging purposes.</p>
+<div class="highlight"><pre><span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">intType</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">NsInt</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Integers Type object name is %hs&quot;</span><span class="p">),</span> <span class="n">intType</span> <span class="n">GetName</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="section" id="typereference-typepointer-typeptr">
+<h1>TypeReference, TypePointer, TypePtr</h1>
+<p>References, pointers and Ptr types are identified by TypeReference, TypePointer and TypePtr objects respectively. Through those objects we can access the type of the pointed object in two ways:</p>
+<ul class="simple">
+<li><strong>Static type</strong>: The functions <em>GetStaticContentType()</em> and <em>GetStaticContent()</em> return the static type of the pointed object.</li>
+</ul>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">A</span> <span class="p">{};</span>
+
+<span class="k">const</span> <span class="n">TypePointer</span><span class="o">*</span> <span class="n">typePointer</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">A</span><span class="o">*&gt;</span><span class="p">();</span>
+
+<span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">typePointer</span><span class="o">-&gt;</span><span class="n">GetStaticContentType</span><span class="p">()</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span><span class="p">());</span>
+</pre></div>
+<ul class="simple">
+<li><strong>Dynamic type</strong>: The functions <em>GetContentType()</em> and <em>GetContent()</em> return the dynamic type of the pointed object. This functions have sense in pointers to polymorphic classes, so we can get the type of the implementation class instead of the static type of the pointer.</li>
+</ul>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">B</span><span class="o">:</span> <span class="k">public</span> <span class="n">A</span> <span class="p">{};</span>
+
+<span class="n">A</span><span class="o">*</span> <span class="n">object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">TypePointer</span><span class="o">*</span> <span class="n">typePointer</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">A</span><span class="o">*&gt;</span><span class="p">();</span>
+
+<span class="n">NS_ASSERT</span><span class="p">(</span><span class="n">typePointer</span><span class="o">-&gt;</span><span class="n">GetContentType</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">==</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="section" id="typeclass">
+<h1>TypeClass</h1>
+<p>TypeClass objects identify classes, components and interfaces, and can be obtained applying <em>TypeOf</em> to the desired class.</p>
+<div class="highlight"><pre><span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+<p>When you have an instance of a class, you could use RTTI object function <em>GetClassType()</em> instead. This functions are defined with the reflection macros also.</p>
+<div class="highlight"><pre><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">IRenderSystem</span><span class="o">&gt;</span> <span class="n">renderSystem</span> <span class="o">=</span> <span class="n">NsGetSystem</span><span class="o">&lt;</span><span class="n">IRenderSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">renderSystem</span><span class="o">-&gt;</span><span class="n">GetClassType</span><span class="p">();</span>
+<span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Current render system implementation is %hs&quot;</span><span class="p">),</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">());</span>
+</pre></div>
+<p>As explained in the <a class="reference external" href="Core.Kernel.ReflectionRTTI.html">RTTI</a> section, reflection macros are used to describe a class. In that document it is explained how to specify the class name and the base class. Here, we extend the macros to add more information to our classes.</p>
+<div class="section" id="interface-implementation">
+<h2>Interface Implementation</h2>
+<p>Components can add the list of interfaces that they implement to their TypeClass object using the <strong>NsImpl&lt;&gt;</strong> tag:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">SampleSystem</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseKernelSystem</span><span class="p">,</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">ITickable</span><span class="p">,</span> <span class="k">public</span> <span class="n">ISampleSystem</span>
+<span class="p">{</span>
+    <span class="c1">/// ...</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">SampleSystem</span><span class="p">,</span> <span class="n">BaseKernelSystem</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">ITickable</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">::</span><span class="n">AncestorInfo</span><span class="o">*</span> <span class="n">ancestor</span> <span class="o">=</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">GetAncestor</span><span class="p">(</span><span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">ISampleSystem</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;%hs implements %hs (offset from implementation class: %ll)&quot;</span><span class="p">),</span>
+        <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">(),</span> <span class="n">ancestor</span><span class="o">-&gt;</span><span class="n">type</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">(),</span> <span class="n">ancestor</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="properties">
+<h2>Properties</h2>
+<p>Classes and components can define also a list of properties into their TypeClass object. This is done with the <strong>NsProp</strong> tag:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">SampleSystem</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">BaseKernelSystem</span><span class="p">,</span>
+                    <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">ITickable</span><span class="p">,</span>
+                    <span class="k">public</span> <span class="n">ISampleSystem</span>
+<span class="p">{</span>
+    <span class="c1">/// ...</span>
+
+<span class="nl">private:</span>
+    <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">ISample</span><span class="o">&gt;</span> <span class="n">mSample</span><span class="p">;</span>
+    <span class="n">NsBool</span> <span class="n">mPaused</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">SampleSystem</span><span class="p">,</span> <span class="n">BaseKernelSystem</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">ITickable</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">NsImpl</span><span class="o">&lt;</span><span class="n">ISampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;sample&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">SampleSystem</span><span class="o">::</span><span class="n">mSample</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;paused&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">SampleSystem</span><span class="o">::</span><span class="n">mPaused</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">TypeProperty</span><span class="o">*</span> <span class="n">pausedProp</span> <span class="o">=</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;paused&quot;</span><span class="p">));</span>
+<span class="n">NsBool</span> <span class="n">paused</span> <span class="o">=</span> <span class="n">pausedProp</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">NsBool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sampleSystem</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">());</span>
+<span class="n">pausedProp</span><span class="o">-&gt;</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">NsBool</span><span class="o">&gt;</span><span class="p">(</span><span class="o">!</span><span class="n">paused</span><span class="p">);</span>
+</pre></div>
+<p>Array properties are supported too:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Vec3</span>
+<span class="p">{</span>
+    <span class="n">NsFloat</span> <span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Vec3</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;val&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="o">::</span><span class="n">val</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>When it is more useful to have direct access to elements in the array you define a property for each element:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Vec3</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Vec3</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="o">::</span><span class="n">val</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="o">::</span><span class="n">val</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Vec3</span><span class="o">::</span><span class="n">val</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Properties can also be defined from a pair of get/set methods:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Vec3</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="n">NsFloat32</span> <span class="n">GetX</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetX</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n">NsFloat32</span> <span class="n">GetY</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetY</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n">NsFloat32</span> <span class="n">GetZ</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">val</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">SetZ</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span> <span class="n">val</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Vec3</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">GetX</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">SetX</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">GetY</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">SetY</span><span class="p">);</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">GetZ</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">SetZ</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Note that get/set methods must be defined by copy for the following primitive types: NsInt, NsInt8, NsInt16, NsInt32, NsUInt, NsUInt8, NsUInt16, NsUInt32, NsFloat32, NsBool, NsChar8, NsChar16 and NsSymbol.
+Other primitive types: NsInt64, NsUInt64 and NsFloat64, must define its get/set methods by reference, the same as in the rest of types.</p>
+<p>There are two ways to mark a property as <strong>read-only</strong>: using metadata or using a getter function without specifying a setter:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Block</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NsBool</span> <span class="n">IsVisible</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">mIsVisible</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NsBool</span> <span class="n">mIsVisible</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Block</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;IsVisible&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">mIsVisible</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">Meta</span><span class="o">&lt;</span><span class="n">ReadOnly</span><span class="o">&gt;</span><span class="p">();</span>
+        <span class="n">NsProp</span><span class="p">(</span><span class="s">&quot;IsVisible2&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ClassTest</span><span class="o">::</span><span class="n">IsVisible</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Properties are represented by TypeProperty objects. This class is the base for reflection navigation. If a property's type is not a basic type, you could inspect the contents of the property.</p>
+<div class="highlight"><pre><span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">sampleSystemType</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">SampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="k">const</span> <span class="n">TypeProperty</span><span class="o">*</span> <span class="n">sampleProp</span> <span class="o">=</span> <span class="n">sampleSystemType</span><span class="o">-&gt;</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;sample&quot;</span><span class="p">));</span>
+<span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">propContentType</span> <span class="o">=</span> <span class="n">sampleProp</span><span class="o">-&gt;</span><span class="n">GetContentType</span><span class="p">();</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">propContent</span> <span class="o">=</span> <span class="n">sampleProp</span><span class="o">-&gt;</span><span class="n">GetContent</span><span class="p">(</span><span class="n">sampleSystem</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">());</span>
+
+<span class="k">const</span> <span class="n">TypePtr</span><span class="o">*</span> <span class="n">typePtr</span> <span class="o">=</span> <span class="n">NsDynamicCast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">TypePtr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">propContentType</span><span class="p">);</span>
+<span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">ptrContentType</span> <span class="o">=</span> <span class="n">typePtr</span><span class="o">-&gt;</span><span class="n">GetContentType</span><span class="p">(</span><span class="n">propContent</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">sampleType</span> <span class="o">=</span> <span class="n">NsDynamicCast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">TypeClass</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ptrContentType</span><span class="p">);</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">sampleInstance</span> <span class="o">=</span> <span class="n">typePtr</span><span class="o">-&gt;</span><span class="n">GetContent</span><span class="p">(</span><span class="n">propContent</span><span class="p">);</span>
+
+<span class="c1">// Now we have a TypeClass that describes the type of mSample property and</span>
+<span class="c1">// a pointer to the ISample instance contained in sampleSystem.</span>
+<span class="c1">// So we could inspect that instance using type reflection info.</span>
+</pre></div>
+</div>
+<div class="section" id="functions">
+<h2>Functions</h2>
+<p>Classes, components and interfaces can define a list of functions that are added to their TypeClass object using the <strong>NsFunc</strong>:</p>
+<div class="highlight"><pre><span class="n">NS_INTERFACE</span> <span class="n">ISampleSystem</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">Interface</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">IIterator</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">EnumSamples</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">RunSample</span><span class="p">(</span><span class="n">NsSymbol</span> <span class="n">sampleId</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">PauseSample</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">StopSample</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">ISampleSystem</span><span class="p">,</span> <span class="n">Interface</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;EnumSamples&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ISampleSystem</span><span class="o">::</span><span class="n">EnumSamples</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;RunSample&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ISampleSystem</span><span class="o">::</span><span class="n">RunSample</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;PauseSample&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ISampleSystem</span><span class="o">::</span><span class="n">PauseSample</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;StopSample&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ISampleSystem</span><span class="o">::</span><span class="n">StopSample</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">ISampleSystem</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">::</span><span class="n">FunctionInfo</span><span class="o">*</span> <span class="n">funcInfo</span> <span class="o">=</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">GetFunction</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;StopSample&quot;</span><span class="p">));</span>
+<span class="n">ParamStack</span> <span class="n">paramStack</span><span class="p">;</span>
+<span class="n">funcInfo</span><span class="o">-&gt;</span><span class="n">function</span><span class="o">-&gt;</span><span class="n">Invoke</span><span class="p">(</span><span class="n">sampleSystem</span><span class="p">.</span><span class="n">GetPtr</span><span class="p">(),</span> <span class="n">paramStack</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="constructors-and-destructor">
+<h2>Constructors and Destructor</h2>
+<p>Classes and components can define a list of constructors for their TypeClass object. Constructors are used to create instances of the class or component. They are specified with the <strong>NsCtor</strong> tag:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Rect2D</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">left</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">top</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">right</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">bottom</span><span class="p">;</span>
+
+    <span class="n">Rect2D</span><span class="p">();</span>
+
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">x</span><span class="p">,</span> <span class="n">NsFloat32</span> <span class="n">y</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="k">const</span> <span class="n">Point2D</span><span class="o">&amp;</span> <span class="n">point</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="k">const</span> <span class="n">Rect2D</span><span class="o">&amp;</span> <span class="n">rect</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Rect2D</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsCtor</span><span class="p">(</span><span class="s">&quot;New&quot;</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsXY&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsXY</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsPoint&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsPoint</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsRect&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsRect</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">Rect2D</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">ParamStack</span> <span class="n">paramStack</span><span class="p">;</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">Construct</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;New&quot;</span><span class="p">),</span> <span class="n">paramStack</span><span class="p">);</span>
+<span class="c1">// Rect2D* rect = reinterpret_cast&lt;Rect2D*&gt;(instance) would be valid</span>
+</pre></div>
+<p>In the same way that with functions, constructor overloading must be disambiguated. This is done specifying the list of arguments of the constructor:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">Rect2D</span>
+<span class="p">{</span>
+    <span class="n">NsFloat32</span> <span class="n">left</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">top</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">right</span><span class="p">;</span>
+    <span class="n">NsFloat32</span> <span class="n">bottom</span><span class="p">;</span>
+
+    <span class="n">Rect2D</span><span class="p">();</span>
+    <span class="n">Rect2D</span><span class="p">(</span><span class="n">Point2D</span> <span class="n">location</span><span class="p">,</span> <span class="n">Size2D</span> <span class="n">size</span><span class="p">);</span>
+
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="n">NsFloat32</span> <span class="n">x</span><span class="p">,</span> <span class="n">NsFloat32</span> <span class="n">y</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="k">const</span> <span class="n">Point2D</span><span class="o">&amp;</span> <span class="n">point</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">NsBool</span> <span class="n">Contains</span><span class="p">(</span><span class="k">const</span> <span class="n">Rect2D</span><span class="o">&amp;</span> <span class="n">rect</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">Rect2D</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">NoParent</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsCtor</span><span class="p">(</span><span class="s">&quot;New&quot;</span><span class="p">);</span>
+        <span class="n">NsCtor</span><span class="o">&lt;</span><span class="n">Point2D</span><span class="p">,</span><span class="n">Size2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;NewLocSize&quot;</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsXY&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsXY</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsPoint&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsPoint</span><span class="p">);</span>
+        <span class="n">NsFunc</span><span class="p">(</span><span class="s">&quot;ContainsRect&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Rect2D</span><span class="o">::</span><span class="n">ContainsRect</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">typeClass</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">Rect2D</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">ParamStack</span> <span class="n">paramStack</span><span class="p">;</span>
+<span class="n">Point2D</span> <span class="nf">location</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">25.0f</span><span class="p">);</span>
+<span class="n">paramStack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">location</span><span class="p">);</span>
+<span class="n">Size2D</span> <span class="nf">size</span><span class="p">(</span><span class="mf">300.0f</span><span class="p">,</span> <span class="mf">200.0f</span><span class="p">);</span>
+<span class="n">paramStack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="o">&amp;</span><span class="n">size</span><span class="p">);</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">typeClass</span><span class="o">-&gt;</span><span class="n">Construct</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;NewLocSize&quot;</span><span class="p">),</span> <span class="n">paramStack</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="typeenum">
+<h1>TypeEnum</h1>
+<p>Enumerations are reflected in a very similar way. For example,</p>
+<div class="highlight"><pre><span class="c1">/// .h</span>
+<span class="k">namespace</span> <span class="n">Noesis</span>
+<span class="p">{</span>
+<span class="k">namespace</span> <span class="n">Gui</span>
+<span class="p">{</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">/// Specifies the display state of an element.</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">enum</span> <span class="n">Visibility</span>
+<span class="p">{</span>
+    <span class="c1">/// Do not display the element, do not reserve space for it in layout</span>
+    <span class="n">Visibility_Collapsed</span><span class="p">,</span>
+
+    <span class="c1">/// Do not display the element, but reserve space for it in layout</span>
+    <span class="n">Visibility_Hidden</span><span class="p">,</span>
+
+    <span class="c1">/// Display the element</span>
+    <span class="n">Visibility_Visible</span>
+<span class="p">};</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">NS_DECLARE_ENUM</span><span class="p">(</span><span class="n">NS_GUI_CORE_API</span><span class="p">,</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="o">::</span><span class="n">Visibility</span><span class="p">)</span>
+
+<span class="c1">/// .cpp</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+
+<span class="n">NS_IMPLEMENT_ENUM</span><span class="p">(</span><span class="n">Visibility</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Visibility&quot;</span><span class="p">);</span>
+
+    <span class="n">NsVal</span><span class="p">(</span><span class="s">&quot;Collapsed&quot;</span><span class="p">,</span> <span class="n">Visibility_Collapsed</span><span class="p">);</span>
+    <span class="n">NsVal</span><span class="p">(</span><span class="s">&quot;Hidden&quot;</span><span class="p">,</span> <span class="n">Visibility_Hidden</span><span class="p">);</span>
+    <span class="n">NsVal</span><span class="p">(</span><span class="s">&quot;Visible&quot;</span><span class="p">,</span> <span class="n">Visibility_Visible</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">/// Usage</span>
+<span class="k">const</span> <span class="n">TypeEnum</span><span class="o">*</span> <span class="n">typeEnum</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">Visibility</span><span class="o">&gt;::</span><span class="n">Get</span><span class="p">();</span>
+<span class="n">NsSize</span> <span class="n">numValues</span> <span class="o">=</span> <span class="n">typeEnum</span><span class="o">-&gt;</span><span class="n">GetNumValues</span><span class="p">();</span>
+<span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Enum %hs has %u values&quot;</span><span class="p">),</span> <span class="n">typeEnum</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">(),</span> <span class="n">numValues</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">NsSize</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numValues</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">TypeEnum</span><span class="o">::</span><span class="n">ValueInfo</span><span class="o">*</span> <span class="n">valueInfo</span> <span class="o">=</span> <span class="n">typeEnum</span><span class="o">-&gt;</span><span class="n">GetValueInfo</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Value %hs = %d&quot;</span><span class="p">),</span> <span class="n">valueInfo</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">.</span><span class="n">GetStr</span><span class="p">(),</span> <span class="n">valueInfo</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">typeEnum</span><span class="o">-&gt;</span><span class="n">HasValue</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;Center&quot;</span><span class="p">)))</span>
+<span class="p">{</span>
+   <span class="n">NS_INFO</span><span class="p">(</span><span class="n">NST</span><span class="p">(</span><span class="s">&quot;Value Center = %d&quot;</span><span class="p">),</span> <span class="n">GetValue</span><span class="p">(</span><span class="n">NSS</span><span class="p">(</span><span class="s">&quot;Center&quot;</span><span class="p">)));</span>
+<span class="p">}</span>
+</pre></div>
+<p>When declaring enum reflection, macro must be placed outside any namespace.</p>
+</div>
+<div class="section" id="typecollection">
+<h1>TypeCollection</h1>
+<p>Static arrays and STL containers are identified by TypeCollection objects. This class allows the user to traverse a collection without knowing its implementation type.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">DumpCollection</span><span class="p">(</span><span class="k">const</span> <span class="n">TypeClass</span><span class="o">*</span> <span class="n">collection</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">instance</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">elemType</span> <span class="o">=</span> <span class="n">collection</span><span class="o">-&gt;</span><span class="n">GetElemType</span><span class="p">();</span>
+    <span class="n">NsSize</span> <span class="n">numElems</span> <span class="o">=</span> <span class="n">collection</span><span class="o">-&gt;</span><span class="n">GetNumElems</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">NsSize</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numElems</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DumpObject</span><span class="p">(</span><span class="n">elemType</span><span class="p">,</span> <span class="n">collection</span><span class="o">-&gt;</span><span class="n">GetElem</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="typepair">
+<h1>TypePair</h1>
+<p>This class objects identify STL pair types. It provides access to the <em>first</em> and <em>second</em> members of the pair.</p>
+<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="p">,</span> <span class="n">NsInt</span><span class="o">&gt;</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">value</span><span class="p">.</span><span class="n">first</span> <span class="o">=</span> <span class="n">NSS</span><span class="p">(</span><span class="s">&quot;Top&quot;</span><span class="p">);</span>
+<span class="n">second</span><span class="p">.</span><span class="n">second</span> <span class="o">=</span> <span class="n">VerticalAlignment_Top</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="n">TypePair</span><span class="o">*</span> <span class="n">typePair</span> <span class="o">=</span> <span class="n">TypeOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">NsSymbol</span><span class="p">,</span> <span class="n">NsInt</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">();</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">first</span> <span class="o">=</span> <span class="n">typePair</span><span class="o">-&gt;</span><span class="n">GetFirst</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+<span class="kt">void</span><span class="o">*</span> <span class="n">second</span> <span class="o">=</span> <span class="n">typePair</span><span class="o">-&gt;</span><span class="n">GetSecond</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

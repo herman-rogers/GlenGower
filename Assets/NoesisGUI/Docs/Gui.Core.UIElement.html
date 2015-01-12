@@ -1,0 +1,955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: UIElement</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="uielement">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">UIElement</h1>
+
+<p><a class="reference external" href="http://msdn.microsoft.com/en-us/library/system.windows.uielement.aspx">http://msdn.microsoft.com/en-us/library/system.windows.uielement.aspx</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="3%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Methods</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AddHandler(RoutedEvent, Delegate)</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>AddHandler(RoutedEvent, Delegate, Boolean)</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>AddToEventRoute</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ApplyAnimationClock</td>
+<td>No</td>
+<td>Implemented as AnimationClock::Start</td>
+</tr>
+<tr><td>Arrange</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>BeginAnimation</td>
+<td>No</td>
+<td>Implemented as AnimationTimeline::Start</td>
+</tr>
+<tr><td>CaptureMouse</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>CaptureStylus</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>GetAnimationBaseValue</td>
+<td>No</td>
+<td>Implemented as DependencyObject::GetBaseValue</td>
+</tr>
+<tr><td>InputHitTest</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InvalidateArrange</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InvalidateMeasure</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InvalidateVisual</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Measure</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MoveFocus</td>
+<td>Yes</td>
+<td>To be reimplemented by descendants</td>
+</tr>
+<tr><td>PredictFocus</td>
+<td>Yes</td>
+<td>To be reimplemented by descendants</td>
+</tr>
+<tr><td>RaiseEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ReleaseAllTouchCaptures</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ReleaseMouseCapture</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ReleaseStylusCapture</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ReleaseTouchCapture</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RemoveHandler</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ShouldSerializeCommandBindings</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ShouldSerializeInputBindings</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TranslatePoint</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UpdateLayout</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="3%" />
+<col width="3%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="4">Dependency Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Att</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>AllowDropProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>AreAnyTouchesCapturedProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>AreAnyTouchesCapturedWithinProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>AreAnyTouchesDirectlyOverProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>AreAnyTouchesOverProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>CacheModeProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ClipProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>ClipToBoundsProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>EffectProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>FocusableProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsEnabledProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsFocusedProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>Currently the IsFocused matches IsKeyboardFocused</td>
+</tr>
+<tr><td>IsHitTestVisibleProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsKeyboardFocusedProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsKeyboardFocusWithinProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsManipulationEnabledProperty</td>
+<td>No</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>IsMouseCapturedProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseCaptureWithinProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseDirectlyOverProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseOverProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsStylusCapturedProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsStylusCaptureWithinProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsStylusDirectlyOverProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsStylusOverProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsVisibleProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>OpacityMaskProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>OpacityProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RenderTransformOriginProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RenderTransformProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>SnapsToDevicePixelsProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>UidProperty</td>
+<td>No</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>VisibilityProperty</td>
+<td>No</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="4%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Properties</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>CommandBindings</td>
+<td>No</td>
+<td>Not defined</td>
+</tr>
+<tr><td>DesiredSize</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>InputBindings</td>
+<td>No</td>
+<td>Not defined</td>
+</tr>
+<tr><td>IsArrangeValid</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsEnabledCore</td>
+<td>Yes</td>
+<td>To be reimplemented by descendants</td>
+</tr>
+<tr><td>IsInputMethodEnabled</td>
+<td>No</td>
+<td>Dependency property from InputMethod</td>
+</tr>
+<tr><td>IsMeasureValid</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>RenderSize</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>StylusPlugIns</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TouchesCaptured</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TouchesCapturedWithin</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TouchesDirectlyOver</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TouchesOver</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Uid</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="3%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Routed Events</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>DragEnterEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>DragLeaveEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>DragOverEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>DropEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>GiveFeedbackEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>GotFocusEvent</td>
+<td>Yes</td>
+<td>Currently GotFocus is thrown with GotKeyboardFocus</td>
+</tr>
+<tr><td>GotKeyboardFocusEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>GotMouseCaptureEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>GotStylusCaptureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>GotTouchCaptureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>KeyDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>KeyUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>LostFocusEvent</td>
+<td>Yes</td>
+<td>Currently LostFocus is thrown with LostKeyboardFocus</td>
+</tr>
+<tr><td>LostKeyboardFocusEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>LostMouseCaptureEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>LostStylusCaptureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>LostTouchCaptureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationBoundaryFeedbackEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationCompletedEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationDeltaEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationInertiaStartingEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationStartedEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>ManipulationStartingEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>MouseDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseEnterEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseLeaveEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseLeftButtonDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseLeftButtonUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseMoveEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseRightButtonDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseRightButtonUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>MouseWheelEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewDragEnterEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewDragLeaveEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewDragOverEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewDropEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewGiveFeedbackEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewGotKeyboardFocusEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewKeyDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewKeyUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewLostKeyboardFocusEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseLeftButtonDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseLeftButtonUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseMoveEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseRightButtonDownEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseRightButtonUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseUpEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewMouseWheelEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewQueryContinueDragEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>PreviewStylusButtonDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusButtonUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusInAirMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusInRangeEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusOutOfRangeEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusSystemGestureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewStylusUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewTextInputEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>PreviewTouchDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewTouchMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>PreviewTouchUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>QueryContinueDragEvent</td>
+<td>No</td>
+<td>RoutedEvent from DragDrop. Must use AddEventOwner</td>
+</tr>
+<tr><td>QueryCursorEvent</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>StylusButtonDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusButtonUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusEnterEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusInAirMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusInRangeEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusLeaveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusOutOfRangeEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusSystemGestureEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>StylusUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>TextInputEvent</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>TouchDownEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>TouchEnterEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>TouchLeaveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>TouchMoveEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>TouchUpEvent</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="71%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">Events</th>
+</tr>
+<tr><th class="head">Name</th>
+<th class="head">Sup</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>FocusableChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsEnabledChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsHitTestVisibleChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsKeyboardFocusedChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsKeyboardFocusWithinChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseCapturedChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseCaptureWithinChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsMouseDirectlyOverChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>IsStylusCapturedChanged</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>IsStylusCaptureWithinChanged</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>IsStylusDirectlyOverChanged</td>
+<td>No</td>
+<td>Not declared</td>
+</tr>
+<tr><td>IsVisibleChanged</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>LayoutUpdated</td>
+<td>No</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>

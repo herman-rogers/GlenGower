@@ -1,0 +1,65 @@
+<Grid
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d">
+	
+	<Viewbox Margin="50">
+    	<GroupBox HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10">
+    		<StackPanel Orientation="Vertical" Background="Gray" Width="380" Height="200">
+    			<ToolBar Header="">
+    				<Button>
+    					<Image Height="24" Source="Images/blog_compose.png" Stretch="Fill" Width="24"/>
+    				</Button>
+    				<Button>
+    					<Image Height="24" Source="Images/folder_open.png" Stretch="Fill" Width="24"/>
+    				</Button>
+    				<CheckBox>
+    					<Image Height="24" Source="Images/calendar.png" Stretch="Fill" Width="24"/>
+    				</CheckBox>
+    				<Separator/>
+    				<RadioButton IsChecked="True">
+    					<Image Height="24" Source="Images/button_blue_pause.png" Stretch="Fill" Width="24"/>
+    				</RadioButton>
+    				<RadioButton>
+    					<Image Height="24" Source="Images/button_blue_play.png" Stretch="Fill" Width="24"/>
+    				</RadioButton>
+    				<Separator/>
+    				<TextBox Text="Find text" Width="80"/>
+    				<ComboBox SelectedIndex="0">
+    					<ComboBoxItem Content="Visible" IsSelected="True"/>
+    					<ComboBoxItem Content="Collapsed"/>
+    				</ComboBox>
+    				<Button>
+    					<Image Height="24" Source="Images/camera.png" Stretch="Fill" Width="24"/>
+    				</Button>
+    				<Menu>
+    					<MenuItem Height="26" Padding="2">
+    						<MenuItem.Header>
+    							<Grid>
+    								<Path Data="M0,0L6,0 3,8z" Fill="Black" VerticalAlignment="Center" Margin="0,6,0,0"/>
+    							</Grid>
+    						</MenuItem.Header>
+    						<MenuItem Header="Camera">
+    							<MenuItem.Icon>
+    								<Image Height="24" Source="Images/camera.png" Stretch="Fill" Width="24"/>
+    							</MenuItem.Icon>
+    						</MenuItem>
+    						<MenuItem Header="Calculator">
+    							<MenuItem.Icon>
+    								<Image Height="24" Source="Images/calculator.png" Stretch="Fill" Width="24"/>
+    							</MenuItem.Icon>
+    						</MenuItem>
+    						<MenuItem Header="Notepad">
+    							<MenuItem.Icon>
+    								<Image Height="24" Source="Images/notepad.png" Stretch="Fill" Width="24"/>
+    							</MenuItem.Icon>
+    						</MenuItem>
+    					</MenuItem>
+    				</Menu>
+    			</ToolBar>
+    		</StackPanel>
+    	</GroupBox>
+	</Viewbox>
+</Grid>

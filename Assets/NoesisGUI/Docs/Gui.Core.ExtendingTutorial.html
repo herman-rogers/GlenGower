@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>noesisGUI Documentation: Extending NoesisGUI</title>
+<meta name="description" content="NoesisGUI Documentation"/>
+
+<script type="text/javascript" src="/js/googleAnalytics.js?version=1.0"></script>
+<!--[if lt IE 7]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script><![endif]-->
+<link rel="alternate" href="http://feeds.feedburner.com/NoesisTechnologiesNews" type="application/rss+xml" title="Noesis Technologies RSS Feed" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="style/noesis.css?version=1.1" type="text/css" />
+
+</head>
+<body>
+<div class="document" id="extending-noesisgui">
+
+<div id="noesis_web_wrap">
+    <div class="noesis_web_opC noesis_web_opG" >
+        <div id="noesis_web_contenedor">
+        
+            <div class="noesis_web_headerContenedor">
+                <div class="noesis_web_header">
+                    <div class="noesis_web_headerInner">
+                    
+                        <div class="noesis_web_headerLogo">
+                            <a href="/" title="Back to main page"><img src="/img/logo_noesis_top.png" alt="Noesis Logo"></img></a>
+                        </div>
+
+                        <div class="noesis_web_menu">
+                            <ul>
+                                <li class="noesis_web_skipMenu"><a href="#content" accesskey="s">Skip to content</a></li>
+                                <li class="noesis_web_opA"><a class="noesis_web_opA" href="/noesis_gui_features.htm" accesskey="1" >Products</a></li>
+                                <li class="noesis_web_opB"><a class="noesis_web_opB" href="/company_about.htm" accesskey="2" >Company</a></li>
+                                <li class="noesis_web_opC"><a class="noesis_web_opC" href="/forums/" accesskey="3" >Support</a></li>
+                                <li class="noesis_web_opD"><a class="noesis_web_opD" href="/contact.htm" accesskey="4" >Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="noesis_web_headerSocial">
+                            <a href="http://twitter.com/noesisengine" target="_blank" title="Follow us on Twitter"><img src="/img/icos/Twitter-Icon-28.png"/></a>
+                            <a href="http://www.linkedin.com/company/noesis-technologies-sl" target="_blank" title="Follow us on LinkedIn"><img src="/img/icos/Linkedin-Icon-28.png"/></a>
+                            <a href="http://vimeo.com/noesisengine" target="_blank" title="Watch us on Vimeo"><img src="/img/icos/Vimeo-Icon-28.png"/></a>
+                            <a href="http://www.youtube.com/user/NoesisTechnologies" target="_blank" title="Watch us on YouTube"><img src="/img/icos/Youtube-Icon-28.png"/></a>
+                            <a href="http://feeds.feedburner.com/NoesisTechnologiesNews" rel="alternate" type="application/rss+xml" title="RSS News"><img src="/img/icos/RSS-Icon-28.png"/></a>
+                        </div>
+
+                        <div class="noesis_web_menu noesis_web_menuSub">
+                            <ul>
+                                <li class="noesis_web_opJ"><a class="noesis_web_opJ" href="/forums/" accesskey="a">Forums</a></li>
+                                <li class="noesis_web_opG"><a class="noesis_web_opG" href="/docs/" accesskey="b">Documentation</a></li>
+                                <li class="noesis_web_opK"><a class="noesis_web_opK" href="/community_bugs.htm" accesskey="c">Bugtracking</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div id="noesis_web_main" class="noesis_web_clearfix">
+            
+                <div id="noesis_web_cabeceraInterior">
+                    <div id="noesis_web_cabeceraInteriorArriba">
+
+                        <div class="noesis_web_cabeceraInteriorImagen">&nbsp;</div>
+
+                        <div id="noesis_web_newsBar">
+                        
+                            <div class="noesis_web_currentContenedor">
+                                <div class="noesis_web_current">&nbsp;</div>
+                            </div><!--currentContenedor-->
+				
+                            <div class="noesis_web_menuNB"></div>
+
+                        </div><!--newsContenedor-->
+
+                    </div><!--cabeceraInteriorArriba-->
+                </div><!--cabeceraInterior-->
+                
+                <div id="noesis_web_contenidosMain" class="noesis_web_contenidosMain">
+
+                    <div id="noesis_doc_wrap">
+                        <div>
+                            <div class="noesis_doc_header_bg">
+                                <center><img src="NoesisLogo.png" class="noesis_doc_header_img"></img></center>
+                            </div>
+                            <div class="noesis_doc_header_menu">
+                                <a href="Gui.Core.Index.html" class="noesis_doc_header_link">Documentation Index</a>
+                            </div>
+                        </div>
+                        
+                        <div class="noesis_doc_content">
+
+<h1 class="title">Extending NoesisGUI</h1>
+
+<p><img alt="zip" class="align-middle" src="zip.png" /> <a class="reference external" href="Extending.zip">Tutorial Data</a></p>
+<p>Being based in XAML, NoesisGUI is a framework that can be extended in many ways. For example, you can create your own <strong>Converter</strong>, <strong>Command</strong>, <a class="reference external" href="Gui.Core.CustomControlTutorial.html">CustomControl</a>, <a class="reference external" href="Gui.Core.UserControlTutorial.html">UserControl</a> or Code-Behind class. As NoesisGUI is C++ based, .cs files created with tools like Blend are ignored. The unique way to extend functionality is by using C++. This tutorial is focused in the steps that must be performed to extend NoesisGUI using your own C++ classes. Note that rules described here does not apply to Unity users. In Unity new functionality is added by using scripting.</p>
+<p>First thing we are going to do is writing a very simple xaml with a TextBox where you can write text and a TextBlock that outputs the text you write filtered through a converter. The converter we are going to implement transforms the input to uppercase.</p>
+<div class="highlight"><pre><span class="nt">&lt;Grid</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>
+    <span class="na">xmlns:x=</span><span class="s">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Grid.Resources&gt;</span>
+<span class="hll">      <span class="nt">&lt;UppercaseConverter</span> <span class="na">x:Key=</span><span class="s">&quot;Converter&quot;</span><span class="nt">/&gt;</span>
+</span>  <span class="nt">&lt;/Grid.Resources&gt;</span>
+  <span class="nt">&lt;StackPanel</span> <span class="na">HorizontalAlignment=</span><span class="s">&quot;Center&quot;</span> <span class="na">VerticalAlignment=</span><span class="s">&quot;Center&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TextBox</span> <span class="na">x:Name=</span><span class="s">&quot;Input&quot;</span> <span class="na">Width=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">&quot;{Binding Text, ElementName=Input, Converter={StaticResource Converter}}&quot;</span> <span class="na">Margin=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/StackPanel&gt;</span>
+<span class="nt">&lt;/Grid&gt;</span>
+</pre></div>
+<p>The highlighted line remarks where the extended class is used. If this xaml is compiled as it is, we will receive a warning indicating that <em>UppercaseConverter</em> is not recognized. We need to implement a new class registered with this name. Let's see how to do this.</p>
+<div class="highlight"><pre><span class="cp">#pragma warning(disable: 4275)</span>
+<span class="cp">#pragma warning(disable: 4251)</span>
+
+
+<span class="cp">#include &lt;Noesis.h&gt;</span>
+<span class="cp">#include &lt;NsCore/ReflectionImplement.h&gt;</span>
+<span class="cp">#include &lt;NsCore/TypeId.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Boxing.h&gt;</span>
+<span class="cp">#include &lt;NsCore/Package.h&gt;</span>
+<span class="cp">#include &lt;NsCore/String.h&gt;</span>
+<span class="cp">#include &lt;NsGui/BaseValueConverter.h&gt;</span>
+
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Gui</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Noesis</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Boxing</span><span class="p">;</span>
+
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">class</span> <span class="nc">UppercaseConverter</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseValueConverter</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">NsBool</span> <span class="n">TryConvert</span><span class="p">(</span><span class="n">BaseComponent</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="k">const</span> <span class="n">Type</span><span class="o">*</span> <span class="n">targetType</span><span class="p">,</span> <span class="n">BaseComponent</span><span class="o">*</span> <span class="n">parameter</span><span class="p">,</span>
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">BaseComponent</span><span class="o">&gt;&amp;</span> <span class="n">result</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsString</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Unbox</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">NsStaticCast</span><span class="o">&lt;</span><span class="n">BoxedValue</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+        <span class="n">text</span><span class="p">.</span><span class="n">make_upper</span><span class="p">();</span>
+        <span class="n">result</span> <span class="o">=</span>  <span class="n">Box</span><span class="o">&lt;</span><span class="n">NsString</span><span class="o">&gt;</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+    <span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">UppercaseConverter</span><span class="p">,</span> <span class="n">BaseValueConverter</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;UppercaseConverter&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">////////////////////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span>
+<span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">UppercaseConverter</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>The code shown above illustrates the key points that are needed to implement a new class:</p>
+<ul class="simple">
+<li>New classes must always derive from their corresponding base class. In this case the base class is <strong>BaseValueConverter</strong> because we are interested in the <strong>IValueConverter</strong> interface.</li>
+<li>The new class must implement the required methods. BaseValueConverter requires us to implement TryConvert and TryConvertBack, but in this specific sample we only need implementing <strong>TryConvert</strong>. It is implemented by <a class="reference external" href="Core.Kernel.ComponentBoxing.html">unboxing</a> the text, converting to uppercase and returning the boxed object.</li>
+<li>And last, <a class="reference external" href="Core.Kernel.ReflectionRTTI.html">reflection tags</a> must be added to our new class:</li>
+</ul>
+<blockquote>
+<div class="highlight"><pre><span class="n">NS_IMPLEMENT_INLINE_REFLECTION</span><span class="p">(</span><span class="n">UppercaseConverter</span><span class="p">,</span> <span class="n">BaseValueConverter</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NsMeta</span><span class="o">&lt;</span><span class="n">TypeId</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;UppercaseConverter&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>Here we are indicating that our class <strong>UppercaseConverter</strong> derives from <strong>BaseValueConverter</strong> and is registered with the name <strong>&quot;UppercaseConverter&quot;</strong>. This is the identifier that xamls will be using to reference this native class. Normally this identifier is the name of the class.</p>
+</blockquote>
+<p>Classes that extend NoesisGUI are packaged into dynamic libraries. Each dynamic library you have must export the function <em>NsRegisterReflection()</em> and be copied to the /Bin folder of NoesisGUI SDK. Every tool contained in the SDK will automatically detect new dynamic libraries and invoke the NsRegisterReflection() method. In this method you must register <strong>all</strong> classes you want to export. For this sample, we only have one class.</p>
+<div class="highlight"><pre><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="n">NS_DLL_EXPORT</span> <span class="kt">void</span> <span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">ComponentFactory</span><span class="o">*</span> <span class="n">factory</span><span class="p">,</span> <span class="n">NsBool</span> <span class="n">registerComponents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NS_REGISTER_COMPONENT</span><span class="p">(</span><span class="n">UppercaseConverter</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that this function is only invoked automatically by NoesisGUI SDK tools, like <a class="reference external" href="Resource.BuildTool.BuildTool.html">BuildTool</a> or XamlPlayer. If you are inside your own <a class="reference external" href="Gui.Core.SDKGuide.html">application</a> you must manually invoke this function after invoking kernel <em>Init()</em> and before <em>InitSystems()</em>.</p>
+<div class="highlight"><pre><span class="c1">// Launch Noesis Kernel</span>
+<span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
+
+<span class="c1">// Register own classes</span>
+<span class="n">NsRegisterReflection</span><span class="p">(</span><span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetComponentFactory</span><span class="p">(),</span> <span class="nb">true</span><span class="p">);</span>
+
+<span class="c1">// Start Up Noesis Systems</span>
+<span class="n">NsGetKernel</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">InitSystems</span><span class="p">();</span>
+</pre></div>
+<p>And now that our class is properly registered, the xaml shown at the beginning of the tutorial should work fine.</p>
+                        
+                        </div>
+
+                        <div class="noesis_doc_footer">
+                            <div class="noesis_doc_header_bg">
+                                <div class="noesis_doc_footer_text">
+                                    2014 (C) Noesis Technologies
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!--doc_wrap-->
+
+                </div><!--contenidosMain-->
+
+            </div><!--main-->
+
+        </div><!--contenedor-->
+
+        <div id="noesis_web_stickyFooter">
+
+            <div class="noesis_web_footerFinMain">&nbsp;</div>
+
+            <div class="noesis_web_footerInner">
+            
+                <div class="noesis_web_footerCopy">
+                    <a href="/privacy_policy.htm" class="noesis_web_privacy" >Privacy Policy</a><br/>
+                    Copyright &copy; 2009-2012  Noesis Technologies S.L.
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:270px;">
+                    <a href="/noesis_gui_features.htm" class="noesis_web_top" >Products</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level1">GUI</a>
+                    <a href="/noesis_gui_features.htm" class="noesis_web_level2">Features</a>
+                    <a href="/noesis_gui_licensing.htm" class="noesis_web_level2 noesis_web_last">Licensing</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level1">Engine</a>
+                    <a href="/noesis_engine_features.htm" class="noesis_web_level2 noesis_web_last">Features</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:45px;">
+                    <a href="/company_about.htm" class="noesis_web_top" >Company</a>
+                    <a href="/company_about.htm" class="noesis_web_level1">About</a>
+                    <a href="/company_services.htm" class="noesis_web_level1">Services</a>
+                    <a href="/company_news.php" class="noesis_web_level1">News</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:55px;">
+                    <a href="/forums/" class="noesis_web_top">Support</a>
+                    <a href="/forums/" class="noesis_web_level1">Forums</a>
+                    <a href="/docs/" class="noesis_web_level1">Documentation</a>
+                    <a href="/community_bugs.htm" class="noesis_web_level1">Bugtracking</a>
+                </div>
+
+                <div class="noesis_web_footerTexLinks" style="margin-left:20px;">
+                    <a href="/contact.htm" class="noesis_web_top">Contact</a>
+                </div>
+
+            </div><!--footerInner-->
+
+        </div><!--stickyFooter-->
+        
+    </div>
+</div>
+                    
+</div>
+</body>
+</html>
